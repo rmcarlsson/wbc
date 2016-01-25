@@ -25,5 +25,9 @@
             </ListView.View>
 
         </ListView>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBox x:Name="grainBillTextBox"  HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="61" RenderTransformOrigin="0.633,2.696" Margin="799,42,0,0" MouseLeave="grainBillTextBox_MouseLeave" TextChanged="grainBillTextBox_TextChanged"/>
+        <Label x:Name="label1" Content="Grain bill size [kg]:" HorizontalAlignment="Left" Margin="676,40,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelTotalMashVolume" Content="Total mash volume [L]: 0L" HorizontalAlignment="Left" Margin="670,71,0,0" VerticalAlignment="Top" Width="155"/>
     </Grid>
 </Window>
