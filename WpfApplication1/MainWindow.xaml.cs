@@ -39,6 +39,20 @@ namespace WpfApplication1
             AddToGrist(sw.Result);
         }
 
+        private void listView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Key.Delete == e.Key)
+            {
+
+                foreach (GristPart listViewItem in ((ListView)sender).SelectedItems)
+                {
+                    grist.Remove(listViewItem);
+                    MessageBox.Show(String.Format("Shit, want to remove {0}. That is {1} away", listViewItem.GristName, listViewItem.Share));
+                    break;
+                }
+            }
+        }
+
         public void AddToGrist(GristPart aGristPart)
         {
             grist.Add(aGristPart);

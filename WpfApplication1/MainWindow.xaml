@@ -5,12 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="748.334" Width="1038.333">
-    <UserControl.Resources>
-        <Style x:Key="itemstyle" TargetType="{x:Type ListViewItem}">
-            <EventSetter Event="MouseDoubleClick" Handler="HandleDoubleClick" />
-        </Style>
-    </UserControl.Resources>
+        Title="Grainfather " Height="748.334" Width="1038.333">
     <Grid>
         <Menu Margin="0,0,0,693" >
             <MenuItem Header="_File">
@@ -21,7 +16,7 @@
         </Menu>
         <Label x:Name="label" Content="Mash" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.684,0.128"/>
         <Button x:Name="addGrains" Content="Add" HorizontalAlignment="Left" Margin="548,71,0,0" VerticalAlignment="Top" Width="75" Click="addGrains_Click"/>
-        <ListView x:Name="listView" ItemContainerStyle="{StaticResource itemstyle}" HorizontalAlignment="Left" Height="208" Margin="10,71,0,0" VerticalAlignment="Top" Width="533">
+        <ListView x:Name="listView" PreviewKeyDown="listView_KeyDown" HorizontalAlignment="Left" Height="208" Margin="10,71,0,0" VerticalAlignment="Top" Width="533">
             <ListView.View >
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=GristName}"  Header="Fermetable" />
