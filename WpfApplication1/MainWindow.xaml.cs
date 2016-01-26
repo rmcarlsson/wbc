@@ -67,18 +67,19 @@ namespace WpfApplication1
 
         private void grainBillTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+
+        }
+
+        private void grainBillTextBox_MouseLeave(object sender, MouseEventArgs e)
+        {
             grainBillTextBox = (TextBox)(sender);
             Double size;
-
             if (Double.TryParse(grainBillTextBox.Text, out size))
             {
                 grainBillSize = size;
                 totalMashVolume = size * 2.7 + 3.5;
                 labelTotalMashVolume.Content = String.Format("Total mash volume [L]: {0}L", totalMashVolume);
             }
-            else
-                MessageBox.Show("Shit");
-
         }
     }
 
