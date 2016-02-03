@@ -12,10 +12,13 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using WpfApplication1.DataModel;
-using WpfApplication1.Repos;
+using GFCalc.DataModel;
+using GFCalc.Domain;
+using GFCalc.Repos;
+using WpfApplication1;
+using WpfApplication1.Domain;
 
-namespace WpfApplication1
+namespace GFCalc
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,6 +26,7 @@ namespace WpfApplication1
     public partial class MainWindow : Window
     {
         public ObservableCollection<GristPart> grist { set; get; }
+        public ObservableCollection<HopAddition> BoilHops { set; get; }
 
         public MainWindow()
         {
@@ -30,6 +34,8 @@ namespace WpfApplication1
 
             grist = new ObservableCollection<GristPart>();
             listView.ItemsSource = grist;
+            BoilHops = new ObservableCollection<HopAddition>();
+            listView1.ItemsSource = BoilHops;
         }
 
         private void addGrains_Click(object sender, RoutedEventArgs e)
@@ -47,7 +53,7 @@ namespace WpfApplication1
                 foreach (GristPart listViewItem in ((ListView)sender).SelectedItems)
                 {
                     grist.Remove(listViewItem);
-                    MessageBox.Show(String.Format("Shit, want to remove {0}. That is {1} away", listViewItem.GristName, listViewItem.Share));
+                    MessageBox.Show(String.Format("Shit, want to remove {0}. That is {1} away", listViewItem.FermentableAdjunct.Name, listViewItem.Amount));
                     break;
                 }
             }
@@ -60,26 +66,36 @@ namespace WpfApplication1
             grist.Add(aGristPart);
         }
 
-        private Double grainBillSize;
-        private Double totalMashVolume;
-
-
 
         private void grainBillTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void grainBillTextBox_MouseLeave(object sender, MouseEventArgs e)
         {
             grainBillTextBox = (TextBox)(sender);
             Double size;
             if (Double.TryParse(grainBillTextBox.Text, out size))
             {
-                grainBillSize = size;
-                totalMashVolume = size * 2.7 + 3.5;
-                labelTotalMashVolume.Content = String.Format("Total mash volume [L]: {0}L", totalMashVolume);
+                var vol = GrainFatherCalculator.CalculateMashVolume(size);
+                if (labelTotalMashVolume != null)
+                    labelTotalMashVolume.Content = string.Format("Total mash volume [L]: {0} ", vol);
             }
+        }
+
+        private void OGTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            OGTextBox = (TextBox)(sender);
+            Double size;
+            if (Double.TryParse(OGTextBox.Text, out size))
+            {
+                var vol = GrainFatherCalculator.CalculateMashVolume(size);
+                if (labelTotalMashVolume != null)
+                    labelTotalMashVolume.Content = string.Format("Total mash volume [L]: {0} ", vol);
+            }
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            var w = new SelectHops();
+            w.ShowDialog();
+            BoilHops.Add(w.hop);
         }
     }
 

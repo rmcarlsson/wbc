@@ -11,16 +11,18 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using WpfApplication1.DataModel;
-using WpfApplication1.Repos;
+using GFCalc.DataModel;
+using GFCalc.Repos;
+using WpfApplication1.Domain;
 
-namespace WpfApplication1
+namespace GFCalc
 {
     /// <summary>
     /// Interaction logic for SelectGrain.xaml
     /// </summary>
     public partial class SelectGrain : Window
     {
+        public GristPart Result { set; get; }
 
         public SelectGrain()
         {
@@ -35,34 +37,25 @@ namespace WpfApplication1
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            FermentableAdjunct var = (FermentableAdjunct)comboBox.SelectedItem;
+            FermentableAdjunctSerializable var = (FermentableAdjunctSerializable)comboBox.SelectedItem;
             if (var == null)
             {
                 MessageBox.Show("Please select a grain in the dowp down menu");
                 return;
             }
 
-            Result.GristName = var.Name;
+            Result.FermentableAdjunct = var;
 
-            decimal part;
-            if (Decimal.TryParse(textBox.Text, out part))
+            float part;
+            if (float.TryParse(textBox.Text, out part))
             {
-                Result.Share = part;
+                Result.Amount = part;
                 this.Close();
             }
             else
                 MessageBox.Show(String.Format("Unable to interperate {0} as a decmila value. Please proviode a correct decmial value in Part", textBox.Text));
         }
 
-        public GristPart Result { set; get; }
-
     }
-
-    public class GristPart
-    {
-        public string GristName { set; get; }
-        public decimal Share { set; get; }
-    }
-
 
 }

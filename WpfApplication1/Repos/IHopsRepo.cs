@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GFCalc.DataModel;
 
-namespace GFCalc.DataModel
+namespace GFCalc.Repos
 {
-    class Country
+    interface IHopsRepo
     {
-        string Name { get; set; }
+        IEnumerable<Hops> Get();
+       
     }
 }
