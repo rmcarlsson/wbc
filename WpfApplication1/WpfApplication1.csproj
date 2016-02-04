@@ -80,6 +80,7 @@
     <Compile Include="DataModel\FermentationAdjunct.cs" />
     <Compile Include="Domain\GrainFatherCalculator.cs" />
     <Compile Include="Domain\HopAddition.cs" />
+    <Compile Include="Domain\IbuAlgorithms.cs" />
     <Compile Include="Domain\Recepie.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

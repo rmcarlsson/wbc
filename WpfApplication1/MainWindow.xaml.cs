@@ -26,7 +26,7 @@ namespace GFCalc
     public partial class MainWindow : Window
     {
         public ObservableCollection<GristPart> grist { set; get; }
-        public ObservableCollection<HopAddition> BoilHops { set; get; }
+        public ObservableCollection<HopBoilAddition> BoilHops { set; get; }
 
         public MainWindow()
         {
@@ -34,7 +34,7 @@ namespace GFCalc
 
             grist = new ObservableCollection<GristPart>();
             listView.ItemsSource = grist;
-            BoilHops = new ObservableCollection<HopAddition>();
+            BoilHops = new ObservableCollection<HopBoilAddition>();
             listView1.ItemsSource = BoilHops;
         }
 
@@ -96,6 +96,7 @@ namespace GFCalc
             var w = new SelectHops();
             w.ShowDialog();
             BoilHops.Add(w.hop);
+            IbuLabel.Content = string.Format("IBU: {0}", IbuAlgorithms.CalcIbu(BoilHops.ToList<HopBoilAddition>(), 1.047, 25));
         }
     }
 

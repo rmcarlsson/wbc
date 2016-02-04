@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace WpfApplication1.Domain
 {
-    public class HopAddition
+    public class HopBoilAddition
     {
         public Hops Hop { set; get; }
         public float Amount { get; set; }
+        public int Minutes { get; set; }
     }
 
     public class GristPart : FermentableAdjunctSerializable
