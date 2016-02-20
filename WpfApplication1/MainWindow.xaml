@@ -27,9 +27,9 @@
         </ListView>
         <TextBox x:Name="grainBillTextBox"  HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="61" RenderTransformOrigin="0.633,2.696" Margin="846,43,0,0" TextChanged="grainBillTextBox_TextChanged" />
         <Label x:Name="label1" Content="Grain bill size [kg]:" HorizontalAlignment="Left" Margin="676,40,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelTotalMashVolume" Content="Total mash volume [L]: 0L" HorizontalAlignment="Left" Margin="676,71,0,0" VerticalAlignment="Top" Width="155"/>
-        <Label x:Name="label2" Content="Expected original gravity [SG]" HorizontalAlignment="Left" Margin="676,117,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="OGTextBox" HorizontalAlignment="Left" Height="23" Margin="846,121,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="61" TextChanged="OGTextBox_TextChanged" />
+        <Label x:Name="labelTotalMashVolume" Content="Total mash volume [L]: 0L" HorizontalAlignment="Left" Margin="676,128,0,0" VerticalAlignment="Top" Width="155"/>
+        <Label x:Name="label2" Content="Expected original gravity [SG]" HorizontalAlignment="Left" Margin="676,174,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="OGTextBox" HorizontalAlignment="Left" Height="23" Margin="846,178,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="61" TextChanged="OGTextBox_TextChanged" />
         <ListView x:Name="listView1" HorizontalAlignment="Left" Height="100" Margin="10,264,0,0" VerticalAlignment="Top" Width="227">
             <ListView.View>
                 <GridView>
@@ -42,5 +42,9 @@
         </ListView>
         <Button x:Name="button" Content="Add" HorizontalAlignment="Left" Margin="242,265,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
         <Label x:Name="IbuLabel" Content="IBU: 0" HorizontalAlignment="Left" Margin="242,338,0,0" VerticalAlignment="Top" Width="121"/>
+        <RadioButton x:Name="radioButton" Content="RadioButton" HorizontalAlignment="Left" Margin="586,46,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="radioButton1" Content="RadioButton" HorizontalAlignment="Left" Margin="586,71,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label3" Content="PostBoilVolume (batch size) [L]:" HorizontalAlignment="Left" Margin="676,66,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.526,0.269"/>
+        <TextBox x:Name="PreBoilVolumeTextBox" HorizontalAlignment="Left" Height="23" Margin="846,71,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>

@@ -79,9 +79,11 @@
     <Compile Include="DataModel\Hops.cs" />
     <Compile Include="DataModel\FermentationAdjunct.cs" />
     <Compile Include="Domain\GrainFatherCalculator.cs" />
+    <Compile Include="Domain\GravityAlorithms.cs" />
     <Compile Include="Domain\HopAddition.cs" />
     <Compile Include="Domain\IbuAlgorithms.cs" />
     <Compile Include="Domain\Recepie.cs" />
+    <Compile Include="Domain\Weight.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -155,6 +157,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\hopses.xml" />
+    <Resource Include="Resources\malts.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

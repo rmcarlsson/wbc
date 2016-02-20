@@ -23,11 +23,13 @@ namespace GFCalc
     public partial class SelectGrain : Window
     {
         public GristPart Result { set; get; }
+        public float CurrentPercentage { set; get; }
 
-        public SelectGrain()
+        public SelectGrain(float aCurrentPercentage)
         {
             InitializeComponent();
 
+            CurrentPercentage = aCurrentPercentage;
             var grainsRepo = new FermentableRepository();
             var grains = grainsRepo.Get();
             Result = new GristPart();
@@ -49,6 +51,8 @@ namespace GFCalc
             float part;
             if (float.TryParse(textBox.Text, out part))
             {
+                if ((part + CurrentPercentage) > 100)
+                    part = 100f - CurrentPercentage;
                 Result.Amount = part;
                 this.Close();
             }

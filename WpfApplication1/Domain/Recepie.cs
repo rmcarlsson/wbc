@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GFCalc.DataModel;
+using WpfApplication1.Domain;
 
 namespace GFCalc.Domain
 {
@@ -11,15 +12,15 @@ namespace GFCalc.Domain
     {
 
         // Mash part
-        public List<FermentableAdjunct> Grist { set; get; }
+        public List<GristPart> Grist { set; get; }
         public MashProfile MashProfile { set; get; }
 
         //Boil part
         public List<Hops> BoilHops { set; get; }
-        public List<FermentableAdjunct> BoilFermentables { set; get; }
+        public List<GristPart> BoilFermentables { set; get; }
 
         // Fermentation part
-        public List<FermentableAdjunct> PostBoilFermentables { set; get; }
+        public List<GristPart> PostBoilFermentables { set; get; }
         public List<Hops> FermetationHops { set; get; }
         public List<FermentationAdjunct> FermenationAdjuncts { set; get; }
 

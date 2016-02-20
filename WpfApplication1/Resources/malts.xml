@@ -1,0 +1,806 @@
+﻿<?xml version="1.0"?>
+<Datatable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <FermentableAdjunctSerializables>
+    <FermentableAdjunctSerializable>
+      <Name>Acid Malt</Name>
+      <Origin>Germany</Origin>
+      <Type>Grain</Type>
+      <Color>3</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.027</Potential>
+      <MaxPart>10.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Amber Dry Extract</Name>
+      <Origin>US</Origin>
+      <Type>Dry Extract</Type>
+      <Color>13</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.044</Potential>
+      <MaxPart>100.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Amber Liquid Extract</Name>
+      <Origin>US</Origin>
+      <Type>Extract</Type>
+      <Color>13</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.036</Potential>
+      <MaxPart>100.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Amber Malt</Name>
+      <Origin>United Kingdom</Origin>
+      <Type>Grain</Type>
+      <Color>22</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.035</Potential>
+      <MaxPart>20.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Aromatic Malt</Name>
+      <Origin>Belgium</Origin>
+      <Type>Grain</Type>
+      <Color>26</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.036</Potential>
+      <MaxPart>10.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Barley Hulls</Name>
+      <Origin>US</Origin>
+      <Type>Adjunct</Type>
+      <Color>0</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.000</Potential>
+      <MaxPart>5.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Barley, Flaked</Name>
+      <Origin>US</Origin>
+      <Type>Grain</Type>
+      <Color>2</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.032</Potential>
+      <MaxPart>20.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Barley, Raw</Name>
+      <Origin>US</Origin>
+      <Type>Grain</Type>
+      <Color>2</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.028</Potential>
+      <MaxPart>15.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Barley, Torrefied</Name>
+      <Origin>US</Origin>
+      <Type>Grain</Type>
+      <Color>2</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.036</Potential>
+      <MaxPart>40.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Biscuit Malt</Name>
+      <Origin>Belgium</Origin>
+      <Type>Grain</Type>
+      <Color>23</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.036</Potential>
+      <MaxPart>10.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Black (Patent) Malt</Name>
+      <Origin>US</Origin>
+      <Type>Grain</Type>
+      <Color>500</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.025</Potential>
+      <MaxPart>10.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Black Barley (Stout)</Name>
+      <Origin>US</Origin>
+      <Type>Grain</Type>
+      <Color>500</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.025</Potential>
+      <MaxPart>10.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Brown Malt</Name>
+      <Origin>United Kingdom</Origin>
+      <Type>Grain</Type>
+      <Color>65</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.032</Potential>
+      <MaxPart>10.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Brown Sugar, Dark</Name>
+      <Origin>US</Origin>
+      <Type>Sugar</Type>
+      <Color>50</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.046</Potential>
+      <MaxPart>10.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Brown Sugar, Light</Name>
+      <Origin>US</Origin>
+      <Type>Sugar</Type>
+      <Color>8</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.046</Potential>
+      <MaxPart>10.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Brumalt</Name>
+      <Origin>Germany</Origin>
+      <Type>Grain</Type>
+      <Color>23</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.033</Potential>
+      <MaxPart>10.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Candi Sugar, Amber</Name>
+      <Origin>Belgium</Origin>
+      <Type>Sugar</Type>
+      <Color>75</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.036</Potential>
+      <MaxPart>20.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Candi Sugar, Clear</Name>
+      <Origin>Belgium</Origin>
+      <Type>Sugar</Type>
+      <Color>1</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.036</Potential>
+      <MaxPart>20.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Candi Sugar, Dark</Name>
+      <Origin>Belgium</Origin>
+      <Type>Sugar</Type>
+      <Color>275</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.036</Potential>
+      <MaxPart>20.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Cane (Beet) Sugar</Name>
+      <Origin>US</Origin>
+      <Type>Sugar</Type>
+      <Color>0</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.046</Potential>
+      <MaxPart>7.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Cara-Pils/Dextrine</Name>
+      <Origin>US</Origin>
+      <Type>Grain</Type>
+      <Color>2</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.033</Potential>
+      <MaxPart>20.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Caraamber</Name>
+      <Origin>US</Origin>
+      <Type>Grain</Type>
+      <Color>30</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.035</Potential>
+      <MaxPart>20.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Carafoam</Name>
+      <Origin>US</Origin>
+      <Type>Grain</Type>
+      <Color>2</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.033</Potential>
+      <MaxPart>20.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Caramel/Crystal Malt - 10L</Name>
+      <Origin>US</Origin>
+      <Type>Grain</Type>
+      <Color>10</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.035</Potential>
+      <MaxPart>20.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Caramel/Crystal Malt - 20L</Name>
+      <Origin>US</Origin>
+      <Type>Grain</Type>
+      <Color>20</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.035</Potential>
+      <MaxPart>20.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Caramel/Crystal Malt - 30L</Name>
+      <Origin>US</Origin>
+      <Type>Grain</Type>
+      <Color>30</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.035</Potential>
+      <MaxPart>20.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Caramel/Crystal Malt - 40L</Name>
+      <Origin>US</Origin>
+      <Type>Grain</Type>
+      <Color>40</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.034</Potential>
+      <MaxPart>20.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Caramel/Crystal Malt - 60L</Name>
+      <Origin>US</Origin>
+      <Type>Grain</Type>
+      <Color>60</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.034</Potential>
+      <MaxPart>20.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Caramel/Crystal Malt - 80L</Name>
+      <Origin>US</Origin>
+      <Type>Grain</Type>
+      <Color>80</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.034</Potential>
+      <MaxPart>20.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Caramel/Crystal Malt -120L</Name>
+      <Origin>US</Origin>
+      <Type>Grain</Type>
+      <Color>120</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.033</Potential>
+      <MaxPart>20.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Caramunich Malt</Name>
+      <Origin>Belgium</Origin>
+      <Type>Grain</Type>
+      <Color>56</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.033</Potential>
+      <MaxPart>10.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Carared</Name>
+      <Origin>US</Origin>
+      <Type>Grain</Type>
+      <Color>20</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.035</Potential>
+      <MaxPart>20.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Caravienne Malt</Name>
+      <Origin>Belgium</Origin>
+      <Type>Grain</Type>
+      <Color>22</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.034</Potential>
+      <MaxPart>10.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Chocolate Malt</Name>
+      <Origin>US</Origin>
+      <Type>Grain</Type>
+      <Color>350</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.028</Potential>
+      <MaxPart>10.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Chocolate Malt</Name>
+      <Origin>United Kingdom</Origin>
+      <Type>Grain</Type>
+      <Color>450</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.034</Potential>
+      <MaxPart>10.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Corn Sugar (Dextrose)</Name>
+      <Origin>US</Origin>
+      <Type>Sugar</Type>
+      <Color>0</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.046</Potential>
+      <MaxPart>5.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Corn Syrup</Name>
+      <Origin>US</Origin>
+      <Type>Sugar</Type>
+      <Color>1</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.036</Potential>
+      <MaxPart>10.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Corn, Flaked</Name>
+      <Origin>US</Origin>
+      <Type>Grain</Type>
+      <Color>1</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.037</Potential>
+      <MaxPart>40.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Dark Dry Extract</Name>
+      <Origin>US</Origin>
+      <Type>Dry Extract</Type>
+      <Color>18</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.044</Potential>
+      <MaxPart>100.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Dark Liquid Extract</Name>
+      <Origin>US</Origin>
+      <Type>Extract</Type>
+      <Color>18</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.036</Potential>
+      <MaxPart>100.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Dememera Sugar</Name>
+      <Origin>United Kingdom</Origin>
+      <Type>Sugar</Type>
+      <Color>2</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.046</Potential>
+      <MaxPart>10.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Extra Light Dry Extract</Name>
+      <Origin>US</Origin>
+      <Type>Dry Extract</Type>
+      <Color>3</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.044</Potential>
+      <MaxPart>100.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Grits</Name>
+      <Origin>US</Origin>
+      <Type>Adjunct</Type>
+      <Color>1</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.037</Potential>
+      <MaxPart>10.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Honey</Name>
+      <Origin>US</Origin>
+      <Type>Extract</Type>
+      <Color>1</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.035</Potential>
+      <MaxPart>100.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Invert Sugar</Name>
+      <Origin>United Kingdom</Origin>
+      <Type>Sugar</Type>
+      <Color>0</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.046</Potential>
+      <MaxPart>10.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Light Dry Extract</Name>
+      <Origin>US</Origin>
+      <Type>Dry Extract</Type>
+      <Color>8</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.044</Potential>
+      <MaxPart>100.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Maple Syrup</Name>
+      <Origin>US</Origin>
+      <Type>Sugar</Type>
+      <Color>35</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.030</Potential>
+      <MaxPart>10.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Melanoiden Malt</Name>
+      <Origin>Germany</Origin>
+      <Type>Grain</Type>
+      <Color>20</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.037</Potential>
+      <MaxPart>15.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Mild Malt</Name>
+      <Origin>United Kingdom</Origin>
+      <Type>Grain</Type>
+      <Color>4</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.037</Potential>
+      <MaxPart>100.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Milk Sugar (Lactose)</Name>
+      <Origin>US</Origin>
+      <Type>Sugar</Type>
+      <Color>0</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.035</Potential>
+      <MaxPart>10.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Molasses</Name>
+      <Origin>US</Origin>
+      <Type>Sugar</Type>
+      <Color>80</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.036</Potential>
+      <MaxPart>5.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Munich Malt</Name>
+      <Origin>Germany</Origin>
+      <Type>Grain</Type>
+      <Color>9</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.037</Potential>
+      <MaxPart>80.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Munich Malt - 10L</Name>
+      <Origin>US</Origin>
+      <Type>Grain</Type>
+      <Color>10</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.035</Potential>
+      <MaxPart>80.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Munich Malt - 20L</Name>
+      <Origin>US</Origin>
+      <Type>Grain</Type>
+      <Color>20</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.035</Potential>
+      <MaxPart>80.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Oats, Flaked</Name>
+      <Origin>US</Origin>
+      <Type>Grain</Type>
+      <Color>1</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.037</Potential>
+      <MaxPart>30.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Oats, Malted</Name>
+      <Origin>US</Origin>
+      <Type>Grain</Type>
+      <Color>1</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.037</Potential>
+      <MaxPart>10.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Pale Liquid Extract</Name>
+      <Origin>US</Origin>
+      <Type>Extract</Type>
+      <Color>8</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.036</Potential>
+      <MaxPart>100.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Pale Malt (2 Row) Bel</Name>
+      <Origin>Belgium</Origin>
+      <Type>Grain</Type>
+      <Color>3</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.037</Potential>
+      <MaxPart>100.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Pale Malt (2 Row) UK</Name>
+      <Origin>United Kingdom</Origin>
+      <Type>Grain</Type>
+      <Color>3</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.036</Potential>
+      <MaxPart>100.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Pale Malt (2 Row) US</Name>
+      <Origin>US</Origin>
+      <Type>Grain</Type>
+      <Color>2</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.036</Potential>
+      <MaxPart>100.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Pale Malt (6 Row) US</Name>
+      <Origin>US</Origin>
+      <Type>Grain</Type>
+      <Color>2</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.035</Potential>
+      <MaxPart>100.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Peat Smoked Malt</Name>
+      <Origin>United Kingdom</Origin>
+      <Type>Grain</Type>
+      <Color>3</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.034</Potential>
+      <MaxPart>20.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Pilsner (2 Row) Bel</Name>
+      <Origin>Belgium</Origin>
+      <Type>Grain</Type>
+      <Color>2</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.036</Potential>
+      <MaxPart>100.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Pilsner (2 Row) Ger</Name>
+      <Origin>Germany</Origin>
+      <Type>Grain</Type>
+      <Color>2</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.037</Potential>
+      <MaxPart>100.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Pilsner (2 Row) UK</Name>
+      <Origin>United Kingdom</Origin>
+      <Type>Grain</Type>
+      <Color>1</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.036</Potential>
+      <MaxPart>100.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Pilsner Liquid Extract</Name>
+      <Origin>US</Origin>
+      <Type>Extract</Type>
+      <Color>4</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.036</Potential>
+      <MaxPart>100.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Rice Extract Syrup</Name>
+      <Origin>US</Origin>
+      <Type>Extract</Type>
+      <Color>7</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.032</Potential>
+      <MaxPart>15.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Rice Hulls</Name>
+      <Origin>US</Origin>
+      <Type>Adjunct</Type>
+      <Color>0</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.000</Potential>
+      <MaxPart>5.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Rice, Flaked</Name>
+      <Origin>US</Origin>
+      <Type>Grain</Type>
+      <Color>1</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.032</Potential>
+      <MaxPart>25.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Roasted Barley</Name>
+      <Origin>US</Origin>
+      <Type>Grain</Type>
+      <Color>300</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.025</Potential>
+      <MaxPart>10.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Rye Malt</Name>
+      <Origin>US</Origin>
+      <Type>Grain</Type>
+      <Color>5</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.029</Potential>
+      <MaxPart>15.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Rye, Flaked</Name>
+      <Origin>US</Origin>
+      <Type>Grain</Type>
+      <Color>2</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.036</Potential>
+      <MaxPart>10.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Smoked Malt</Name>
+      <Origin>Germany</Origin>
+      <Type>Grain</Type>
+      <Color>9</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.037</Potential>
+      <MaxPart>100.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Special B Malt</Name>
+      <Origin>Belgium</Origin>
+      <Type>Grain</Type>
+      <Color>180</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.030</Potential>
+      <MaxPart>10.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Special Roast</Name>
+      <Origin>US</Origin>
+      <Type>Grain</Type>
+      <Color>50</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.033</Potential>
+      <MaxPart>10.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Sugar, Table (Sucrose)</Name>
+      <Origin>US</Origin>
+      <Type>Sugar</Type>
+      <Color>1</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.046</Potential>
+      <MaxPart>10.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Toasted Malt</Name>
+      <Origin>United Kingdom</Origin>
+      <Type>Grain</Type>
+      <Color>27</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.033</Potential>
+      <MaxPart>10.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Turbinado</Name>
+      <Origin>United Kingdom</Origin>
+      <Type>Sugar</Type>
+      <Color>10</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.044</Potential>
+      <MaxPart>10.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Victory Malt</Name>
+      <Origin>US</Origin>
+      <Type>Grain</Type>
+      <Color>25</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.034</Potential>
+      <MaxPart>15.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Vienna Malt</Name>
+      <Origin>Germany</Origin>
+      <Type>Grain</Type>
+      <Color>4</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.036</Potential>
+      <MaxPart>90.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Wheat Dry Extract</Name>
+      <Origin>US</Origin>
+      <Type>Dry Extract</Type>
+      <Color>8</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.044</Potential>
+      <MaxPart>100.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Wheat Liquid Extract</Name>
+      <Origin>US</Origin>
+      <Type>Extract</Type>
+      <Color>8</Color>
+      <MashNeeded>False</MashNeeded>
+      <Potential>1.036</Potential>
+      <MaxPart>100.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Wheat Malt, Bel</Name>
+      <Origin>Belgium</Origin>
+      <Type>Grain</Type>
+      <Color>2</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.037</Potential>
+      <MaxPart>60.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Wheat Malt, Dark</Name>
+      <Origin>Germany</Origin>
+      <Type>Grain</Type>
+      <Color>9</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.039</Potential>
+      <MaxPart>20.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Wheat Malt, Ger</Name>
+      <Origin>Germany</Origin>
+      <Type>Grain</Type>
+      <Color>2</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.039</Potential>
+      <MaxPart>60.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Wheat, Flaked</Name>
+      <Origin>US</Origin>
+      <Type>Grain</Type>
+      <Color>2</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.035</Potential>
+      <MaxPart>40.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Wheat, Roasted</Name>
+      <Origin>Germany</Origin>
+      <Type>Grain</Type>
+      <Color>425</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.025</Potential>
+      <MaxPart>10.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>Wheat, Torrified</Name>
+      <Origin>US</Origin>
+      <Type>Grain</Type>
+      <Color>2</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.036</Potential>
+      <MaxPart>40.0</MaxPart>
+    </FermentableAdjunctSerializable>
+    <FermentableAdjunctSerializable>
+      <Name>White Wheat Malt</Name>
+      <Origin>US</Origin>
+      <Type>Grain</Type>
+      <Color>2</Color>
+      <MashNeeded>True</MashNeeded>
+      <Potential>1.040</Potential>
+      <MaxPart>60.0</MaxPart>
+    </FermentableAdjunctSerializable>
+  </FermentableAdjunctSerializables>
+</Datatable>

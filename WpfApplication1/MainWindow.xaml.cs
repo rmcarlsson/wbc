@@ -40,9 +40,10 @@ namespace GFCalc
 
         private void addGrains_Click(object sender, RoutedEventArgs e)
         {
-            var sw = new SelectGrain();
+            float sum = grist.Sum(g => g.Amount);
+            var sw = new SelectGrain(sum);
             sw.ShowDialog();
-            AddToGrist(sw.Result);
+            grist.Add(sw.Result);
         }
 
         private void listView_KeyDown(object sender, KeyEventArgs e)
@@ -57,13 +58,6 @@ namespace GFCalc
                     break;
                 }
             }
-        }
-
-        //public void grainBillTextBox_DragLeave
-
-        public void AddToGrist(GristPart aGristPart)
-        {
-            grist.Add(aGristPart);
         }
 
 
@@ -82,12 +76,10 @@ namespace GFCalc
         private void OGTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             OGTextBox = (TextBox)(sender);
-            Double size;
-            if (Double.TryParse(OGTextBox.Text, out size))
+            Double gravity;
+            if (Double.TryParse(OGTextBox.Text, out gravity))
             {
-                var vol = GrainFatherCalculator.CalculateMashVolume(size);
-                if (labelTotalMashVolume != null)
-                    labelTotalMashVolume.Content = string.Format("Total mash volume [L]: {0} ", vol);
+                var vol = GravityAlorithms.GetMashGrainBillWeight(gravity, grist.ToList<GristPart>(), new List<GristPart>(), 78);
             }
         }
 
