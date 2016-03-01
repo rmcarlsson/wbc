@@ -15,7 +15,7 @@ namespace GFCalc.Repos
         public FermentableRepository()
         {
             XmlSerializer serializer = new XmlSerializer(typeof(FermentableAdjunctSerializables));
-            FileStream loadStream = new FileStream(@"C:\Users\rmcar\Documents\Visual Studio 2015\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\maltsOut.xml", FileMode.Open, FileAccess.Read);
+            FileStream loadStream = new FileStream(@"C: \Users\rmcar\Documents\Visual Studio 2015\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\maltsOut.xml", FileMode.Open, FileAccess.Read);
             FermentableAdjunctSerializables loadedObject = (FermentableAdjunctSerializables)serializer.Deserialize(loadStream);
             loadStream.Close();
             ferms = loadedObject.FermentableAdjunctSerializable;

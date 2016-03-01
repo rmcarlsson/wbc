@@ -18,6 +18,8 @@ namespace WpfApplication1.Domain
     {
         public FermentableAdjunctSerializable FermentableAdjunct { get; set; }
         public float Amount { get; set; }
+        public double AmountKg { get; set; }
+
     }
 
 

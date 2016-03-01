@@ -159,8 +159,14 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\hopses.xml" />
-    <Resource Include="Resources\malts.xml" />
+    <None Include="bin\Debug\hopses.xml">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\malts.xml">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

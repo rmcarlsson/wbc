@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GFCalc.Properties
-{
-
-
+namespace WpfApplication1.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -22,49 +22,81 @@ namespace GFCalc.Properties
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources
-    {
-
+    internal class Resources {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources()
-        {
+        internal Resources() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if ((resourceMan == null))
-                {
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WpfApplication1.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;HopsData xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+        ///  &lt;Hopses Name=&quot;Admiral&quot;&gt;
+        ///    &lt;Characteristics&gt;Aggressive but smooth bittering with an orange-citrus and herbal resonance &lt;/Characteristics&gt;
+        ///    &lt;Purpose&gt;Bittering&lt;/Purpose&gt;
+        ///    &lt;AlphaAcid Min=&quot;13&quot; Max=&quot;16.2&quot; /&gt;
+        ///    &lt;BetaAcid Min=&quot;4.8&quot; Max=&quot;6.1&quot; /&gt;
+        ///    &lt;CoHumulone Min=&quot;37&quot; Max=&quot;45&quot; /&gt;
+        ///    &lt;MyrceneOilComposition Min=&quot;39&quot; Max=&quot;48&quot; /&gt;
+        ///    &lt;HumuleneOilComposition Min=&quot;23&quot;  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string hopses {
+            get {
+                return ResourceManager.GetString("hopses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot;?&gt;
+        ///&lt;Datatable xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+        ///  &lt;FermentableAdjunctSerializables&gt;
+        ///    &lt;FermentableAdjunctSerializable&gt;
+        ///      &lt;Name&gt;Acid Malt&lt;/Name&gt;
+        ///      &lt;Origin&gt;Germany&lt;/Origin&gt;
+        ///      &lt;Type&gt;Grain&lt;/Type&gt;
+        ///      &lt;Color&gt;3&lt;/Color&gt;
+        ///      &lt;MashNeeded&gt;True&lt;/MashNeeded&gt;
+        ///      &lt;Potential&gt;1.027&lt;/Potential&gt;
+        ///      &lt;MaxPart&gt;10.0&lt;/MaxPart&gt;
+        ///    &lt;/FermentableAdjunctSerializable&gt;
+        ///    &lt;FermentableAdjunctSerializable&gt;
+        ///      &lt;Na [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string malts {
+            get {
+                return ResourceManager.GetString("malts", resourceCulture);
             }
         }
     }

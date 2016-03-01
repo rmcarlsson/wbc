@@ -37,6 +37,22 @@ namespace GFCalc
         }
 
 
+        public SelectGrain(float aCurrentPercentage, GristPart aInitalGristPart)
+        {
+            InitializeComponent();
+
+            CurrentPercentage = aCurrentPercentage;
+            var grainsRepo = new FermentableRepository();
+            var grains = grainsRepo.Get();
+            Result = new GristPart();
+            comboBox.ItemsSource = grains;
+
+            comboBox.SelectedValue = grains.FirstOrDefault(x => x.Name.Equals(aInitalGristPart.FermentableAdjunct.Name));
+            textBox.Text = aInitalGristPart.Amount.ToString();
+        }
+
+
+
         private void button_Click(object sender, RoutedEventArgs e)
         {
             FermentableAdjunctSerializable var = (FermentableAdjunctSerializable)comboBox.SelectedItem;

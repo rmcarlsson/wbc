@@ -33,6 +33,22 @@ namespace WpfApplication1
             comboBox.ItemsSource = hops;
         }
 
+        public SelectHops(HopBoilAddition aHopAddition)
+        {
+            InitializeComponent();
+
+            hop = new HopBoilAddition(); 
+            var hopsRepo = new HopsRepo();
+            var hops = hopsRepo.Get();
+            comboBox.ItemsSource = hops;
+
+            comboBox.SelectedValue = hops.FirstOrDefault(x => x.Name.Equals(aHopAddition.Hop.Name));
+
+            TimeTextBox.Text = aHopAddition.Minutes.ToString();
+            AmountTextBox.Text = aHopAddition.Amount.ToString();
+
+        }
+
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             Hops var = (Hops)comboBox.SelectedItem;
