@@ -22,10 +22,10 @@ namespace WpfApplication1.Domain
 
         public static double GetMashGrainBillWeight(double aGravity, double aVolume, List<GristPart> aMashFermentList, List<GristPart> aPostMashFermentList, double aMashEfficiency)
         {
-            if (aGravity <= 0)
+            if (aGravity <= 1)
                 return 0;
 
-            // Malt SG = (Malt weight) x(Malt ppg) x(Brewhouse efficiency) / (Solution Volume)
+            // SG = (Malt weight) x(Malt ppg) x(Brewhouse efficiency) / (Solution Volume)
             // (Malt SG * (Solution Volume) ) / (Malt ppg) x(Brewhouse efficiency)
 
             double potentialSum = 0;
@@ -33,14 +33,15 @@ namespace WpfApplication1.Domain
                 potentialSum += aMashFermentList.Sum(x => (x.FermentableAdjunct.Potential * x.Amount)/100);
             if (aPostMashFermentList != null)
                 potentialSum -= aPostMashFermentList.Sum(x => x.FermentableAdjunct.Potential);
+            
+            var ppg = (potentialSum - 1) * 1000;
+            var bhe = aMashEfficiency/100;
+            var ppgBheComp = bhe * ppg;
+            var sgGallons = ((aGravity - 1) * 1000) * Volume.ConvertLitersToGallons(aVolume);
 
-            var potentialPlato = (potentialSum - 1) * 1000;
-            var eff = (1 + (100 - aMashEfficiency)/100);
-            var PlatoEffComp = eff * potentialPlato;
-            var sgLiters = ((aGravity - 1) * 1000) * aVolume;
 
-
-            var ret = (sgLiters / PlatoEffComp) / 8.346;
+            var retLb = (sgGallons / ppgBheComp);
+            var ret = Weight.ConvertPoundsToGrams(retLb);
 
 
             // points per kilogram per liter = 8.346 (points/ lb/gal)

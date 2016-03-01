@@ -21,7 +21,7 @@
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding Path=FermentableAdjunct.Name}"  Header="Fermentable" />
                     <GridViewColumn DisplayMemberBinding="{Binding Path=Amount}"  Header="Share [%]" />
-                    <GridViewColumn DisplayMemberBinding="{Binding Path=Amount}"  Header="Amount [kg]" />
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=AmountKg}"  Header="Amount [kg]" />
                 </GridView>
             </ListView.View>
 

@@ -17,7 +17,7 @@ namespace WpfApplication1.Domain
     public class GristPart : FermentableAdjunctSerializable
     {
         public FermentableAdjunctSerializable FermentableAdjunct { get; set; }
-        public float Amount { get; set; }
+        public double Amount { get; set; }
         public double AmountKg { get; set; }
 
     }

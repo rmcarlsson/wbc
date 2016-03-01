@@ -23,9 +23,9 @@ namespace GFCalc
     public partial class SelectGrain : Window
     {
         public GristPart Result { set; get; }
-        public float CurrentPercentage { set; get; }
+        public double CurrentPercentage { set; get; }
 
-        public SelectGrain(float aCurrentPercentage)
+        public SelectGrain(double aCurrentPercentage)
         {
             InitializeComponent();
 
@@ -37,7 +37,7 @@ namespace GFCalc
         }
 
 
-        public SelectGrain(float aCurrentPercentage, GristPart aInitalGristPart)
+        public SelectGrain(double aCurrentPercentage, GristPart aInitalGristPart)
         {
             InitializeComponent();
 
@@ -64,11 +64,11 @@ namespace GFCalc
 
             Result.FermentableAdjunct = var;
 
-            float part;
-            if (float.TryParse(textBox.Text, out part))
+            double part;
+            if (double.TryParse(textBox.Text, out part))
             {
                 if ((part + CurrentPercentage) > 100)
-                    part = 100f - CurrentPercentage;
+                    part = 100.0 - CurrentPercentage;
                 Result.Amount = part;
                 this.Close();
             }

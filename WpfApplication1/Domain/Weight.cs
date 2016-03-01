@@ -12,6 +12,11 @@ namespace WpfApplication1.Domain
         {
             return aWeightInGrams * 0.00220462262d;
         }
+
+        static public double ConvertPoundsToGrams(double aWeightInPounds)
+        {
+            return aWeightInPounds / 0.00220462262d;
+        }
     }
 
     static class Volume

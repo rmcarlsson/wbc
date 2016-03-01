@@ -49,7 +49,7 @@ namespace GFCalc
 
         private void addGrains_Click(object sender, RoutedEventArgs e)
         {
-            float sum = grist.Sum(g => g.Amount);
+            var sum = grist.Sum(g => g.Amount);
             var sw = new SelectGrain(sum);
             sw.ShowDialog();
             grist.Add(sw.Result);
@@ -78,15 +78,22 @@ namespace GFCalc
             if (grist != null &&
                 Double.TryParse(ExpectedOriginalGravityTextBox.Text, out val))
             {
+                var sum = grist.Sum(g => g.Amount);
                 OriginalGravity = val;
                 // Calculate total grainbill size based on batch size and  original gravity
                 GrainBillSize = GravityAlorithms.GetMashGrainBillWeight(OriginalGravity, BatchSize, grist.ToList(), null, 80);
-
+                var l = new List<GristPart>();
                 foreach (var grain in grist)
                 {
-                    grain.AmountKg = (grain.Amount * GrainBillSize);
+                    grain.AmountKg = (grain.Amount * GrainBillSize)/sum;
+                    l.Add(grain);
                 }
 
+                foreach (var grain in l)
+                {
+                    grist.Remove(grain);
+                    grist.Add(grain);
+                }
             }
         }
 
@@ -100,7 +107,11 @@ namespace GFCalc
 
         private void MaltsListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            float sum = grist.Sum(g => g.Amount);
+
+            if (MaltsListView.SelectedIndex >= grist.Count() || MaltsListView.SelectedIndex < 0)
+                return;
+
+            double sum = grist.Sum(g => g.Amount);
             var sw = new SelectGrain(sum, grist.ToArray()[MaltsListView.SelectedIndex]);
             sw.ShowDialog();
             grist.Remove((GristPart)MaltsListView.SelectedItem);
