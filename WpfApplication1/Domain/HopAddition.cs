@@ -20,6 +20,7 @@ namespace WpfApplication1.Domain
         public double Amount { get; set; }
         public double AmountKg { get; set; }
 
+
     }
 
 

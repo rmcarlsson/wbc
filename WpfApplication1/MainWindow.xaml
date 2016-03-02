@@ -26,8 +26,8 @@
             </ListView.View>
 
         </ListView>
-        <Label x:Name="label2" Content="Expected original gravity [SG]" HorizontalAlignment="Left" Margin="676,174,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="ExpectedOriginalGravityTextBox" HorizontalAlignment="Left" Height="23" Margin="846,178,0,0" TextWrapping="Wrap" Text="1,050" VerticalAlignment="Top" Width="61" TextChanged="ExpectedOriginalGravityTextBox_TextChanged" />
+        <Label x:Name="label2" Content="Expected original gravity [SG]" HorizontalAlignment="Left" Margin="676,95,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="ExpectedOriginalGravityTextBox" HorizontalAlignment="Left" Height="23" Margin="846,99,0,0" TextWrapping="Wrap" Text="1,050" VerticalAlignment="Top" Width="61" TextChanged="ExpectedOriginalGravityTextBox_TextChanged" />
         <ListView x:Name="HopsListView" HorizontalAlignment="Left" Height="100" Margin="10,264,0,0" VerticalAlignment="Top" Width="328" MouseDoubleClick="HopsListView_MouseDoubleClick" >
             <ListView.View>
                 <GridView>

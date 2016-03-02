@@ -35,7 +35,7 @@ namespace WpfApplication1.Domain
                 potentialSum -= aPostMashFermentList.Sum(x => x.FermentableAdjunct.Potential);
             
             var ppg = (potentialSum - 1) * 1000;
-            var bhe = aMashEfficiency/100;
+            var bhe = aMashEfficiency;
             var ppgBheComp = bhe * ppg;
             var sgGallons = ((aGravity - 1) * 1000) * Volume.ConvertLitersToGallons(aVolume);
 
@@ -44,8 +44,9 @@ namespace WpfApplication1.Domain
             var ret = Weight.ConvertPoundsToGrams(retLb);
 
 
+
             // points per kilogram per liter = 8.346 (points/ lb/gal)
-            return ret;
+            return Math.Round(ret, 0);
         }
 
 

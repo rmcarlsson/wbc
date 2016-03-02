@@ -45,6 +45,13 @@ namespace GFCalc
             MaltsListView.ItemsSource = grist;
             BoilHops = new ObservableCollection<HopBoilAddition>();
             HopsListView.ItemsSource = BoilHops;
+
+            BatchSize = 25;
+            BatchSizeVolumeTextBox.Text = BatchSize.ToString();
+
+            OriginalGravity = 1.05;
+            ExpectedOriginalGravityTextBox.Text = OriginalGravity.ToString();
+
         }
 
         private void addGrains_Click(object sender, RoutedEventArgs e)
@@ -53,6 +60,8 @@ namespace GFCalc
             var sw = new SelectGrain(sum);
             sw.ShowDialog();
             grist.Add(sw.Result);
+
+            recalculate();
         }
 
         private void listView_KeyDown(object sender, KeyEventArgs e)
@@ -69,76 +78,93 @@ namespace GFCalc
             }
         }
 
-
-        private void ExpectedOriginalGravityTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void recalculate()
         {
-            ExpectedOriginalGravityTextBox = (TextBox)(sender);
-            double val = 0;
-
-            if (grist != null &&
-                Double.TryParse(ExpectedOriginalGravityTextBox.Text, out val))
+            var sum = grist.Sum(g => g.Amount);
+            if (sum != 100)
             {
-                var sum = grist.Sum(g => g.Amount);
-                OriginalGravity = val;
-                // Calculate total grainbill size based on batch size and  original gravity
-                GrainBillSize = GravityAlorithms.GetMashGrainBillWeight(OriginalGravity, BatchSize, grist.ToList(), null, 80);
-                var l = new List<GristPart>();
-                foreach (var grain in grist)
-                {
-                    grain.AmountKg = (grain.Amount * GrainBillSize)/sum;
-                    l.Add(grain);
-                }
-
-                foreach (var grain in l)
-                {
-                    grist.Remove(grain);
-                    grist.Add(grain);
-                }
+                sum = -1;
+                GrainBillSize = 0;
             }
-        }
-
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            var w = new SelectHops();
-            w.ShowDialog();
-            BoilHops.Add(w.hop);
-            IbuLabel.Content = string.Format("IBU: {0}", IbuAlgorithms.CalcIbu(BoilHops.ToList<HopBoilAddition>(), 1.047, 25));
-        }
-
-        private void MaltsListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-
-            if (MaltsListView.SelectedIndex >= grist.Count() || MaltsListView.SelectedIndex < 0)
-                return;
-
-            double sum = grist.Sum(g => g.Amount);
-            var sw = new SelectGrain(sum, grist.ToArray()[MaltsListView.SelectedIndex]);
-            sw.ShowDialog();
-            grist.Remove((GristPart)MaltsListView.SelectedItem);
-            grist.Add(sw.Result);
-        }
-
-        private void BatchSizeVolumeTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            BatchSizeVolumeTextBox = (TextBox)(sender);
-            double val = 0;
-            if (grist != null &&
-                 Double.TryParse(BatchSizeVolumeTextBox.Text, out val))
+            else
+                GrainBillSize = GravityAlorithms.GetMashGrainBillWeight(OriginalGravity, BatchSize, grist.ToList(), null, GrainFatherCalculator.MashEfficiency);
+                
+            var l = new List<GristPart>();
+            foreach (var grain in grist)
             {
-                BatchSize = val;
+                grain.AmountKg = (grain.Amount * GrainBillSize) / sum;
+                l.Add(grain);
+            }
+
+            foreach (var grain in l)
+            {
+                grist.Remove(grain);
+                grist.Add(grain);
             }
         }
 
 
-        private void HopsListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+    private void ExpectedOriginalGravityTextBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        ExpectedOriginalGravityTextBox = (TextBox)(sender);
+        double val = 0;
+
+        if (grist != null &&
+            Double.TryParse(ExpectedOriginalGravityTextBox.Text, out val))
         {
-            var w = new SelectHops(BoilHops.ToArray()[HopsListView.SelectedIndex]);
-            w.ShowDialog();
-            BoilHops.Remove((HopBoilAddition)HopsListView.SelectedItem);
-            BoilHops.Add(w.hop);
+            OriginalGravity = val;
+            recalculate();
         }
-
-
     }
+
+    private void button_Click(object sender, RoutedEventArgs e)
+    {
+        var w = new SelectHops();
+        w.ShowDialog();
+        BoilHops.Add(w.hop);
+        IbuLabel.Content = string.Format("IBU: {0}", IbuAlgorithms.CalcIbu(BoilHops.ToList<HopBoilAddition>(), 1.047, 25));
+    }
+
+    private void MaltsListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+    {
+
+        if (MaltsListView.SelectedIndex >= grist.Count() || MaltsListView.SelectedIndex < 0)
+            return;
+
+        double sum = grist.Sum(g => g.Amount);
+        sum -= grist.ToArray()[MaltsListView.SelectedIndex].Amount;
+        var sw = new SelectGrain(sum, grist.ToArray()[MaltsListView.SelectedIndex]);
+        sw.ShowDialog();
+        grist.Remove((GristPart)MaltsListView.SelectedItem);
+        grist.Add(sw.Result);
+
+        recalculate();
+    }
+
+    private void BatchSizeVolumeTextBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        BatchSizeVolumeTextBox = (TextBox)(sender);
+        double val = 0;
+        if (grist != null &&
+             Double.TryParse(BatchSizeVolumeTextBox.Text, out val))
+        {
+            BatchSize = val;
+            recalculate();
+        }
+    }
+
+
+    private void HopsListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+    {
+        var w = new SelectHops(BoilHops.ToArray()[HopsListView.SelectedIndex]);
+        w.ShowDialog();
+        BoilHops.Remove((HopBoilAddition)HopsListView.SelectedItem);
+        BoilHops.Add(w.hop);
+
+        recalculate();
+    }
+
+
+}
 
 }

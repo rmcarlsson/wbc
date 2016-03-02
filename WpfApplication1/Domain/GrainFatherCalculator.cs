@@ -11,6 +11,9 @@ namespace GFCalc.Domain
     {
         private static double SMALL_GRAINBILL = 4.5;
         private static readonly ILog logger = LogManager.GetLogger(typeof(GrainFatherCalculator));
+
+        public static double MashEfficiency = 0.78;
+
         public static double CalculateMashVolume(double aGrainBillSize)
         {
             if (aGrainBillSize < SMALL_GRAINBILL)
