@@ -312,7 +312,7 @@ namespace GFCalc
             dlg.Filter = "Grainfather recepie files|*.xml";
             dlg.CheckFileExists = false;
             dlg.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-
+            dlg.FileName = NameTextBox.Text;
 
             // Display OpenFileDialog by calling ShowDialog method 
             Nullable<bool> result = dlg.ShowDialog();
