@@ -55,7 +55,7 @@ namespace GFCalc
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            FermentableAdjunctSerializable var = (FermentableAdjunctSerializable)comboBox.SelectedItem;
+            FermentableAdjunct var = (FermentableAdjunct)comboBox.SelectedItem;
             if (var == null)
             {
                 MessageBox.Show("Please select a grain in the dowp down menu");

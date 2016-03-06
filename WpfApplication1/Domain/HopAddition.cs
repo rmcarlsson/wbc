@@ -4,21 +4,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace WpfApplication1.Domain
 {
     public class HopBoilAddition
     {
+        [XmlElement("Hop")]
         public Hops Hop { set; get; }
+        [XmlAttribute("Name")]
         public float Amount { get; set; }
+        [XmlAttribute("Minutes")]
         public int Minutes { get; set; }
     }
 
-    public class GristPart : FermentableAdjunctSerializable
+    public class GristPart : FermentableAdjunct
     {
-        public FermentableAdjunctSerializable FermentableAdjunct { get; set; }
+        [XmlElement("FermentableAdjunct")]
+        public FermentableAdjunct FermentableAdjunct { get; set; }
+        [XmlAttribute("AmountPercent")]
         public double Amount { get; set; }
-        public double AmountKg { get; set; }
+        [XmlAttribute("AmountGrams")]
+        public double AmountGrams { get; set; }
 
 
     }

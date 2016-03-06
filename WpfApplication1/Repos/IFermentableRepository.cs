@@ -10,6 +10,6 @@ namespace GFCalc.Repos
     interface IFermentableRepository
     {
         double GetPotential(string aMaltName);
-        IEnumerable<FermentableAdjunctSerializable> Get();
+        IEnumerable<FermentableAdjunct> Get();
     }
 }

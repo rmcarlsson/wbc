@@ -14,13 +14,13 @@ namespace GFCalc.Repos
 
         public FermentableRepository()
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(FermentableAdjunctSerializables));
+            XmlSerializer serializer = new XmlSerializer(typeof(FermentableAdjuncts));
             //C: \Users\carltmik\Source\PrivateRepos\wbc\WpfApplication1\
             //C: \Users\rmcar\Documents\Visual Studio 2015\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\
             FileStream loadStream = new FileStream(@"C:\Users\carltmik\Source\PrivateRepos\wbc\WpfApplication1\bin\Debug\maltsOut.xml", FileMode.Open, FileAccess.Read);
-            FermentableAdjunctSerializables loadedObject = (FermentableAdjunctSerializables)serializer.Deserialize(loadStream);
+            FermentableAdjuncts loadedObject = (FermentableAdjuncts)serializer.Deserialize(loadStream);
             loadStream.Close();
-            ferms = loadedObject.FermentableAdjunctSerializable;
+            ferms = loadedObject.FermentableAdjunct;
 
             //ferms = new List<FermentableAdjunctSerializable>();
             //ferms.Add(new FermentableAdjunctSerializable { Name = "Pilsner malt", Potential = 1.032F, Color = 32, MashNeeded = false, MaxPart = 10.0F, Origin = "Sweden", AdjuctType = "Other" });
@@ -36,7 +36,7 @@ namespace GFCalc.Repos
 
         }
 
-        public List<FermentableAdjunctSerializable> ferms;
+        public List<FermentableAdjunct> ferms;
 
         public double GetPotential(string aMaltName)
         {
@@ -47,7 +47,7 @@ namespace GFCalc.Repos
             return ret;
         }
 
-        public IEnumerable<FermentableAdjunctSerializable> Get()
+        public IEnumerable<FermentableAdjunct> Get()
         {
             return ferms;
         }

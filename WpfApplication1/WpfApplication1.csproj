@@ -75,9 +75,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DataModel\Country.cs" />
-    <Compile Include="DataModel\FermentableAdjunctSerializable.cs" />
+    <Compile Include="DataModel\FermentableAdjunct.cs" />
     <Compile Include="DataModel\Hops.cs" />
-    <Compile Include="DataModel\FermentationAdjunct.cs" />
     <Compile Include="Domain\GrainFatherCalculator.cs" />
     <Compile Include="Domain\GravityAlorithms.cs" />
     <Compile Include="Domain\HopAddition.cs" />
@@ -94,7 +93,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DataModel\FermentableAdjunct.cs" />
     <Compile Include="Repos\IHopsRepo.cs" />
     <Compile Include="SelectGrain.xaml.cs">
       <DependentUpon>SelectGrain.xaml</DependentUpon>
