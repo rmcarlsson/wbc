@@ -23,22 +23,22 @@ namespace WpfApplication1
     public partial class SelectHops : Window
     {
         public HopBoilAddition hop { set; get; }
-        public SelectHops()
+        public SelectHops(HopsRepository aRepo, int aBoilTime)
         {
             InitializeComponent();
 
-            hop = new HopBoilAddition();
-            var hopsRepo = new HopsRepo();
+            var hopsRepo = aRepo;
             var hops = hopsRepo.Get();
             comboBox.ItemsSource = hops;
+            TimeTextBox.Text = aBoilTime.ToString();
         }
 
-        public SelectHops(HopBoilAddition aHopAddition)
+        public SelectHops(HopsRepository aRepo, HopBoilAddition aHopAddition)
         {
             InitializeComponent();
 
             hop = new HopBoilAddition(); 
-            var hopsRepo = new HopsRepo();
+            var hopsRepo = aRepo;
             var hops = hopsRepo.Get();
             comboBox.ItemsSource = hops;
 
@@ -52,6 +52,8 @@ namespace WpfApplication1
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             Hops var = (Hops)comboBox.SelectedItem;
+            hop = new HopBoilAddition();
+
             if (var == null)
             {
                 MessageBox.Show("Please select a hop in the dowp down menu");

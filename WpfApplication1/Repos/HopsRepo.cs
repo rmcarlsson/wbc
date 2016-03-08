@@ -9,10 +9,10 @@ using System.IO;
 
 namespace GFCalc.Repos
 {
-    class HopsRepo : IHopsRepo
+    public class HopsRepository : IHopsRepo
     {
         public List<Hops> hopses;
-        public HopsRepo()
+        public HopsRepository()
         {
             if (hopses == null)
             {

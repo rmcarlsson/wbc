@@ -5,19 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GFCalc"
         mc:Ignorable="d"
-        Title="Grainfather " Height="821.534" Width="1038.333">
+        Title="Grainfather " Height="821.534" Width="1038.333" Closing="Window_Closing">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="47*"/>
             <ColumnDefinition Width="297*"/>
         </Grid.ColumnDefinitions>
         <Rectangle Grid.ColumnSpan="2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="382" Margin="10,247,0,0" Stroke="Black" VerticalAlignment="Top" Width="652"/>
-        <Menu Margin="0,0,0,766.6" Grid.ColumnSpan="2" >
+        <Menu Margin="0,0,0,766" Grid.ColumnSpan="2" >
             <MenuItem Header="_File">
                 <MenuItem Header="_Open" Click="MenuItem_Click_1"/>
-                <MenuItem Header="_Close"/>
                 <MenuItem Header="_Save" Click="MenuItem_Click"/>
+                <MenuItem Header="_Exit" Click="MenuItem_Click_2"/>                
             </MenuItem>
+            <MenuItem Header="_Ingredients">
+                <MenuItem Header="_Add hops" Click="MenuItem_Click_1"/>
+                <MenuItem Header="_Add malt" Click="MenuItem_Click_3"/>
+            </MenuItem>
+
         </Menu>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="182" Margin="10,32,0,0" Stroke="Black" VerticalAlignment="Top" Width="943" Grid.ColumnSpan="2"/>
         <Label x:Name="label" Content="Mash" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.684,0.128"/>

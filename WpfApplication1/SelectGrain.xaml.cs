@@ -25,24 +25,24 @@ namespace GFCalc
         public GristPart Result { set; get; }
         public double CurrentPercentage { set; get; }
 
-        public SelectGrain(double aCurrentPercentage)
+        public SelectGrain(FermentableRepository aRepo, double aCurrentPercentage)
         {
             InitializeComponent();
 
             CurrentPercentage = aCurrentPercentage;
-            var grainsRepo = new FermentableRepository();
+            var grainsRepo = aRepo;
             var grains = grainsRepo.Get();
             Result = new GristPart();
             comboBox.ItemsSource = grains;
         }
 
 
-        public SelectGrain(double aCurrentPercentage, GristPart aInitalGristPart)
+        public SelectGrain(FermentableRepository aRepo, double aCurrentPercentage, GristPart aInitalGristPart)
         {
             InitializeComponent();
 
             CurrentPercentage = aCurrentPercentage;
-            var grainsRepo = new FermentableRepository();
+            var grainsRepo = aRepo;
             var grains = grainsRepo.Get();
             Result = new GristPart();
             comboBox.ItemsSource = grains;

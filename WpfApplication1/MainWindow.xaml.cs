@@ -41,10 +41,15 @@ namespace GFCalc
         public double TopUpMashWater { set; get; }
 
 
+        private FermentableRepository MaltRepo;
+        private HopsRepository HopsRepo;
 
         public MainWindow()
         {
             InitializeComponent();
+
+            HopsRepo = new HopsRepository();
+            MaltRepo = new FermentableRepository();
 
             Grist = new ObservableCollection<GristPart>();
             MaltsListView.ItemsSource = Grist;
@@ -66,7 +71,7 @@ namespace GFCalc
         private void addGrains_Click(object sender, RoutedEventArgs e)
         {
             var sum = Grist.Sum(g => g.Amount);
-            var sw = new SelectGrain(sum);
+            var sw = new SelectGrain(MaltRepo, sum);
             sw.ShowDialog();
             Grist.Add(sw.Result);
 
@@ -131,8 +136,8 @@ namespace GFCalc
 
             }
 
-            var swv = GrainfatherCalculator.CalcSpargeWaterVolume(GrainBillSize, 
-                (BatchSize + GrainfatherCalculator.BoilerLoss + GrainfatherCalculator.CalcBoilOffVolume(BatchSize, BoilTime)), 
+            var swv = GrainfatherCalculator.CalcSpargeWaterVolume(GrainBillSize,
+                (BatchSize + GrainfatherCalculator.BoilerLoss + GrainfatherCalculator.CalcBoilOffVolume(BatchSize, BoilTime)),
                 topUpVolume);
             if (swv < 0)
                 swv = 0;
@@ -166,10 +171,13 @@ namespace GFCalc
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            var w = new SelectHops();
+            var w = new SelectHops(HopsRepo, BoilTime);
             w.ShowDialog();
-            BoilHops.Add(w.hop);
-            recalculateIbu();
+            if (w.hop != null)
+            {
+                BoilHops.Add(w.hop);
+                recalculateIbu();
+            }
         }
 
         private void MaltsListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -180,7 +188,7 @@ namespace GFCalc
 
             double sum = Grist.Sum(g => g.Amount);
             sum -= Grist.ToArray()[MaltsListView.SelectedIndex].Amount;
-            var sw = new SelectGrain(sum, Grist.ToArray()[MaltsListView.SelectedIndex]);
+            var sw = new SelectGrain(MaltRepo, sum, Grist.ToArray()[MaltsListView.SelectedIndex]);
             sw.ShowDialog();
             Grist.Remove((GristPart)MaltsListView.SelectedItem);
             Grist.Add(sw.Result);
@@ -203,7 +211,7 @@ namespace GFCalc
 
         private void HopsListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            var w = new SelectHops(BoilHops.ToArray()[HopsListView.SelectedIndex]);
+            var w = new SelectHops(HopsRepo, BoilHops.ToArray()[HopsListView.SelectedIndex]);
             w.ShowDialog();
             BoilHops.Remove((HopBoilAddition)HopsListView.SelectedItem);
             BoilHops.Add(w.hop);
@@ -387,6 +395,23 @@ namespace GFCalc
             ExpectedOriginalGravityTextBox.Text = OriginalGravity.ToString();
             BoilTimeTextBox.Text = BoilTime.ToString();
             TopUpMashWaterVolumeTextBox.Text = TopUpMashWater.ToString();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
+        }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
+        {
+            var sw = new AddHopsWindow(MaltRepo);
+            sw.ShowDialog();
+
         }
     }
 

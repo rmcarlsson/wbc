@@ -77,6 +77,9 @@
     <Compile Include="DataModel\Country.cs" />
     <Compile Include="DataModel\FermentableAdjunct.cs" />
     <Compile Include="DataModel\Hops.cs" />
+    <Compile Include="Domain\AddMaltsWindow.xaml.cs">
+      <DependentUpon>AddMaltsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Domain\GrainFatherCalculator.cs" />
     <Compile Include="Domain\GravityAlorithms.cs" />
     <Compile Include="Domain\HopAddition.cs" />
@@ -143,6 +146,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Domain\AddMaltsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
