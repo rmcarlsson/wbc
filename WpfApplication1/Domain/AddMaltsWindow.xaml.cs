@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
 
@@ -60,11 +61,10 @@ namespace WpfApplication1.Domain
             else
                 msg = "Please provide a valid integer value for Color";
 
-            if (int.TryParse(ColorTextBox.Text, out intVal))
+            if (int.TryParse(MaxPartTextBox.Text, out intVal))
                 f.MaxPart = intVal;
             else
                 msg = "Please provide a valid integer value for Max. part";
-
 
             if (msg != null)
             {
@@ -76,7 +76,6 @@ namespace WpfApplication1.Domain
                 Repo.AddFermentable(f, true);
             else
                 Repo.AddFermentable(f, false);
-            Repo.Persist();
 
             Fermentables.Add(f);
 
@@ -105,6 +104,21 @@ namespace WpfApplication1.Domain
 
 
 
+        }
+
+        private void listView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Key.Delete == e.Key)
+            {
+
+                foreach (FermentableAdjunct listViewItem in ((ListView)sender).SelectedItems)
+                {
+                    Repo.RemoveFermentable(listViewItem);
+                    Fermentables.Remove(listViewItem)
+                    MessageBox.Show(String.Format("Shit, want to remove {0}?", listViewItem.Name));
+                    break;
+                }
+            }
         }
     }
 }

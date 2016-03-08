@@ -53,6 +53,8 @@ namespace GFCalc.Repos
             else
                 throw new ArgumentException(String.Format("Fermetbale with name = {0] is already present. Please use another name.", aFermentable.Name));
 
+            Persist();
+
         }
 
 
@@ -70,5 +72,10 @@ namespace GFCalc.Repos
             return ferms;
         }
 
+        public void RemoveFermentable(FermentableAdjunct aFermentable)
+        {
+            ferms.Remove(aFermentable);
+            Persist();
+        }
     }
 }
