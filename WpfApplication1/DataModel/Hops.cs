@@ -47,6 +47,17 @@ namespace GFCalc.DataModel
 
     public class Hops
     {
+        public Hops()
+        {
+            AlphaAcid = new HopAcids();
+            BetaAcid = new HopAcids();
+            CoHumulone = new HopAcids();
+            MyrceneOilComposition = new HopAcids();
+            HumuleneOilComposition = new HopAcids();
+            CaryophylleneOil = new HopAcids();
+            FarneseneOil = new HopAcids();
+        }
+
         [XmlAttribute("Name")]
         public string Name { get; set; }
         [XmlElement("Characteristics")]

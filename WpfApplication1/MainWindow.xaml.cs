@@ -409,9 +409,15 @@ namespace GFCalc
 
         private void MenuItem_Click_3(object sender, RoutedEventArgs e)
         {
-            var sw = new AddHopsWindow(MaltRepo);
+            var sw = new AlterMaltsWindow(MaltRepo);
             sw.ShowDialog();
 
+        }
+
+        private void MenuItem_Click_4(object sender, RoutedEventArgs e)
+        {
+            var sw = new AlterHopsWindow(HopsRepo);
+            sw.ShowDialog();
         }
     }
 

@@ -1,24 +1,33 @@
 ﻿using GFCalc.DataModel;
 using GFCalc.Repos;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 
 namespace WpfApplication1.Domain
 {
     /// <summary>
-    /// Interaction logic for AddHopsWindow.xaml
+    /// Interaction logic for AlterMaltsWindow.xaml
     /// </summary>
-    public partial class AddHopsWindow : Window
+    public partial class AlterMaltsWindow : Window
     {
+
         public FermentableRepository Repo { set; get; }
         public ObservableCollection<FermentableAdjunct> Fermentables { set; get; }
 
-        public AddHopsWindow(FermentableRepository aRepo)
+        public AlterMaltsWindow(FermentableRepository aRepo)
         {
             InitializeComponent();
 
@@ -114,11 +123,12 @@ namespace WpfApplication1.Domain
                 foreach (FermentableAdjunct listViewItem in ((ListView)sender).SelectedItems)
                 {
                     Repo.RemoveFermentable(listViewItem);
-                    Fermentables.Remove(listViewItem)
+                    Fermentables.Remove(listViewItem);
                     MessageBox.Show(String.Format("Shit, want to remove {0}?", listViewItem.Name));
                     break;
                 }
             }
         }
+
     }
 }
