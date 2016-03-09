@@ -26,6 +26,8 @@ namespace WpfApplication1.Domain
         public double Amount { get; set; }
         [XmlAttribute("AmountGrams")]
         public double AmountGrams { get; set; }
+        [XmlAttribute("Stage")]
+        public string Stage { get; set; }
 
 
     }

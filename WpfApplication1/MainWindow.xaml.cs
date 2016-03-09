@@ -135,19 +135,23 @@ namespace GFCalc
                 NoteLabel.Content = "Note: small grain bill.Top up mash water";
 
             }
+            try {
+                var swv = GrainfatherCalculator.CalcSpargeWaterVolume(GrainBillSize,
+                    (BatchSize + GrainfatherCalculator.BoilerLoss + GrainfatherCalculator.CalcBoilOffVolume(BatchSize, BoilTime)),
+                    topUpVolume);
+                if (swv < 0)
+                    swv = 0;
+                SpargeWaterVolumeLabel.Content = String.Format("Sparge water volume [L]: {0:0.#}", swv);
 
-            var swv = GrainfatherCalculator.CalcSpargeWaterVolume(GrainBillSize,
-                (BatchSize + GrainfatherCalculator.BoilerLoss + GrainfatherCalculator.CalcBoilOffVolume(BatchSize, BoilTime)),
-                topUpVolume);
-            if (swv < 0)
-                swv = 0;
-            SpargeWaterVolumeLabel.Content = String.Format("Sparge water volume [L]: {0:0.#}", swv);
-
-            var mwv = GrainfatherCalculator.CalcMashVolume(GrainBillSize);
-            if (mwv < 0)
-                mwv = 0;
-            MashWaterVolumeLabel.Content = String.Format("Mash water volume [L]: {0:0.#}", mwv);
-
+                var mwv = GrainfatherCalculator.CalcMashVolume(GrainBillSize);
+                if (mwv < 0)
+                    mwv = 0;
+                MashWaterVolumeLabel.Content = String.Format("Mash water volume [L]: {0:0.#}", mwv);
+            }
+            catch (ArgumentException e)
+            {
+                MessageBox.Show(e.Message);
+            }
             foreach (GridViewColumn c in MaltsGridView.Columns)
             {
                 c.Width = 0; //set it to no width
@@ -190,10 +194,12 @@ namespace GFCalc
             sum -= Grist.ToArray()[MaltsListView.SelectedIndex].Amount;
             var sw = new SelectGrain(MaltRepo, sum, Grist.ToArray()[MaltsListView.SelectedIndex]);
             sw.ShowDialog();
-            Grist.Remove((GristPart)MaltsListView.SelectedItem);
-            Grist.Add(sw.Result);
-
-            recalculateGrainBill();
+            if (sw.Result != null)
+            {
+                Grist.Remove((GristPart)MaltsListView.SelectedItem);
+                Grist.Add(sw.Result);
+                recalculateGrainBill();
+            }
         }
 
         private void BatchSizeVolumeTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -203,6 +209,12 @@ namespace GFCalc
             if (Grist != null &&
                  Double.TryParse(BatchSizeVolumeTextBox.Text, out val))
             {
+                if (val > (GrainfatherCalculator.GRAINFATHER_MAX_PREBOILVOLUME - GrainfatherCalculator.CalcBoilOffVolume(val, BoilTime)))
+                {
+                    MessageBox.Show("Batch size is to big. Please reduce it");
+                    return;
+                }
+
                 BatchSize = val;
                 recalculateGrainBill();
             }
@@ -213,10 +225,14 @@ namespace GFCalc
         {
             var w = new SelectHops(HopsRepo, BoilHops.ToArray()[HopsListView.SelectedIndex]);
             w.ShowDialog();
-            BoilHops.Remove((HopBoilAddition)HopsListView.SelectedItem);
-            BoilHops.Add(w.hop);
+            if (w.hop != null)
+            {
+                BoilHops.Remove((HopBoilAddition)HopsListView.SelectedItem);
+                BoilHops.Add(w.hop);
+                recalculateIbu();
+            }
 
-            recalculateIbu();
+            
         }
 
         private void BoilTimeTextBox_TextChanged(object sender, TextChangedEventArgs e)

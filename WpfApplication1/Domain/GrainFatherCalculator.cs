@@ -11,13 +11,19 @@ namespace GFCalc.Domain
     {
         public const double SMALL_GRAINBILL = 4500;
 
+        public const double GRAINFATHER_MAX_PREBOILVOLUME = 30;
+
+        public const double GRAIN_WATER_ABSORBTION = (0.652/1000); // l/kg
+
+        public const double MASH_VOLUME_INCREASE_WITH_GRAINS = (0.325/1000); //l/kg
+
         private static readonly ILog logger = LogManager.GetLogger(typeof(GrainfatherCalculator));
 
         public static double MashEfficiency = 0.78;
 
         public static double BoilOffRate = 2;
 
-        public static double BoilerLoss = 2;
+        public static double BoilerLoss = 1;
         
         //
         // Input:
@@ -49,6 +55,11 @@ namespace GFCalc.Domain
         {
             var ret = ((aGrainbillSize/1000) * 2.7) + 3.5;
             logger.Debug(string.Format("Total mash volume [L]: {0}L", ret));
+
+            var grainVolIncrease = (MASH_VOLUME_INCREASE_WITH_GRAINS * aGrainbillSize);
+            if ((ret + grainVolIncrease) > GRAINFATHER_MAX_PREBOILVOLUME)
+                throw new ArgumentException("Grainbill to big. It will not fit. Please reduce grainbill");
+
             return ret;
         }
 
@@ -63,6 +74,10 @@ namespace GFCalc.Domain
             else
                 // (28 – (mash water volume in L + additional water in L)) + (grain bill in kg x 0.8) = Sparge water volume in L
                 val = aPreBoilVolume - (CalcMashVolume(aGrainbillSize) + aMashTopUpVolume) + ((aGrainbillSize/1000) * 0.8);
+            var grainAborbtionVol = (GRAIN_WATER_ABSORBTION * aGrainbillSize);
+            if ((CalcMashVolume(aGrainbillSize) + val - grainAborbtionVol) > GRAINFATHER_MAX_PREBOILVOLUME)
+                throw new ArgumentException("Grainbill to big. It will not fit. Please reduce grainbill");
+
             return val;
         }
     }

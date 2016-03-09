@@ -32,8 +32,8 @@ namespace GFCalc
             CurrentPercentage = aCurrentPercentage;
             var grainsRepo = aRepo;
             var grains = grainsRepo.Get();
-            Result = new GristPart();
             comboBox.ItemsSource = grains;
+            StageComboBox.SelectedIndex = 1;
         }
 
 
@@ -44,23 +44,27 @@ namespace GFCalc
             CurrentPercentage = aCurrentPercentage;
             var grainsRepo = aRepo;
             var grains = grainsRepo.Get();
-            Result = new GristPart();
             comboBox.ItemsSource = grains;
 
             comboBox.SelectedValue = grains.FirstOrDefault(x => x.Name.Equals(aInitalGristPart.FermentableAdjunct.Name));
             textBox.Text = aInitalGristPart.Amount.ToString();
+            StageComboBox.Text = aInitalGristPart.Stage;
         }
 
 
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
+            Result = new GristPart();
+
             FermentableAdjunct var = (FermentableAdjunct)comboBox.SelectedItem;
             if (var == null)
             {
                 MessageBox.Show("Please select a grain in the dowp down menu");
                 return;
             }
+
+            Result.Stage = StageComboBox.Text;
 
             Result.FermentableAdjunct = var;
 

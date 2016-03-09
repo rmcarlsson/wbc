@@ -23,6 +23,7 @@ namespace WpfApplication1
     public partial class SelectHops : Window
     {
         public HopBoilAddition hop { set; get; }
+
         public SelectHops(HopsRepository aRepo, int aBoilTime)
         {
             InitializeComponent();
@@ -37,7 +38,6 @@ namespace WpfApplication1
         {
             InitializeComponent();
 
-            hop = new HopBoilAddition(); 
             var hopsRepo = aRepo;
             var hops = hopsRepo.Get();
             comboBox.ItemsSource = hops;

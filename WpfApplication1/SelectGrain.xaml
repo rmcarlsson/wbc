@@ -5,13 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GFCalc"
         mc:Ignorable="d"
-        Title="Select grain" Height="220.168" Width="269.748">
+        Title="Select grain" Height="300" Width="300">
     <Grid>
-        <ComboBox x:Name="comboBox" DisplayMemberPath="Name" HorizontalAlignment="Left" Margin="35,36,0,0" VerticalAlignment="Top" Width="210"/>
-        <Label x:Name="label" Content="Part:" HorizontalAlignment="Left" Margin="35,82,0,0" VerticalAlignment="Top" Width="35" RenderTransformOrigin="0.536,-1.066"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="70,85,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="49"/>
-        <Label x:Name="label_Copy" Content="%" HorizontalAlignment="Left" Margin="124,82,0,0" VerticalAlignment="Top" Width="21" RenderTransformOrigin="0.536,-1.066"/>
-        <Button x:Name="button" Content="Done" HorizontalAlignment="Left" Margin="170,159,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <ComboBox x:Name="comboBox" DisplayMemberPath="Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="210"/>
+        <Label x:Name="label" Content="Part of grist" HorizontalAlignment="Left" Margin="13,52,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.536,-1.066"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="102,55,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="49"/>
+        <Label x:Name="label_Copy" Content="%" HorizontalAlignment="Left" Margin="156,52,0,0" VerticalAlignment="Top" Width="21" RenderTransformOrigin="0.536,-1.066"/>
+        <Button x:Name="button" Content="Done" HorizontalAlignment="Left" Margin="207,239,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <ComboBox x:Name="StageComboBox" HorizontalAlignment="Left" Margin="102,87,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem  Name="cbi1">Cold steep</ComboBoxItem>
+            <ComboBoxItem  Name="cbi2">Mash</ComboBoxItem>
+            <ComboBoxItem  Name="cbi3">Fermetation</ComboBoxItem>
+        </ComboBox>
+        <Label x:Name="label1" Content="Addded at" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
