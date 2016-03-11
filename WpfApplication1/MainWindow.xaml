@@ -15,10 +15,11 @@
             <MenuItem Header="_File">
                 <MenuItem Header="_Open" Click="MenuItem_Click_1"/>
                 <MenuItem Header="_Save" Click="MenuItem_Click"/>
+                <MenuItem Header="_Print" Click="MenuItem_File_Print"/>
                 <MenuItem Header="_Exit" Click="MenuItem_Click_2"/>
             </MenuItem>
             <MenuItem Header="_Ingredients">
-                <MenuItem Header="_Add hops" Click="MenuItem_Click_4" />
+                <MenuItem Header="_Add hops" Click="MenuItem_Add_Hops" />
                 <MenuItem Header="_Add malt" Click="MenuItem_Click_3"/>
             </MenuItem>
 

@@ -12,7 +12,7 @@ namespace GFCalc.Repos
     public class FermentableRepository : IFermentableRepository
     {
 
-        public const string MALT_DATA_FILEPATH = @"C:\Users\rmcar\Documents\Visual Studio 2015\Projects\WpfApplication1\WpfApplication1\bin\Debug\maltsOut.xml";
+        public const string MALT_DATA_FILEPATH = @"C:\Users\carltmik\Source\PrivateRepos\wbc\WpfApplication1\bin\Debug\maltsOut.xml";
         public const string MALT_DATA_FILEPATH_SAVE = @"maltData.xml";
 
         public FermentableRepository()

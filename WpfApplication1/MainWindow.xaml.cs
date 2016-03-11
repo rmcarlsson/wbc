@@ -2,17 +2,10 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using GFCalc.DataModel;
 using GFCalc.Domain;
 using GFCalc.Repos;
 using WpfApplication1;
@@ -135,7 +128,8 @@ namespace GFCalc
                 NoteLabel.Content = "Note: small grain bill.Top up mash water";
 
             }
-            try {
+            try
+            {
                 var swv = GrainfatherCalculator.CalcSpargeWaterVolume(GrainBillSize,
                     (BatchSize + GrainfatherCalculator.BoilerLoss + GrainfatherCalculator.CalcBoilOffVolume(BatchSize, BoilTime)),
                     topUpVolume);
@@ -232,7 +226,7 @@ namespace GFCalc
                 recalculateIbu();
             }
 
-            
+
         }
 
         private void BoilTimeTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -430,11 +424,41 @@ namespace GFCalc
 
         }
 
-        private void MenuItem_Click_4(object sender, RoutedEventArgs e)
+        private void MenuItem_Add_Hops(object sender, RoutedEventArgs e)
         {
             var sw = new AlterHopsWindow(HopsRepo);
             sw.ShowDialog();
         }
+
+        private void MenuItem_File_Print(object sender, RoutedEventArgs e)
+        {
+            PrintDialog pDialog = new PrintDialog();
+            pDialog.PageRangeSelection = PageRangeSelection.AllPages;
+            pDialog.UserPageRangeEnabled = true;
+
+            // Display the dialog. This returns true if the user presses the Print button.
+            Nullable<Boolean> print = pDialog.ShowDialog();
+            if (print == true)
+            {
+                FlowDocument doc = new FlowDocument(new Paragraph(new Run("Some text goes here")));
+                doc.Name = "FlowDoc";
+
+
+                // Create IDocumentPaginatorSource from FlowDocument
+                IDocumentPaginatorSource idpSource = doc;
+
+                // Call PrintDocument method to send document to printer
+                pDialog.PrintDocument(idpSource.DocumentPaginator, "Hello WPF Printing.");
+
+                //XpsDocument xpsDocument = new XpsDocument("C:\\FixedDocumentSequence.xps", FileAccess.ReadWrite);
+                //FixedDocumentSequence fixedDocSeq = xpsDocument.GetFixedDocumentSequence();
+                //pDialog.PrintDocument(fixedDocSeq.DocumentPaginator, "Test print job");
+            }
+
+        }
+
+
+
     }
 
 }

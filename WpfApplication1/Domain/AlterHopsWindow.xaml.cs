@@ -50,8 +50,7 @@ namespace WpfApplication1.Domain
                 return;
 
             AddButton.Content = "Update";
-
-            var h = Hopses.ToArray()[listView.SelectedIndex];
+            var h = (Hops)listView.SelectedItem;
             NameTextBox.Text = h.Name;
             CountryTextBox.Text = h.Country;
             SubstTextBox.Text = h.Substitutes;
@@ -132,7 +131,13 @@ namespace WpfApplication1.Domain
             }
 
             Hopses.Add(h);
-            Repo.AddHops(h, false);
+            try {
+                Repo.AddHops(h, false);
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             AddButton.Content = "Add";
 
         }
