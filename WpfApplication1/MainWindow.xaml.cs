@@ -151,6 +151,9 @@ namespace GFCalc
                 c.Width = 0; //set it to no width
                 c.Width = double.NaN; //resize it automatically
             }
+
+            var color = ColorAlgorithms.CalculateColor(Grist.ToList(), BatchSize);
+            MessageBox.Show(color.ToString());
         }
 
 
