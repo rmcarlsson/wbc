@@ -152,8 +152,7 @@ namespace GFCalc
                 c.Width = double.NaN; //resize it automatically
             }
 
-            var color = ColorAlgorithms.CalculateColor(Grist.ToList(), BatchSize);
-            MessageBox.Show(color.ToString());
+            ColorLabel.Content = String.Format("Color [ECB]: {0}", ColorAlgorithms.CalculateColor(Grist.ToList(), BatchSize));
         }
 
 
@@ -351,7 +350,7 @@ namespace GFCalc
 
         }
 
-        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        private void MenuItem_Open(object sender, RoutedEventArgs e)
         {
 
             // Create OpenFileDialog 

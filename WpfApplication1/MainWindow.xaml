@@ -7,13 +7,9 @@
         mc:Ignorable="d"
         Title="Grainfather " Height="821.534" Width="1038.333" Closing="Window_Closing">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="47*"/>
-            <ColumnDefinition Width="297*"/>
-        </Grid.ColumnDefinitions>
         <Menu Margin="0,0,0,766" Grid.ColumnSpan="2" >
             <MenuItem Header="_File">
-                <MenuItem Header="_Open" Click="MenuItem_Click_1"/>
+                <MenuItem Header="_Open" Click="MenuItem_Open"/>
                 <MenuItem Header="_Save" Click="MenuItem_Click"/>
                 <MenuItem Header="_Print" Click="MenuItem_File_Print"/>
                 <MenuItem Header="_Exit" Click="MenuItem_Click_2"/>
@@ -25,7 +21,7 @@
 
         </Menu>
         <Label x:Name="label" Content="Mash" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.684,0.128"/>
-        <Button x:Name="addGrains" Content="Add" HorizontalAlignment="Left" Margin="297,77,0,0" VerticalAlignment="Top" Width="75" Click="addGrains_Click" Grid.Column="1"/>
+        <Button x:Name="addGrains" Content="Add" HorizontalAlignment="Left" Margin="355,202,0,0" VerticalAlignment="Top" Width="75" Click="addGrains_Click"/>
         <ListView x:Name="MaltsListView" PreviewKeyDown="listView_KeyDown" HorizontalAlignment="Left" Height="121" Margin="10,76,0,0" VerticalAlignment="Top" Width="423" MouseDoubleClick="MaltsListView_MouseDoubleClick" Grid.ColumnSpan="2">
             <ListView.View >
                 <GridView x:Name="MaltsGridView">
@@ -37,8 +33,6 @@
             </ListView.View>
 
         </ListView>
-        <Label x:Name="label2" Content="Expected original gravity [SG]:" HorizontalAlignment="Left" Margin="484,78,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBox x:Name="ExpectedOriginalGravityTextBox" HorizontalAlignment="Left" Height="23" Margin="665,82,0,0" TextWrapping="Wrap" Text="1,050" VerticalAlignment="Top" Width="61" TextChanged="ExpectedOriginalGravityTextBox_TextChanged" Grid.Column="1" />
         <ListView x:Name="HopsListView" HorizontalAlignment="Left" Height="100" Margin="10,400,0,0" VerticalAlignment="Top" Width="423" MouseDoubleClick="HopsListView_MouseDoubleClick" Grid.ColumnSpan="2" >
             <ListView.View>
                 <GridView>
@@ -50,16 +44,10 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="button" Content="Add" HorizontalAlignment="Left" Margin="297,401,0,0" VerticalAlignment="Top" Width="75" Click="button_Click" Grid.Column="1"/>
-        <Label x:Name="IbuLabel" Content="IBU: 0" HorizontalAlignment="Left" Margin="297,474,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1"/>
-        <Label x:Name="label3" Content="Batch size [L]:" HorizontalAlignment="Left" Margin="484,49,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.526,0.269" Grid.Column="1"/>
-        <TextBox x:Name="BatchSizeVolumeTextBox" HorizontalAlignment="Left" Height="23" Margin="665,54,0,0" TextWrapping="Wrap" Text="25" VerticalAlignment="Top" Width="61" TextChanged="BatchSizeVolumeTextBox_TextChanged" Grid.Column="1"/>
-        <Label x:Name="label1" Content="Boil time [min]:" HorizontalAlignment="Left" Margin="484,109,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBox x:Name="BoilTimeTextBox" HorizontalAlignment="Left" Height="23" Margin="665,112,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Top" Width="61" TextChanged="BoilTimeTextBox_TextChanged" Grid.Column="1"/>
-        <Label x:Name="TopUpMashWaterVolumeLabel" Content="Top up mash water volume [L]:" HorizontalAlignment="Left" Margin="484,140,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBox x:Name="TopUpMashWaterVolumeTextBox" HorizontalAlignment="Left" Height="23" Margin="665,140,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="61" TextChanged="TopUpMashWaterVolumeTextBox_TextChanged" Grid.Column="1"/>
-        <Label x:Name="MashWaterVolumeLabel" Content="Mash water volume [L]:" HorizontalAlignment="Left" Margin="297,139,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.491,0.471" Grid.Column="1"/>
-        <Label x:Name="SpargeWaterVolumeLabel" Content="Sparge water volume [L]:" HorizontalAlignment="Left" Margin="297,170,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.491,0.471" Grid.Column="1"/>
+        <Button x:Name="button" Content="Add" HorizontalAlignment="Left" Margin="358,505,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Label x:Name="IbuLabel" Content="IBU: 0" HorizontalAlignment="Left" Margin="451,475,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label x:Name="MashWaterVolumeLabel" Content="Mash water volume [L]:" HorizontalAlignment="Left" Margin="438,141,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.491,0.471"/>
+        <Label x:Name="SpargeWaterVolumeLabel" Content="Sparge water volume [L]:" HorizontalAlignment="Left" Margin="438,172,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.491,0.471"/>
         <Label x:Name="NoteLabel" Content="" HorizontalAlignment="Left" Margin="34,226,0,0" VerticalAlignment="Top" Width="168" Grid.ColumnSpan="2"/>
         <ListView x:Name="MashStepListView" HorizontalAlignment="Left" Height="100" Margin="10,257,0,0" VerticalAlignment="Top" Width="154" KeyDown="MasStepListView_KeyDown" MouseDoubleClick="MasStepListView_MouseDoubleClick" Grid.ColumnSpan="2">
             <ListView.View>
@@ -69,13 +57,25 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="AddMashStepButton" Content="Add" HorizontalAlignment="Left" Margin="104,258,0,0" VerticalAlignment="Top" Width="75" Click="AddMashStepButton_Click" Grid.Column="1"/>
-        <Label x:Name="label4" Content="Temperature [C]:" HorizontalAlignment="Left" Margin="34,301,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <Label x:Name="label5" Content="Time [min]:" HorizontalAlignment="Left" Margin="63,332,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBox x:Name="MashStepTempTextBox" HorizontalAlignment="Left" Height="23" Margin="137,302,0,0" TextWrapping="Wrap" Text="67" VerticalAlignment="Top" Width="42" Grid.Column="1"/>
-        <TextBox x:Name="MashStepTimeTextBox" HorizontalAlignment="Left" Height="23" Margin="137,334,0,0" TextWrapping="Wrap" Text="45" VerticalAlignment="Top" Width="42" Grid.Column="1"/>
-        <Label x:Name="label7" Content="Recepie name:" HorizontalAlignment="Left" Margin="484,171,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <TextBox x:Name="NameTextBox" HorizontalAlignment="Left" Height="23" Margin="575,174,0,0" TextWrapping="Wrap" Text="My new beer" VerticalAlignment="Top" Width="151" Grid.Column="1"/>
+        <Button x:Name="AddMashStepButton" Content="Add" HorizontalAlignment="Right" Margin="0,258,752,0" VerticalAlignment="Top" Width="75" Click="AddMashStepButton_Click"/>
+        <Label x:Name="label4" Content="Temperature [C]:" HorizontalAlignment="Left" Margin="207,301,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label5" Content="Time [min]:" HorizontalAlignment="Left" Margin="236,332,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="MashStepTempTextBox" HorizontalAlignment="Left" Height="23" Margin="310,302,0,0" TextWrapping="Wrap" Text="67" VerticalAlignment="Top" Width="42"/>
+        <TextBox x:Name="MashStepTimeTextBox" HorizontalAlignment="Left" Height="23" Margin="310,334,0,0" TextWrapping="Wrap" Text="45" VerticalAlignment="Top" Width="42"/>
         <Label x:Name="label8" Content="Hops" HorizontalAlignment="Left" Margin="11,374,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.448,0.523"/>
+        <Label x:Name="ColorLabel" Content="Color [ECB]: 0" HorizontalAlignment="Left" Margin="451,109,0,0" VerticalAlignment="Top"/>
+        <Grid HorizontalAlignment="Left" Height="100" Margin="480,258,0,0" VerticalAlignment="Top" Width="100"/>
+        <Grid HorizontalAlignment="Left" Height="201" Margin="703,76,0,0" VerticalAlignment="Top" Width="250">
+            <Label x:Name="label2" Content="Expected original gravity [SG]:" HorizontalAlignment="Left" Margin="1,57,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="ExpectedOriginalGravityTextBox" HorizontalAlignment="Left" Height="23" Margin="182,61,0,0" TextWrapping="Wrap" Text="1,050" VerticalAlignment="Top" Width="61" TextChanged="ExpectedOriginalGravityTextBox_TextChanged" />
+            <Label x:Name="label3" Content="Batch size [L]:" HorizontalAlignment="Left" Margin="1,28,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.526,0.269"/>
+            <TextBox x:Name="BatchSizeVolumeTextBox" HorizontalAlignment="Left" Height="23" Margin="182,34,0,0" TextWrapping="Wrap" Text="25" VerticalAlignment="Top" Width="61" TextChanged="BatchSizeVolumeTextBox_TextChanged"/>
+            <Label x:Name="label1" Content="Boil time [min]:" HorizontalAlignment="Left" Margin="1,88,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="BoilTimeTextBox" HorizontalAlignment="Left" Height="23" Margin="182,91,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Top" Width="61" TextChanged="BoilTimeTextBox_TextChanged"/>
+            <Label x:Name="TopUpMashWaterVolumeLabel" Content="Top up mash water volume [L]:" HorizontalAlignment="Left" Margin="1,119,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="TopUpMashWaterVolumeTextBox" HorizontalAlignment="Left" Height="23" Margin="182,119,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="61" TextChanged="TopUpMashWaterVolumeTextBox_TextChanged"/>
+            <Label x:Name="label7" Content="Recepie name:" HorizontalAlignment="Left" Margin="1,150,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="NameTextBox" HorizontalAlignment="Left" Height="23" Margin="92,154,0,0" TextWrapping="Wrap" Text="My new beer" VerticalAlignment="Top" Width="151"/>
+        </Grid>
     </Grid>
 </Window>
