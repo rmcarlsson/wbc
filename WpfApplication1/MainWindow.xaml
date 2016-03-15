@@ -29,19 +29,6 @@
             </MenuItem>
 
         </Menu>
-        <Label x:Name="label" Content="Mash" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.684,0.128"/>
-        <Button x:Name="addGrains" Content="Add" HorizontalAlignment="Left" Margin="90.6,202,0,0" VerticalAlignment="Top" Width="75" Click="addGrains_Click" Grid.RowSpan="2" Grid.Column="2"/>
-        <ListView x:Name="MaltsListView" PreviewKeyDown="listView_KeyDown" HorizontalAlignment="Left" Height="121" Margin="10,76,0,0" VerticalAlignment="Top" Width="423" MouseDoubleClick="MaltsListView_MouseDoubleClick" Grid.ColumnSpan="3">
-            <ListView.View >
-                <GridView x:Name="MaltsGridView">
-                    <GridViewColumn DisplayMemberBinding="{Binding FermentableAdjunct.Name}"  Header="Fermentable" />
-                    <GridViewColumn DisplayMemberBinding="{Binding Amount}"  Header="Share [%]" />
-                    <GridViewColumn DisplayMemberBinding="{Binding AmountGrams}"  Header="Amount [kg]" />
-                    <GridViewColumn DisplayMemberBinding="{Binding Stage}"  Header="Added at" />
-                </GridView>
-            </ListView.View>
-
-        </ListView>
         <ListView x:Name="HopsListView" HorizontalAlignment="Left" Height="100" Margin="10,192,0,0" VerticalAlignment="Top" Width="423" MouseDoubleClick="HopsListView_MouseDoubleClick" Grid.Row="1" Grid.ColumnSpan="3" >
             <ListView.View>
                 <GridView>
@@ -55,9 +42,6 @@
         </ListView>
         <Button x:Name="button" Content="Add" HorizontalAlignment="Left" Margin="93.6,297,0,0" VerticalAlignment="Top" Width="75" Click="button_Click" Grid.Row="1" Grid.Column="2"/>
         <Label x:Name="IbuLabel" Content="IBU: 0" HorizontalAlignment="Left" Margin="186.6,267,0,0" VerticalAlignment="Top" Width="75" Grid.Row="1" Grid.Column="2"/>
-        <Label x:Name="MashWaterVolumeLabel" Content="Mash water volume [L]:" HorizontalAlignment="Left" Margin="173.6,141,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.491,0.471" Grid.Column="2"/>
-        <Label x:Name="SpargeWaterVolumeLabel" Content="Sparge water volume [L]:" HorizontalAlignment="Left" Margin="173.6,172,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.491,0.471" Grid.Column="2"/>
-        <Label x:Name="NoteLabel" Content="" HorizontalAlignment="Left" Margin="34,18,0,0" VerticalAlignment="Top" Width="168" Grid.Row="1"/>
         <ListView x:Name="MashStepListView" HorizontalAlignment="Left" Height="100" Margin="10,49,0,0" VerticalAlignment="Top" Width="154" KeyDown="MasStepListView_KeyDown" MouseDoubleClick="MasStepListView_MouseDoubleClick" Grid.Row="1">
             <ListView.View>
                 <GridView>
@@ -72,8 +56,25 @@
         <TextBox x:Name="MashStepTempTextBox" HorizontalAlignment="Left" Height="23" Margin="45.6,94,0,0" TextWrapping="Wrap" Text="67" VerticalAlignment="Top" Width="42" Grid.Row="1" Grid.Column="2"/>
         <TextBox x:Name="MashStepTimeTextBox" HorizontalAlignment="Left" Height="23" Margin="45.6,126,0,0" TextWrapping="Wrap" Text="45" VerticalAlignment="Top" Width="42" Grid.Row="1" Grid.Column="2"/>
         <Label x:Name="label8" Content="Hops" HorizontalAlignment="Left" Margin="11,166,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.448,0.523" Grid.Row="1"/>
-        <Label x:Name="ColorLabel" Content="Color [ECB]: 0" HorizontalAlignment="Left" Margin="186.6,109,0,0" VerticalAlignment="Top" Grid.Column="2"/>
-        <Grid HorizontalAlignment="Left" Height="100" Margin="215.6,50,0,0" VerticalAlignment="Top" Width="100" Grid.Row="1" Grid.Column="2"/>
+        <Grid HorizontalAlignment="Left" Height="206" Margin="11,33,0,0" VerticalAlignment="Top" Width="694" Grid.ColumnSpan="3" Grid.RowSpan="2">
+            <Label x:Name="label" Content="Mash" HorizontalAlignment="Left" Margin="14,16,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.684,0.128"/>
+            <Button x:Name="addGrains" Content="Add" HorizontalAlignment="Left" Margin="358,168,0,0" VerticalAlignment="Top" Width="75" Click="addGrains_Click"/>
+            <ListView x:Name="MaltsListView" PreviewKeyDown="listView_KeyDown" HorizontalAlignment="Left" Height="121" Margin="14,42,0,0" VerticalAlignment="Top" Width="423" MouseDoubleClick="MaltsListView_MouseDoubleClick">
+                <ListView.View >
+                    <GridView x:Name="MaltsGridView">
+                        <GridViewColumn DisplayMemberBinding="{Binding FermentableAdjunct.Name}"  Header="Fermentable" />
+                        <GridViewColumn DisplayMemberBinding="{Binding Amount}"  Header="Share [%]" />
+                        <GridViewColumn DisplayMemberBinding="{Binding AmountGrams}"  Header="Amount [kg]" />
+                        <GridViewColumn DisplayMemberBinding="{Binding Stage}"  Header="Added at" />
+                    </GridView>
+                </ListView.View>
+
+            </ListView>
+            <Label x:Name="MashWaterVolumeLabel" Content="Mash water volume [L]:" HorizontalAlignment="Left" Margin="441,107,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.491,0.471"/>
+            <Label x:Name="SpargeWaterVolumeLabel" Content="Sparge water volume [L]:" HorizontalAlignment="Left" Margin="441,138,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.491,0.471"/>
+            <Label x:Name="NoteLabel" Content="" HorizontalAlignment="Left" Margin="38,192,0,0" VerticalAlignment="Top" Width="168"/>
+            <Label x:Name="ColorLabel" Content="Color [ECB]: 0" HorizontalAlignment="Left" Margin="454,75,0,0" VerticalAlignment="Top"/>
+        </Grid>
         <Grid HorizontalAlignment="Left" Height="201" Margin="438.6,76,0,0" VerticalAlignment="Top" Width="250" Grid.RowSpan="2" Grid.Column="2">
             <Label x:Name="label2" Content="Expected original gravity [SG]:" HorizontalAlignment="Left" Margin="1,57,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="ExpectedOriginalGravityTextBox" HorizontalAlignment="Left" Height="23" Margin="182,61,0,0" TextWrapping="Wrap" Text="1,050" VerticalAlignment="Top" Width="61" TextChanged="ExpectedOriginalGravityTextBox_TextChanged" />
