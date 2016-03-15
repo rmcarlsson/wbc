@@ -50,7 +50,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>e8b8c7_75e44bd979314375a05c7500d932e4d7_QFQ_icon.ico</ApplicationIcon>
+    <ApplicationIcon>qzez0_text_i0y_icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
@@ -185,7 +185,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="e8b8c7_75e44bd979314375a05c7500d932e4d7_QFQ_icon.ico" />
+    <Resource Include="qzez0_text_i0y_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

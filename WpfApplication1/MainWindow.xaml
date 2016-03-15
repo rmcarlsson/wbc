@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GFCalc"
         mc:Ignorable="d"
-        Title="Grainfather " Height="821.534" Width="1038.333" Closing="Window_Closing" Icon="e8b8c7_75e44bd979314375a05c7500d932e4d7_QFQ_icon.ico">
+        Title="Grainsim" Height="821.534" Width="1038.333" Closing="Window_Closing" Icon="qzez0_text_i0y_icon.ico">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="28*"/>
