@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApplication1", "WpfApplication1\WpfApplication1.csproj", "{0DABAF31-A24B-4C76-A278-1852D1D77EA3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grainsim", "WpfApplication1\Grainsim.csproj", "{0DABAF31-A24B-4C76-A278-1852D1D77EA3}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup3", "Setup3\Setup3.vdproj", "{B8ECCF0C-08AF-4A73-9326-E59CD8CEA1D6}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "GrainsimSetup", "Setup3\Setup3.vdproj", "{B8ECCF0C-08AF-4A73-9326-E59CD8CEA1D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSImporter", "BSImporter\BSImporter.csproj", "{17676CC8-E906-48FC-B864-DD00428765D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,6 +21,10 @@ Global
 		{0DABAF31-A24B-4C76-A278-1852D1D77EA3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B8ECCF0C-08AF-4A73-9326-E59CD8CEA1D6}.Debug|Any CPU.ActiveCfg = Debug
 		{B8ECCF0C-08AF-4A73-9326-E59CD8CEA1D6}.Release|Any CPU.ActiveCfg = Release
+		{17676CC8-E906-48FC-B864-DD00428765D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17676CC8-E906-48FC-B864-DD00428765D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17676CC8-E906-48FC-B864-DD00428765D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17676CC8-E906-48FC-B864-DD00428765D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

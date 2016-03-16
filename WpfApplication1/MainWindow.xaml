@@ -5,18 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GFCalc"
         mc:Ignorable="d"
-        Title="Grainsim" Height="821.534" Width="1038.333" Closing="Window_Closing" Icon="qzez0_text_i0y_icon.ico">
+        Title="Grainsim" Height="600" Width="950" Closing="Window_Closing" Icon="qzez0_text_i0y_icon.ico">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="28*"/>
-            <ColumnDefinition Width="5*"/>
-            <ColumnDefinition Width="96*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="104*"/>
-            <RowDefinition Height="293*"/>
-        </Grid.RowDefinitions>
-        <Menu Margin="0,0,0,180" Grid.ColumnSpan="3" >
+
+
+        <Menu Margin="0,0,0,544" >
             <MenuItem Header="_File">
                 <MenuItem Header="_Open" Click="MenuItem_Open"/>
                 <MenuItem Header="_Save" Click="MenuItem_Click"/>
@@ -27,36 +20,12 @@
                 <MenuItem Header="_Add hops" Click="MenuItem_Add_Hops" />
                 <MenuItem Header="_Add malt" Click="MenuItem_Click_3"/>
             </MenuItem>
+            <MenuItem Header="_Help">
+                <MenuItem Header="_About" />
+            </MenuItem>
 
         </Menu>
-        <ListView x:Name="HopsListView" HorizontalAlignment="Left" Height="100" Margin="10,192,0,0" VerticalAlignment="Top" Width="423" MouseDoubleClick="HopsListView_MouseDoubleClick" Grid.Row="1" Grid.ColumnSpan="3" >
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Hop.Name}"  Header="Hops" />
-                    <GridViewColumn DisplayMemberBinding="{Binding Hop.AlphaAcid}"  Header="Alpha acid[%]" />
-                    <GridViewColumn DisplayMemberBinding="{Binding Amount}"  Header="Amount [g/L]" />
-                    <GridViewColumn DisplayMemberBinding="{Binding Minutes}"  Header="Boil time [min]" />
-
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <Button x:Name="button" Content="Add" HorizontalAlignment="Left" Margin="93.6,297,0,0" VerticalAlignment="Top" Width="75" Click="button_Click" Grid.Row="1" Grid.Column="2"/>
-        <Label x:Name="IbuLabel" Content="IBU: 0" HorizontalAlignment="Left" Margin="186.6,267,0,0" VerticalAlignment="Top" Width="75" Grid.Row="1" Grid.Column="2"/>
-        <ListView x:Name="MashStepListView" HorizontalAlignment="Left" Height="100" Margin="10,49,0,0" VerticalAlignment="Top" Width="154" KeyDown="MasStepListView_KeyDown" MouseDoubleClick="MasStepListView_MouseDoubleClick" Grid.Row="1">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Temperature}"  Header="Temperature [C]" />
-                    <GridViewColumn DisplayMemberBinding="{Binding Time}"  Header="Time [min]" />
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <Button x:Name="AddMashStepButton" Content="Add" HorizontalAlignment="Right" Margin="0,50,752,0" VerticalAlignment="Top" Width="75" Click="AddMashStepButton_Click" Grid.Row="1" Grid.ColumnSpan="3"/>
-        <Label x:Name="label4" Content="Temperature [C]:" HorizontalAlignment="Left" Margin="207,93,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.ColumnSpan="3"/>
-        <Label x:Name="label5" Content="Time [min]:" HorizontalAlignment="Left" Margin="12,124,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="MashStepTempTextBox" HorizontalAlignment="Left" Height="23" Margin="45.6,94,0,0" TextWrapping="Wrap" Text="67" VerticalAlignment="Top" Width="42" Grid.Row="1" Grid.Column="2"/>
-        <TextBox x:Name="MashStepTimeTextBox" HorizontalAlignment="Left" Height="23" Margin="45.6,126,0,0" TextWrapping="Wrap" Text="45" VerticalAlignment="Top" Width="42" Grid.Row="1" Grid.Column="2"/>
-        <Label x:Name="label8" Content="Hops" HorizontalAlignment="Left" Margin="11,166,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.448,0.523" Grid.Row="1"/>
-        <Grid HorizontalAlignment="Left" Height="206" Margin="11,33,0,0" VerticalAlignment="Top" Width="694" Grid.ColumnSpan="3" Grid.RowSpan="2">
+        <Grid HorizontalAlignment="Left" Height="206" Margin="10,33,0,0" VerticalAlignment="Top" Width="628">
             <Label x:Name="label" Content="Mash" HorizontalAlignment="Left" Margin="14,16,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.684,0.128"/>
             <Button x:Name="addGrains" Content="Add" HorizontalAlignment="Left" Margin="358,168,0,0" VerticalAlignment="Top" Width="75" Click="addGrains_Click"/>
             <ListView x:Name="MaltsListView" PreviewKeyDown="listView_KeyDown" HorizontalAlignment="Left" Height="121" Margin="14,42,0,0" VerticalAlignment="Top" Width="423" MouseDoubleClick="MaltsListView_MouseDoubleClick">
@@ -75,7 +44,7 @@
             <Label x:Name="NoteLabel" Content="" HorizontalAlignment="Left" Margin="38,192,0,0" VerticalAlignment="Top" Width="168"/>
             <Label x:Name="ColorLabel" Content="Color [ECB]: 0" HorizontalAlignment="Left" Margin="454,75,0,0" VerticalAlignment="Top"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="201" Margin="438.6,76,0,0" VerticalAlignment="Top" Width="250" Grid.RowSpan="2" Grid.Column="2">
+        <Grid HorizontalAlignment="Left" Height="201" Margin="668,33,0,0" VerticalAlignment="Top" Width="250" Grid.RowSpan="2">
             <Label x:Name="label2" Content="Expected original gravity [SG]:" HorizontalAlignment="Left" Margin="1,57,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="ExpectedOriginalGravityTextBox" HorizontalAlignment="Left" Height="23" Margin="182,61,0,0" TextWrapping="Wrap" Text="1,050" VerticalAlignment="Top" Width="61" TextChanged="ExpectedOriginalGravityTextBox_TextChanged" />
             <Label x:Name="label3" Content="Batch size [L]:" HorizontalAlignment="Left" Margin="1,28,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.526,0.269"/>
@@ -87,5 +56,37 @@
             <Label x:Name="label7" Content="Recepie name:" HorizontalAlignment="Left" Margin="1,150,0,0" VerticalAlignment="Top"/>
             <TextBox x:Name="NameTextBox" HorizontalAlignment="Left" Height="23" Margin="92,154,0,0" TextWrapping="Wrap" Text="My new beer" VerticalAlignment="Top" Width="151"/>
         </Grid>
+        <Grid HorizontalAlignment="Left" Height="153" Margin="11,213,0,0" VerticalAlignment="Top" Width="378">
+            <ListView x:Name="MashStepListView" HorizontalAlignment="Left" Height="100" Margin="11,12,0,0" VerticalAlignment="Top" Width="154" KeyDown="MasStepListView_KeyDown" MouseDoubleClick="MasStepListView_MouseDoubleClick">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding Temperature}"  Header="Temperature [C]" />
+                        <GridViewColumn DisplayMemberBinding="{Binding Time}"  Header="Time [min]" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Button x:Name="AddMashStepButton" Content="Add" HorizontalAlignment="Right" Margin="0,13,97,0" VerticalAlignment="Top" Width="75" Click="AddMashStepButton_Click"/>
+            <Label x:Name="label4" Content="Temperature [C]:" HorizontalAlignment="Left" Margin="208,56,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="label5" Content="Time [min]:" HorizontalAlignment="Left" Margin="237,87,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="MashStepTempTextBox" HorizontalAlignment="Left" Height="23" Margin="311,57,0,0" TextWrapping="Wrap" Text="67" VerticalAlignment="Top" Width="42"/>
+            <TextBox x:Name="MashStepTimeTextBox" HorizontalAlignment="Left" Height="23" Margin="311,89,0,0" TextWrapping="Wrap" Text="45" VerticalAlignment="Top" Width="42"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="182" Margin="11,366,0,0" VerticalAlignment="Top" Width="628">
+            <ListView x:Name="HopsListView" HorizontalAlignment="Left" Height="100" Margin="14,37,0,0" VerticalAlignment="Top" Width="423" MouseDoubleClick="HopsListView_MouseDoubleClick" >
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding Hop.Name}"  Header="Hops" />
+                        <GridViewColumn DisplayMemberBinding="{Binding Hop.AlphaAcid}"  Header="Alpha acid[%]" />
+                        <GridViewColumn DisplayMemberBinding="{Binding Amount}"  Header="Amount [g/L]" />
+                        <GridViewColumn DisplayMemberBinding="{Binding Minutes}"  Header="Boil time [min]" />
+
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Button x:Name="button" Content="Add" HorizontalAlignment="Left" Margin="362,142,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+            <Label x:Name="IbuLabel" Content="IBU: 0" HorizontalAlignment="Left" Margin="468,111,0,0" VerticalAlignment="Top" Width="75"/>
+            <Label x:Name="label8" Content="Hops" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.448,0.523"/>
+        </Grid>
+        <StatusBar HorizontalAlignment="Left" Height="23" Margin="10,553,0,0" Grid.Row="1" VerticalAlignment="Top" Width="1012"/>
     </Grid>
 </Window>

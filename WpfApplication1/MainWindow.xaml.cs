@@ -12,6 +12,7 @@ using WpfApplication1;
 using WpfApplication1.Domain;
 using System.Xml.Serialization;
 using System.IO;
+using System.Xml;
 
 namespace GFCalc
 {
@@ -371,9 +372,23 @@ namespace GFCalc
             if (result != true)
                 return;
 
+            if (!TryOpenFile(dlg.FileName))
+                MessageBox.Show("Unable to parse recepie");
+
+                
+
+
+        }
+
+        private bool TryOpenFile(string aFileName)
+        {
             XmlSerializer serializer = new XmlSerializer(typeof(Recepie));
-            FileStream loadStream = new FileStream(dlg.FileName, FileMode.Open, FileAccess.Read);
-            Recepie loadedObject = (Recepie)serializer.Deserialize(loadStream);
+            FileStream loadStream = new FileStream(aFileName, FileMode.Open, FileAccess.Read);
+            XmlReader reader = new XmlTextReader(loadStream);
+            if (!serializer.CanDeserialize(reader))
+                return false;
+
+            Recepie loadedObject = (Recepie)serializer.Deserialize(reader);
             loadStream.Close();
             Grist.Clear();
             foreach (GristPart g in loadedObject.Grist)
@@ -399,6 +414,7 @@ namespace GFCalc
 
             updateGuiTextboxes();
 
+            return true;
         }
 
         private void updateGuiTextboxes()
