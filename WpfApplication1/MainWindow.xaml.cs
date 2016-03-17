@@ -117,16 +117,13 @@ namespace GFCalc
             {
                 TopUpMashWaterVolumeTextBox.Visibility = Visibility.Hidden;
                 TopUpMashWaterVolumeLabel.Visibility = Visibility.Hidden;
-                NoteLabel.Visibility = Visibility.Hidden;
+ 
             }
             else
             {
                 TopUpMashWaterVolumeTextBox.Visibility = Visibility.Visible;
                 TopUpMashWaterVolumeLabel.Visibility = Visibility.Visible;
                 topUpVolume = TopUpMashWater;
-
-                NoteLabel.Visibility = Visibility.Visible;
-                NoteLabel.Content = "Note: small grain bill.Top up mash water";
 
             }
             try

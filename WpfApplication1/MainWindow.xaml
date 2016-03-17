@@ -5,20 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GFCalc"
         mc:Ignorable="d"
-        Title="Grainsim" Width="Auto" Height="Auto" SizeToContent="WidthAndHeight" Closing="Window_Closing" Icon="qzez0_text_i0y_icon.ico">
-    <Grid>
+        Title="Grainsim"  SizeToContent="WidthAndHeight" Closing="Window_Closing" Icon="qzez0_text_i0y_icon.ico">
+    <Grid Height="Auto" Width="Auto">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*">
+            </ColumnDefinition>
+            <ColumnDefinition Width="*">
+            </ColumnDefinition>
+
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            
-            <RowDefinition Height="25*"/>
+            <RowDefinition Height="Auto">
+            </RowDefinition>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
 
-        <Menu HorizontalAlignment="Center" VerticalAlignment="Top" Margin="398,0" >
+        <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" VerticalAlignment="Center">
             <MenuItem Header="_File">
                 <MenuItem Header="_Open" Click="MenuItem_Open"/>
                 <MenuItem Header="_Save" Click="MenuItem_Click"/>
@@ -32,70 +36,94 @@
             <MenuItem Header="_Help">
                 <MenuItem Header="_About" />
             </MenuItem>
-
         </Menu>
-        <Grid HorizontalAlignment="Left" Height="206" Margin="10,10.7,0,0" VerticalAlignment="Top" Width="628" Grid.Row="1">
-            <Label x:Name="label" Content="Mash" HorizontalAlignment="Left" Margin="14,16,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.684,0.128"/>
-            <Button x:Name="addGrains" Content="Add" HorizontalAlignment="Left" Margin="358,168,0,0" VerticalAlignment="Top" Width="75" Click="addGrains_Click"/>
-            <ListView x:Name="MaltsListView" PreviewKeyDown="listView_KeyDown" HorizontalAlignment="Left" Height="121" Margin="14,42,0,0" VerticalAlignment="Top" Width="423" MouseDoubleClick="MaltsListView_MouseDoubleClick">
-                <ListView.View >
-                    <GridView x:Name="MaltsGridView">
-                        <GridViewColumn DisplayMemberBinding="{Binding FermentableAdjunct.Name}"  Header="Fermentable" />
-                        <GridViewColumn DisplayMemberBinding="{Binding Amount}"  Header="Share [%]" />
-                        <GridViewColumn DisplayMemberBinding="{Binding AmountGrams}"  Header="Amount [kg]" />
-                        <GridViewColumn DisplayMemberBinding="{Binding Stage}"  Header="Added at" />
-                    </GridView>
-                </ListView.View>
 
-            </ListView>
-            <Label x:Name="MashWaterVolumeLabel" Content="Mash water volume [L]:" HorizontalAlignment="Left" Margin="441,107,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.491,0.471"/>
-            <Label x:Name="SpargeWaterVolumeLabel" Content="Sparge water volume [L]:" HorizontalAlignment="Left" Margin="441,138,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.491,0.471"/>
-            <Label x:Name="NoteLabel" Content="" HorizontalAlignment="Left" Margin="38,192,0,0" VerticalAlignment="Top" Width="168"/>
-            <Label x:Name="ColorLabel" Content="Color [ECB]: 0" HorizontalAlignment="Left" Margin="454,75,0,0" VerticalAlignment="Top"/>
-        </Grid>
-        <Grid HorizontalAlignment="Left" Height="201" Margin="668,10.7,0,0" VerticalAlignment="Top" Width="250" Grid.Row="1">
-            <Label x:Name="label2" Content="Expected original gravity [SG]:" HorizontalAlignment="Left" Margin="1,57,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="ExpectedOriginalGravityTextBox" HorizontalAlignment="Left" Height="23" Margin="182,61,0,0" TextWrapping="Wrap" Text="1,050" VerticalAlignment="Top" Width="61" TextChanged="ExpectedOriginalGravityTextBox_TextChanged" />
-            <Label x:Name="label3" Content="Batch size [L]:" HorizontalAlignment="Left" Margin="1,28,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.526,0.269"/>
-            <TextBox x:Name="BatchSizeVolumeTextBox" HorizontalAlignment="Left" Height="23" Margin="182,34,0,0" TextWrapping="Wrap" Text="25" VerticalAlignment="Top" Width="61" TextChanged="BatchSizeVolumeTextBox_TextChanged"/>
-            <Label x:Name="label1" Content="Boil time [min]:" HorizontalAlignment="Left" Margin="1,88,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="BoilTimeTextBox" HorizontalAlignment="Left" Height="23" Margin="182,91,0,0" TextWrapping="Wrap" Text="60" VerticalAlignment="Top" Width="61" TextChanged="BoilTimeTextBox_TextChanged"/>
-            <Label x:Name="TopUpMashWaterVolumeLabel" Content="Top up mash water volume [L]:" HorizontalAlignment="Left" Margin="1,119,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="TopUpMashWaterVolumeTextBox" HorizontalAlignment="Left" Height="23" Margin="182,119,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="61" TextChanged="TopUpMashWaterVolumeTextBox_TextChanged"/>
-            <Label x:Name="label7" Content="Recepie name:" HorizontalAlignment="Left" Margin="1,150,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="NameTextBox" HorizontalAlignment="Left" Height="23" Margin="92,154,0,0" TextWrapping="Wrap" Text="My new beer" VerticalAlignment="Top" Width="151"/>
-        </Grid>
-        <Grid HorizontalAlignment="Left" Height="153" Margin="11,190.7,0,0" VerticalAlignment="Top" Width="378" Grid.Row="1">
-            <ListView x:Name="MashStepListView" HorizontalAlignment="Left" Height="100" Margin="11,12,0,0" VerticalAlignment="Top" Width="154" KeyDown="MasStepListView_KeyDown" MouseDoubleClick="MasStepListView_MouseDoubleClick">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn DisplayMemberBinding="{Binding Temperature}"  Header="Temperature [C]" />
-                        <GridViewColumn DisplayMemberBinding="{Binding Time}"  Header="Time [min]" />
-                    </GridView>
-                </ListView.View>
-            </ListView>
-            <Button x:Name="AddMashStepButton" Content="Add" HorizontalAlignment="Right" Margin="0,13,97,0" VerticalAlignment="Top" Width="75" Click="AddMashStepButton_Click"/>
-            <Label x:Name="label4" Content="Temperature [C]:" HorizontalAlignment="Left" Margin="208,56,0,0" VerticalAlignment="Top"/>
-            <Label x:Name="label5" Content="Time [min]:" HorizontalAlignment="Left" Margin="237,87,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="MashStepTempTextBox" HorizontalAlignment="Left" Height="23" Margin="311,57,0,0" TextWrapping="Wrap" Text="67" VerticalAlignment="Top" Width="42"/>
-            <TextBox x:Name="MashStepTimeTextBox" HorizontalAlignment="Left" Height="23" Margin="311,89,0,0" TextWrapping="Wrap" Text="45" VerticalAlignment="Top" Width="42"/>
-        </Grid>
-        <Grid HorizontalAlignment="Left" Height="182" Margin="11,343.7,0,0" VerticalAlignment="Top" Width="628" Grid.Row="1">
-            <ListView x:Name="HopsListView" HorizontalAlignment="Left" Height="100" Margin="14,37,0,0" VerticalAlignment="Top" Width="423" MouseDoubleClick="HopsListView_MouseDoubleClick" >
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn DisplayMemberBinding="{Binding Hop.Name}"  Header="Hops" />
-                        <GridViewColumn DisplayMemberBinding="{Binding Hop.AlphaAcid}"  Header="Alpha acid[%]" />
-                        <GridViewColumn DisplayMemberBinding="{Binding Amount}"  Header="Amount [g/L]" />
-                        <GridViewColumn DisplayMemberBinding="{Binding Minutes}"  Header="Boil time [min]" />
 
-                    </GridView>
-                </ListView.View>
-            </ListView>
-            <Button x:Name="button" Content="Add" HorizontalAlignment="Left" Margin="362,142,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
-            <Label x:Name="IbuLabel" Content="IBU: 0" HorizontalAlignment="Left" Margin="468,111,0,0" VerticalAlignment="Top" Width="75"/>
-            <Label x:Name="label8" Content="Hops" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.448,0.523"/>
-        </Grid>
-        <StatusBar HorizontalAlignment="Left" Height="23" Margin="-10,0,0,10" VerticalAlignment="Bottom" Width="944" Grid.Row="1"/>
+
+        <GroupBox x:Name="groupBox" Header="Mash - grainbill" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="197" Width="453">
+            <Canvas>
+                <ListView x:Name="MaltsListView" PreviewKeyDown="listView_KeyDown" HorizontalAlignment="Left" Height="121" Margin="10,10,0,0" VerticalAlignment="Top" Width="423" MouseDoubleClick="MaltsListView_MouseDoubleClick">
+                    <ListView.View >
+                        <GridView x:Name="MaltsGridView">
+                            <GridViewColumn DisplayMemberBinding="{Binding FermentableAdjunct.Name}"  Header="Fermentable" />
+                            <GridViewColumn DisplayMemberBinding="{Binding Amount}"  Header="Share [%]" />
+                            <GridViewColumn DisplayMemberBinding="{Binding AmountGrams}"  Header="Amount [kg]" />
+                            <GridViewColumn DisplayMemberBinding="{Binding Stage}"  Header="Added at" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <Button x:Name="addGrains" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="addGrains_Click" Grid.Row="1" Canvas.Left="358" Canvas.Top="136"/>
+            </Canvas>
+        </GroupBox>
+
+
+
+
+        <GroupBox x:Name="groupBox1" Header="Mash - Profile" HorizontalAlignment="Left" Margin="11,211.8,0,0" Grid.Row="1" VerticalAlignment="Top" Height="148" Width="420">
+            <Canvas>
+                <ListView x:Name="MashStepListView" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="191" KeyDown="MasStepListView_KeyDown" MouseDoubleClick="MasStepListView_MouseDoubleClick" Canvas.Left="10" Canvas.Top="10">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn DisplayMemberBinding="{Binding Temperature}"  Header="Temperature [C]" />
+                            <GridViewColumn DisplayMemberBinding="{Binding Time}"  Header="Time [min]" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <Button x:Name="AddMashStepButton" Content="Add" HorizontalAlignment="Right" VerticalAlignment="Top" Width="75" Click="AddMashStepButton_Click" Canvas.Left="320" Canvas.Top="88"/>
+                <Label x:Name="label4" Content="Temperature [C]:" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="250" Canvas.Top="12"/>
+                <Label x:Name="label5" Content="Time [min]:" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="280" Canvas.Top="44"/>
+                <TextBox x:Name="MashStepTempTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="67" VerticalAlignment="Top" Width="42" Canvas.Left="353" Canvas.Top="13"/>
+                <TextBox x:Name="MashStepTimeTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="45" VerticalAlignment="Top" Width="42" Canvas.Left="353" Canvas.Top="45"/>
+
+            </Canvas>
+        </GroupBox>
+
+
+        <GroupBox x:Name="groupBox2" Header="Hops" HorizontalAlignment="Left" Margin="11,364.8,0,0" Grid.Row="1" VerticalAlignment="Top" Height="198" Width="456">
+            <Canvas>
+                <ListView x:Name="HopsListView" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="423" MouseDoubleClick="HopsListView_MouseDoubleClick" Canvas.Left="10" Canvas.Top="10" >
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn DisplayMemberBinding="{Binding Hop.Name}"  Header="Hops" />
+                            <GridViewColumn DisplayMemberBinding="{Binding Hop.AlphaAcid}"  Header="Alpha acid[%]" />
+                            <GridViewColumn DisplayMemberBinding="{Binding Amount}"  Header="Amount [g/L]" />
+                            <GridViewColumn DisplayMemberBinding="{Binding Minutes}"  Header="Boil time [min]" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <Button x:Name="button" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="button_Click" Canvas.Left="357" Canvas.Top="115"/>
+                <Label x:Name="IbuLabel" Content="IBU: 0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Canvas.Left="358" Canvas.Top="142"/>
+            </Canvas>
+        </GroupBox>
+
+
+        <GroupBox x:Name="groupBox3" Header="Recipe data" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Height="395" Width="367">
+            <Canvas>
+                <Label x:Name="MashWaterVolumeLabel" Content="Mash water volume [L]:" HorizontalAlignment="Left" VerticalAlignment="Top"  Height="26" Width="133" Canvas.Left="18" Canvas.Top="280"/>
+                <Label x:Name="SpargeWaterVolumeLabel" Content="Sparge water volume [L]:" HorizontalAlignment="Left"  VerticalAlignment="Top"  Height="26" Width="141" Canvas.Left="10" Canvas.Top="249"/>
+                <Label x:Name="ColorLabel" Content="Color [ECB]: 0" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="26" Width="82" Canvas.Left="69" Canvas.Top="311"/>
+
+
+                <Label x:Name="label2" Content="Expected original gravity [SG]:" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="32" Width="168" Canvas.Left="9" Canvas.Top="167"/>
+                <TextBox x:Name="ExpectedOriginalGravityTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="1,050" VerticalAlignment="Top" Width="61" TextChanged="ExpectedOriginalGravityTextBox_TextChanged" Grid.Row="1" Canvas.Left="182" Canvas.Top="169" />
+
+                <Label x:Name="label3" Content="Batch size [L]:" HorizontalAlignment="Left"   Height="32" Width="82" Canvas.Left="10" Canvas.Top="212"/>
+                <TextBox x:Name="BatchSizeVolumeTextBox" HorizontalAlignment="Left" Height="23" Text="25" VerticalAlignment="Top" Width="61" TextChanged="BatchSizeVolumeTextBox_TextChanged" Grid.Row="1" Canvas.Left="182" Canvas.Top="221"/>
+
+                <Label x:Name="label1" Content="Boil time [min]:" HorizontalAlignment="Left" Height="32" Width="90" Canvas.Left="87" Canvas.Top="8"/>
+                <TextBox x:Name="BoilTimeTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="60" VerticalAlignment="Top" Width="61" TextChanged="BoilTimeTextBox_TextChanged" Grid.Row="1" Canvas.Left="182" Canvas.Top="10"/>
+
+                <Label x:Name="TopUpMashWaterVolumeLabel" Content="Top up mash water volume [L]:" HorizontalAlignment="Left"  Height="32" Width="173" Canvas.Left="4" Canvas.Top="129"/>
+                <TextBox x:Name="TopUpMashWaterVolumeTextBox" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="61" TextChanged="TopUpMashWaterVolumeTextBox_TextChanged" Grid.Row="1" Canvas.Left="182" Canvas.Top="131" RenderTransformOrigin="0.477,0.535"/>
+
+                <Label x:Name="label7" Content="Recepie name:" HorizontalAlignment="Left"  Height="32"  Width="86" Canvas.Left="91" Canvas.Top="86"/>
+                <TextBox x:Name="NameTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="My new beer" VerticalAlignment="Top" Width="151" Canvas.Left="182" Canvas.Top="88" />
+            </Canvas>
+        </GroupBox>
+
+
+        <StatusBar HorizontalAlignment="Center" Height="25"  Grid.ColumnSpan="2" VerticalAlignment="Bottom"  Grid.Row="2"/>
+
+
     </Grid>
 </Window>

@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 using GFCalc.DataModel;
 
@@ -39,7 +37,6 @@ namespace GFCalc.Repos
 
         public void AddFermentable(FermentableAdjunct aFermentable, bool aUpdatedEnabled)
         {
-            bool ret = true;
 
             var found = ferms.FirstOrDefault(x => x.Name == aFermentable.Name);
             if (aUpdatedEnabled)
@@ -51,7 +48,7 @@ namespace GFCalc.Repos
             else if (found == null)
                 ferms.Add(aFermentable);
             else
-                throw new ArgumentException(String.Format("Fermetbale with name = {0] is already present. Please use another name.", aFermentable.Name));
+                throw new ArgumentException(String.Format("Fermentable with name = {0] is already present. Please use another name.", aFermentable.Name));
 
             Persist();
 

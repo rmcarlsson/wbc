@@ -46,7 +46,6 @@ namespace GFCalc.Repos
 
         public void AddHops(Hops aHop, bool aUpdatedEnabled)
         {
-            bool ret = true;
 
             var found = hopses.FirstOrDefault(x => x.Name == aHop.Name);
             if (aUpdatedEnabled)
