@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grainsim", "WpfApplication1
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "GrainsimSetup", "Setup3\Setup3.vdproj", "{B8ECCF0C-08AF-4A73-9326-E59CD8CEA1D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSImporter", "BSImporter\BSImporter.csproj", "{17676CC8-E906-48FC-B864-DD00428765D9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BSImport", "BSImporter\BSImport.csproj", "{17676CC8-E906-48FC-B864-DD00428765D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

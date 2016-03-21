@@ -13,6 +13,8 @@ using WpfApplication1.Domain;
 using System.Xml.Serialization;
 using System.IO;
 using System.Xml;
+using BSImport;
+using WpfApplication1.BeersmithImporterWizard;
 
 namespace GFCalc
 {
@@ -370,11 +372,20 @@ namespace GFCalc
                 return;
 
             if (!TryOpenFile(dlg.FileName))
+            {
                 MessageBox.Show("Unable to parse recepie");
+                importBeersmithRecipe(dlg.FileName);
+            }  
 
-                
 
+        }
 
+        private void importBeersmithRecipe(string aRecipeFileName)
+        {
+            var bsi = new BSImporter(aRecipeFileName);
+            var bsiw = new TCW(bsi.GetAllRecipes().FirstOrDefault(), MaltRepo);
+            bsiw.ShowDialog();
+            
         }
 
         private bool TryOpenFile(string aFileName)

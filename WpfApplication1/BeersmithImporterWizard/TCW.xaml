@@ -1,0 +1,79 @@
+﻿<Window x:Class="WpfApplication1.BeersmithImporterWizard.TCW"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1.BeersmithImporterWizard"
+        mc:Ignorable="d"
+        Title="TCW" Height="300" Width="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="35"/>
+        </Grid.RowDefinitions>
+        <TabControl x:Name="tabControl" Grid.Row="1" BorderThickness="0">
+            <TabControl.Resources>
+                <Style TargetType="TabItem">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="TabItem"/>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TabControl.Resources>
+            <TabItem Header ="Recepie select" >
+                <Grid>
+                    <Label Content="Select Recipe" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <ComboBox Name="RecipeNameCombobox" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center" Width="200"/>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header ="Select malts" >
+                <Grid>
+                    <Label Content="Select malts" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBlock Name="TextblockMalts" VerticalAlignment="Top" HorizontalAlignment="Right" Width="250" Height="100"/>
+                    <ListView x:Name="MaltsListView" Margin="10" Grid.Row ="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="150" Width="300" >
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn DisplayMemberBinding="{Binding Name}"  Header="Name" />
+                                <GridViewColumn DisplayMemberBinding="{Binding Potential}"  Header="Potential" />
+                                <GridViewColumn DisplayMemberBinding="{Binding Color}"  Header="Color" />
+                            </GridView>
+                        </ListView.View>
+
+                    </ListView>
+                    <Button Name="AddNewMalts" Content="Add new" Margin ="0,0,10,10" Width="100" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+                </Grid>
+            </TabItem>
+
+
+
+            <TabItem Header ="Select hops" >
+                <Grid>
+                    <Label Content="Select hops" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBlock Name="TextblockHops" VerticalAlignment="Top" HorizontalAlignment="Right" Width="250" Height="100"/>
+                    <ListView x:Name="HopsListView" Grid.Row ="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="150" Width="300" >
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn DisplayMemberBinding="{Binding Name}"  Header="Name" />
+                                <GridViewColumn DisplayMemberBinding="{Binding Potential}"  Header="Potential" />
+                                <GridViewColumn DisplayMemberBinding="{Binding Color}"  Header="Color" />
+                            </GridView>
+                        </ListView.View>
+
+                    </ListView>
+                    <Button Name="AddNewHops" Content="Add new" Margin ="0,0,10,10" Width="100" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+
+
+        <WrapPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Name="PreviousButton" Content="Previous" Width="100" Click="PreviousButton_Click"/>
+            <Button Name="NextButton" Content="Next" Width="100" Click="NextButton_Click"/>
+            <Button Name="FinishButton" Content="Finish" Width="100" Click="FinishButton_Click"/>
+        </WrapPanel>
+    </Grid>
+</Window>

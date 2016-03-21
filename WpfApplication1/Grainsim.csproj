@@ -77,6 +77,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BeersmithImporterWizard\TCW.xaml.cs">
+      <DependentUpon>TCW.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DataModel\Country.cs" />
     <Compile Include="DataModel\FermentableAdjunct.cs" />
     <Compile Include="DataModel\Hops.cs" />
@@ -153,6 +156,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="BeersmithImporterWizard\TCW.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Domain\AlterHopsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -186,6 +193,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="qzez0_text_i0y_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BSImporter\BSImport.csproj">
+      <Project>{17676cc8-e906-48fc-b864-dd00428765d9}</Project>
+      <Name>BSImport</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

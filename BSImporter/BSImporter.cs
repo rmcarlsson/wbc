@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Xml.XPath;
 
-namespace BSImporter
+namespace BSImport
 {
-    class BSImporter
+    public class BSImporter
     {
         // XPaths
         private const string XPATH_FOR_RECIPIES = "//Data/Recipe";
@@ -38,7 +38,7 @@ namespace BSImporter
             XDoc = XDocument.Parse(s);
         }
 
-        internal IEnumerable<BSMashStep> getMashProfile(string aRecipeName)
+        public IEnumerable<BSMashStep> getMashProfile(string aRecipeName)
         {
             var ret = new List<BSMashStep>();
             string errMsg = null;

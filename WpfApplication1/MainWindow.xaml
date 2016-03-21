@@ -18,6 +18,8 @@
             <RowDefinition Height="Auto">
             </RowDefinition>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
@@ -59,7 +61,7 @@
 
 
 
-        <GroupBox x:Name="groupBox1" Header="Mash - Profile" HorizontalAlignment="Left" Margin="11,211.8,0,0" Grid.Row="1" VerticalAlignment="Top" Height="148" Width="420">
+        <GroupBox x:Name="groupBox1" Header="Mash - Profile" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Height="148" Width="420">
             <Canvas>
                 <ListView x:Name="MashStepListView" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="191" KeyDown="MasStepListView_KeyDown" MouseDoubleClick="MasStepListView_MouseDoubleClick" Canvas.Left="10" Canvas.Top="10">
                     <ListView.View>
@@ -79,7 +81,7 @@
         </GroupBox>
 
 
-        <GroupBox x:Name="groupBox2" Header="Hops" HorizontalAlignment="Left" Margin="11,364.8,0,0" Grid.Row="1" VerticalAlignment="Top" Height="198" Width="456">
+        <GroupBox x:Name="groupBox2" Header="Hops" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Height="198" Width="456">
             <Canvas>
                 <ListView x:Name="HopsListView" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="423" MouseDoubleClick="HopsListView_MouseDoubleClick" Canvas.Left="10" Canvas.Top="10" >
                     <ListView.View>
@@ -97,7 +99,7 @@
         </GroupBox>
 
 
-        <GroupBox x:Name="groupBox3" Header="Recipe data" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Height="395" Width="367">
+        <GroupBox x:Name="groupBox3" Header="Recipe data" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" VerticalAlignment="Top" Height="395" Width="367">
             <Canvas>
                 <Label x:Name="MashWaterVolumeLabel" Content="Mash water volume [L]:" HorizontalAlignment="Left" VerticalAlignment="Top"  Height="26" Width="133" Canvas.Left="18" Canvas.Top="280"/>
                 <Label x:Name="SpargeWaterVolumeLabel" Content="Sparge water volume [L]:" HorizontalAlignment="Left"  VerticalAlignment="Top"  Height="26" Width="141" Canvas.Left="10" Canvas.Top="249"/>
@@ -122,7 +124,7 @@
         </GroupBox>
 
 
-        <StatusBar HorizontalAlignment="Center" Height="25"  Grid.ColumnSpan="2" VerticalAlignment="Bottom"  Grid.Row="2"/>
+        <StatusBar HorizontalAlignment="Center" Height="25"  Grid.ColumnSpan="2" VerticalAlignment="Bottom"  Grid.Row="4"/>
 
 
     </Grid>
