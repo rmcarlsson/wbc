@@ -317,7 +317,7 @@ namespace GFCalc
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             var r = new Recepie();
-            r.Grist = Grist.ToList();
+            r.MashFermentables = Grist.ToList();
             r.BoilHops = BoilHops.ToList();
             r.MashProfile = MashProfileList.ToList();
             r.Name = NameTextBox.Text;
@@ -382,9 +382,9 @@ namespace GFCalc
 
         private void importBeersmithRecipe(string aRecipeFileName)
         {
-            var bsi = new BSImporter(aRecipeFileName);
-            var bsiw = new TCW(bsi.GetAllRecipes().FirstOrDefault(), MaltRepo);
+            var bsiw = new TCW(aRecipeFileName, MaltRepo, HopsRepo);
             bsiw.ShowDialog();
+            var r = bsiw.ImportedRecipe;
             
         }
 
@@ -399,7 +399,7 @@ namespace GFCalc
             Recepie loadedObject = (Recepie)serializer.Deserialize(reader);
             loadStream.Close();
             Grist.Clear();
-            foreach (GristPart g in loadedObject.Grist)
+            foreach (GristPart g in loadedObject.MashFermentables)
                 Grist.Add(g);
 
             BoilHops.Clear();

@@ -13,12 +13,12 @@ namespace WpfApplication1.Domain
         [XmlElement("Hop")]
         public Hops Hop { set; get; }
         [XmlAttribute("Name")]
-        public float Amount { get; set; }
+        public double Amount { get; set; }
         [XmlAttribute("Minutes")]
         public int Minutes { get; set; }
     }
 
-    public class GristPart : FermentableAdjunct
+    public class GristPart
     {
         [XmlElement("FermentableAdjunct")]
         public FermentableAdjunct FermentableAdjunct { get; set; }

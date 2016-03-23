@@ -1,4 +1,6 @@
-﻿using GFCalc.DataModel;
+﻿using BSImport;
+using GFCalc.DataModel;
+using GFCalc.Domain;
 using GFCalc.Repos;
 using System;
 using System.Collections.Generic;
@@ -14,6 +16,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfApplication1.Domain;
 
 namespace WpfApplication1.BeersmithImporterWizard
 {
@@ -22,19 +25,36 @@ namespace WpfApplication1.BeersmithImporterWizard
     /// </summary>
     public partial class TCW : Window
     {
-        public ObservableCollection<FermentableAdjunct> Fermentables { set; get; }
-        private FermentableRepository Repo;
-        private string RecipeName;
-        private string v;
+        public ObservableCollection<FermentableAdjunct> FermentablesObservableList { set; get; }
+        public ObservableCollection<Hops> HopsObservableList { get; set; }
+        public List<BSGrainBill> BSGrainBill { get; private set; }
+        public List<BSHops> BSBoilHops { get; private set; }
 
-        public TCW(string aRecipeName, FermentableRepository aMaltRepo)
+        private HopsRepository HopsRepo;
+        private FermentableRepository MaltsRepo;
+
+        private BSImporter BeersmithImporter;
+        public Recepie ImportedRecipe { get; set; }
+
+        public TCW(string aBSExportFilename, FermentableRepository aMaltRepo, HopsRepository aHopsRepo)
         {
             InitializeComponent();
-            RecipeName = aRecipeName;
-            this.Repo = aMaltRepo;
+            this.MaltsRepo = aMaltRepo;
+            this.HopsRepo = aHopsRepo;
 
-            Fermentables = new ObservableCollection<FermentableAdjunct>(aMaltRepo.Get());
-            //MaltsListView.ItemsSource = Fermentables;
+            FermentablesObservableList = new ObservableCollection<FermentableAdjunct>(aMaltRepo.Get());
+            HopsObservableList = new ObservableCollection<Hops>(aHopsRepo.Get());
+
+            BeersmithImporter = new BSImporter(aBSExportFilename);
+            RecipeNameCombobox.ItemsSource = BeersmithImporter.GetAllRecipes();
+            RecipeNameCombobox.SelectedIndex = 0;
+
+            HopsListView.ItemsSource = HopsObservableList;
+            MaltsListView.ItemsSource = FermentablesObservableList;
+
+            ImportedRecipe = new Recepie();
+
+            ImportedRecipe.BatchSize = BeersmithImporter.getFinalBatchVolume();
         }
 
         private void ChangeTabItem(int aChange)
@@ -54,12 +74,115 @@ namespace WpfApplication1.BeersmithImporterWizard
 
         private void PreviousButton_Click(object sender, RoutedEventArgs e)
         {
-            ChangeTabItem(-1);
+            switch (tabControl.SelectedIndex)
+            {
+                case 0:
+                    handleSelectRecipeNext();
+                    break;
+                case 1:
+                    handleSelectMalts();
+                    break;
+                case 2:
+                    handleSelectHops();
+                    break;
+                default:
+                    break;
+
+            }
+        }
+
+        private void handleSelectHops()
+        {
+            HopBoilAddition h = new HopBoilAddition();
+            if (HopsListView.SelectedItem != null)
+            {
+                var bsh = BSBoilHops.First();
+
+                h.Hop = (Hops)(HopsListView.SelectedItem);
+                h.Amount = Weight.ConvertPoundsToGrams(bsh.Amount);
+                h.Minutes = (int)Math.Round(bsh.BoilTime);
+
+                ImportedRecipe.BoilHops.Add(h);
+                var del = BSBoilHops.First();
+                BSBoilHops.Remove(del);
+
+
+                if (BSGrainBill.Count == 0)
+                    this.Close();
+                else
+                    TextblockHops.Text = "Please select a corresponding hops for " + BSBoilHops.First().Name + " with alpha acid " + BSBoilHops.First().AlphaAcid.ToString();
+
+            }
+            else
+                MessageBox.Show("Please select a hop in the list to match the imported one");
+        }
+
+        private void handleSelectMalts()
+        {
+            GristPart m = new GristPart();
+            if (MaltsListView.SelectedItem != null)
+            {
+                var bsfm = BSGrainBill.First();
+                m.FermentableAdjunct = (FermentableAdjunct)(MaltsListView.SelectedItem);
+                m.Amount = bsfm.AmountPercent;
+                m.Stage = "Mash";
+
+                
+                ImportedRecipe.MashFermentables.Add(m);
+                var del = BSGrainBill.First();
+                BSGrainBill.Remove(del);
+
+
+                if (BSGrainBill.Count == 0)
+                {
+                    BSBoilHops = BeersmithImporter.GetBoilHops().ToList();
+                    ChangeTabItem(1);
+                    TextblockHops.Text = "Please select a corresponding hops for " + BSBoilHops.First().Name + " with alpha acid " + BSBoilHops.First().AlphaAcid.ToString();
+                }
+                else
+                    TextblockMalts.Text = "Please select a corresponding malt for " + BSGrainBill.First().FermentableName + ". " + BSGrainBill.First().AmountPercent.ToString() + " % of total grist";
+
+            }
+            else
+                MessageBox.Show("Please select a fermetable adjunct in the list");
+
+        }
+
+        private void handleSelectRecipeNext()
+        {
+            var r = RecipeNameCombobox.Text;
+            if (r != null && !r.Equals(String.Empty))
+            {
+                ImportedRecipe.Name = r;
+                BSGrainBill = BeersmithImporter.GetGrainBill().ToList();
+
+                // Next step
+                ChangeTabItem(1);
+
+                TextblockMalts.Text = "Please select a corresponding malt for " + BSGrainBill.First().FermentableName + ". " + BSGrainBill.First().AmountPercent.ToString() + " % of total grist";
+            }
+            else
+                MessageBox.Show("Please select a recepie");
         }
 
         private void NextButton_Click(object sender, RoutedEventArgs e)
         {
-            ChangeTabItem(1);
+            switch (tabControl.SelectedIndex)
+            {
+                case 0:
+                    handleSelectRecipeNext();
+                    break;
+                case 1:
+                    handleSelectMalts();
+                    break;
+                case 2:
+                    handleSelectHops();
+                    break;
+                default:
+                    break;
+
+            }
+
         }
 
         private void FinishButton_Click(object sender, RoutedEventArgs e)

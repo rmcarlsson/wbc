@@ -32,7 +32,7 @@
             <TabItem Header ="Select malts" >
                 <Grid>
                     <Label Content="Select malts" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <TextBlock Name="TextblockMalts" VerticalAlignment="Top" HorizontalAlignment="Right" Width="250" Height="100"/>
+                    <TextBlock Name="TextblockMalts" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="250" Height="100"/>
                     <ListView x:Name="MaltsListView" Margin="10" Grid.Row ="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="150" Width="300" >
                         <ListView.View>
                             <GridView>
@@ -49,16 +49,16 @@
 
 
 
-            <TabItem Header ="Select hops" >
+            <TabItem Header ="SelectHops" >
                 <Grid>
                     <Label Content="Select hops" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <TextBlock Name="TextblockHops" VerticalAlignment="Top" HorizontalAlignment="Right" Width="250" Height="100"/>
+                    <TextBlock Name="TextblockHops" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="250" Height="100"/>
                     <ListView x:Name="HopsListView" Grid.Row ="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="150" Width="300" >
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn DisplayMemberBinding="{Binding Name}"  Header="Name" />
-                                <GridViewColumn DisplayMemberBinding="{Binding Potential}"  Header="Potential" />
-                                <GridViewColumn DisplayMemberBinding="{Binding Color}"  Header="Color" />
+                                <GridViewColumn DisplayMemberBinding="{Binding AlphaAcid}"  Header="Alpha acid" />
+                                <GridViewColumn DisplayMemberBinding="{Binding Purpose}"  Header="Purpose" />
                             </GridView>
                         </ListView.View>
 

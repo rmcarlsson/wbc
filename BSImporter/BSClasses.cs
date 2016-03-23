@@ -10,7 +10,9 @@
     {
         public string Name { get; set; }
         public double AlphaAcid { get; set; }
-
+        public double DryHopDay { get; internal set; }
+        public double BoilTime { get; internal set; }
+        public double Amount { get; internal set; }
     }
 
     public class BSHopSchedule

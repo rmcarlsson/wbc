@@ -17,34 +17,59 @@ namespace BSImport
         private const string XPATH_FOR_RECIPIES = "//Data/Recipe";
         private const string XPATH_FOR_MASHSTEPS = "//F_R_MASH/steps/Data/MashStep";
         private const string XPATH_FOR_GRAINS = "//Ingredients/Data/Grain";
+        private const string XPATH_FOR_HOPS = "//Ingredients/Data/Hops";
 
         // Element names
         private const string RECIPE_NAME_ELEMENT = "F_R_NAME";
         private const string MASH_STEP_TIME_ELEMENT = "F_MS_STEP_TIME";
         private const string MASH_STEP_TEMP_ELEMENT = "F_MS_STEP_TEMP";
-
+        private const string FINAL_BATCH_VOLUME = "F_R_FINAL_VOL_MEASURED";
         private XDocument XDoc;
+
+        private string XmlFilename;
 
         public BSImporter(string aXmlFilePath)
         {
+
+            XmlFilename = aXmlFilePath;
+
             // The Beersmith recipes includes some non-Unicode sequences. 
             //Fortunately these are of no interest to us, so just remove them
             Regex r = new Regex(@"&\w+;");
             string replacement = "";
             StringBuilder strBuild = new StringBuilder();
-            string s = r.Replace(File.ReadAllText(aXmlFilePath), replacement);
+            string s = r.Replace(File.ReadAllText(XmlFilename), replacement);
 
 
             XDoc = XDocument.Parse(s);
+
+            XmlFilename = aXmlFilePath;
         }
 
-        public IEnumerable<BSMashStep> getMashProfile(string aRecipeName)
+        public double getFinalBatchVolume()
+        {
+            double r = 0;
+            string errMsg;
+
+            var xrs = XDoc.XPathSelectElements(XPATH_FOR_RECIPIES);
+            var vs = xrs.FirstOrDefault(x => x.Element(RECIPE_NAME_ELEMENT).Value.Equals(XmlFilename));
+            var v = vs.XPathSelectElement(FINAL_BATCH_VOLUME).Value;
+            if (!double.TryParse(v, out r))
+            {
+                errMsg = "Unable to parse final batch volume";
+                throw new ArgumentException(errMsg);
+            }
+
+            return r;
+        }
+
+        public IEnumerable<BSMashStep> getMashProfile()
         {
             var ret = new List<BSMashStep>();
             string errMsg = null;
 
             var xrs = XDoc.XPathSelectElements(XPATH_FOR_RECIPIES);
-            var r = xrs.FirstOrDefault(x => x.Element(RECIPE_NAME_ELEMENT).Value.Equals(aRecipeName));
+            var r = xrs.FirstOrDefault(x => x.Element(RECIPE_NAME_ELEMENT).Value.Equals(XmlFilename));
             var xmss = r.XPathSelectElements(XPATH_FOR_MASHSTEPS);
 
             foreach (XElement xms in xmss)
@@ -84,15 +109,15 @@ namespace BSImport
             return ret;
         }
 
-        public IEnumerable<BSGrainBill> GetGrainBill(string aRecipeName)
+        public IEnumerable<BSGrainBill> GetGrainBill()
         {
             var ret = new List<BSGrainBill>();
             string errMsg = null;
 
             var xrs = XDoc.XPathSelectElements(XPATH_FOR_RECIPIES);
-            var r = xrs.FirstOrDefault(x => x.Element(RECIPE_NAME_ELEMENT).Value.Equals(aRecipeName));
+            var r = xrs.FirstOrDefault(x => x.Element(RECIPE_NAME_ELEMENT).Value.Equals(XmlFilename));
 
-            var gs = r.XPathSelectElements("//Ingredients/Data/Grain");
+            var gs = r.XPathSelectElements(XPATH_FOR_GRAINS);
             foreach (XElement g in gs)
             {
                 float f;
@@ -106,6 +131,51 @@ namespace BSImport
                     throw new ArgumentException(errMsg);
 
                 gb.FermentableName = g.Element("F_G_NAME").Value;
+                ret.Add(gb);
+            }
+
+            return ret;
+        }
+
+        public IEnumerable<BSHops> GetBoilHops()
+        {
+            var ret = new List<BSHops>();
+            string errMsg = null;
+
+            var xrs = XDoc.XPathSelectElements(XPATH_FOR_RECIPIES);
+            var r = xrs.FirstOrDefault(x => x.Element(RECIPE_NAME_ELEMENT).Value.Equals(XmlFilename));
+
+            var hs = r.XPathSelectElements(XPATH_FOR_HOPS);
+            foreach (XElement h in hs)
+            {
+                double f;
+                var gb = new BSHops();
+
+                if (double.TryParse(h.Element("F_H_AMOUNT").Value, NumberStyles.AllowDecimalPoint, CultureInfo.CreateSpecificCulture("en-US"), out f))
+                    gb.Amount = f;
+                else
+                    errMsg = "Unable to parse hops amount";
+
+
+                if (double.TryParse(h.Element("F_H_ALPHA").Value, NumberStyles.AllowDecimalPoint, CultureInfo.CreateSpecificCulture("en-US"), out f))
+                    gb.AlphaAcid = f;
+                else
+                    errMsg = "Unable to parse hops alpha acid";
+
+                if (double.TryParse(h.Element("F_H_BOIL_TIME").Value, NumberStyles.AllowDecimalPoint, CultureInfo.CreateSpecificCulture("en-US"), out f))
+                    gb.BoilTime = f;
+                else
+                    errMsg = "Unable to parse hop boil time";
+
+                if (double.TryParse(h.Element("F_H_DRY_HOP_TIME").Value, NumberStyles.AllowDecimalPoint, CultureInfo.CreateSpecificCulture("en-US"), out f))
+                    gb.DryHopDay = f;
+                else
+                    errMsg = "Unable to parse hops dry hops days";
+
+                if (errMsg != null)
+                    throw new ArgumentException(errMsg);
+
+                gb.Name = h.Element("F_H_NAME").Value;
                 ret.Add(gb);
             }
 

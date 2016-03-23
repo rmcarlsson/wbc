@@ -12,12 +12,21 @@ namespace GFCalc.Domain
     [XmlRoot("Recepie"), Serializable]
     public class Recepie
     {
+
+        public Recepie() 
+        {
+            BoilHops = new List<HopBoilAddition>();
+            MashProfile = new List<MashProfileStep>();
+            BoilFermentables = new List<GristPart>();
+            MashFermentables = new List<GristPart>();
+
+        }
         [XmlAttribute("Name")]
         public string Name { get; set; }
 
         // Mash part
         [XmlElement("Grist")]
-        public List<GristPart> Grist { set; get; }
+        public List<GristPart> MashFermentables { set; get; }
         [XmlElement("MashProfile")]
         public List<MashProfileStep> MashProfile { set; get; }
 
@@ -33,7 +42,7 @@ namespace GFCalc.Domain
         [XmlElement("FermetationHops")]
         public List<Hops> FermetationHops { set; get; }
         [XmlElement("FermenationAdjuncts")]
-        public List<FermentableAdjunct> FermenationAdjuncts { set; get; }
+        public List<GristPart> FermenationAdjuncts { set; get; }
 
         [XmlAttribute("BatchSize")]
         public double BatchSize { get; set; }
@@ -49,7 +58,7 @@ namespace GFCalc.Domain
     public class MashProfileStep
     {
         [XmlAttribute("Time")]
-        public int Time {get; set; }
+        public int Time { get; set; }
         [XmlAttribute("Temp")]
         public double Temperature { get; set; }
 
