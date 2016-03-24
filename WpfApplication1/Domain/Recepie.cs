@@ -17,32 +17,22 @@ namespace GFCalc.Domain
         {
             BoilHops = new List<HopBoilAddition>();
             MashProfile = new List<MashProfileStep>();
-            BoilFermentables = new List<GristPart>();
-            MashFermentables = new List<GristPart>();
+            Fermentables = new List<GristPart>();
 
         }
         [XmlAttribute("Name")]
         public string Name { get; set; }
 
-        // Mash part
         [XmlElement("Grist")]
-        public List<GristPart> MashFermentables { set; get; }
+        public List<GristPart> Fermentables { set; get; }
         [XmlElement("MashProfile")]
         public List<MashProfileStep> MashProfile { set; get; }
 
-        // Boil part
         [XmlElement("BoilHops")]
         public List<HopBoilAddition> BoilHops { set; get; }
-        [XmlElement("BoilFermentables")]
-        public List<GristPart> BoilFermentables { set; get; }
 
-        // Fermentation part
-        [XmlElement("PostBoilFermentables")]
-        public List<GristPart> PostBoilFermentables { set; get; }
-        [XmlElement("FermetationHops")]
-        public List<Hops> FermetationHops { set; get; }
-        [XmlElement("FermenationAdjuncts")]
-        public List<GristPart> FermenationAdjuncts { set; get; }
+        [XmlElement("OtherIngredients")]
+        public List<OtherIngredient> OtherIngredients { set; get; } 
 
         [XmlAttribute("BatchSize")]
         public double BatchSize { get; set; }
@@ -63,5 +53,14 @@ namespace GFCalc.Domain
         public double Temperature { get; set; }
 
     }
-}
 
+    public class OtherIngredient
+    {
+        [XmlAttribute("Name")]
+        public string Name { get; set; }
+        [XmlAttribute("Amount")]
+        public double Amount { set; get; }
+        [XmlAttribute("Notes")]
+        public string Notes { set; get; }
+    }
+}

@@ -128,7 +128,7 @@ namespace WpfApplication1.BeersmithImporterWizard
                 m.Stage = "Mash";
 
                 
-                ImportedRecipe.MashFermentables.Add(m);
+                ImportedRecipe.Fermentables.Add(m);
                 var del = BSGrainBill.First();
                 BSGrainBill.Remove(del);
 

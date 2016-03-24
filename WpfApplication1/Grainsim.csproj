@@ -77,6 +77,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddOtherIngredients.xaml.cs">
+      <DependentUpon>AddOtherIngredients.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BeersmithImporterWizard\TCW.xaml.cs">
       <DependentUpon>TCW.xaml</DependentUpon>
     </Compile>
@@ -156,6 +159,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="AddOtherIngredients.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="BeersmithImporterWizard\TCW.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

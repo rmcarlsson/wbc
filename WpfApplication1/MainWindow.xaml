@@ -42,7 +42,7 @@
 
 
 
-        <GroupBox x:Name="groupBox" Header="Mash - grainbill" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="197" Width="453">
+        <GroupBox x:Name="groupBox" Header="Fermentables" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="197" Width="453">
             <Canvas>
                 <ListView x:Name="MaltsListView" PreviewKeyDown="listView_KeyDown" HorizontalAlignment="Left" Height="121" Margin="10,10,0,0" VerticalAlignment="Top" Width="423" MouseDoubleClick="MaltsListView_MouseDoubleClick">
                     <ListView.View >
@@ -55,6 +55,7 @@
                     </ListView.View>
                 </ListView>
                 <Button x:Name="addGrains" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="addGrains_Click" Grid.Row="1" Canvas.Left="358" Canvas.Top="136"/>
+
             </Canvas>
         </GroupBox>
 
@@ -89,7 +90,8 @@
                             <GridViewColumn DisplayMemberBinding="{Binding Hop.Name}"  Header="Hops" />
                             <GridViewColumn DisplayMemberBinding="{Binding Hop.AlphaAcid}"  Header="Alpha acid[%]" />
                             <GridViewColumn DisplayMemberBinding="{Binding Amount}"  Header="Amount [g/L]" />
-                            <GridViewColumn DisplayMemberBinding="{Binding Minutes}"  Header="Boil time [min]" />
+                            <GridViewColumn DisplayMemberBinding="{Binding Minutes}"  Header="Stage" />
+                            <GridViewColumn DisplayMemberBinding="{Binding Minutes}"  Header="Boil time [min/days]" />
                         </GridView>
                     </ListView.View>
                 </ListView>
@@ -98,30 +100,57 @@
             </Canvas>
         </GroupBox>
 
-
-        <GroupBox x:Name="groupBox3" Header="Recipe data" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" VerticalAlignment="Top" Height="395" Width="367">
+        <GroupBox x:Name="groupBox9" Header="Other" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="3" VerticalAlignment="Top" Height="188" Width="357">
             <Canvas>
-                <Label x:Name="MashWaterVolumeLabel" Content="Mash water volume [L]:" HorizontalAlignment="Left" VerticalAlignment="Top"  Height="26" Width="133" Canvas.Left="18" Canvas.Top="280"/>
-                <Label x:Name="SpargeWaterVolumeLabel" Content="Sparge water volume [L]:" HorizontalAlignment="Left"  VerticalAlignment="Top"  Height="26" Width="141" Canvas.Left="10" Canvas.Top="249"/>
-                <Label x:Name="ColorLabel" Content="Color [ECB]: 0" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="26" Width="82" Canvas.Left="69" Canvas.Top="311"/>
+                <ListView x:Name="OtherIngredientsListView" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" MouseDoubleClick="HopsListView_MouseDoubleClick" Canvas.Left="10" Canvas.Top="20" Width="324" >
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn DisplayMemberBinding="{Binding Name}"  Header="Ingredients" />
+                            <GridViewColumn DisplayMemberBinding="{Binding Amount}"  Header="Amount [g/L]" />
+                            <GridViewColumn DisplayMemberBinding="{Binding Notes}"  Header="Notes" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <Button x:Name="AddOtherbutton" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="AddOtherIngredientsButton_Click" Canvas.Left="259" Canvas.Top="125"/>
+
+            </Canvas>
+        </GroupBox>
 
 
-                <Label x:Name="label2" Content="Expected original gravity [SG]:" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="32" Width="168" Canvas.Left="9" Canvas.Top="167"/>
-                <TextBox x:Name="ExpectedOriginalGravityTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="1,050" VerticalAlignment="Top" Width="61" TextChanged="ExpectedOriginalGravityTextBox_TextChanged" Grid.Row="1" Canvas.Left="182" Canvas.Top="169" />
 
-                <Label x:Name="label3" Content="Batch size [L]:" HorizontalAlignment="Left"   Height="32" Width="82" Canvas.Left="10" Canvas.Top="212"/>
-                <TextBox x:Name="BatchSizeVolumeTextBox" HorizontalAlignment="Left" Height="23" Text="25" VerticalAlignment="Top" Width="61" TextChanged="BatchSizeVolumeTextBox_TextChanged" Grid.Row="1" Canvas.Left="182" Canvas.Top="221"/>
+        <GroupBox x:Name="groupBox3" Header="Recipe data" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" VerticalAlignment="Top" Height="395" Width="367">
+            <Canvas>
+                <Label x:Name="MashWaterVolumeLabel" Content="Mash water volume [L]:" HorizontalAlignment="Left" VerticalAlignment="Top"  Height="26" Canvas.Left="44" Canvas.Top="306"/>
+                <Label x:Name="SpargeWaterVolumeLabel" Content="Sparge water volume [L]:" HorizontalAlignment="Left"  VerticalAlignment="Top"  Height="26" Canvas.Left="36" Canvas.Top="275"/>
+                <Label x:Name="ColorLabel" Content="Color [ECB]: 0" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="26" Canvas.Left="95" Canvas.Top="337"/>
+
+
+                <Label x:Name="label2" Content="Expected original gravity [SG]:" HorizontalAlignment="Left"  VerticalAlignment="Top" Height="32" Width="168" Canvas.Left="9" Canvas.Top="82"/>
+                <TextBox x:Name="ExpectedOriginalGravityTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="1,050" VerticalAlignment="Top" Width="61" TextChanged="ExpectedOriginalGravityTextBox_TextChanged" Grid.Row="1" Canvas.Left="182" Canvas.Top="83" />
+
+                <Label x:Name="label3" Content="Batch size [L]:" HorizontalAlignment="Left"   Height="32" Width="82" Canvas.Left="95" Canvas.Top="119"/>
+                <TextBox x:Name="BatchSizeVolumeTextBox" HorizontalAlignment="Left" Height="23" Text="25" VerticalAlignment="Top" Width="61" TextChanged="BatchSizeVolumeTextBox_TextChanged" Grid.Row="1" Canvas.Left="182" Canvas.Top="121"/>
 
                 <Label x:Name="label1" Content="Boil time [min]:" HorizontalAlignment="Left" Height="32" Width="90" Canvas.Left="87" Canvas.Top="8"/>
                 <TextBox x:Name="BoilTimeTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="60" VerticalAlignment="Top" Width="61" TextChanged="BoilTimeTextBox_TextChanged" Grid.Row="1" Canvas.Left="182" Canvas.Top="10"/>
 
-                <Label x:Name="TopUpMashWaterVolumeLabel" Content="Top up mash water volume [L]:" HorizontalAlignment="Left"  Height="32" Width="173" Canvas.Left="4" Canvas.Top="129"/>
-                <TextBox x:Name="TopUpMashWaterVolumeTextBox" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="61" TextChanged="TopUpMashWaterVolumeTextBox_TextChanged" Grid.Row="1" Canvas.Left="182" Canvas.Top="131" RenderTransformOrigin="0.477,0.535"/>
+                <Label x:Name="TopUpMashWaterVolumeLabel" Content="Top up mash water volume [L]:" HorizontalAlignment="Left"  Height="32" Width="173" Canvas.Left="4" Canvas.Top="238"/>
+                <TextBox x:Name="TopUpMashWaterVolumeTextBox" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="61" TextChanged="TopUpMashWaterVolumeTextBox_TextChanged" Grid.Row="1" Canvas.Left="182" Canvas.Top="240" RenderTransformOrigin="0.477,0.535"/>
 
-                <Label x:Name="label7" Content="Recepie name:" HorizontalAlignment="Left"  Height="32"  Width="86" Canvas.Left="91" Canvas.Top="86"/>
-                <TextBox x:Name="NameTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="My new beer" VerticalAlignment="Top" Width="151" Canvas.Left="182" Canvas.Top="88" />
+                <Label x:Name="label7" Content="Recepie name:" HorizontalAlignment="Left"  Height="32"  Width="86" Canvas.Left="91" Canvas.Top="45"/>
+                <TextBox x:Name="NameTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="My new beer" VerticalAlignment="Top" Width="151" Canvas.Left="182" Canvas.Top="47" />
+
+
+                <Label x:Name="label6" Content="Volume in fermentor [L]:" Canvas.Left="38" Canvas.Top="179"/>
+                <TextBox x:Name="VolumeInFermentorTextBox" Height="23" Canvas.Left="183" TextWrapping="Wrap" Text="0" Canvas.Top="181" Width="60"/>
+                <CheckBox x:Name="VolumeInFermentorCheckbox" Content="Provided data" Canvas.Left="248" Canvas.Top="188" Unchecked="VolumeInFermentorCheckbox_Checked" Checked="VolumeInFermentorCheckbox_Checked"/>
+
+                <Label x:Name="label" Content="Pre-boil volume [L]:" Canvas.Left="63" Canvas.Top="210"/>
+                <TextBox x:Name="PreBoilVolumeTextBox" Height="23" Canvas.Left="182" TextWrapping="Wrap" Text="0" Canvas.Top="212" Width="61"/>
+                <CheckBox x:Name="PreBoilVolumeCheckbox" Content="Provided data" Canvas.Left="248" Canvas.Top="215" Unchecked="VolumeInFermentorCheckbox_Checked" Checked="PreBoilVolumeCheckbox_Checked"/>
             </Canvas>
         </GroupBox>
+
 
 
         <StatusBar HorizontalAlignment="Center" Height="25"  Grid.ColumnSpan="2" VerticalAlignment="Bottom"  Grid.Row="4"/>

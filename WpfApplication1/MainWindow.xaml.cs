@@ -26,6 +26,8 @@ namespace GFCalc
         public ObservableCollection<GristPart> Grist { set; get; }
         public ObservableCollection<HopBoilAddition> BoilHops { set; get; }
         public ObservableCollection<MashProfileStep> MashProfileList { get; set; }
+        public ObservableCollection<OtherIngredient> OtherIngredientsList { get; set; }
+
 
         public double BatchSize { get; set; }
         public double PreBoilVolume { get; set; }
@@ -55,13 +57,51 @@ namespace GFCalc
             MashProfileList = new ObservableCollection<MashProfileStep>();
             MashStepListView.ItemsSource = MashProfileList;
 
+            OtherIngredientsList = new ObservableCollection<OtherIngredient>();
+            OtherIngredientsListView.ItemsSource = OtherIngredientsList;
+
             BatchSize = 25;
             OriginalGravity = 1.05;
             BoilTime = 60;
             TopUpMashWater = 0;
 
             updateGuiTextboxes();
+            recalulateVolumes();
 
+        }
+
+        private void recalulateVolumes()
+        {
+            if (PreBoilVolumeCheckbox.IsChecked == false)
+            {
+                PreBoilVolumeTextBox.Text = GrainfatherCalculator.CalcPreBoilVolume(BatchSize, BoilTime).ToString();
+                PreBoilVolumeTextBox.IsEnabled = false;
+                PreBoilVolumeTextBox.IsReadOnly = true;
+
+            }
+            else
+            {
+                PreBoilVolumeTextBox.IsEnabled = true;
+                PreBoilVolumeTextBox.IsReadOnly = false;
+            }
+
+            if (VolumeInFermentorCheckbox.IsChecked == false)
+
+            {
+                VolumeInFermentorTextBox.Text = BatchSize.ToString();
+                VolumeInFermentorTextBox.IsEnabled = false;
+                VolumeInFermentorTextBox.IsReadOnly = true;
+            }
+            else
+            {
+                VolumeInFermentorTextBox.IsEnabled = true;
+                VolumeInFermentorTextBox.IsReadOnly = false;
+            }
+
+
+
+
+               
         }
 
         private void addGrains_Click(object sender, RoutedEventArgs e)
@@ -87,6 +127,8 @@ namespace GFCalc
                 }
             }
         }
+
+
 
         private void recalculateGrainBill()
         {
@@ -153,6 +195,8 @@ namespace GFCalc
             }
 
             ColorLabel.Content = String.Format("Color [ECB]: {0}", ColorAlgorithms.CalculateColor(Grist.ToList(), BatchSize));
+
+            recalulateVolumes();
         }
 
 
@@ -317,10 +361,14 @@ namespace GFCalc
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             var r = new Recepie();
-            r.MashFermentables = Grist.ToList();
+            r.Fermentables = Grist.ToList();
             r.BoilHops = BoilHops.ToList();
             r.MashProfile = MashProfileList.ToList();
             r.Name = NameTextBox.Text;
+            r.BatchSize = BatchSize;
+            r.OriginalGravity = OriginalGravity;
+            r.BoilTime = BoilTime;
+
 
             // Create OpenFileDialog 
             Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
@@ -342,7 +390,7 @@ namespace GFCalc
                 return;
 
             XmlSerializer serializer = new XmlSerializer(typeof(Recepie));
-            FileStream saveStream = new FileStream(dlg.FileName, FileMode.CreateNew, FileAccess.Write);
+            FileStream saveStream = new FileStream(dlg.FileName, FileMode.OpenOrCreate, FileAccess.Write);
             serializer.Serialize(saveStream, r);
             saveStream.Close();
 
@@ -399,7 +447,7 @@ namespace GFCalc
             Recepie loadedObject = (Recepie)serializer.Deserialize(reader);
             loadStream.Close();
             Grist.Clear();
-            foreach (GristPart g in loadedObject.MashFermentables)
+            foreach (GristPart g in loadedObject.Fermentables)
                 Grist.Add(g);
 
             BoilHops.Clear();
@@ -483,8 +531,25 @@ namespace GFCalc
 
         }
 
+        private void VolumeInFermentorCheckbox_Checked(object sender, RoutedEventArgs e)
+        {
+            recalulateVolumes();
+        }
 
+        private void PreBoilVolumeCheckbox_Checked(object sender, RoutedEventArgs e)
+        {
+            recalulateVolumes();
+        }
 
+        private void AddOtherIngredientsButton_Click(object sender, RoutedEventArgs e)
+        {
+            var w = new AddOtherIngredients();
+            w.ShowDialog();
+            if (w.Result != null)
+            {
+                OtherIngredientsList.Add(w.Result);
+            }
+        }
     }
 
 }

@@ -80,5 +80,10 @@ namespace GFCalc.Domain
 
             return val;
         }
+
+        internal static double CalcPreBoilVolume(double aBatchSize, int aBoilTime)
+        {
+            return CalcBoilOffVolume(aBatchSize, aBoilTime) + aBatchSize;
+        }
     }
 }

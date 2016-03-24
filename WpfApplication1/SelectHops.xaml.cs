@@ -30,8 +30,8 @@ namespace WpfApplication1
 
             var hopsRepo = aRepo;
             var hops = hopsRepo.Get();
-            comboBox.ItemsSource = hops;
-            TimeTextBox.Text = aBoilTime.ToString();
+            HopsComboBox.ItemsSource = hops;
+            TimeDurationTextBox.Text = aBoilTime.ToString();
         }
 
         public SelectHops(HopsRepository aRepo, HopBoilAddition aHopAddition)
@@ -40,18 +40,18 @@ namespace WpfApplication1
 
             var hopsRepo = aRepo;
             var hops = hopsRepo.Get();
-            comboBox.ItemsSource = hops;
+            HopsComboBox.ItemsSource = hops;
 
-            comboBox.SelectedValue = hops.FirstOrDefault(x => x.Name.Equals(aHopAddition.Hop.Name));
+            HopsComboBox.SelectedValue = hops.FirstOrDefault(x => x.Name.Equals(aHopAddition.Hop.Name));
 
-            TimeTextBox.Text = aHopAddition.Minutes.ToString();
+            TimeDurationTextBox.Text = aHopAddition.Minutes.ToString();
             AmountTextBox.Text = aHopAddition.Amount.ToString();
 
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            Hops var = (Hops)comboBox.SelectedItem;
+            Hops var = (Hops)HopsComboBox.SelectedItem;
             hop = new HopBoilAddition();
 
             if (var == null)
@@ -62,13 +62,13 @@ namespace WpfApplication1
             hop.Hop = var;
 
             int timeMinutes;
-            if (int.TryParse(TimeTextBox.Text, out timeMinutes))
+            if (int.TryParse(TimeDurationTextBox.Text, out timeMinutes))
             {
                 hop.Minutes = timeMinutes;
                 this.Close();
             }
             else
-                MessageBox.Show(String.Format("Unable to interperate {0} as a integer value. Please proviode a correct integer value value in Time", TimeTextBox.Text));
+                MessageBox.Show(String.Format("Unable to interperate {0} as a integer value. Please proviode a correct integer value value in Time", TimeDurationTextBox.Text));
 
 
             float amount;
