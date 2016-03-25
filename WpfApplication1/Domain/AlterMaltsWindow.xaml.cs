@@ -16,7 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace WpfApplication1.Domain
+namespace Grainsim.Domain
 {
     /// <summary>
     /// Interaction logic for AlterMaltsWindow.xaml

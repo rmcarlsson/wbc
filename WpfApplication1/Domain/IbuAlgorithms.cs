@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfApplication1.Domain
+namespace Grainsim.Domain
 {
     static public class IbuAlgorithms
     {
@@ -14,7 +14,7 @@ namespace WpfApplication1.Domain
 
 
 
-        static public int CalcIbu(List<HopBoilAddition> aAdditions, double aGravityBoil, double aVolumeBoil)
+        static public int CalcIbu(IEnumerable<HopBoilAddition> aAdditions, double aGravityBoil, double aVolumeBoil)
         {
             if (aVolumeBoil == 0)
                 return 0;

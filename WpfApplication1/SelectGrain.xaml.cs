@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using GFCalc.DataModel;
 using GFCalc.Repos;
-using WpfApplication1.Domain;
+using Grainsim.Domain;
 
 namespace GFCalc
 {

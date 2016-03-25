@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GFCalc.DataModel;
-using WpfApplication1.Domain;
+using Grainsim.Domain;
 using System.Xml.Serialization;
 
 namespace GFCalc.Domain

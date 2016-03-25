@@ -15,7 +15,7 @@
         <ComboBox x:Name="StageComboBox" HorizontalAlignment="Left" Margin="102,87,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem  Name="cbi1">Cold steep</ComboBoxItem>
             <ComboBoxItem  Name="cbi2">Mash</ComboBoxItem>
-            <ComboBoxItem  Name="cbi3">Fermetation</ComboBoxItem>
+            <ComboBoxItem  Name="cbi3">Fermentation</ComboBoxItem>
         </ComboBox>
         <Label x:Name="label1" Content="Addded at" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top"/>
 

@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace WpfApplication1.Domain
+namespace Grainsim.Domain
 {
     public class HopBoilAddition
     {
@@ -16,6 +16,8 @@ namespace WpfApplication1.Domain
         public double Amount { get; set; }
         [XmlAttribute("Minutes")]
         public int Minutes { get; set; }
+        [XmlAttribute("Stage")]
+        public string Stage { get; set; }
     }
 
     public class GristPart

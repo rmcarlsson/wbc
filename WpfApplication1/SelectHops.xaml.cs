@@ -13,9 +13,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using WpfApplication1.Domain;
+using Grainsim.Domain;
 
-namespace WpfApplication1
+namespace Grainsim
 {
     /// <summary>
     /// Interaction logic for SelectHops.xaml
@@ -60,6 +60,14 @@ namespace WpfApplication1
                 return;
             }
             hop.Hop = var;
+
+            string stage = StageComboBox.Text;
+            if (stage == null)
+            {
+                MessageBox.Show("Please select a hop in the dowp down menu");
+                return;
+            }
+            hop.Stage = stage;
 
             int timeMinutes;
             if (int.TryParse(TimeDurationTextBox.Text, out timeMinutes))

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfApplication1.Domain
+namespace Grainsim.Domain
 {
     public class GravityAlorithms
     {
@@ -20,24 +20,22 @@ namespace WpfApplication1.Domain
             return potentialSum / aGravity;
         }
 
-        public static double GetMashGrainBillWeight(double aGravity, double aVolume, List<GristPart> aMashFermentList, List<GristPart> aPostMashFermentList, double aMashEfficiency)
+        public static double GetGrainBillWeight(double aGravity, double aBatchSizeVolume, List<GristPart> aMashFermentList, List<GristPart> aPostMashFermentList, double aMashEfficiency)
         {
             if (aGravity <= 1)
                 return 0;
 
-            // SG = (Malt weight) x(Malt ppg) x(Brewhouse efficiency) / (Solution Volume)
-            // (Malt SG * (Solution Volume) ) / (Malt ppg) x(Brewhouse efficiency)
+            // SG = (Malt weight) x(Malt ppg) x(mash efficiency) / (Solution Volume)
+            // (Malt SG * (Solution Volume) ) / (Malt ppg) x(mash efficiency)
 
             double potentialSum = 0;
             if (aMashFermentList != null)
                 potentialSum += aMashFermentList.Sum(x => (x.FermentableAdjunct.Potential * x.Amount)/100);
-            if (aPostMashFermentList != null)
-                potentialSum -= aPostMashFermentList.Sum(x => x.FermentableAdjunct.Potential);
             
             var ppg = (potentialSum - 1) * 1000;
             var bhe = aMashEfficiency;
             var ppgBheComp = bhe * ppg;
-            var sgGallons = ((aGravity - 1) * 1000) * Volume.ConvertLitersToGallons(aVolume);
+            var sgGallons = ((aGravity - 1) * 1000) * Volume.ConvertLitersToGallons(aBatchSizeVolume);
 
 
             var retLb = (sgGallons / ppgBheComp);

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfApplication1.Domain
+namespace Grainsim.Domain
 {
     public class ColorAlgorithms
     {

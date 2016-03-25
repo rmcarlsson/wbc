@@ -92,11 +92,13 @@
     <Compile Include="Domain\AlterMaltsWindow.xaml.cs">
       <DependentUpon>AlterMaltsWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Domain\ColdSteep.cs" />
     <Compile Include="Domain\ColorAlgorithms.cs" />
     <Compile Include="Domain\GrainFatherCalculator.cs" />
     <Compile Include="Domain\GravityAlorithms.cs" />
     <Compile Include="Domain\HopAddition.cs" />
     <Compile Include="Domain\IbuAlgorithms.cs" />
+    <Compile Include="Domain\Mash.cs" />
     <Compile Include="Domain\Recepie.cs" />
     <Compile Include="Domain\Weight.cs" />
     <Compile Include="MainWindow.xaml.cs">

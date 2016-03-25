@@ -8,13 +8,13 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using GFCalc.Domain;
 using GFCalc.Repos;
-using WpfApplication1;
-using WpfApplication1.Domain;
+using Grainsim;
+using Grainsim.Domain;
 using System.Xml.Serialization;
 using System.IO;
 using System.Xml;
 using BSImport;
-using WpfApplication1.BeersmithImporterWizard;
+using Grainsim.BeersmithImporterWizard;
 
 namespace GFCalc
 {
@@ -101,7 +101,7 @@ namespace GFCalc
 
 
 
-               
+
         }
 
         private void addGrains_Click(object sender, RoutedEventArgs e)
@@ -141,12 +141,24 @@ namespace GFCalc
             else
             {
                 //double boilOffVolume = GrainfatherCalculator.CalcBoilOffVolume(BatchSize, BoilTime);
-                GrainBillSize = GravityAlorithms.GetMashGrainBillWeight(OriginalGravity, (BatchSize + GrainfatherCalculator.BoilerLoss), Grist.ToList(), null, GrainfatherCalculator.MashEfficiency);
+                GrainBillSize = GravityAlorithms.GetGrainBillWeight(OriginalGravity, BatchSize, Grist.ToList(), null, GrainfatherCalculator.MashEfficiency);
             }
             var l = new List<GristPart>();
             foreach (var grain in Grist)
             {
-                grain.AmountGrams = (grain.Amount * GrainBillSize) / sum;
+                if (grain.Stage.Equals("Cold steep"))
+                {
+                    grain.AmountGrams = ColdSteep.GetGrainBillSize(grain, GrainBillSize);
+                }
+                if (grain.Stage.Equals("Mash"))
+                {
+                    grain.AmountGrams = Math.Round((grain.Amount * GrainBillSize) / sum);
+                }
+                if (grain.Stage.Equals("Fermentation"))
+                {
+                    grain.AmountGrams = Math.Round(((grain.Amount * GrainBillSize) / sum) * (BatchSize / (BatchSize + GrainfatherCalculator.GRAINFATHER_BOILER_TO_FERMENTOR_LOSS)));
+                }
+
                 l.Add(grain);
             }
 
@@ -161,7 +173,7 @@ namespace GFCalc
             {
                 TopUpMashWaterVolumeTextBox.Visibility = Visibility.Hidden;
                 TopUpMashWaterVolumeLabel.Visibility = Visibility.Hidden;
- 
+
             }
             else
             {
@@ -173,13 +185,13 @@ namespace GFCalc
             try
             {
                 var swv = GrainfatherCalculator.CalcSpargeWaterVolume(GrainBillSize,
-                    (BatchSize + GrainfatherCalculator.BoilerLoss + GrainfatherCalculator.CalcBoilOffVolume(BatchSize, BoilTime)),
+                    (BatchSize + GrainfatherCalculator.GRAINFATHER_BOILER_TO_FERMENTOR_LOSS + GrainfatherCalculator.CalcBoilOffVolume(BatchSize, BoilTime)),
                     topUpVolume);
                 if (swv < 0)
                     swv = 0;
                 SpargeWaterVolumeLabel.Content = String.Format("Sparge water volume [L]: {0:0.#}", swv);
 
-                var mwv = GrainfatherCalculator.CalcMashVolume(GrainBillSize);
+                var mwv = GrainfatherCalculator.CalcMashVolume(Mash.CalculateMashGrainBillSize(Grist.ToList(), GrainBillSize));
                 if (mwv < 0)
                     mwv = 0;
                 MashWaterVolumeLabel.Content = String.Format("Mash water volume [L]: {0:0.#}", mwv);
@@ -263,6 +275,10 @@ namespace GFCalc
 
         private void HopsListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+
+            if (HopsListView.SelectedIndex >= BoilHops.Count() || HopsListView.SelectedIndex < 0)
+                return;
+
             var w = new SelectHops(HopsRepo, BoilHops.ToArray()[HopsListView.SelectedIndex]);
             w.ShowDialog();
             if (w.hop != null)
@@ -290,7 +306,7 @@ namespace GFCalc
 
         private void recalculateIbu()
         {
-            IbuLabel.Content = string.Format("IBU: {0}", IbuAlgorithms.CalcIbu(BoilHops.ToList<HopBoilAddition>(), OriginalGravity, BatchSize));
+            IbuLabel.Content = string.Format("IBU: {0}", IbuAlgorithms.CalcIbu(BoilHops.Where(x => x.Stage.Equals("Boil")), OriginalGravity, BatchSize));
         }
 
         private void TopUpMashWaterVolumeTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -423,7 +439,7 @@ namespace GFCalc
             {
                 MessageBox.Show("Unable to parse recepie");
                 importBeersmithRecipe(dlg.FileName);
-            }  
+            }
 
 
         }
@@ -433,7 +449,7 @@ namespace GFCalc
             var bsiw = new TCW(aRecipeFileName, MaltRepo, HopsRepo);
             bsiw.ShowDialog();
             var r = bsiw.ImportedRecipe;
-            
+
         }
 
         private bool TryOpenFile(string aFileName)

@@ -16,9 +16,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using WpfApplication1.Domain;
+using Grainsim.Domain;
 
-namespace WpfApplication1.BeersmithImporterWizard
+namespace Grainsim.BeersmithImporterWizard
 {
     /// <summary>
     /// Interaction logic for TCW.xaml
