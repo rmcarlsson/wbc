@@ -80,6 +80,10 @@ namespace GFCalc
                 MessageBox.Show(String.Format("Unable to interperate {0} as a decmila value. Please proviode a correct decmial value in Part", textBox.Text));
         }
 
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 
 }

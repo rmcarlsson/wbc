@@ -84,12 +84,13 @@
 
         <GroupBox x:Name="groupBox2" Header="Hops" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Height="198" Width="456">
             <Canvas>
-                <ListView x:Name="HopsListView" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="423" MouseDoubleClick="HopsListView_MouseDoubleClick" Canvas.Left="10" Canvas.Top="10" >
+                <ListView x:Name="HopsListView" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="423" MouseDoubleClick="HopsListView_MouseDoubleClick" Canvas.Left="10" Canvas.Top="10" KeyDown="HopsListView_KeyDown" >
                     <ListView.View>
                         <GridView>
                             <GridViewColumn DisplayMemberBinding="{Binding Hop.Name}"  Header="Hops" />
                             <GridViewColumn DisplayMemberBinding="{Binding Hop.AlphaAcid}"  Header="Alpha acid[%]" />
                             <GridViewColumn DisplayMemberBinding="{Binding Amount}"  Header="Amount [g/L]" />
+                            <GridViewColumn DisplayMemberBinding="{Binding AmountGrams}"  Header="Amount[g]" />
                             <GridViewColumn DisplayMemberBinding="{Binding Minutes}"  Header="Stage" />
                             <GridViewColumn DisplayMemberBinding="{Binding Minutes}"  Header="Boil time [min/days]" />
                         </GridView>

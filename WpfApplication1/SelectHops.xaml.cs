@@ -22,7 +22,7 @@ namespace Grainsim
     /// </summary>
     public partial class SelectHops : Window
     {
-        public HopBoilAddition hop { set; get; }
+        public HopAddition hop { set; get; }
 
         public SelectHops(HopsRepository aRepo, int aBoilTime)
         {
@@ -34,7 +34,7 @@ namespace Grainsim
             TimeDurationTextBox.Text = aBoilTime.ToString();
         }
 
-        public SelectHops(HopsRepository aRepo, HopBoilAddition aHopAddition)
+        public SelectHops(HopsRepository aRepo, HopAddition aHopAddition)
         {
             InitializeComponent();
 
@@ -52,7 +52,7 @@ namespace Grainsim
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             Hops var = (Hops)HopsComboBox.SelectedItem;
-            hop = new HopBoilAddition();
+            hop = new HopAddition();
 
             if (var == null)
             {
@@ -82,7 +82,7 @@ namespace Grainsim
             float amount;
             if (float.TryParse(AmountTextBox.Text, out amount))
             {
-                hop.Amount = amount;
+                hop.Amount = Math.Round(amount, 2);
                 this.Close();
             }
             else

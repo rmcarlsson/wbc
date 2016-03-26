@@ -14,7 +14,7 @@ namespace Grainsim.Domain
 
 
 
-        static public int CalcIbu(IEnumerable<HopBoilAddition> aAdditions, double aGravityBoil, double aVolumeBoil)
+        static public int CalcIbu(IEnumerable<HopAddition> aAdditions, double aGravityBoil, double aVolumeBoil)
         {
             if (aVolumeBoil == 0)
                 return 0;
@@ -25,7 +25,7 @@ namespace Grainsim.Domain
 
             var fGravity = 1.65 * Math.Pow(0.000125, (aGravityBoil - 1));
             var res = 0d;
-            foreach (HopBoilAddition hopAdd in aAdditions) 
+            foreach (HopAddition hopAdd in aAdditions) 
             {
                 var fTinseth = (1 - Math.Pow(Math.E, (- 0.04 * hopAdd.Minutes))) / 4.15;
                 var hopAmountGrams = (hopAdd.Amount * aVolumeBoil);

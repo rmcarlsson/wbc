@@ -93,7 +93,7 @@ namespace Grainsim.BeersmithImporterWizard
 
         private void handleSelectHops()
         {
-            HopBoilAddition h = new HopBoilAddition();
+            HopAddition h = new HopAddition();
             if (HopsListView.SelectedItem != null)
             {
                 var bsh = BSBoilHops.First();

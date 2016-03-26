@@ -24,7 +24,7 @@ namespace GFCalc
     public partial class MainWindow : Window
     {
         public ObservableCollection<GristPart> Grist { set; get; }
-        public ObservableCollection<HopBoilAddition> BoilHops { set; get; }
+        public ObservableCollection<HopAddition> BoilHops { set; get; }
         public ObservableCollection<MashProfileStep> MashProfileList { get; set; }
         public ObservableCollection<OtherIngredient> OtherIngredientsList { get; set; }
 
@@ -51,7 +51,7 @@ namespace GFCalc
 
             Grist = new ObservableCollection<GristPart>();
             MaltsListView.ItemsSource = Grist;
-            BoilHops = new ObservableCollection<HopBoilAddition>();
+            BoilHops = new ObservableCollection<HopAddition>();
             HopsListView.ItemsSource = BoilHops;
 
             MashProfileList = new ObservableCollection<MashProfileStep>();
@@ -109,9 +109,12 @@ namespace GFCalc
             var sum = Grist.Sum(g => g.Amount);
             var sw = new SelectGrain(MaltRepo, sum);
             sw.ShowDialog();
-            Grist.Add(sw.Result);
 
-            recalculateGrainBill();
+            if (sw.Result != null)
+            {
+                Grist.Add(sw.Result);
+                recalculateGrainBill();
+            }
         }
 
         private void listView_KeyDown(object sender, KeyEventArgs e)
@@ -283,7 +286,7 @@ namespace GFCalc
             w.ShowDialog();
             if (w.hop != null)
             {
-                BoilHops.Remove((HopBoilAddition)HopsListView.SelectedItem);
+                BoilHops.Remove((HopAddition)HopsListView.SelectedItem);
                 BoilHops.Add(w.hop);
                 recalculateIbu();
             }
@@ -307,6 +310,12 @@ namespace GFCalc
         private void recalculateIbu()
         {
             IbuLabel.Content = string.Format("IBU: {0}", IbuAlgorithms.CalcIbu(BoilHops.Where(x => x.Stage.Equals("Boil")), OriginalGravity, BatchSize));
+
+            foreach (HopAddition h in BoilHops)
+            {
+                h.AmountGrams = Math.Round((BatchSize * h.Amount));
+            }
+
         }
 
         private void TopUpMashWaterVolumeTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -467,7 +476,7 @@ namespace GFCalc
                 Grist.Add(g);
 
             BoilHops.Clear();
-            foreach (HopBoilAddition h in loadedObject.BoilHops)
+            foreach (HopAddition h in loadedObject.BoilHops)
                 BoilHops.Add(h);
 
             MashProfileList.Clear();
@@ -566,6 +575,22 @@ namespace GFCalc
                 OtherIngredientsList.Add(w.Result);
             }
         }
-    }
 
+        private void HopsListView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (HopsListView.SelectedIndex >= BoilHops.Count() || HopsListView.SelectedIndex < 0)
+                return;
+
+            if (Key.Delete == e.Key)
+            {
+                HopAddition h = (HopAddition)HopsListView.SelectedItem;
+                BoilHops.Remove(h);
+                recalculateIbu();
+
+                MessageBox.Show(String.Format("Shit, want to remove {0}. That is {1} away", h.Hop.Name, h.Amount));
+            }
+        }
+    }
 }
+
+

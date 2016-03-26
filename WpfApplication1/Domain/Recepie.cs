@@ -15,7 +15,7 @@ namespace GFCalc.Domain
 
         public Recepie() 
         {
-            BoilHops = new List<HopBoilAddition>();
+            BoilHops = new List<HopAddition>();
             MashProfile = new List<MashProfileStep>();
             Fermentables = new List<GristPart>();
 
@@ -29,7 +29,7 @@ namespace GFCalc.Domain
         public List<MashProfileStep> MashProfile { set; get; }
 
         [XmlElement("BoilHops")]
-        public List<HopBoilAddition> BoilHops { set; get; }
+        public List<HopAddition> BoilHops { set; get; }
 
         [XmlElement("OtherIngredients")]
         public List<OtherIngredient> OtherIngredients { set; get; } 

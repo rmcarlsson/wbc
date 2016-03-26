@@ -8,12 +8,16 @@ using System.Xml.Serialization;
 
 namespace Grainsim.Domain
 {
-    public class HopBoilAddition
+
+    //[ValueConversion(typeof(Amount), typeof(AmountGrams))]
+    public class HopAddition
     {
         [XmlElement("Hop")]
         public Hops Hop { set; get; }
         [XmlAttribute("Name")]
         public double Amount { get; set; }
+        [XmlAttribute("AmountGrams")]
+        public double AmountGrams { get; set; }
         [XmlAttribute("Minutes")]
         public int Minutes { get; set; }
         [XmlAttribute("Stage")]
