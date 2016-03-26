@@ -9,6 +9,12 @@ using System.Xml.Serialization;
 namespace Grainsim.Domain
 {
 
+    public enum HopAdditionStage {
+        Boil,
+        Fermentation,
+        Keg
+    } 
+
     //[ValueConversion(typeof(Amount), typeof(AmountGrams))]
     public class HopAddition
     {
@@ -18,10 +24,10 @@ namespace Grainsim.Domain
         public double Amount { get; set; }
         [XmlAttribute("AmountGrams")]
         public double AmountGrams { get; set; }
-        [XmlAttribute("Minutes")]
-        public int Minutes { get; set; }
+        [XmlAttribute("Duration")]
+        public int Duration { get; set; }
         [XmlAttribute("Stage")]
-        public string Stage { get; set; }
+        public HopAdditionStage Stage { get; set; }
     }
 
     public class GristPart

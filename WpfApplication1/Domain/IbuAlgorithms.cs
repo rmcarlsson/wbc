@@ -27,7 +27,7 @@ namespace Grainsim.Domain
             var res = 0d;
             foreach (HopAddition hopAdd in aAdditions) 
             {
-                var fTinseth = (1 - Math.Pow(Math.E, (- 0.04 * hopAdd.Minutes))) / 4.15;
+                var fTinseth = (1 - Math.Pow(Math.E, (- 0.04 * hopAdd.Duration))) / 4.15;
                 var hopAmountGrams = (hopAdd.Amount * aVolumeBoil);
 
                 res += fGravity * fTinseth * (hopAdd.Hop.AlphaAcid.GetAphaAcid() * hopAmountGrams * 10 ) / aVolumeBoil;

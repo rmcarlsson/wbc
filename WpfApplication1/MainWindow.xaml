@@ -26,14 +26,14 @@
 
         <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" VerticalAlignment="Center">
             <MenuItem Header="_File">
-                <MenuItem Header="_Open" Click="MenuItem_Open"/>
-                <MenuItem Header="_Save" Click="MenuItem_Click"/>
-                <MenuItem Header="_Print" Click="MenuItem_File_Print"/>
-                <MenuItem Header="_Exit" Click="MenuItem_Click_2"/>
+                <MenuItem Header="_Open" Click="MenuItem_FileOpen"/>
+                <MenuItem Header="_Save" Click="MenuItem_FileSave"/>
+                <MenuItem Header="_Print" Click="MenuItem_FilePrint"/>
+                <MenuItem Header="_Exit" Click="MenuItem_FileExit"/>
             </MenuItem>
             <MenuItem Header="_Ingredients">
                 <MenuItem Header="_Add hops" Click="MenuItem_Add_Hops" />
-                <MenuItem Header="_Add malt" Click="MenuItem_Click_3"/>
+                <MenuItem Header="_Add malt" Click="MenuItem_IngredientsAddMalts"/>
             </MenuItem>
             <MenuItem Header="_Help">
                 <MenuItem Header="_About" />
@@ -44,7 +44,7 @@
 
         <GroupBox x:Name="groupBox" Header="Fermentables" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="197" Width="453">
             <Canvas>
-                <ListView x:Name="MaltsListView" PreviewKeyDown="listView_KeyDown" HorizontalAlignment="Left" Height="121" Margin="10,10,0,0" VerticalAlignment="Top" Width="423" MouseDoubleClick="MaltsListView_MouseDoubleClick">
+                <ListView x:Name="MaltsListView" PreviewKeyDown="MaltsListView_KeyDown" HorizontalAlignment="Left" Height="121" Margin="10,10,0,0" VerticalAlignment="Top" Width="423" MouseDoubleClick="MaltsListView_MouseDoubleClick">
                     <ListView.View >
                         <GridView x:Name="MaltsGridView">
                             <GridViewColumn DisplayMemberBinding="{Binding FermentableAdjunct.Name}"  Header="Fermentable" />
@@ -64,7 +64,7 @@
 
         <GroupBox x:Name="groupBox1" Header="Mash - Profile" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Height="148" Width="420">
             <Canvas>
-                <ListView x:Name="MashStepListView" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="191" KeyDown="MasStepListView_KeyDown" MouseDoubleClick="MasStepListView_MouseDoubleClick" Canvas.Left="10" Canvas.Top="10">
+                <ListView x:Name="MashStepListView" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="191" KeyDown="MashStepListView_KeyDown" MouseDoubleClick="MashStepListView_MouseDoubleClick" Canvas.Left="10" Canvas.Top="10">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn DisplayMemberBinding="{Binding Temperature}"  Header="Temperature [C]" />

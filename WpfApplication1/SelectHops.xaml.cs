@@ -31,7 +31,10 @@ namespace Grainsim
             var hopsRepo = aRepo;
             var hops = hopsRepo.Get();
             HopsComboBox.ItemsSource = hops;
+            HopsComboBox.SelectedIndex = 0;
             TimeDurationTextBox.Text = aBoilTime.ToString();
+            StageComboBox.ItemsSource = Enum.GetValues(typeof(HopAdditionStage)).Cast<HopAdditionStage>();
+            StageComboBox.SelectedIndex = 0;
         }
 
         public SelectHops(HopsRepository aRepo, HopAddition aHopAddition)
@@ -44,8 +47,10 @@ namespace Grainsim
 
             HopsComboBox.SelectedValue = hops.FirstOrDefault(x => x.Name.Equals(aHopAddition.Hop.Name));
 
-            TimeDurationTextBox.Text = aHopAddition.Minutes.ToString();
+            TimeDurationTextBox.Text = aHopAddition.Duration.ToString();
             AmountTextBox.Text = aHopAddition.Amount.ToString();
+            StageComboBox.ItemsSource = Enum.GetValues(typeof(HopAdditionStage)).Cast<HopAdditionStage>();
+            StageComboBox.SelectedItem = (HopAdditionStage)aHopAddition.Stage; 
 
         }
 
@@ -56,15 +61,15 @@ namespace Grainsim
 
             if (var == null)
             {
-                MessageBox.Show("Please select a hop in the dowp down menu");
+                MessageBox.Show("Please select a hop in the drop down menu");
                 return;
             }
             hop.Hop = var;
 
-            string stage = StageComboBox.Text;
-            if (stage == null)
+            var stage = (HopAdditionStage)StageComboBox.SelectedItem;
+            if (StageComboBox.SelectedIndex == 0)
             {
-                MessageBox.Show("Please select a hop in the dowp down menu");
+                MessageBox.Show("Please select a hop in the drop down menu");
                 return;
             }
             hop.Stage = stage;
@@ -72,11 +77,11 @@ namespace Grainsim
             int timeMinutes;
             if (int.TryParse(TimeDurationTextBox.Text, out timeMinutes))
             {
-                hop.Minutes = timeMinutes;
+                hop.Duration = timeMinutes;
                 this.Close();
             }
             else
-                MessageBox.Show(String.Format("Unable to interperate {0} as a integer value. Please proviode a correct integer value value in Time", TimeDurationTextBox.Text));
+                MessageBox.Show(String.Format("Unable to interpreter {0} as a integer value. Please provide a correct integer value in Time", TimeDurationTextBox.Text));
 
 
             float amount;
@@ -86,7 +91,7 @@ namespace Grainsim
                 this.Close();
             }
             else
-                MessageBox.Show(String.Format("Unable to interperate {0} as a float value. Please proviode a correct float value in Part", AmountTextBox.Text));
+                MessageBox.Show(String.Format("Unable to interpreter {0} as a float value. Please provide a correct float value in Part", AmountTextBox.Text));
 
 
         }
@@ -94,6 +99,18 @@ namespace Grainsim
         private void button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void StageComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if ((HopAdditionStage)(StageComboBox.SelectedItem) == (HopAdditionStage.Fermentation))
+            {
+                TimeDuration.Content = "Time[Days]:";
+            }
+            else
+            {
+                TimeDuration.Content = "Time[minutes from boil end]:";
+            }
         }
     }
 }

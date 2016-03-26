@@ -100,7 +100,7 @@ namespace Grainsim.BeersmithImporterWizard
 
                 h.Hop = (Hops)(HopsListView.SelectedItem);
                 h.Amount = Weight.ConvertPoundsToGrams(bsh.Amount);
-                h.Minutes = (int)Math.Round(bsh.BoilTime);
+                h.Duration = (int)Math.Round(bsh.BoilTime);
 
                 ImportedRecipe.BoilHops.Add(h);
                 var del = BSBoilHops.First();

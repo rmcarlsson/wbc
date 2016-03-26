@@ -70,38 +70,38 @@ namespace GFCalc
 
         }
 
-        private void recalulateVolumes()
+
+        #region MaltsListView event handlers
+        private void MaltsListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (PreBoilVolumeCheckbox.IsChecked == false)
+
+            if (MaltsListView.SelectedIndex >= Grist.Count() || MaltsListView.SelectedIndex < 0)
+                return;
+
+            double sum = Grist.Sum(g => g.Amount);
+            sum -= Grist.ToArray()[MaltsListView.SelectedIndex].Amount;
+            var sw = new SelectGrain(MaltRepo, sum, Grist.ToArray()[MaltsListView.SelectedIndex]);
+            sw.ShowDialog();
+            if (sw.Result != null)
             {
-                PreBoilVolumeTextBox.Text = GrainfatherCalculator.CalcPreBoilVolume(BatchSize, BoilTime).ToString();
-                PreBoilVolumeTextBox.IsEnabled = false;
-                PreBoilVolumeTextBox.IsReadOnly = true;
-
+                Grist.Remove((GristPart)MaltsListView.SelectedItem);
+                Grist.Add(sw.Result);
+                recalculateGrainBill();
             }
-            else
+        }
+
+        private void MaltsListView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Key.Delete == e.Key)
             {
-                PreBoilVolumeTextBox.IsEnabled = true;
-                PreBoilVolumeTextBox.IsReadOnly = false;
+
+                foreach (GristPart listViewItem in ((ListView)sender).SelectedItems)
+                {
+                    Grist.Remove(listViewItem);
+                    MessageBox.Show(String.Format("Shit, want to remove {0}. That is {1} away", listViewItem.FermentableAdjunct.Name, listViewItem.Amount));
+                    break;
+                }
             }
-
-            if (VolumeInFermentorCheckbox.IsChecked == false)
-
-            {
-                VolumeInFermentorTextBox.Text = BatchSize.ToString();
-                VolumeInFermentorTextBox.IsEnabled = false;
-                VolumeInFermentorTextBox.IsReadOnly = true;
-            }
-            else
-            {
-                VolumeInFermentorTextBox.IsEnabled = true;
-                VolumeInFermentorTextBox.IsReadOnly = false;
-            }
-
-
-
-
-
         }
 
         private void addGrains_Click(object sender, RoutedEventArgs e)
@@ -116,22 +116,224 @@ namespace GFCalc
                 recalculateGrainBill();
             }
         }
+        #endregion
 
-        private void listView_KeyDown(object sender, KeyEventArgs e)
+        #region HopsListView event handlers
+        private void HopsListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+
+            if (HopsListView.SelectedIndex >= BoilHops.Count() || HopsListView.SelectedIndex < 0)
+                return;
+
+            var w = new SelectHops(HopsRepo, BoilHops.ToArray()[HopsListView.SelectedIndex]);
+            w.ShowDialog();
+            if (w.hop != null)
+            {
+                BoilHops.Remove((HopAddition)HopsListView.SelectedItem);
+                BoilHops.Add(w.hop);
+                recalculateIbu();
+            }
+
+
+        }
+        private void HopsListView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (HopsListView.SelectedIndex >= BoilHops.Count() || HopsListView.SelectedIndex < 0)
+                return;
+
             if (Key.Delete == e.Key)
             {
+                HopAddition h = (HopAddition)HopsListView.SelectedItem;
+                BoilHops.Remove(h);
+                recalculateIbu();
 
-                foreach (GristPart listViewItem in ((ListView)sender).SelectedItems)
+                MessageBox.Show(String.Format("Shit, want to remove {0}. That is {1} away", h.Hop.Name, h.Amount));
+            }
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            var w = new SelectHops(HopsRepo, BoilTime);
+            w.ShowDialog();
+            if (w.hop != null)
+            {
+                BoilHops.Add(w.hop);
+                recalculateIbu();
+            }
+        }
+
+        #endregion
+
+        #region MashStepListView event handlers
+        private void MashStepListView_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (Key.Delete == e.Key)
+            {
+                foreach (MashProfileStep listViewItem in ((ListView)sender).SelectedItems)
                 {
-                    Grist.Remove(listViewItem);
-                    MessageBox.Show(String.Format("Shit, want to remove {0}. That is {1} away", listViewItem.FermentableAdjunct.Name, listViewItem.Amount));
+                    MashProfileList.Remove(listViewItem);
                     break;
                 }
             }
         }
 
+        private void MashStepListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            MashStepTempTextBox.Text = MashProfileList.ToArray()[MashStepListView.SelectedIndex].Temperature.ToString();
+            MashStepTimeTextBox.Text = MashProfileList.ToArray()[MashStepListView.SelectedIndex].Time.ToString();
+            MashProfileList.Remove((MashProfileStep)MashStepListView.SelectedItem);
+            AddMashStepButton.Content = "Update";
 
+        }
+        private void AddMashStepButton_Click(object sender, RoutedEventArgs e)
+        {
+            double temp;
+            if (!double.TryParse(MashStepTempTextBox.Text, out temp))
+                return;
+
+            int time;
+            if (!int.TryParse(MashStepTimeTextBox.Text, out time))
+                return;
+
+            var mps = new MashProfileStep();
+            mps.Temperature = temp;
+            mps.Time = time;
+            MashProfileList.Add(mps);
+            AddMashStepButton.Content = "Add";
+
+        }
+        #endregion
+
+        #region File menu event handlers
+        private void MenuItem_FileSave(object sender, RoutedEventArgs e)
+        {
+            var r = new Recepie();
+            r.Fermentables = Grist.ToList();
+            r.BoilHops = BoilHops.ToList();
+            r.MashProfile = MashProfileList.ToList();
+            r.Name = NameTextBox.Text;
+            r.BatchSize = BatchSize;
+            r.OriginalGravity = OriginalGravity;
+            r.BoilTime = BoilTime;
+
+
+            // Create OpenFileDialog 
+            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+
+
+
+            // Set filter for file extension and default file extension 
+            dlg.DefaultExt = ".xml";
+            dlg.Filter = "Grainfather recepie files|*.xml";
+            dlg.CheckFileExists = false;
+            dlg.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            dlg.FileName = NameTextBox.Text;
+
+            // Display OpenFileDialog by calling ShowDialog method 
+            Nullable<bool> result = dlg.ShowDialog();
+
+
+            if (result != true)
+                return;
+
+            XmlSerializer serializer = new XmlSerializer(typeof(Recepie));
+            FileStream saveStream = new FileStream(dlg.FileName, FileMode.OpenOrCreate, FileAccess.Write);
+            serializer.Serialize(saveStream, r);
+            saveStream.Close();
+
+
+
+        }
+
+        private void MenuItem_FileOpen(object sender, RoutedEventArgs e)
+        {
+
+            // Create OpenFileDialog 
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+
+
+
+            // Set filter for file extension and default file extension 
+            dlg.DefaultExt = ".xml";
+            dlg.Filter = "Grainfather recepie files|*.xml";
+            dlg.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+
+            // Display OpenFileDialog by calling ShowDialog method 
+            Nullable<bool> result = dlg.ShowDialog();
+
+
+            if (result != true)
+                return;
+
+            if (!TryOpenFile(dlg.FileName))
+            {
+                MessageBox.Show("Unable to parse recepie");
+                importBeersmithRecipe(dlg.FileName);
+            }
+
+
+        }
+
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
+        }
+
+        private void MenuItem_FileExit(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void MenuItem_FilePrint(object sender, RoutedEventArgs e)
+        {
+            PrintDialog pDialog = new PrintDialog();
+            pDialog.PageRangeSelection = PageRangeSelection.AllPages;
+            pDialog.UserPageRangeEnabled = true;
+
+            // Display the dialog. This returns true if the user presses the Print button.
+            Nullable<Boolean> print = pDialog.ShowDialog();
+            if (print == true)
+            {
+                FlowDocument doc = new FlowDocument(new Paragraph(new Run("Some text goes here")));
+                doc.Name = "FlowDoc";
+
+
+                // Create IDocumentPaginatorSource from FlowDocument
+                IDocumentPaginatorSource idpSource = doc;
+
+                // Call PrintDocument method to send document to printer
+                pDialog.PrintDocument(idpSource.DocumentPaginator, "Hello WPF Printing.");
+
+                //XpsDocument xpsDocument = new XpsDocument("C:\\FixedDocumentSequence.xps", FileAccess.ReadWrite);
+                //FixedDocumentSequence fixedDocSeq = xpsDocument.GetFixedDocumentSequence();
+                //pDialog.PrintDocument(fixedDocSeq.DocumentPaginator, "Test print job");
+            }
+
+        }
+
+        #endregion
+
+        #region Ingredients menu event handlers
+
+        private void MenuItem_IngredientsAddMalts(object sender, RoutedEventArgs e)
+        {
+            var sw = new AlterMaltsWindow(MaltRepo);
+            sw.ShowDialog();
+
+        }
+
+        private void MenuItem_Add_Hops(object sender, RoutedEventArgs e)
+        {
+            var sw = new AlterHopsWindow(HopsRepo);
+            sw.ShowDialog();
+        }
+
+        #endregion
+
+        #region Private methods
 
         private void recalculateGrainBill()
         {
@@ -215,97 +417,7 @@ namespace GFCalc
         }
 
 
-        private void ExpectedOriginalGravityTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            ExpectedOriginalGravityTextBox = (TextBox)(sender);
-            double val = 0;
 
-            if (Grist != null &&
-                Double.TryParse(ExpectedOriginalGravityTextBox.Text, out val))
-            {
-                OriginalGravity = val;
-                recalculateGrainBill();
-            }
-        }
-
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            var w = new SelectHops(HopsRepo, BoilTime);
-            w.ShowDialog();
-            if (w.hop != null)
-            {
-                BoilHops.Add(w.hop);
-                recalculateIbu();
-            }
-        }
-
-        private void MaltsListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-
-            if (MaltsListView.SelectedIndex >= Grist.Count() || MaltsListView.SelectedIndex < 0)
-                return;
-
-            double sum = Grist.Sum(g => g.Amount);
-            sum -= Grist.ToArray()[MaltsListView.SelectedIndex].Amount;
-            var sw = new SelectGrain(MaltRepo, sum, Grist.ToArray()[MaltsListView.SelectedIndex]);
-            sw.ShowDialog();
-            if (sw.Result != null)
-            {
-                Grist.Remove((GristPart)MaltsListView.SelectedItem);
-                Grist.Add(sw.Result);
-                recalculateGrainBill();
-            }
-        }
-
-        private void BatchSizeVolumeTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            BatchSizeVolumeTextBox = (TextBox)(sender);
-            double val = 0;
-            if (Grist != null &&
-                 Double.TryParse(BatchSizeVolumeTextBox.Text, out val))
-            {
-                if (val > (GrainfatherCalculator.GRAINFATHER_MAX_PREBOILVOLUME - GrainfatherCalculator.CalcBoilOffVolume(val, BoilTime)))
-                {
-                    MessageBox.Show("Batch size is to big. Please reduce it");
-                    return;
-                }
-
-                BatchSize = val;
-                recalculateGrainBill();
-            }
-        }
-
-
-        private void HopsListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-
-            if (HopsListView.SelectedIndex >= BoilHops.Count() || HopsListView.SelectedIndex < 0)
-                return;
-
-            var w = new SelectHops(HopsRepo, BoilHops.ToArray()[HopsListView.SelectedIndex]);
-            w.ShowDialog();
-            if (w.hop != null)
-            {
-                BoilHops.Remove((HopAddition)HopsListView.SelectedItem);
-                BoilHops.Add(w.hop);
-                recalculateIbu();
-            }
-
-
-        }
-
-        private void BoilTimeTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            BoilTimeTextBox = (TextBox)(sender);
-            int val = 0;
-            if (Grist != null &&
-                 Int32.TryParse(BatchSizeVolumeTextBox.Text, out val))
-            {
-                BoilTime = val;
-                recalculateIbu();
-            }
-
-        }
 
         private void recalculateIbu()
         {
@@ -318,138 +430,33 @@ namespace GFCalc
 
         }
 
-        private void TopUpMashWaterVolumeTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void recalulateVolumes()
         {
-            TopUpMashWaterVolumeTextBox = (TextBox)(sender);
-            double val = 0;
-            if (Grist != null &&
-                 Double.TryParse(TopUpMashWaterVolumeTextBox.Text, out val))
+            if (PreBoilVolumeCheckbox.IsChecked == false)
             {
-                TopUpMashWater = val;
-                recalculateGrainBill();
+                PreBoilVolumeTextBox.Text = GrainfatherCalculator.CalcPreBoilVolume(BatchSize, BoilTime).ToString();
+                PreBoilVolumeTextBox.IsEnabled = false;
+                PreBoilVolumeTextBox.IsReadOnly = true;
+
             }
-        }
-
-
-        ///////////////////////////////////////////////////////////////////////
-        //
-        // Mash profile handing
-        //
-        ///////////////////////////////////////////////////////////////////////
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-
-        private void AddMashStepButton_Click(object sender, RoutedEventArgs e)
-        {
-            double temp;
-            if (!double.TryParse(MashStepTempTextBox.Text, out temp))
-                return;
-
-            int time;
-            if (!int.TryParse(MashStepTimeTextBox.Text, out time))
-                return;
-
-            var mps = new MashProfileStep();
-            mps.Temperature = temp;
-            mps.Time = time;
-            MashProfileList.Add(mps);
-            AddMashStepButton.Content = "Add";
-
-        }
-
-        private void MasStepListView_KeyDown(object sender, KeyEventArgs e)
-        {
-
-            if (Key.Delete == e.Key)
+            else
             {
-                foreach (MashProfileStep listViewItem in ((ListView)sender).SelectedItems)
-                {
-                    MashProfileList.Remove(listViewItem);
-                    break;
-                }
-            }
-        }
-
-        private void MasStepListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            MashStepTempTextBox.Text = MashProfileList.ToArray()[MashStepListView.SelectedIndex].Temperature.ToString();
-            MashStepTimeTextBox.Text = MashProfileList.ToArray()[MashStepListView.SelectedIndex].Time.ToString();
-            MashProfileList.Remove((MashProfileStep)MashStepListView.SelectedItem);
-            AddMashStepButton.Content = "Update";
-
-        }
-
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            var r = new Recepie();
-            r.Fermentables = Grist.ToList();
-            r.BoilHops = BoilHops.ToList();
-            r.MashProfile = MashProfileList.ToList();
-            r.Name = NameTextBox.Text;
-            r.BatchSize = BatchSize;
-            r.OriginalGravity = OriginalGravity;
-            r.BoilTime = BoilTime;
-
-
-            // Create OpenFileDialog 
-            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
-
-
-
-            // Set filter for file extension and default file extension 
-            dlg.DefaultExt = ".xml";
-            dlg.Filter = "Grainfather recepie files|*.xml";
-            dlg.CheckFileExists = false;
-            dlg.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            dlg.FileName = NameTextBox.Text;
-
-            // Display OpenFileDialog by calling ShowDialog method 
-            Nullable<bool> result = dlg.ShowDialog();
-
-
-            if (result != true)
-                return;
-
-            XmlSerializer serializer = new XmlSerializer(typeof(Recepie));
-            FileStream saveStream = new FileStream(dlg.FileName, FileMode.OpenOrCreate, FileAccess.Write);
-            serializer.Serialize(saveStream, r);
-            saveStream.Close();
-
-
-
-        }
-
-        private void MenuItem_Open(object sender, RoutedEventArgs e)
-        {
-
-            // Create OpenFileDialog 
-            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-
-
-
-            // Set filter for file extension and default file extension 
-            dlg.DefaultExt = ".xml";
-            dlg.Filter = "Grainfather recepie files|*.xml";
-            dlg.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-
-
-            // Display OpenFileDialog by calling ShowDialog method 
-            Nullable<bool> result = dlg.ShowDialog();
-
-
-            if (result != true)
-                return;
-
-            if (!TryOpenFile(dlg.FileName))
-            {
-                MessageBox.Show("Unable to parse recepie");
-                importBeersmithRecipe(dlg.FileName);
+                PreBoilVolumeTextBox.IsEnabled = true;
+                PreBoilVolumeTextBox.IsReadOnly = false;
             }
 
+            if (VolumeInFermentorCheckbox.IsChecked == false)
+
+            {
+                VolumeInFermentorTextBox.Text = BatchSize.ToString();
+                VolumeInFermentorTextBox.IsEnabled = false;
+                VolumeInFermentorTextBox.IsReadOnly = true;
+            }
+            else
+            {
+                VolumeInFermentorTextBox.IsEnabled = true;
+                VolumeInFermentorTextBox.IsReadOnly = false;
+            }
 
         }
 
@@ -505,55 +512,67 @@ namespace GFCalc
             BoilTimeTextBox.Text = BoilTime.ToString();
             TopUpMashWaterVolumeTextBox.Text = TopUpMashWater.ToString();
         }
+        #endregion
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        #region Event handlers
+
+        private void ExpectedOriginalGravityTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            ExpectedOriginalGravityTextBox = (TextBox)(sender);
+            double val = 0;
 
-        }
-
-        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
-
-        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
-        {
-            var sw = new AlterMaltsWindow(MaltRepo);
-            sw.ShowDialog();
-
-        }
-
-        private void MenuItem_Add_Hops(object sender, RoutedEventArgs e)
-        {
-            var sw = new AlterHopsWindow(HopsRepo);
-            sw.ShowDialog();
-        }
-
-        private void MenuItem_File_Print(object sender, RoutedEventArgs e)
-        {
-            PrintDialog pDialog = new PrintDialog();
-            pDialog.PageRangeSelection = PageRangeSelection.AllPages;
-            pDialog.UserPageRangeEnabled = true;
-
-            // Display the dialog. This returns true if the user presses the Print button.
-            Nullable<Boolean> print = pDialog.ShowDialog();
-            if (print == true)
+            if (Grist != null &&
+                Double.TryParse(ExpectedOriginalGravityTextBox.Text, out val))
             {
-                FlowDocument doc = new FlowDocument(new Paragraph(new Run("Some text goes here")));
-                doc.Name = "FlowDoc";
+                OriginalGravity = val;
+                recalculateGrainBill();
+            }
+        }
 
 
-                // Create IDocumentPaginatorSource from FlowDocument
-                IDocumentPaginatorSource idpSource = doc;
+        private void BatchSizeVolumeTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            BatchSizeVolumeTextBox = (TextBox)(sender);
+            double val = 0;
+            if (Grist != null &&
+                 Double.TryParse(BatchSizeVolumeTextBox.Text, out val))
+            {
+                if (val > (GrainfatherCalculator.GRAINFATHER_MAX_PREBOILVOLUME - GrainfatherCalculator.CalcBoilOffVolume(val, BoilTime)))
+                {
+                    MessageBox.Show("Batch size is to big. Please reduce it");
+                    return;
+                }
 
-                // Call PrintDocument method to send document to printer
-                pDialog.PrintDocument(idpSource.DocumentPaginator, "Hello WPF Printing.");
+                BatchSize = val;
+                recalculateGrainBill();
+            }
+        }
 
-                //XpsDocument xpsDocument = new XpsDocument("C:\\FixedDocumentSequence.xps", FileAccess.ReadWrite);
-                //FixedDocumentSequence fixedDocSeq = xpsDocument.GetFixedDocumentSequence();
-                //pDialog.PrintDocument(fixedDocSeq.DocumentPaginator, "Test print job");
+
+        private void BoilTimeTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            BoilTimeTextBox = (TextBox)(sender);
+            int val = 0;
+            if (Grist != null &&
+                 Int32.TryParse(BatchSizeVolumeTextBox.Text, out val))
+            {
+                BoilTime = val;
+                recalculateIbu();
             }
 
+        }
+
+
+        private void TopUpMashWaterVolumeTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TopUpMashWaterVolumeTextBox = (TextBox)(sender);
+            double val = 0;
+            if (Grist != null &&
+                 Double.TryParse(TopUpMashWaterVolumeTextBox.Text, out val))
+            {
+                TopUpMashWater = val;
+                recalculateGrainBill();
+            }
         }
 
         private void VolumeInFermentorCheckbox_Checked(object sender, RoutedEventArgs e)
@@ -575,21 +594,8 @@ namespace GFCalc
                 OtherIngredientsList.Add(w.Result);
             }
         }
+        #endregion
 
-        private void HopsListView_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (HopsListView.SelectedIndex >= BoilHops.Count() || HopsListView.SelectedIndex < 0)
-                return;
-
-            if (Key.Delete == e.Key)
-            {
-                HopAddition h = (HopAddition)HopsListView.SelectedItem;
-                BoilHops.Remove(h);
-                recalculateIbu();
-
-                MessageBox.Show(String.Format("Shit, want to remove {0}. That is {1} away", h.Hop.Name, h.Amount));
-            }
-        }
     }
 }
 
