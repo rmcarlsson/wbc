@@ -19,11 +19,16 @@ namespace Grainsim.Domain
         }
     }
 
-    static class Volume
+    public class Volume
     {
         static public double ConvertLitersToGallons(double aVolumeInLiters)
         {
             return 0.264172052d * aVolumeInLiters;
+        }
+
+        static public double ConvertUsCupsToLiters(double aVolumeInCups)
+        {
+            return (1 / 0.236588236) * aVolumeInCups;
         }
     }
 

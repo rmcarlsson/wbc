@@ -15,15 +15,21 @@ namespace BSImport
     {
         // XPaths
         private const string XPATH_FOR_RECIPIES = "//Data/Recipe";
+        private const string RECIPE_NAME_ELEMENT = "F_R_NAME";
+
         private const string XPATH_FOR_MASHSTEPS = "//F_R_MASH/steps/Data/MashStep";
+        private const string MASH_STEP_TIME_ELEMENT = "F_MS_STEP_TIME";
+        private const string MASH_STEP_TEMP_ELEMENT = "F_MS_STEP_TEMP";
+
         private const string XPATH_FOR_GRAINS = "//Ingredients/Data/Grain";
         private const string XPATH_FOR_HOPS = "//Ingredients/Data/Hops";
 
-        // Element names
-        private const string RECIPE_NAME_ELEMENT = "F_R_NAME";
-        private const string MASH_STEP_TIME_ELEMENT = "F_MS_STEP_TIME";
-        private const string MASH_STEP_TEMP_ELEMENT = "F_MS_STEP_TEMP";
-        private const string FINAL_BATCH_VOLUME = "F_R_FINAL_VOL_MEASURED";
+        private const string XPATH_FOR_EQUIPMENTS = "//F_R_EQUIPMENT";
+        private const string XPATH_FOR_BATCH_VOLUME_ELEMENT = "F_E_BATCH_VOL";
+        private const string XPATH_FOR_BOIL_TIME_ELEMENT = "F_E_BOIL_TIME";
+        private const string FINAL_BATCH_VOLUME_ELEMENT = "F_R_FINAL_VOL_MEASURED";
+
+        private const string ORIGINAL_GRAVITY_ELEMENT = "F_R_OG_MEASURED";
         private XDocument XDoc;
 
         private string XmlFilename;
@@ -45,31 +51,80 @@ namespace BSImport
 
             XmlFilename = aXmlFilePath;
         }
-
-        public double getFinalBatchVolume()
+        public double getOriginalGravity(string aRecepieName)
         {
             double r = 0;
             string errMsg;
 
             var xrs = XDoc.XPathSelectElements(XPATH_FOR_RECIPIES);
-            var vs = xrs.FirstOrDefault(x => x.Element(RECIPE_NAME_ELEMENT).Value.Equals(XmlFilename));
-            var v = vs.XPathSelectElement(FINAL_BATCH_VOLUME).Value;
-            if (!double.TryParse(v, out r))
+            var vs = xrs.FirstOrDefault(x => x.Element(RECIPE_NAME_ELEMENT).Value.Equals(aRecepieName));
+            var og = vs.Element(ORIGINAL_GRAVITY_ELEMENT).Value;
+            if (!double.TryParse(og, NumberStyles.AllowDecimalPoint, CultureInfo.CreateSpecificCulture("en-US"), out r))
+            {
+                errMsg = "Unable to parse original gravity";
+                throw new ArgumentException(errMsg);
+            }
+
+            return Math.Round(r,4);
+        }
+        
+
+        public double getFinalBatchVolume(string aRecepieName)
+        {
+            double r = 0;
+            string errMsg;
+
+            var xrs = XDoc.XPathSelectElements(XPATH_FOR_RECIPIES);
+            var vs = xrs.FirstOrDefault(x => x.Element(RECIPE_NAME_ELEMENT).Value.Equals(aRecepieName));
+            var eqs = vs.XPathSelectElements(XPATH_FOR_EQUIPMENTS);
+            var e = eqs.FirstOrDefault();
+            var bv = e.Element(XPATH_FOR_BATCH_VOLUME_ELEMENT).Value;
+            if (!double.TryParse(bv, NumberStyles.AllowDecimalPoint, CultureInfo.CreateSpecificCulture("en-US"), out r))
             {
                 errMsg = "Unable to parse final batch volume";
                 throw new ArgumentException(errMsg);
             }
 
-            return r;
+            return Math.Round(ConvertUsCupsToLiters(r),1);
+        }
+        static public double ConvertUsCupsToLiters(double aVolumeInCups)
+        {
+            return 0.0295735296d * aVolumeInCups;
         }
 
-        public IEnumerable<BSMashStep> getMashProfile()
+        static public double ConvertUsOuncesToGrams( double aWeigthInOunces)
+        {
+            return (28.3495231d * aWeigthInOunces);
+        } 
+
+
+        public int getBoilTime(string aRecepieName)
+        {
+            double r = 0;
+            string errMsg;
+            var xrs = XDoc.XPathSelectElements(XPATH_FOR_RECIPIES);
+            var vs = xrs.FirstOrDefault(x => x.Element(RECIPE_NAME_ELEMENT).Value.Equals(aRecepieName));
+            var eqs = vs.XPathSelectElements(XPATH_FOR_EQUIPMENTS);
+            var e = eqs.FirstOrDefault();
+            var bt = e.Element(XPATH_FOR_BOIL_TIME_ELEMENT).Value;
+            if (!double.TryParse(bt, NumberStyles.AllowDecimalPoint, CultureInfo.CreateSpecificCulture("en-US"), out r))
+            {
+                errMsg = "Unable to parse boil time";
+                throw new ArgumentException(errMsg);
+            }
+
+            return (int)(Math.Round(r));
+
+        }
+
+
+        public IEnumerable<BSMashStep> getMashProfile(string aRecepieName)
         {
             var ret = new List<BSMashStep>();
             string errMsg = null;
 
             var xrs = XDoc.XPathSelectElements(XPATH_FOR_RECIPIES);
-            var r = xrs.FirstOrDefault(x => x.Element(RECIPE_NAME_ELEMENT).Value.Equals(XmlFilename));
+            var r = xrs.FirstOrDefault(x => x.Element(RECIPE_NAME_ELEMENT).Value.Equals(aRecepieName));
             var xmss = r.XPathSelectElements(XPATH_FOR_MASHSTEPS);
 
             foreach (XElement xms in xmss)
@@ -109,13 +164,13 @@ namespace BSImport
             return ret;
         }
 
-        public IEnumerable<BSGrainBill> GetGrainBill()
+        public IEnumerable<BSGrainBill> GetGrainBill(string aRecepieName)
         {
             var ret = new List<BSGrainBill>();
             string errMsg = null;
 
             var xrs = XDoc.XPathSelectElements(XPATH_FOR_RECIPIES);
-            var r = xrs.FirstOrDefault(x => x.Element(RECIPE_NAME_ELEMENT).Value.Equals(XmlFilename));
+            var r = xrs.FirstOrDefault(x => x.Element(RECIPE_NAME_ELEMENT).Value.Equals(aRecepieName));
 
             var gs = r.XPathSelectElements(XPATH_FOR_GRAINS);
             foreach (XElement g in gs)
@@ -123,7 +178,7 @@ namespace BSImport
                 float f;
                 var gb = new BSGrainBill();
                 if (float.TryParse(g.Element("F_G_PERCENT").Value, NumberStyles.AllowDecimalPoint, CultureInfo.CreateSpecificCulture("en-US"), out f))
-                    gb.AmountPercent = f;
+                    gb.AmountPercent = (int)(Math.Round(f));
                 else
                     errMsg = "Unable to parse one grain percentage in the grainbill";
 
@@ -137,13 +192,13 @@ namespace BSImport
             return ret;
         }
 
-        public IEnumerable<BSHops> GetBoilHops()
+        public IEnumerable<BSHops> GetBoilHops(string aRecepieName)
         {
             var ret = new List<BSHops>();
             string errMsg = null;
 
             var xrs = XDoc.XPathSelectElements(XPATH_FOR_RECIPIES);
-            var r = xrs.FirstOrDefault(x => x.Element(RECIPE_NAME_ELEMENT).Value.Equals(XmlFilename));
+            var r = xrs.FirstOrDefault(x => x.Element(RECIPE_NAME_ELEMENT).Value.Equals(aRecepieName));
 
             var hs = r.XPathSelectElements(XPATH_FOR_HOPS);
             foreach (XElement h in hs)
@@ -152,7 +207,9 @@ namespace BSImport
                 var gb = new BSHops();
 
                 if (double.TryParse(h.Element("F_H_AMOUNT").Value, NumberStyles.AllowDecimalPoint, CultureInfo.CreateSpecificCulture("en-US"), out f))
-                    gb.Amount = f;
+                {
+                    gb.Amount = Math.Round(ConvertUsOuncesToGrams(f), 1);
+                }
                 else
                     errMsg = "Unable to parse hops amount";
 

@@ -17,6 +17,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Grainsim.Domain;
+using System.Diagnostics;
 
 namespace Grainsim.BeersmithImporterWizard
 {
@@ -54,7 +55,6 @@ namespace Grainsim.BeersmithImporterWizard
 
             ImportedRecipe = new Recepie();
 
-            ImportedRecipe.BatchSize = BeersmithImporter.getFinalBatchVolume();
         }
 
         private void ChangeTabItem(int aChange)
@@ -99,8 +99,10 @@ namespace Grainsim.BeersmithImporterWizard
                 var bsh = BSBoilHops.First();
 
                 h.Hop = (Hops)(HopsListView.SelectedItem);
-                h.Amount = Weight.ConvertPoundsToGrams(bsh.Amount);
+                Debug.Assert(ImportedRecipe.BatchSize != 0);
+                h.Amount = (bsh.Amount)/(ImportedRecipe.BatchSize);
                 h.Duration = (int)Math.Round(bsh.BoilTime);
+
 
                 ImportedRecipe.BoilHops.Add(h);
                 var del = BSBoilHops.First();
@@ -135,7 +137,7 @@ namespace Grainsim.BeersmithImporterWizard
 
                 if (BSGrainBill.Count == 0)
                 {
-                    BSBoilHops = BeersmithImporter.GetBoilHops().ToList();
+                    BSBoilHops = BeersmithImporter.GetBoilHops(ImportedRecipe.Name).ToList();
                     ChangeTabItem(1);
                     TextblockHops.Text = "Please select a corresponding hops for " + BSBoilHops.First().Name + " with alpha acid " + BSBoilHops.First().AlphaAcid.ToString();
                 }
@@ -144,7 +146,7 @@ namespace Grainsim.BeersmithImporterWizard
 
             }
             else
-                MessageBox.Show("Please select a fermetable adjunct in the list");
+                MessageBox.Show("Please select a fermentable adjunct in the list");
 
         }
 
@@ -154,7 +156,12 @@ namespace Grainsim.BeersmithImporterWizard
             if (r != null && !r.Equals(String.Empty))
             {
                 ImportedRecipe.Name = r;
-                BSGrainBill = BeersmithImporter.GetGrainBill().ToList();
+                ImportedRecipe.BatchSize = BeersmithImporter.getFinalBatchVolume(ImportedRecipe.Name);
+                ImportedRecipe.BoilTime = BeersmithImporter.getBoilTime(ImportedRecipe.Name);
+                ImportedRecipe.OriginalGravity = BeersmithImporter.getOriginalGravity(ImportedRecipe.Name);
+
+
+                BSGrainBill = BeersmithImporter.GetGrainBill(ImportedRecipe.Name).ToList();
 
                 // Next step
                 ChangeTabItem(1);

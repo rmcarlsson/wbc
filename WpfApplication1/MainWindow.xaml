@@ -89,14 +89,14 @@
                         <GridView>
                             <GridViewColumn DisplayMemberBinding="{Binding Hop.Name}"  Header="Hops" />
                             <GridViewColumn DisplayMemberBinding="{Binding Hop.AlphaAcid}"  Header="Alpha acid[%]" />
-                            <GridViewColumn DisplayMemberBinding="{Binding Amount}"  Header="Amount [g/L]" />
+                            <GridViewColumn DisplayMemberBinding="{Binding Amount, StringFormat=F2}" Header="Amount [g/L]" />
                             <GridViewColumn DisplayMemberBinding="{Binding AmountGrams}"  Header="Amount[g]" />
                             <GridViewColumn DisplayMemberBinding="{Binding Minutes}"  Header="Stage" />
                             <GridViewColumn DisplayMemberBinding="{Binding Minutes}"  Header="Boil time [min/days]" />
                         </GridView>
                     </ListView.View>
                 </ListView>
-                <Button x:Name="button" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="button_Click" Canvas.Left="357" Canvas.Top="115"/>
+                <Button x:Name="button" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="AddHopsButton_Click" Canvas.Left="357" Canvas.Top="115"/>
                 <Label x:Name="IbuLabel" Content="IBU: 0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Canvas.Left="358" Canvas.Top="142"/>
             </Canvas>
         </GroupBox>

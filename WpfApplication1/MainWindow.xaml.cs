@@ -151,7 +151,7 @@ namespace GFCalc
             }
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void AddHopsButton_Click(object sender, RoutedEventArgs e)
         {
             var w = new SelectHops(HopsRepo, BoilTime);
             w.ShowDialog();
@@ -224,9 +224,8 @@ namespace GFCalc
 
 
             // Set filter for file extension and default file extension 
-            dlg.DefaultExt = ".xml";
-            dlg.Filter = "Grainfather recepie files|*.xml";
-            dlg.CheckFileExists = false;
+            //dlg.DefaultExt = ".xml";
+            dlg.Filter = "Grainfather recepie files (*.xml)|*.xml|Beersmith files (.bsmx)|.bsmx";
             dlg.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             dlg.FileName = NameTextBox.Text;
 
@@ -255,8 +254,8 @@ namespace GFCalc
 
 
             // Set filter for file extension and default file extension 
-            dlg.DefaultExt = ".xml";
-            dlg.Filter = "Grainfather recepie files|*.xml";
+            //dlg.DefaultExt = ".bsmx";
+            dlg.Filter = "Grainfather recepie files (*.xml)|*.xml|Beersmith2 file (*.bsmx)|*.bsmx";
             dlg.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
 
@@ -269,11 +268,70 @@ namespace GFCalc
 
             if (!TryOpenFile(dlg.FileName))
             {
-                MessageBox.Show("Unable to parse recepie");
                 importBeersmithRecipe(dlg.FileName);
             }
 
 
+        }
+
+        private void importBeersmithRecipe(string aRecipeFileName)
+        {
+            var bsiw = new TCW(aRecipeFileName, MaltRepo, HopsRepo);
+            bsiw.ShowDialog();
+            var r = bsiw.ImportedRecipe;
+
+            PopulateGUI(r);
+
+        }
+
+        private bool TryOpenFile(string aFileName)
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(Recepie));
+            FileStream loadStream = new FileStream(aFileName, FileMode.Open, FileAccess.Read);
+            XmlReader reader = new XmlTextReader(loadStream);
+            if (!serializer.CanDeserialize(reader))
+                return false;
+
+            Recepie loadedObject = (Recepie)serializer.Deserialize(reader);
+            loadStream.Close();
+
+            PopulateGUI(loadedObject);
+
+            return true;
+        }
+
+
+
+        private void PopulateGUI(Recepie aRecepie)
+        {
+
+            Grist.Clear();
+            foreach (GristPart g in aRecepie.Fermentables)
+                Grist.Add(g);
+
+            BoilHops.Clear();
+            foreach (HopAddition h in aRecepie.BoilHops)
+                BoilHops.Add(h);
+
+            MashProfileList.Clear();
+            foreach (MashProfileStep mps in aRecepie.MashProfile)
+                MashProfileList.Add(mps);
+
+
+            BatchSize = aRecepie.BatchSize;
+            OriginalGravity = aRecepie.OriginalGravity;
+
+            BoilTime = aRecepie.BoilTime;
+
+            TopUpMashWater = aRecepie.TopUpMashWater;
+
+            NameTextBox.Text = aRecepie.Name;
+
+            recalculateGrainBill();
+
+            recalculateIbu();
+
+            updateGuiTextboxes();
         }
 
 
@@ -460,50 +518,7 @@ namespace GFCalc
 
         }
 
-        private void importBeersmithRecipe(string aRecipeFileName)
-        {
-            var bsiw = new TCW(aRecipeFileName, MaltRepo, HopsRepo);
-            bsiw.ShowDialog();
-            var r = bsiw.ImportedRecipe;
 
-        }
-
-        private bool TryOpenFile(string aFileName)
-        {
-            XmlSerializer serializer = new XmlSerializer(typeof(Recepie));
-            FileStream loadStream = new FileStream(aFileName, FileMode.Open, FileAccess.Read);
-            XmlReader reader = new XmlTextReader(loadStream);
-            if (!serializer.CanDeserialize(reader))
-                return false;
-
-            Recepie loadedObject = (Recepie)serializer.Deserialize(reader);
-            loadStream.Close();
-            Grist.Clear();
-            foreach (GristPart g in loadedObject.Fermentables)
-                Grist.Add(g);
-
-            BoilHops.Clear();
-            foreach (HopAddition h in loadedObject.BoilHops)
-                BoilHops.Add(h);
-
-            MashProfileList.Clear();
-            foreach (MashProfileStep mps in loadedObject.MashProfile)
-                MashProfileList.Add(mps);
-
-
-            BatchSize = loadedObject.BatchSize;
-            OriginalGravity = loadedObject.OriginalGravity;
-            BoilTime = loadedObject.BoilTime;
-            TopUpMashWater = loadedObject.TopUpMashWater;
-            NameTextBox.Text = loadedObject.Name;
-
-            recalculateGrainBill();
-            recalculateIbu();
-
-            updateGuiTextboxes();
-
-            return true;
-        }
 
         private void updateGuiTextboxes()
         {
