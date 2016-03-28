@@ -35,9 +35,9 @@ namespace Grainsim.Domain
         [XmlElement("FermentableAdjunct")]
         public FermentableAdjunct FermentableAdjunct { get; set; }
         [XmlAttribute("AmountPercent")]
-        public double Amount { get; set; }
+        public int Amount { get; set; }
         [XmlAttribute("AmountGrams")]
-        public double AmountGrams { get; set; }
+        public int AmountGrams { get; set; }
         [XmlAttribute("Stage")]
         public string Stage { get; set; }
 

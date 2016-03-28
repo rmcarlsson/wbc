@@ -34,7 +34,7 @@ namespace GFCalc
         public double OriginalGravity { get; set; }
         public double PreBoilGravity { get; set; }
         public double MashEfficieny { get; set; }
-        public double GrainBillSize { get; set; }
+        public int GrainBillSize { get; set; }
         public int BoilTime { set; get; }
         public double TopUpMashWater { set; get; }
 
@@ -224,8 +224,8 @@ namespace GFCalc
 
 
             // Set filter for file extension and default file extension 
-            //dlg.DefaultExt = ".xml";
-            dlg.Filter = "Grainfather recepie files (*.xml)|*.xml|Beersmith files (.bsmx)|.bsmx";
+            dlg.DefaultExt = ".gsrx";
+            dlg.Filter = "Grainfather recepie files (*.gsrx)|*.gsrx";
             dlg.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             dlg.FileName = NameTextBox.Text;
 
@@ -254,8 +254,7 @@ namespace GFCalc
 
 
             // Set filter for file extension and default file extension 
-            //dlg.DefaultExt = ".bsmx";
-            dlg.Filter = "Grainfather recepie files (*.xml)|*.xml|Beersmith2 file (*.bsmx)|*.bsmx";
+            dlg.Filter = "Grainfather recepie files (*.gsrx)|*.gsrx|Beersmith2 file (*.bsmx)|*.bsmx";
             dlg.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
 
@@ -415,11 +414,11 @@ namespace GFCalc
                 }
                 if (grain.Stage.Equals("Mash"))
                 {
-                    grain.AmountGrams = Math.Round((grain.Amount * GrainBillSize) / sum);
+                    grain.AmountGrams = (grain.Amount * GrainBillSize) / sum;
                 }
                 if (grain.Stage.Equals("Fermentation"))
                 {
-                    grain.AmountGrams = Math.Round(((grain.Amount * GrainBillSize) / sum) * (BatchSize / (BatchSize + GrainfatherCalculator.GRAINFATHER_BOILER_TO_FERMENTOR_LOSS)));
+                    grain.AmountGrams = (int)(Math.Round(((grain.Amount * GrainBillSize) / sum) * (BatchSize / (BatchSize + GrainfatherCalculator.GRAINFATHER_BOILER_TO_FERMENTOR_LOSS))));
                 }
 
                 l.Add(grain);
@@ -479,7 +478,7 @@ namespace GFCalc
 
         private void recalculateIbu()
         {
-            IbuLabel.Content = string.Format("IBU: {0}", IbuAlgorithms.CalcIbu(BoilHops.Where(x => x.Stage.Equals("Boil")), OriginalGravity, BatchSize));
+            IbuLabel.Content = string.Format("IBU: {0}", IbuAlgorithms.CalcIbu(BoilHops.Where(x => x.Stage == HopAdditionStage.Boil), OriginalGravity, BatchSize));
 
             foreach (HopAddition h in BoilHops)
             {

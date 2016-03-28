@@ -67,18 +67,12 @@ namespace Grainsim
             hop.Hop = var;
 
             var stage = (HopAdditionStage)StageComboBox.SelectedItem;
-            if (StageComboBox.SelectedIndex == 0)
-            {
-                MessageBox.Show("Please select a hop in the drop down menu");
-                return;
-            }
             hop.Stage = stage;
 
             int timeMinutes;
             if (int.TryParse(TimeDurationTextBox.Text, out timeMinutes))
             {
                 hop.Duration = timeMinutes;
-                this.Close();
             }
             else
                 MessageBox.Show(String.Format("Unable to interpreter {0} as a integer value. Please provide a correct integer value in Time", TimeDurationTextBox.Text));

@@ -220,7 +220,7 @@ namespace BSImport
                     errMsg = "Unable to parse hops alpha acid";
 
                 if (double.TryParse(h.Element("F_H_BOIL_TIME").Value, NumberStyles.AllowDecimalPoint, CultureInfo.CreateSpecificCulture("en-US"), out f))
-                    gb.BoilTime = f;
+                    gb.BoilTime = (int)(Math.Round(f));
                 else
                     errMsg = "Unable to parse hop boil time";
 

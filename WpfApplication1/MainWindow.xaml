@@ -48,8 +48,8 @@
                     <ListView.View >
                         <GridView x:Name="MaltsGridView">
                             <GridViewColumn DisplayMemberBinding="{Binding FermentableAdjunct.Name}"  Header="Fermentable" />
-                            <GridViewColumn DisplayMemberBinding="{Binding Amount}"  Header="Share [%]" />
-                            <GridViewColumn DisplayMemberBinding="{Binding AmountGrams}"  Header="Amount [kg]" />
+                            <GridViewColumn DisplayMemberBinding="{Binding Amount, StringFormat=F0}"  Header="Share [%]" />
+                            <GridViewColumn DisplayMemberBinding="{Binding AmountGrams, StringFormat=F0}"  Header="Amount [kg]" />
                             <GridViewColumn DisplayMemberBinding="{Binding Stage}"  Header="Added at" />
                         </GridView>
                     </ListView.View>
@@ -90,7 +90,7 @@
                             <GridViewColumn DisplayMemberBinding="{Binding Hop.Name}"  Header="Hops" />
                             <GridViewColumn DisplayMemberBinding="{Binding Hop.AlphaAcid}"  Header="Alpha acid[%]" />
                             <GridViewColumn DisplayMemberBinding="{Binding Amount, StringFormat=F2}" Header="Amount [g/L]" />
-                            <GridViewColumn DisplayMemberBinding="{Binding AmountGrams}"  Header="Amount[g]" />
+                            <GridViewColumn DisplayMemberBinding="{Binding AmountGrams, StringFormat=F2}"  Header="Amount[g]" />
                             <GridViewColumn DisplayMemberBinding="{Binding Minutes}"  Header="Stage" />
                             <GridViewColumn DisplayMemberBinding="{Binding Minutes}"  Header="Boil time [min/days]" />
                         </GridView>
@@ -107,7 +107,7 @@
                     <ListView.View>
                         <GridView>
                             <GridViewColumn DisplayMemberBinding="{Binding Name}"  Header="Ingredients" />
-                            <GridViewColumn DisplayMemberBinding="{Binding Amount}"  Header="Amount [g/L]" />
+                            <GridViewColumn DisplayMemberBinding="{Binding Amount, StringFormat=F2}"  Header="Amount [g/L]" />
                             <GridViewColumn DisplayMemberBinding="{Binding Notes}"  Header="Notes" />
                         </GridView>
                     </ListView.View>

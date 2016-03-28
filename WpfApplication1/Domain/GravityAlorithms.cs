@@ -20,7 +20,7 @@ namespace Grainsim.Domain
             return potentialSum / aGravity;
         }
 
-        public static double GetGrainBillWeight(double aGravity, double aBatchSizeVolume, List<GristPart> aMashFermentList, List<GristPart> aPostMashFermentList, double aMashEfficiency)
+        public static int GetGrainBillWeight(double aGravity, double aBatchSizeVolume, List<GristPart> aMashFermentList, List<GristPart> aPostMashFermentList, double aMashEfficiency)
         {
             if (aGravity <= 1)
                 return 0;
@@ -44,7 +44,7 @@ namespace Grainsim.Domain
 
 
             // points per kilogram per liter = 8.346 (points/ lb/gal)
-            return Math.Round(ret, 0);
+            return (int)(Math.Round(ret));
         }
 
 

@@ -73,7 +73,7 @@ namespace GFCalc
             {
                 if ((part + CurrentPercentage) > 100)
                     part = 100.0 - CurrentPercentage;
-                Result.Amount = part;
+                Result.Amount = (int)(Math.Round(part));
                 this.Close();
             }
             else

@@ -101,7 +101,7 @@ namespace Grainsim.BeersmithImporterWizard
                 h.Hop = (Hops)(HopsListView.SelectedItem);
                 Debug.Assert(ImportedRecipe.BatchSize != 0);
                 h.Amount = (bsh.Amount)/(ImportedRecipe.BatchSize);
-                h.Duration = (int)Math.Round(bsh.BoilTime);
+                h.Duration = bsh.BoilTime;
 
 
                 ImportedRecipe.BoilHops.Add(h);

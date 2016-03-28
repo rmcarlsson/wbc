@@ -30,13 +30,13 @@ namespace Grainsim.Domain
             return ret;
         }
 
-        public static double GetGrainBillSize(GristPart grain, double grainBillSize)
+        public static int GetGrainBillSize(GristPart grain, double grainBillSize)
         {
             double ret = 0;
 
-            ret = Math.Round(((grain.Amount * grainBillSize) / 100) / COLDSTEEP_EFFICIENCY);
+            ret = ((grain.Amount * grainBillSize) / 100) / COLDSTEEP_EFFICIENCY;
 
-            return ret;
+            return (int)(Math.Round(ret));
         }
     }
 }
