@@ -13,9 +13,6 @@
         <Label x:Name="label_Copy" Content="%" HorizontalAlignment="Left" Margin="156,52,0,0" VerticalAlignment="Top" Width="21" RenderTransformOrigin="0.536,-1.066"/>
         <Button x:Name="button" Content="Done" HorizontalAlignment="Left" Margin="207,239,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
         <ComboBox x:Name="StageComboBox" HorizontalAlignment="Left" Margin="102,87,0,0" VerticalAlignment="Top" Width="120">
-            <ComboBoxItem  Name="cbi1">Cold steep</ComboBoxItem>
-            <ComboBoxItem  Name="cbi2">Mash</ComboBoxItem>
-            <ComboBoxItem  Name="cbi3">Fermentation</ComboBoxItem>
         </ComboBox>
         <Label x:Name="label1" Content="Addded at" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top"/>
         <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="127,240,0,0" VerticalAlignment="Top" Width="75" Click="CancelButton_Click"/>

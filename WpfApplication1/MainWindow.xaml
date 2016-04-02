@@ -91,8 +91,8 @@
                             <GridViewColumn DisplayMemberBinding="{Binding Hop.AlphaAcid}"  Header="Alpha acid[%]" />
                             <GridViewColumn DisplayMemberBinding="{Binding Amount, StringFormat=F2}" Header="Amount [g/L]" />
                             <GridViewColumn DisplayMemberBinding="{Binding AmountGrams, StringFormat=F2}"  Header="Amount[g]" />
-                            <GridViewColumn DisplayMemberBinding="{Binding Minutes}"  Header="Stage" />
-                            <GridViewColumn DisplayMemberBinding="{Binding Minutes}"  Header="Boil time [min/days]" />
+                            <GridViewColumn DisplayMemberBinding="{Binding Stage}"  Header="Stage" />
+                            <GridViewColumn DisplayMemberBinding="{Binding Duration}"  Header="Boil time [min/days]" />
                         </GridView>
                     </ListView.View>
                 </ListView>

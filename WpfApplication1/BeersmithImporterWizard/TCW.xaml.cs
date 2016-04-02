@@ -35,7 +35,9 @@ namespace Grainsim.BeersmithImporterWizard
         private FermentableRepository MaltsRepo;
 
         private BSImporter BeersmithImporter;
-        public Recepie ImportedRecipe { get; set; }
+
+        private Recepie WorkRecepie;
+        public Recepie ImportedRecepie { get; set; }
 
         public TCW(string aBSExportFilename, FermentableRepository aMaltRepo, HopsRepository aHopsRepo)
         {
@@ -53,7 +55,7 @@ namespace Grainsim.BeersmithImporterWizard
             HopsListView.ItemsSource = HopsObservableList;
             MaltsListView.ItemsSource = FermentablesObservableList;
 
-            ImportedRecipe = new Recepie();
+            WorkRecepie = new Recepie();
 
         }
 
@@ -72,25 +74,6 @@ namespace Grainsim.BeersmithImporterWizard
             tabControl.SelectedIndex = newTabIndex;
         }
 
-        private void PreviousButton_Click(object sender, RoutedEventArgs e)
-        {
-            switch (tabControl.SelectedIndex)
-            {
-                case 0:
-                    handleSelectRecipeNext();
-                    break;
-                case 1:
-                    handleSelectMalts();
-                    break;
-                case 2:
-                    handleSelectHops();
-                    break;
-                default:
-                    break;
-
-            }
-        }
-
         private void handleSelectHops()
         {
             HopAddition h = new HopAddition();
@@ -99,18 +82,21 @@ namespace Grainsim.BeersmithImporterWizard
                 var bsh = BSBoilHops.First();
 
                 h.Hop = (Hops)(HopsListView.SelectedItem);
-                Debug.Assert(ImportedRecipe.BatchSize != 0);
-                h.Amount = (bsh.Amount)/(ImportedRecipe.BatchSize);
+                Debug.Assert(WorkRecepie.BatchSize != 0);
+                h.Amount = (bsh.Amount) / (WorkRecepie.BatchSize);
                 h.Duration = bsh.BoilTime;
 
 
-                ImportedRecipe.BoilHops.Add(h);
+                WorkRecepie.BoilHops.Add(h);
                 var del = BSBoilHops.First();
                 BSBoilHops.Remove(del);
 
 
                 if (BSGrainBill.Count == 0)
+                {
+                    ImportedRecepie = WorkRecepie;
                     this.Close();
+                }
                 else
                     TextblockHops.Text = "Please select a corresponding hops for " + BSBoilHops.First().Name + " with alpha acid " + BSBoilHops.First().AlphaAcid.ToString();
 
@@ -127,17 +113,16 @@ namespace Grainsim.BeersmithImporterWizard
                 var bsfm = BSGrainBill.First();
                 m.FermentableAdjunct = (FermentableAdjunct)(MaltsListView.SelectedItem);
                 m.Amount = bsfm.AmountPercent;
-                m.Stage = "Mash";
+                m.Stage = FermentableStage.Mash;
 
-                
-                ImportedRecipe.Fermentables.Add(m);
+                WorkRecepie.Fermentables.Add(m);
                 var del = BSGrainBill.First();
                 BSGrainBill.Remove(del);
 
 
                 if (BSGrainBill.Count == 0)
                 {
-                    BSBoilHops = BeersmithImporter.GetBoilHops(ImportedRecipe.Name).ToList();
+                    BSBoilHops = BeersmithImporter.GetBoilHops(WorkRecepie.Name).ToList();
                     ChangeTabItem(1);
                     TextblockHops.Text = "Please select a corresponding hops for " + BSBoilHops.First().Name + " with alpha acid " + BSBoilHops.First().AlphaAcid.ToString();
                 }
@@ -155,13 +140,13 @@ namespace Grainsim.BeersmithImporterWizard
             var r = RecipeNameCombobox.Text;
             if (r != null && !r.Equals(String.Empty))
             {
-                ImportedRecipe.Name = r;
-                ImportedRecipe.BatchSize = BeersmithImporter.getFinalBatchVolume(ImportedRecipe.Name);
-                ImportedRecipe.BoilTime = BeersmithImporter.getBoilTime(ImportedRecipe.Name);
-                ImportedRecipe.OriginalGravity = BeersmithImporter.getOriginalGravity(ImportedRecipe.Name);
+                WorkRecepie.Name = r;
+                WorkRecepie.BatchSize = BeersmithImporter.getFinalBatchVolume(WorkRecepie.Name);
+                WorkRecepie.BoilTime = BeersmithImporter.getBoilTime(WorkRecepie.Name);
+                WorkRecepie.OriginalGravity = BeersmithImporter.getOriginalGravity(WorkRecepie.Name);
 
 
-                BSGrainBill = BeersmithImporter.GetGrainBill(ImportedRecipe.Name).ToList();
+                BSGrainBill = BeersmithImporter.GetGrainBill(WorkRecepie.Name).ToList();
 
                 // Next step
                 ChangeTabItem(1);
@@ -194,7 +179,7 @@ namespace Grainsim.BeersmithImporterWizard
 
         private void FinishButton_Click(object sender, RoutedEventArgs e)
         {
-            ChangeTabItem(-tabControl.Items.Count);
+             this.Close();
         }
     }
 }

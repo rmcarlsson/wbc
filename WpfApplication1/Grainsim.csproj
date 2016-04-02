@@ -191,16 +191,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\hopses.xml">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\malts.xml">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="qzez0_text_i0y_icon.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -208,6 +198,9 @@
       <Project>{17676cc8-e906-48fc-b864-dd00428765d9}</Project>
       <Name>BSImport</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

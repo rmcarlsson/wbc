@@ -15,6 +15,8 @@ using System.IO;
 using System.Xml;
 using BSImport;
 using Grainsim.BeersmithImporterWizard;
+using System.Text;
+using System.Windows.Media;
 
 namespace GFCalc
 {
@@ -158,6 +160,10 @@ namespace GFCalc
             if (w.hop != null)
             {
                 BoilHops.Add(w.hop);
+                var ol = BoilHops.OrderBy(x => x).ToList();
+                BoilHops.Clear();
+                foreach (HopAddition h in ol)
+                    BoilHops.Add(h);
                 recalculateIbu();
             }
         }
@@ -200,6 +206,13 @@ namespace GFCalc
             mps.Temperature = temp;
             mps.Time = time;
             MashProfileList.Add(mps);
+            var ol = MashProfileList.OrderBy(x => x.Temperature).ToList();
+            MashProfileList.Clear();
+            foreach (MashProfileStep ms in ol)
+            {
+                MashProfileList.Add(ms);
+            }
+
             AddMashStepButton.Content = "Add";
 
         }
@@ -212,6 +225,7 @@ namespace GFCalc
             r.Fermentables = Grist.ToList();
             r.BoilHops = BoilHops.ToList();
             r.MashProfile = MashProfileList.ToList();
+            r.OtherIngredients = OtherIngredientsList.ToList();
             r.Name = NameTextBox.Text;
             r.BatchSize = BatchSize;
             r.OriginalGravity = OriginalGravity;
@@ -277,7 +291,7 @@ namespace GFCalc
         {
             var bsiw = new TCW(aRecipeFileName, MaltRepo, HopsRepo);
             bsiw.ShowDialog();
-            var r = bsiw.ImportedRecipe;
+            var r = bsiw.ImportedRecepie;
 
             PopulateGUI(r);
 
@@ -315,6 +329,10 @@ namespace GFCalc
             MashProfileList.Clear();
             foreach (MashProfileStep mps in aRecepie.MashProfile)
                 MashProfileList.Add(mps);
+
+            OtherIngredientsList.Clear();
+            foreach (OtherIngredient o in aRecepie.OtherIngredients)
+                OtherIngredientsList.Add(o);
 
 
             BatchSize = aRecepie.BatchSize;
@@ -354,7 +372,96 @@ namespace GFCalc
             Nullable<Boolean> print = pDialog.ShowDialog();
             if (print == true)
             {
-                FlowDocument doc = new FlowDocument(new Paragraph(new Run("Some text goes here")));
+                FlowDocument doc = new FlowDocument();
+                doc.FontFamily = new FontFamily("Century");
+                doc.FontSize = 9;
+
+                StringBuilder strbcs = new StringBuilder();
+                StringBuilder strbmash = new StringBuilder();
+                StringBuilder strbferm = new StringBuilder();
+                foreach (GristPart g in Grist)
+                {
+
+                    switch (g.Stage)
+                    {
+                        case FermentableStage.ColdSteep:
+                            strbcs.Append(g.ToString() + "\n");
+                            break;
+                        case FermentableStage.Mash:
+                            strbmash.Append(g.ToString() + "\n");
+                            break;
+                        case FermentableStage.Fermentor:
+                            strbferm.Append(g.ToString() + "\n");
+                            break;
+                        default:
+                            break;
+                    }
+                }
+
+                doc.Blocks.Add(new Paragraph(new Bold(new Run(" Mash - cold steep, 24 before brew start\n"))));
+                Paragraph pcs = new Paragraph(new Run(strbcs.ToString()));
+                doc.Blocks.Add(pcs);
+
+
+
+                doc.Blocks.Add(new Paragraph(new Bold(new Run("Mash - normal mash"))));
+                Paragraph pm = new Paragraph();
+                pm.Inlines.Add(new Run(String.Format("Add {0:F1} liters of water to Grainfather for mashing",
+                    GrainfatherCalculator.CalcMashVolume(Mash.CalculateMashGrainBillSize(Grist.ToList(), GrainBillSize)))));
+
+                doc.Blocks.Add(new Paragraph(new Run(strbmash.ToString())));
+                doc.Blocks.Add(pm);
+
+
+                StringBuilder strmp = new StringBuilder("");
+                foreach (MashProfileStep mss in MashProfileList)
+                {
+                    strmp.Append(mss.ToString() + "\n");
+                }
+
+                doc.Blocks.Add(new Paragraph(new Bold(new Run("Mash - mash profile"))));
+                Paragraph pmp = new Paragraph(new Run(strmp.ToString()));
+                doc.Blocks.Add(pmp);
+
+                doc.Blocks.Add(new Paragraph(new Run(String.Format("Sparge with {0:F1} liters of 78 C water",
+                    GrainfatherCalculator.CalcSpargeWaterVolume(GrainBillSize,
+                    (BatchSize + GrainfatherCalculator.GRAINFATHER_BOILER_TO_FERMENTOR_LOSS + GrainfatherCalculator.CalcBoilOffVolume(BatchSize, BoilTime)),
+                    TopUpMashWater)))));
+
+                doc.Blocks.Add(new Paragraph(new Bold(new Run("Boiling"))));
+
+                StringBuilder strbboil = new StringBuilder("");
+                StringBuilder strbdry = new StringBuilder("");
+                foreach (HopAddition g in BoilHops)
+                {
+                    switch (g.Stage)
+                    {
+                        case HopAdditionStage.Boil:
+                            strbboil.Append(g.ToString() + "\n");
+                            break;
+                        case HopAdditionStage.Fermentation:
+                            strbboil.Append(g.ToString() + "\n");
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                doc.Blocks.Add(new Paragraph(new Bold(new Run("Hop additions"))));
+                Paragraph pbh = new Paragraph(new Run(strbboil.ToString()));
+                doc.Blocks.Add(pbh);
+
+
+                StringBuilder strbo = new StringBuilder("");
+                foreach (OtherIngredient g in OtherIngredientsList)
+                {
+                    strbo.Append(g.ToString() + "\n");
+                }
+                doc.Blocks.Add(new Paragraph(new Bold(new Run("Others"))));
+                Paragraph po = new Paragraph(new Run(strbo.ToString()));
+                doc.Blocks.Add(po);
+
+
+
                 doc.Name = "FlowDoc";
 
 
@@ -408,15 +515,15 @@ namespace GFCalc
             var l = new List<GristPart>();
             foreach (var grain in Grist)
             {
-                if (grain.Stage.Equals("Cold steep"))
+                if (grain.Stage == FermentableStage.ColdSteep)
                 {
                     grain.AmountGrams = ColdSteep.GetGrainBillSize(grain, GrainBillSize);
                 }
-                if (grain.Stage.Equals("Mash"))
+                if (grain.Stage == FermentableStage.Mash)
                 {
                     grain.AmountGrams = (grain.Amount * GrainBillSize) / sum;
                 }
-                if (grain.Stage.Equals("Fermentation"))
+                if (grain.Stage == FermentableStage.Fermentor)
                 {
                     grain.AmountGrams = (int)(Math.Round(((grain.Amount * GrainBillSize) / sum) * (BatchSize / (BatchSize + GrainfatherCalculator.GRAINFATHER_BOILER_TO_FERMENTOR_LOSS))));
                 }
@@ -467,10 +574,14 @@ namespace GFCalc
                 c.Width = 0; //set it to no width
                 c.Width = double.NaN; //resize it automatically
             }
-
-            ColorLabel.Content = String.Format("Color [ECB]: {0}", ColorAlgorithms.CalculateColor(Grist.ToList(), BatchSize));
+            double ecb = ColorAlgorithms.CalculateColor(Grist.ToList(), BatchSize);
+            string refString = ColorAlgorithms.GetReferenceBeer(ecb);
+            ColorLabel.Content = String.Format("Color [ECB]: {0:F1} eqv. to {1}", ecb, refString);
 
             recalulateVolumes();
+
+            recalculateIbu();
+
         }
 
 

@@ -11,7 +11,7 @@ namespace Grainsim.Domain
 
         public static double CalculateMashGrainBillSize(IEnumerable<GristPart> aGrist, double aGrainBillSize)
         {
-            var ret = aGrist.Where(x => (x.Stage.Equals("Mash")));
+            var ret = aGrist.Where(x => (x.Stage == FermentableStage.Mash));
             var sum = ret.Sum( x => (x.Amount * aGrainBillSize)/100d);
 
             return sum;

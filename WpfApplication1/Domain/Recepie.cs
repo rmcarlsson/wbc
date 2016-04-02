@@ -52,6 +52,11 @@ namespace GFCalc.Domain
         [XmlAttribute("Temp")]
         public double Temperature { get; set; }
 
+        public override string ToString()
+        {
+            return String.Format("{0} C for {1} minutes", Temperature, Time);
+        }
+
     }
 
     public class OtherIngredient
@@ -62,5 +67,10 @@ namespace GFCalc.Domain
         public double Amount { set; get; }
         [XmlAttribute("Notes")]
         public string Notes { set; get; }
+
+        public override string ToString()
+        {
+            return String.Format("{0:F1} of {1}. {2}", Amount, Name, Notes);
+        }
     }
 }

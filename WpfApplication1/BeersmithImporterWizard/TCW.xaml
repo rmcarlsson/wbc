@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Grainsim.BeersmithImporterWizard"
         mc:Ignorable="d"
-        Title="TCW" Height="300" Width="600">
+        Title="Beersmith recepie import wizard" Height="300" Width="600">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
@@ -51,7 +51,7 @@
 
             <TabItem Header ="SelectHops" >
                 <Grid>
-                    <Label Content="Select hops" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Label Content="Hops" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                     <TextBlock Name="TextblockHops" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="250" Height="100"/>
                     <ListView x:Name="HopsListView" Grid.Row ="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="150" Width="300" >
                         <ListView.View>
@@ -71,9 +71,8 @@
 
 
         <WrapPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button Name="PreviousButton" Content="Previous" Width="100" Click="PreviousButton_Click"/>
             <Button Name="NextButton" Content="Next" Width="100" Click="NextButton_Click"/>
-            <Button Name="FinishButton" Content="Finish" Width="100" Click="FinishButton_Click"/>
+            <Button Name="FinishButton" Content="Cancel" Width="100" Click="FinishButton_Click"/>
         </WrapPanel>
     </Grid>
 </Window>

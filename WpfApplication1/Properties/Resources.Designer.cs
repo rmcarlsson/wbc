@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Grainsim.Properties {
+namespace WpfApplication1.Properties {
     using System;
     
     
@@ -57,46 +57,6 @@ namespace Grainsim.Properties {
             }
             set {
                 resourceCulture = value;
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot;?&gt;
-        ///&lt;HopsData xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
-        ///  &lt;Hopses Name=&quot;Admiral&quot;&gt;
-        ///    &lt;Characteristics&gt;Aggressive but smooth bittering with an orange-citrus and herbal resonance &lt;/Characteristics&gt;
-        ///    &lt;Purpose&gt;Bittering&lt;/Purpose&gt;
-        ///    &lt;AlphaAcid Min=&quot;13&quot; Max=&quot;16.2&quot; /&gt;
-        ///    &lt;BetaAcid Min=&quot;4.8&quot; Max=&quot;6.1&quot; /&gt;
-        ///    &lt;CoHumulone Min=&quot;37&quot; Max=&quot;45&quot; /&gt;
-        ///    &lt;MyrceneOilComposition Min=&quot;39&quot; Max=&quot;48&quot; /&gt;
-        ///    &lt;HumuleneOilComposition Min=&quot;23&quot;  [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string hopses {
-            get {
-                return ResourceManager.GetString("hopses", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot;?&gt;
-        ///&lt;Datatable xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
-        ///  &lt;FermentableAdjunctSerializables&gt;
-        ///    &lt;FermentableAdjunctSerializable&gt;
-        ///      &lt;Name&gt;Acid Malt&lt;/Name&gt;
-        ///      &lt;Origin&gt;Germany&lt;/Origin&gt;
-        ///      &lt;Type&gt;Grain&lt;/Type&gt;
-        ///      &lt;Color&gt;3&lt;/Color&gt;
-        ///      &lt;MashNeeded&gt;True&lt;/MashNeeded&gt;
-        ///      &lt;Potential&gt;1.027&lt;/Potential&gt;
-        ///      &lt;MaxPart&gt;10.0&lt;/MaxPart&gt;
-        ///    &lt;/FermentableAdjunctSerializable&gt;
-        ///    &lt;FermentableAdjunctSerializable&gt;
-        ///      &lt;Na [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string malts {
-            get {
-                return ResourceManager.GetString("malts", resourceCulture);
             }
         }
     }

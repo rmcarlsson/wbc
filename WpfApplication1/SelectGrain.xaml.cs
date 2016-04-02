@@ -33,6 +33,7 @@ namespace GFCalc
             var grainsRepo = aRepo;
             var grains = grainsRepo.Get();
             comboBox.ItemsSource = grains;
+            StageComboBox.ItemsSource = Enum.GetValues(typeof(FermentableStage)).Cast<FermentableStage>();
             StageComboBox.SelectedIndex = 1;
         }
 
@@ -48,7 +49,7 @@ namespace GFCalc
 
             comboBox.SelectedValue = grains.FirstOrDefault(x => x.Name.Equals(aInitalGristPart.FermentableAdjunct.Name));
             textBox.Text = aInitalGristPart.Amount.ToString();
-            StageComboBox.Text = aInitalGristPart.Stage;
+            StageComboBox.SelectedItem = aInitalGristPart.Stage;
         }
 
 
@@ -60,11 +61,11 @@ namespace GFCalc
             FermentableAdjunct var = (FermentableAdjunct)comboBox.SelectedItem;
             if (var == null)
             {
-                MessageBox.Show("Please select a grain in the dowp down menu");
+                MessageBox.Show("Please select a grain in the drop down menu");
                 return;
             }
 
-            Result.Stage = StageComboBox.Text;
+            Result.Stage = (FermentableStage)StageComboBox.SelectedItem;
 
             Result.FermentableAdjunct = var;
 

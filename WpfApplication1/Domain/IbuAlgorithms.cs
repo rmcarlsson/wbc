@@ -29,8 +29,9 @@ namespace Grainsim.Domain
             {
                 var fTinseth = (1 - Math.Pow(Math.E, (- 0.04 * hopAdd.Duration))) / 4.15;
                 var hopAmountGrams = (hopAdd.Amount * aVolumeBoil);
+                var utilization = fGravity * fTinseth;
 
-                res += fGravity * fTinseth * (hopAdd.Hop.AlphaAcid.GetAphaAcid() * hopAmountGrams * 10 ) / aVolumeBoil;
+                res += utilization * (hopAdd.Hop.AlphaAcid.GetAphaAcid() * hopAmountGrams * 10 ) / aVolumeBoil;
             }
 
             return Convert.ToInt32(res);

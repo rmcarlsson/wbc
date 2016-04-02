@@ -9,14 +9,14 @@ using System.Xml.Serialization;
 namespace Grainsim.Domain
 {
 
-    public enum HopAdditionStage {
+    public enum HopAdditionStage
+    {
         Boil,
         Fermentation,
-        Keg
-    } 
+    }
 
     //[ValueConversion(typeof(Amount), typeof(AmountGrams))]
-    public class HopAddition
+    public class HopAddition : IComparable<HopAddition>
     {
         [XmlElement("Hop")]
         public Hops Hop { set; get; }
@@ -28,6 +28,32 @@ namespace Grainsim.Domain
         public int Duration { get; set; }
         [XmlAttribute("Stage")]
         public HopAdditionStage Stage { get; set; }
+
+        public override string ToString()
+        {
+            if (Stage == HopAdditionStage.Fermentation)
+                return String.Format("{0:F0} grams of {1} during {2} days", AmountGrams, Hop.Name, Duration);
+            else
+                return String.Format("{0:F0} grams of {1} at {2} minutes before boil end", AmountGrams, Hop.Name, Duration);
+        }
+
+        public int CompareTo(HopAddition other)
+        {
+            if (other.Stage == this.Stage)
+                return -(this.Duration.CompareTo(other.Duration));
+            if (other.Stage == HopAdditionStage.Fermentation)
+                return -1;
+            else
+                return 1;
+        }
+    }
+
+
+    public enum FermentableStage
+    {
+        ColdSteep,
+        Mash,
+        Fermentor
     }
 
     public class GristPart
@@ -39,7 +65,15 @@ namespace Grainsim.Domain
         [XmlAttribute("AmountGrams")]
         public int AmountGrams { get; set; }
         [XmlAttribute("Stage")]
-        public string Stage { get; set; }
+        public FermentableStage Stage { get; set; }
+
+        public override string ToString()
+        {
+            if (Stage == FermentableStage.ColdSteep)
+                return String.Format("{0:F0} grams of {1} added to {2:F1} liters of water", AmountGrams, FermentableAdjunct.Name, ColdSteep.GetWaterToAddToColdSteep(AmountGrams));
+            else
+                return String.Format("{0:F0} grams of {1}", AmountGrams, FermentableAdjunct.Name);
+        }
 
 
     }

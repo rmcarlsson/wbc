@@ -13,7 +13,7 @@ namespace Grainsim.Domain
 
         public static IEnumerable<GristPart> CalculateColdSteepGrainBill(IEnumerable<GristPart> aGrist)
         {
-            var ret = aGrist.Where(x => (x.Stage.Equals("Steep")));
+            var ret = aGrist.Where(x => (x.Stage == FermentableStage.ColdSteep));
             return ret;
         }
 
@@ -37,6 +37,11 @@ namespace Grainsim.Domain
             ret = ((grain.Amount * grainBillSize) / 100) / COLDSTEEP_EFFICIENCY;
 
             return (int)(Math.Round(ret));
+        }
+
+        public static double GetWaterToAddToColdSteep(double aGrainAmountGrams)
+        {
+            return (aGrainAmountGrams * COLDSTEEP_WATER_TO_GRAIN_RATION)/1000;
         }
     }
 }
