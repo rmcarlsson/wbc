@@ -30,8 +30,8 @@ namespace Grainsim.Domain
 
             double potentialSum = 0;
             if (aMashFermentList != null)
-                potentialSum += aMashFermentList.Sum(x => (x.FermentableAdjunct.Potential * x.Amount)/100);
-            
+                potentialSum += aMashFermentList.Sum(x => (x.FermentableAdjunct.Potential * x.Amount) / 100);
+
             var ppg = (potentialSum - 1) * 1000;
             var bhe = aMashEfficiency;
             var ppgBheComp = bhe * ppg;
@@ -45,6 +45,21 @@ namespace Grainsim.Domain
 
             // points per kilogram per liter = 8.346 (points/ lb/gal)
             return (int)(Math.Round(ret));
+        }
+
+        public static double CalcGravity(double aVolume, double aGrainBillSize, List<GristPart> aMashFermentList, double aMashEfficiency)
+        {
+            if (aVolume == 0)
+                return 1;
+
+            var gbsLb = Weight.ConvertToPounds(aGrainBillSize);
+            double potentialSumPointsPerGallon = 0;
+            if (aMashFermentList != null)
+                potentialSumPointsPerGallon += aMashFermentList.Sum(x => (((x.FermentableAdjunct.Potential - 1) * 1000) * gbsLb * (double)((double)x.Amount / 100d)));
+            var ppgLbMashEffComp = aMashEfficiency * potentialSumPointsPerGallon;
+            var g = ppgLbMashEffComp / Volume.ConvertLitersToGallons(aVolume);
+
+            return (1 + (g / 1000));
         }
 
 

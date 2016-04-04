@@ -613,18 +613,11 @@ namespace GFCalc
                 PreBoilVolumeTextBox.IsReadOnly = false;
             }
 
-            if (VolumeInFermentorCheckbox.IsChecked == false)
-
-            {
-                VolumeInFermentorTextBox.Text = BatchSize.ToString();
-                VolumeInFermentorTextBox.IsEnabled = false;
-                VolumeInFermentorTextBox.IsReadOnly = true;
-            }
-            else
-            {
-                VolumeInFermentorTextBox.IsEnabled = true;
-                VolumeInFermentorTextBox.IsReadOnly = false;
-            }
+            PreBoilGravityLabel.Content = String.Format("Pre-boil gravity [SG]: {0:F3}", GravityAlorithms.CalcGravity(
+                GrainfatherCalculator.CalcPreBoilVolume(BatchSize, BoilTime), 
+                GrainBillSize, 
+                Grist.Where(x => x.Stage == FermentableStage.Mash).ToList(),
+                GrainfatherCalculator.MashEfficiency));
 
         }
 
