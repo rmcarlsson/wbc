@@ -373,8 +373,12 @@ namespace GFCalc
             if (print == true)
             {
                 FlowDocument doc = new FlowDocument();
-                doc.FontFamily = new FontFamily("Century");
-                doc.FontSize = 9;
+                doc.FontFamily = new FontFamily("Courier");
+                doc.FontSize = 11;
+                doc.PageWidth = 10000;
+                // Auto
+                doc.MinPageWidth = 10000;
+                doc.ColumnWidth = 10000;
 
                 StringBuilder strbcs = new StringBuilder();
                 StringBuilder strbmash = new StringBuilder();
@@ -398,18 +402,23 @@ namespace GFCalc
                     }
                 }
 
-                doc.Blocks.Add(new Paragraph(new Bold(new Run(" Mash - cold steep, 24 before brew start\n"))));
-                Paragraph pcs = new Paragraph(new Run(strbcs.ToString()));
+                var mashHeading = new Paragraph(new Bold(new Run("Mash")));
+                mashHeading.FontSize = 18;
+                doc.Blocks.Add(mashHeading);
+
+                Paragraph pcs = new Paragraph();
+                pcs.Inlines.Add(new Bold(new Run("Cold steep, 24 before brew start:\n")));
+                pcs.Inlines.Add(new Run(strbcs.ToString()));
                 doc.Blocks.Add(pcs);
 
 
-
-                doc.Blocks.Add(new Paragraph(new Bold(new Run("Mash - normal mash"))));
                 Paragraph pm = new Paragraph();
-                pm.Inlines.Add(new Run(String.Format("Add {0:F1} liters of water to Grainfather for mashing",
-                    GrainfatherCalculator.CalcMashVolume(Mash.CalculateMashGrainBillSize(Grist.ToList(), GrainBillSize)))));
+                pm.Inlines.Add(new Bold(new Run("Normal step mash:\n")));
 
-                doc.Blocks.Add(new Paragraph(new Run(strbmash.ToString())));
+                pm.Inlines.Add(new Run(String.Format("Add {0:F1} liters of water to Grainfather for mashing\n",
+                    GrainfatherCalculator.CalcMashVolume(Mash.CalculateMashGrainBillSize(Grist.ToList(), GrainBillSize)))));
+                pm.Inlines.Add(new Run("\nGrain bill:\n"));
+                pm.Inlines.Add(new Run(strbmash.ToString()));
                 doc.Blocks.Add(pm);
 
 
@@ -419,16 +428,33 @@ namespace GFCalc
                     strmp.Append(mss.ToString() + "\n");
                 }
 
-                doc.Blocks.Add(new Paragraph(new Bold(new Run("Mash - mash profile"))));
-                Paragraph pmp = new Paragraph(new Run(strmp.ToString()));
+
+                Paragraph pmp = new Paragraph();
+                pmp.Inlines.Add(new Bold(new Run("Mash profile:\n")));
+                pmp.Inlines.Add(new Run(strmp.ToString()));
+
+
+                pmp.Inlines.Add(new Run(String.Format("Sparge with {0:F1} liters of 78 C water\n",
+                    GrainfatherCalculator.CalcSpargeWaterVolume(GrainBillSize,
+                    (BatchSize +
+                    GrainfatherCalculator.GRAINFATHER_BOILER_TO_FERMENTOR_LOSS +
+                    GrainfatherCalculator.CalcBoilOffVolume(BatchSize, BoilTime) -
+                    ColdSteep.GetColdSteepWaterContibution(
+                    Grist.Where(x => x.Stage == FermentableStage.ColdSteep).ToList(),
+                    GrainBillSize)),
+                    TopUpMashWater))));
+
+                pmp.Inlines.Add(new Run(String.Format("Pre-boil gravity [SG]: {0:F3}\n", GravityAlorithms.CalcGravity(
+                GrainfatherCalculator.CalcPreBoilVolume(BatchSize, BoilTime),
+                GrainBillSize,
+                Grist.Where(x => x.Stage == FermentableStage.Mash).ToList(),
+                GrainfatherCalculator.MashEfficiency))));
+
                 doc.Blocks.Add(pmp);
 
-                doc.Blocks.Add(new Paragraph(new Run(String.Format("Sparge with {0:F1} liters of 78 C water",
-                    GrainfatherCalculator.CalcSpargeWaterVolume(GrainBillSize,
-                    (BatchSize + GrainfatherCalculator.GRAINFATHER_BOILER_TO_FERMENTOR_LOSS + GrainfatherCalculator.CalcBoilOffVolume(BatchSize, BoilTime)),
-                    TopUpMashWater)))));
-
-                doc.Blocks.Add(new Paragraph(new Bold(new Run("Boiling"))));
+                var boilingHeader = (new Paragraph(new Bold(new Run("Boiling"))));
+                boilingHeader.FontSize = 16;
+                doc.Blocks.Add(boilingHeader);
 
                 StringBuilder strbboil = new StringBuilder("");
                 StringBuilder strbdry = new StringBuilder("");
@@ -446,8 +472,29 @@ namespace GFCalc
                             break;
                     }
                 }
-                doc.Blocks.Add(new Paragraph(new Bold(new Run("Hop additions"))));
-                Paragraph pbh = new Paragraph(new Run(strbboil.ToString()));
+                doc.Blocks.Add(new Paragraph(new Run("Hop additions:")));
+                Paragraph pbh = new Paragraph();
+                pbh.Inlines.Add(new Run(strbboil.ToString()));
+
+
+
+                var vm = GrainfatherCalculator.CalcPreBoilVolume(BatchSize, BoilTime);
+                var vcs = ColdSteep.GetColdSteepWaterContibution(
+                    Grist.Where(x => x.Stage == FermentableStage.ColdSteep).ToList(),
+                    GrainBillSize);
+
+                foreach (GristPart g in Grist)
+                {
+                    if (g.Stage == FermentableStage.ColdSteep)
+                        pbh.Inlines.Add(new Run(String.Format("Add the runnings of {0} to the boil 10 minutes before end\n", g.FermentableAdjunct.Name)));
+                }
+
+                pbh.Inlines.Add(new Run(String.Format("Expected post-boil gravity [SG]: {0:F3}\n", GravityAlorithms.CalcGravity(
+                    (vm + vcs),
+                    GrainBillSize,
+                    Grist.Where(x => x.Stage != FermentableStage.Fermentor).ToList(),
+                    GrainfatherCalculator.MashEfficiency))));
+
                 doc.Blocks.Add(pbh);
 
 
@@ -463,7 +510,8 @@ namespace GFCalc
 
 
                 doc.Name = "FlowDoc";
-
+                doc.PageWidth = 10000;
+                doc.MinPageWidth = 10000;
 
                 // Create IDocumentPaginatorSource from FlowDocument
                 IDocumentPaginatorSource idpSource = doc;
@@ -554,7 +602,12 @@ namespace GFCalc
             try
             {
                 var swv = GrainfatherCalculator.CalcSpargeWaterVolume(GrainBillSize,
-                    (BatchSize + GrainfatherCalculator.GRAINFATHER_BOILER_TO_FERMENTOR_LOSS + GrainfatherCalculator.CalcBoilOffVolume(BatchSize, BoilTime)),
+                    (BatchSize +
+                    GrainfatherCalculator.GRAINFATHER_BOILER_TO_FERMENTOR_LOSS +
+                    GrainfatherCalculator.CalcBoilOffVolume(BatchSize, BoilTime) -
+                    ColdSteep.GetColdSteepWaterContibution(
+                    Grist.Where(x => x.Stage == FermentableStage.ColdSteep).ToList(),
+                    GrainBillSize)),
                     topUpVolume);
                 if (swv < 0)
                     swv = 0;
@@ -612,13 +665,6 @@ namespace GFCalc
                 PreBoilVolumeTextBox.IsEnabled = true;
                 PreBoilVolumeTextBox.IsReadOnly = false;
             }
-
-            PreBoilGravityLabel.Content = String.Format("Pre-boil gravity [SG]: {0:F3}", GravityAlorithms.CalcGravity(
-                GrainfatherCalculator.CalcPreBoilVolume(BatchSize, BoilTime), 
-                GrainBillSize, 
-                Grist.Where(x => x.Stage == FermentableStage.Mash).ToList(),
-                GrainfatherCalculator.MashEfficiency));
-
         }
 
 

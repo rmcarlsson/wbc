@@ -49,6 +49,7 @@ namespace GFCalc
 
             comboBox.SelectedValue = grains.FirstOrDefault(x => x.Name.Equals(aInitalGristPart.FermentableAdjunct.Name));
             textBox.Text = aInitalGristPart.Amount.ToString();
+            StageComboBox.ItemsSource = Enum.GetValues(typeof(FermentableStage)).Cast<FermentableStage>();
             StageComboBox.SelectedItem = aInitalGristPart.Stage;
         }
 

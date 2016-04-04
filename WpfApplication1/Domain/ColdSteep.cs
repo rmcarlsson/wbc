@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GFCalc.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,15 +20,16 @@ namespace Grainsim.Domain
 
         public static double GetColdSteepWaterContibution(IEnumerable<GristPart> aGrist, double GrainbillSize)
         {
-            double ret = 0;
 
             var l = CalculateColdSteepGrainBill(aGrist);
-            ret = l.Sum(x => ((x.Amount * GrainbillSize) / COLDSTEEP_EFFICIENCY));
+            var grainBillSizeColdSteep = l.Sum(x => (((double)(x.Amount)/100d) * GrainbillSize));
 
             // All weights are in grams, all volumes are in liters, hence divide by 1000;
-            ret = (ret * COLDSTEEP_WATER_TO_GRAIN_RATION) / 1000;
+            var totalVolToAdd = ((grainBillSizeColdSteep/ COLDSTEEP_EFFICIENCY) * COLDSTEEP_WATER_TO_GRAIN_RATION) / 1000;
 
-            return ret;
+            var grainAborbtionVol = (GrainfatherCalculator.GRAIN_WATER_ABSORBTION * grainBillSizeColdSteep);
+
+            return (totalVolToAdd - grainAborbtionVol);
         }
 
         public static int GetGrainBillSize(GristPart grain, double grainBillSize)
@@ -43,5 +45,7 @@ namespace Grainsim.Domain
         {
             return (aGrainAmountGrams * COLDSTEEP_WATER_TO_GRAIN_RATION)/1000;
         }
+
+
     }
 }

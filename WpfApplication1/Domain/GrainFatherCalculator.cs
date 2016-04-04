@@ -13,6 +13,8 @@ namespace GFCalc.Domain
 
         public const double GRAINFATHER_MAX_PREBOILVOLUME = 30;
 
+        public const double GRAINFATHER_WATER_TO_GRAIN_RATIO_IN_MASH = 2.7;
+
         //public const double GRAINFATHER_BOILER_TO_FERMENTOR_LOSS = 2.5;
 
         public const double GRAIN_WATER_ABSORBTION = (0.652/1000); // l/kg
@@ -55,7 +57,7 @@ namespace GFCalc.Domain
 
         public static double CalcMashVolume(double aMashGrainbillSize)
         {
-            var ret = ((aMashGrainbillSize / 1000) * 2.7) + 3.5;
+            var ret = ((aMashGrainbillSize / 1000) * GRAINFATHER_WATER_TO_GRAIN_RATIO_IN_MASH) + 3.5;
             logger.Debug(string.Format("Total mash volume [L]: {0}L", ret));
 
             var grainVolIncrease = (MASH_VOLUME_INCREASE_WITH_GRAINS * aMashGrainbillSize);
