@@ -50,7 +50,7 @@ namespace GFCalc.Domain
         // 2. Boiler loss
         //
 
-        public static double CalcBoilOffVolume(double aPostBoilVolume, int aBoilTime)
+        public static double CalcBoilOffVolume(int aBoilTime)
         {
             return BOIL_OFF_RATE * (aBoilTime / 60);
         }
@@ -85,9 +85,9 @@ namespace GFCalc.Domain
             return val;
         }
 
-        internal static double CalcPreBoilVolume(double aBatchSize, int aBoilTime)
+        public static double CalcPreBoilVolume(double aBatchSize, int aBoilTime)
         {
-            return CalcBoilOffVolume(aBatchSize, aBoilTime) + aBatchSize;
+            return CalcBoilOffVolume(aBoilTime) + aBatchSize;
         }
     }
 }

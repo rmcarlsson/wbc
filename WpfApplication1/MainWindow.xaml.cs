@@ -31,7 +31,6 @@ namespace GFCalc
         public ObservableCollection<OtherIngredient> OtherIngredientsList { get; set; }
 
 
-        public double BatchSize { get; set; }
         public double PreBoilVolume { get; set; }
         public double OriginalGravity { get; set; }
         public double PreBoilGravity { get; set; }
@@ -39,7 +38,9 @@ namespace GFCalc
         public int GrainBillSize { get; set; }
         public int BoilTime { set; get; }
         public double TopUpMashWater { set; get; }
+        public double PreBoilRemovedVolume { get; private set; }
 
+        private BrewVolumes Volumes;
 
         private FermentableRepository MaltRepo;
         private HopsRepository HopsRepo;
@@ -62,13 +63,14 @@ namespace GFCalc
             OtherIngredientsList = new ObservableCollection<OtherIngredient>();
             OtherIngredientsListView.ItemsSource = OtherIngredientsList;
 
-            BatchSize = 25;
+            Volumes = new BrewVolumes();
+            Volumes.FinalBatchVolume = 25;
             OriginalGravity = 1.05;
             BoilTime = 60;
             TopUpMashWater = 0;
+            Volumes.PreBoilTapOff = 0;
 
             updateGuiTextboxes();
-            recalulateVolumes();
 
         }
 
@@ -227,7 +229,7 @@ namespace GFCalc
             r.MashProfile = MashProfileList.ToList();
             r.OtherIngredients = OtherIngredientsList.ToList();
             r.Name = NameTextBox.Text;
-            r.BatchSize = BatchSize;
+            r.BatchVolume = Volumes.TotalBatchVolume;
             r.OriginalGravity = OriginalGravity;
             r.BoilTime = BoilTime;
 
@@ -335,12 +337,13 @@ namespace GFCalc
                 OtherIngredientsList.Add(o);
 
 
-            BatchSize = aRecepie.BatchSize;
+            Volumes.FinalBatchVolume = aRecepie.BatchVolume;
+            Volumes.PreBoilTapOff = aRecepie.PreBoilTapOffVolume;
+            TopUpMashWater = aRecepie.TopUpMashWater;
+
             OriginalGravity = aRecepie.OriginalGravity;
 
             BoilTime = aRecepie.BoilTime;
-
-            TopUpMashWater = aRecepie.TopUpMashWater;
 
             NameTextBox.Text = aRecepie.Name;
 
@@ -375,11 +378,14 @@ namespace GFCalc
                 FlowDocument doc = new FlowDocument();
                 doc.FontFamily = new FontFamily("Courier");
                 doc.FontSize = 11;
+
+                // TODO: Why do I need to add ColumnWidth to get the margin of the print document correct?
                 doc.PageWidth = 10000;
-                // Auto
                 doc.MinPageWidth = 10000;
                 doc.ColumnWidth = 10000;
 
+
+                #region Print mash part
                 StringBuilder strbcs = new StringBuilder();
                 StringBuilder strbmash = new StringBuilder();
                 StringBuilder strbferm = new StringBuilder();
@@ -436,22 +442,26 @@ namespace GFCalc
 
                 pmp.Inlines.Add(new Run(String.Format("Sparge with {0:F1} liters of 78 C water\n",
                     GrainfatherCalculator.CalcSpargeWaterVolume(GrainBillSize,
-                    (BatchSize +
+                    (Volumes.TotalBatchVolume +
                     GrainfatherCalculator.GRAINFATHER_BOILER_TO_FERMENTOR_LOSS +
-                    GrainfatherCalculator.CalcBoilOffVolume(BatchSize, BoilTime) -
+                    GrainfatherCalculator.CalcBoilOffVolume(BoilTime) -
                     ColdSteep.GetColdSteepWaterContibution(
                     Grist.Where(x => x.Stage == FermentableStage.ColdSteep).ToList(),
                     GrainBillSize)),
                     TopUpMashWater))));
 
                 pmp.Inlines.Add(new Run(String.Format("Pre-boil gravity [SG]: {0:F3}\n", GravityAlorithms.CalcGravity(
-                GrainfatherCalculator.CalcPreBoilVolume(BatchSize, BoilTime),
+                GrainfatherCalculator.CalcPreBoilVolume(Volumes.TotalBatchVolume, BoilTime),
                 GrainBillSize,
                 Grist.Where(x => x.Stage == FermentableStage.Mash).ToList(),
                 GrainfatherCalculator.MashEfficiency))));
 
                 doc.Blocks.Add(pmp);
 
+                #endregion
+
+
+                #region Boiling part
                 var boilingHeader = (new Paragraph(new Bold(new Run("Boiling"))));
                 boilingHeader.FontSize = 16;
                 doc.Blocks.Add(boilingHeader);
@@ -478,7 +488,7 @@ namespace GFCalc
 
 
 
-                var vm = GrainfatherCalculator.CalcPreBoilVolume(BatchSize, BoilTime);
+                var vm = GrainfatherCalculator.CalcPreBoilVolume(Volumes.TotalBatchVolume, BoilTime);
                 var vcs = ColdSteep.GetColdSteepWaterContibution(
                     Grist.Where(x => x.Stage == FermentableStage.ColdSteep).ToList(),
                     GrainBillSize);
@@ -496,17 +506,22 @@ namespace GFCalc
                     GrainfatherCalculator.MashEfficiency))));
 
                 doc.Blocks.Add(pbh);
+                #endregion
 
 
+                #region Print others part
                 StringBuilder strbo = new StringBuilder("");
                 foreach (OtherIngredient g in OtherIngredientsList)
                 {
                     strbo.Append(g.ToString() + "\n");
                 }
-                doc.Blocks.Add(new Paragraph(new Bold(new Run("Others"))));
+                var othersHeading = new Paragraph(new Bold(new Run("Others")));
+                othersHeading.FontSize = 16;
+                doc.Blocks.Add(othersHeading);
+
                 Paragraph po = new Paragraph(new Run(strbo.ToString()));
                 doc.Blocks.Add(po);
-
+                #endregion
 
 
                 doc.Name = "FlowDoc";
@@ -517,7 +532,7 @@ namespace GFCalc
                 IDocumentPaginatorSource idpSource = doc;
 
                 // Call PrintDocument method to send document to printer
-                pDialog.PrintDocument(idpSource.DocumentPaginator, "Hello WPF Printing.");
+                pDialog.PrintDocument(idpSource.DocumentPaginator, NameTextBox.Text);
 
                 //XpsDocument xpsDocument = new XpsDocument("C:\\FixedDocumentSequence.xps", FileAccess.ReadWrite);
                 //FixedDocumentSequence fixedDocSeq = xpsDocument.GetFixedDocumentSequence();
@@ -557,8 +572,7 @@ namespace GFCalc
             }
             else
             {
-                //double boilOffVolume = GrainfatherCalculator.CalcBoilOffVolume(BatchSize, BoilTime);
-                GrainBillSize = GravityAlorithms.GetGrainBillWeight(OriginalGravity, BatchSize, Grist.ToList(), null, GrainfatherCalculator.MashEfficiency);
+                GrainBillSize = GravityAlorithms.GetGrainBillWeight(OriginalGravity, Volumes.TotalBatchVolume, Grist.ToList(), null, GrainfatherCalculator.MashEfficiency);
             }
             var l = new List<GristPart>();
             foreach (var grain in Grist)
@@ -573,7 +587,7 @@ namespace GFCalc
                 }
                 if (grain.Stage == FermentableStage.Fermentor)
                 {
-                    grain.AmountGrams = (int)(Math.Round(((grain.Amount * GrainBillSize) / sum) * (BatchSize / (BatchSize + GrainfatherCalculator.GRAINFATHER_BOILER_TO_FERMENTOR_LOSS))));
+                    grain.AmountGrams = (int)(Math.Round(((grain.Amount * GrainBillSize) / sum) * (Volumes.TotalBatchVolume / (Volumes.TotalBatchVolume + GrainfatherCalculator.GRAINFATHER_BOILER_TO_FERMENTOR_LOSS))));
                 }
 
                 l.Add(grain);
@@ -602,9 +616,9 @@ namespace GFCalc
             try
             {
                 var swv = GrainfatherCalculator.CalcSpargeWaterVolume(GrainBillSize,
-                    (BatchSize +
+                    (Volumes.TotalBatchVolume +
                     GrainfatherCalculator.GRAINFATHER_BOILER_TO_FERMENTOR_LOSS +
-                    GrainfatherCalculator.CalcBoilOffVolume(BatchSize, BoilTime) -
+                    GrainfatherCalculator.CalcBoilOffVolume(BoilTime) -
                     ColdSteep.GetColdSteepWaterContibution(
                     Grist.Where(x => x.Stage == FermentableStage.ColdSteep).ToList(),
                     GrainBillSize)),
@@ -627,11 +641,9 @@ namespace GFCalc
                 c.Width = 0; //set it to no width
                 c.Width = double.NaN; //resize it automatically
             }
-            double ecb = ColorAlgorithms.CalculateColor(Grist.ToList(), BatchSize);
+            double ecb = ColorAlgorithms.CalculateColor(Grist.ToList(), Volumes.TotalBatchVolume);
             string refString = ColorAlgorithms.GetReferenceBeer(ecb);
             ColorLabel.Content = String.Format("Color [ECB]: {0:F1} eqv. to {1}", ecb, refString);
-
-            recalulateVolumes();
 
             recalculateIbu();
 
@@ -642,39 +654,24 @@ namespace GFCalc
 
         private void recalculateIbu()
         {
-            IbuLabel.Content = string.Format("IBU: {0}", IbuAlgorithms.CalcIbu(BoilHops.Where(x => x.Stage == HopAdditionStage.Boil), OriginalGravity, BatchSize));
+            IbuLabel.Content = string.Format("IBU: {0}", IbuAlgorithms.CalcIbu(BoilHops.Where(x => x.Stage == HopAdditionStage.Boil), OriginalGravity, Volumes.TotalBatchVolume));
 
             foreach (HopAddition h in BoilHops)
             {
-                h.AmountGrams = Math.Round((BatchSize * h.Amount));
+                h.AmountGrams = Math.Round((Volumes.TotalBatchVolume * h.Amount));
             }
 
-        }
-
-        private void recalulateVolumes()
-        {
-            if (PreBoilVolumeCheckbox.IsChecked == false)
-            {
-                PreBoilVolumeTextBox.Text = GrainfatherCalculator.CalcPreBoilVolume(BatchSize, BoilTime).ToString();
-                PreBoilVolumeTextBox.IsEnabled = false;
-                PreBoilVolumeTextBox.IsReadOnly = true;
-
-            }
-            else
-            {
-                PreBoilVolumeTextBox.IsEnabled = true;
-                PreBoilVolumeTextBox.IsReadOnly = false;
-            }
         }
 
 
 
         private void updateGuiTextboxes()
         {
-            BatchSizeVolumeTextBox.Text = BatchSize.ToString();
+            BatchSizeVolumeTextBox.Text = Volumes.FinalBatchVolume.ToString();
             ExpectedOriginalGravityTextBox.Text = OriginalGravity.ToString();
             BoilTimeTextBox.Text = BoilTime.ToString();
             TopUpMashWaterVolumeTextBox.Text = TopUpMashWater.ToString();
+            PreBoilVolumeTextBox.Text = Volumes.PreBoilTapOff.ToString();
         }
         #endregion
 
@@ -698,18 +695,22 @@ namespace GFCalc
         {
             BatchSizeVolumeTextBox = (TextBox)(sender);
             double val = 0;
+
+            if (BatchSizeVolumeTextBox.Text.Equals(String.Empty) || Volumes == null)
+                return;
+
             if (Grist != null &&
                  Double.TryParse(BatchSizeVolumeTextBox.Text, out val))
             {
-                if (val > (GrainfatherCalculator.GRAINFATHER_MAX_PREBOILVOLUME - GrainfatherCalculator.CalcBoilOffVolume(val, BoilTime)))
+                if (val > (GrainfatherCalculator.GRAINFATHER_MAX_PREBOILVOLUME - GrainfatherCalculator.CalcBoilOffVolume(BoilTime)))
                 {
                     MessageBox.Show("Batch size is to big. Please reduce it");
                     return;
                 }
-
-                BatchSize = val;
-                recalculateGrainBill();
             }
+
+            Volumes.FinalBatchVolume = val;
+            recalculateGrainBill();
         }
 
 
@@ -739,15 +740,6 @@ namespace GFCalc
             }
         }
 
-        private void VolumeInFermentorCheckbox_Checked(object sender, RoutedEventArgs e)
-        {
-            recalulateVolumes();
-        }
-
-        private void PreBoilVolumeCheckbox_Checked(object sender, RoutedEventArgs e)
-        {
-            recalulateVolumes();
-        }
 
         private void AddOtherIngredientsButton_Click(object sender, RoutedEventArgs e)
         {
@@ -760,6 +752,36 @@ namespace GFCalc
         }
         #endregion
 
+        private void PreBoilVolumeTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            double volRemoved = 0;
+            string errMsg = null;
+
+            if (PreBoilVolumeTextBox.Text.Equals(String.Empty) || Volumes == null)
+                return;
+
+            if (!Double.TryParse(PreBoilVolumeTextBox.Text, out volRemoved))
+            {
+                errMsg = "Please provide a valid volume in float format";
+            }
+            else
+            {
+                double maxPreVol = GrainfatherCalculator.CalcPreBoilVolume(Volumes.TotalBatchVolume, BoilTime);
+                if (volRemoved >= maxPreVol)
+                {
+                    errMsg = String.Format("The volume exceeds the pre-boil volume with a batch size of {0:F1} liters",
+                        Volumes.TotalBatchVolume);
+                }
+            }
+
+            if (errMsg != null)
+                MessageBox.Show(errMsg);
+            else
+            {
+                Volumes.PreBoilTapOff = volRemoved;
+                recalculateGrainBill();
+            }
+        }
     }
 }
 

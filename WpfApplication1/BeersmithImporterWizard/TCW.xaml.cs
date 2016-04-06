@@ -82,8 +82,8 @@ namespace Grainsim.BeersmithImporterWizard
                 var bsh = BSBoilHops.First();
 
                 h.Hop = (Hops)(HopsListView.SelectedItem);
-                Debug.Assert(WorkRecepie.BatchSize != 0);
-                h.Amount = (bsh.Amount) / (WorkRecepie.BatchSize);
+                Debug.Assert(WorkRecepie.BatchVolume != 0);
+                h.Amount = (bsh.Amount) / (WorkRecepie.BatchVolume);
                 h.Duration = bsh.BoilTime;
 
 
@@ -141,7 +141,7 @@ namespace Grainsim.BeersmithImporterWizard
             if (r != null && !r.Equals(String.Empty))
             {
                 WorkRecepie.Name = r;
-                WorkRecepie.BatchSize = BeersmithImporter.getFinalBatchVolume(WorkRecepie.Name);
+                WorkRecepie.BatchVolume = BeersmithImporter.getFinalBatchVolume(WorkRecepie.Name);
                 WorkRecepie.BoilTime = BeersmithImporter.getBoilTime(WorkRecepie.Name);
                 WorkRecepie.OriginalGravity = BeersmithImporter.getOriginalGravity(WorkRecepie.Name);
 

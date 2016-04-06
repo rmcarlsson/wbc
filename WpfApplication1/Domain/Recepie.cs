@@ -34,9 +34,13 @@ namespace GFCalc.Domain
         [XmlElement("OtherIngredients")]
         public List<OtherIngredient> OtherIngredients { set; get; } 
 
-        [XmlAttribute("BatchSize")]
-        public double BatchSize { get; set; }
+        [XmlAttribute("BatchVolume")]
+        public double BatchVolume { get; set; }
+        [XmlAttribute("PreBoilTapOffVolume")]
+
+        public double PreBoilTapOffVolume { get; set; }
         [XmlAttribute("OriginalGravity")]
+
         public double OriginalGravity { get; set; }
         [XmlAttribute("BoilTime")]
         public int BoilTime { set; get; }
