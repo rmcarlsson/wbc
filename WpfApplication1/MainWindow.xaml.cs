@@ -311,10 +311,19 @@ namespace GFCalc
             if (!serializer.CanDeserialize(reader))
                 return false;
 
-            Recepie loadedObject = (Recepie)serializer.Deserialize(reader);
-            loadStream.Close();
+            try {
+                Recepie loadedObject = (Recepie)serializer.Deserialize(reader);
+                PopulateGUI(loadedObject);
 
-            PopulateGUI(loadedObject);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("The recipe can be parsed.");
+            }
+            finally
+            {
+                loadStream.Close();
+            }
 
             return true;
         }
