@@ -41,13 +41,20 @@ namespace Grainsim.Domain
             return RefColor.ElementAt(ix - 1).Name;
         }
 
-        public static double CalculateColor(List<GristPart> aMashFermentList, double aBatchSize)
+        public static double CalculateColor(List<GristPart> aMashFermentList, BrewVolumes aSetOfBrewVolumes)
         {
             // MCU = (Weight of grain in lbs) *(Color of grain in degrees lovibond) / (volume in gallons)
             double mcu = 0;
             foreach (GristPart g in aMashFermentList)
-                mcu += ((g.AmountGrams / 1000) * g.FermentableAdjunct.Color) / aBatchSize;
+            {
+                int w = 0;
+                if (g.Stage == FermentableStage.Mash)
+                    w = (int)(Math.Round(g.AmountGrams * (1 - (aSetOfBrewVolumes.PreBoilTapOff / aSetOfBrewVolumes.PreBoilVolume))));
+                else
+                    w = g.AmountGrams;
 
+                mcu += ((w / 1000) * g.FermentableAdjunct.Color) / aSetOfBrewVolumes.TotalBatchVolume;
+            }
             double srm = 1.4922 * Math.Pow(mcu, 0.6859d);
             return (srm * SRM_TO_EBC);
         }

@@ -63,12 +63,16 @@ namespace GFCalc
             OtherIngredientsList = new ObservableCollection<OtherIngredient>();
             OtherIngredientsListView.ItemsSource = OtherIngredientsList;
 
-            Volumes = new BrewVolumes();
-            Volumes.FinalBatchVolume = 25;
             OriginalGravity = 1.05;
             BoilTime = 60;
-            TopUpMashWater = 0;
+
+            Volumes = new BrewVolumes();
+            Volumes.BoilOffLoss = GrainfatherCalculator.CalcBoilOffVolume(BoilTime);
+            Volumes.FinalBatchVolume = 25;
+            Volumes.BoilerToFermentorLoss = GrainfatherCalculator.GRAINFATHER_BOILER_TO_FERMENTOR_LOSS;
             Volumes.PreBoilTapOff = 0;
+
+            TopUpMashWater = 0;
 
             updateGuiTextboxes();
 
@@ -412,17 +416,22 @@ namespace GFCalc
                 mashHeading.FontSize = 18;
                 doc.Blocks.Add(mashHeading);
 
-                Paragraph pcs = new Paragraph();
-                pcs.Inlines.Add(new Bold(new Run("Cold steep, 24 before brew start:\n")));
-                pcs.Inlines.Add(new Run(strbcs.ToString()));
-                doc.Blocks.Add(pcs);
-
+                if (Grist.Any(x => x.Stage == FermentableStage.ColdSteep))
+                {
+                    Paragraph pcs = new Paragraph();
+                    pcs.Inlines.Add(new Bold(new Run("Cold steep, 24 before brew start:\n")));
+                    pcs.Inlines.Add(new Run(strbcs.ToString()));
+                    doc.Blocks.Add(pcs);
+                }
 
                 Paragraph pm = new Paragraph();
                 pm.Inlines.Add(new Bold(new Run("Normal step mash:\n")));
 
+                var mashGrainBillWeight = Grist.Where(x => x.Stage == FermentableStage.Mash).Sum(x => x.AmountGrams);
+                var topUpVolume = 0d;
+
                 pm.Inlines.Add(new Run(String.Format("Add {0:F1} liters of water to Grainfather for mashing\n",
-                    GrainfatherCalculator.CalcMashVolume(Mash.CalculateMashGrainBillSize(Grist.ToList(), GrainBillSize)))));
+                    GrainfatherCalculator.CalcMashVolume(mashGrainBillWeight))));
                 pm.Inlines.Add(new Run("\nGrain bill:\n"));
                 pm.Inlines.Add(new Run(strbmash.ToString()));
                 doc.Blocks.Add(pm);
@@ -439,22 +448,23 @@ namespace GFCalc
                 pmp.Inlines.Add(new Bold(new Run("Mash profile:\n")));
                 pmp.Inlines.Add(new Run(strmp.ToString()));
 
-
                 pmp.Inlines.Add(new Run(String.Format("Sparge with {0:F1} liters of 78 C water\n",
-                    GrainfatherCalculator.CalcSpargeWaterVolume(GrainBillSize,
-                    (Volumes.TotalBatchVolume +
-                    GrainfatherCalculator.GRAINFATHER_BOILER_TO_FERMENTOR_LOSS +
-                    GrainfatherCalculator.CalcBoilOffVolume(BoilTime) -
-                    ColdSteep.GetColdSteepWaterContibution(
-                    Grist.Where(x => x.Stage == FermentableStage.ColdSteep).ToList(),
-                    GrainBillSize)),
-                    TopUpMashWater))));
+                    GrainfatherCalculator.CalcSpargeWaterVolume(mashGrainBillWeight,
+                    (Volumes.PreBoilVolume),
+                    topUpVolume))));
 
-                pmp.Inlines.Add(new Run(String.Format("Pre-boil gravity [SG]: {0:F3}\n", GravityAlorithms.CalcGravity(
-                GrainfatherCalculator.CalcPreBoilVolume(Volumes.TotalBatchVolume, BoilTime),
-                GrainBillSize,
-                Grist.Where(x => x.Stage == FermentableStage.Mash).ToList(),
-                GrainfatherCalculator.MashEfficiency))));
+
+                // Total volume points
+                var totalBatchPoints = GravityAlorithms.GetPoints(OriginalGravity, Volumes.TotalBatchVolume);
+
+                // Mash points
+                var mashGravityPercent = Grist.Where(x => x.Stage == FermentableStage.Mash).Sum(x => x.Amount);
+                var totalBatchMashPoints = (totalBatchPoints * ((double)(mashGravityPercent) / 100d));
+                if (Volumes.PreBoilTapOff != 0)
+                    totalBatchMashPoints += totalBatchMashPoints * (Volumes.PreBoilTapOff / Volumes.PreBoilVolume);
+
+                pmp.Inlines.Add(new Run(String.Format("Pre-boil gravity [SG]: {0:F3}\n",
+                    GravityAlorithms.GetGravity(totalBatchMashPoints, Volumes.PreBoilVolume))));
 
                 doc.Blocks.Add(pmp);
 
@@ -488,10 +498,8 @@ namespace GFCalc
 
 
 
-                var vm = GrainfatherCalculator.CalcPreBoilVolume(Volumes.TotalBatchVolume, BoilTime);
-                var vcs = ColdSteep.GetColdSteepWaterContibution(
-                    Grist.Where(x => x.Stage == FermentableStage.ColdSteep).ToList(),
-                    GrainBillSize);
+                var vm = Volumes.PreBoilVolume;
+                var vcs = Volumes.ColdSteepVolume;
 
                 foreach (GristPart g in Grist)
                 {
@@ -499,11 +507,7 @@ namespace GFCalc
                         pbh.Inlines.Add(new Run(String.Format("Add the runnings of {0} to the boil 10 minutes before end\n", g.FermentableAdjunct.Name)));
                 }
 
-                pbh.Inlines.Add(new Run(String.Format("Expected post-boil gravity [SG]: {0:F3}\n", GravityAlorithms.CalcGravity(
-                    (vm + vcs),
-                    GrainBillSize,
-                    Grist.Where(x => x.Stage != FermentableStage.Fermentor).ToList(),
-                    GrainfatherCalculator.MashEfficiency))));
+                pbh.Inlines.Add(new Run(String.Format("Expected post-boil gravity [SG]: {0:F3}\n", OriginalGravity)));
 
                 doc.Blocks.Add(pbh);
                 #endregion
@@ -513,14 +517,17 @@ namespace GFCalc
                 StringBuilder strbo = new StringBuilder("");
                 foreach (OtherIngredient g in OtherIngredientsList)
                 {
-                    strbo.Append(g.ToString() + "\n");
+                    strbo.Append(String.Format("Add " + g.ToString() + "\n"));
                 }
-                var othersHeading = new Paragraph(new Bold(new Run("Others")));
-                othersHeading.FontSize = 16;
-                doc.Blocks.Add(othersHeading);
+                if (OtherIngredientsList.Any())
+                {
+                    var othersHeading = new Paragraph(new Bold(new Run("Others")));
+                    othersHeading.FontSize = 16;
+                    doc.Blocks.Add(othersHeading);
 
-                Paragraph po = new Paragraph(new Run(strbo.ToString()));
-                doc.Blocks.Add(po);
+                    Paragraph po = new Paragraph(new Run(strbo.ToString()));
+                    doc.Blocks.Add(po);
+                }
                 #endregion
 
 
@@ -572,81 +579,97 @@ namespace GFCalc
             }
             else
             {
-                GrainBillSize = GravityAlorithms.GetGrainBillWeight(OriginalGravity, Volumes.TotalBatchVolume, Grist.ToList(), null, GrainfatherCalculator.MashEfficiency);
-            }
-            var l = new List<GristPart>();
-            foreach (var grain in Grist)
-            {
-                if (grain.Stage == FermentableStage.ColdSteep)
+                // Total volume points
+                var totalBatchPoints = GravityAlorithms.GetPoints(OriginalGravity, Volumes.TotalBatchVolume);
+
+                // Mash points
+                var mashGravityPercent = Grist.Where(x => x.Stage == FermentableStage.Mash).Sum(x => x.Amount);
+                var totalBatchMashPoints = (totalBatchPoints * ((double)(mashGravityPercent) / 100d));
+                if (Volumes.PreBoilTapOff != 0)
+                    totalBatchMashPoints += totalBatchMashPoints * (Volumes.PreBoilTapOff / Volumes.PreBoilVolume);
+
+                // Cold steep points
+                var coldSteepGravityPercent = Grist.Where(x => x.Stage == FermentableStage.ColdSteep).Sum(x => x.Amount);
+                var coldSteepPoints = (totalBatchPoints * ((double)(coldSteepGravityPercent) / 100d));
+
+
+                Volumes.ColdSteepVolume = 0;
+
+                var l = new List<GristPart>();
+                foreach (var grain in Grist)
                 {
-                    grain.AmountGrams = ColdSteep.GetGrainBillSize(grain, GrainBillSize);
+                    if (grain.Stage == FermentableStage.ColdSteep)
+                    {
+                        grain.AmountGrams = GravityAlorithms.GetGrainWeight(totalBatchPoints * ((double)grain.Amount / 100d), grain.FermentableAdjunct.Potential);
+                        Volumes.ColdSteepVolume += ColdSteep.GetColdSteepWaterContibution(grain.AmountGrams);
+                    }
+                    if (grain.Stage == FermentableStage.Mash)
+                    {
+                        grain.AmountGrams = GravityAlorithms.GetGrainWeight(totalBatchMashPoints * ((double)grain.Amount / 100d),
+                            grain.FermentableAdjunct.Potential);
+                    }
+                    if (grain.Stage == FermentableStage.Fermentor)
+                    {
+                        var boilerLossPercent = Volumes.TotalBatchVolume / (Volumes.TotalBatchVolume + GrainfatherCalculator.GRAINFATHER_BOILER_TO_FERMENTOR_LOSS);
+                        var pts = totalBatchPoints * ((double)grain.Amount / 100d) * boilerLossPercent;
+                        grain.AmountGrams = GravityAlorithms.GetGrainWeight(pts, grain.FermentableAdjunct.Potential);
+                    }
+
+                    l.Add(grain);
                 }
-                if (grain.Stage == FermentableStage.Mash)
+
+                foreach (var grain in l)
                 {
-                    grain.AmountGrams = (grain.Amount * GrainBillSize) / sum;
+                    Grist.Remove(grain);
+                    Grist.Add(grain);
                 }
-                if (grain.Stage == FermentableStage.Fermentor)
+
+                double topUpVolume = 0;
+                if (GrainBillSize > GrainfatherCalculator.SMALL_GRAINBILL || GrainBillSize == 0)
                 {
-                    grain.AmountGrams = (int)(Math.Round(((grain.Amount * GrainBillSize) / sum) * (Volumes.TotalBatchVolume / (Volumes.TotalBatchVolume + GrainfatherCalculator.GRAINFATHER_BOILER_TO_FERMENTOR_LOSS))));
+                    TopUpMashWaterVolumeTextBox.Visibility = Visibility.Hidden;
+                    TopUpMashWaterVolumeLabel.Visibility = Visibility.Hidden;
+
                 }
+                else
+                {
+                    TopUpMashWaterVolumeTextBox.Visibility = Visibility.Visible;
+                    TopUpMashWaterVolumeLabel.Visibility = Visibility.Visible;
+                    topUpVolume = TopUpMashWater;
 
-                l.Add(grain);
+                }
+                try
+                {
+                    var mashGrainBillWeight = Grist.Where(x => x.Stage == FermentableStage.Mash).Sum(x => x.AmountGrams);
+
+                    var swv = GrainfatherCalculator.CalcSpargeWaterVolume(mashGrainBillWeight,
+                        (Volumes.PreBoilVolume),
+                        topUpVolume);
+                    if (swv < 0)
+                        swv = 0;
+                    SpargeWaterVolumeLabel.Content = String.Format("Sparge water volume [L]: {0:0.#}", swv);
+
+                    var mwv = GrainfatherCalculator.CalcMashVolume(mashGrainBillWeight);
+                    if (mwv < 0)
+                        mwv = 0;
+                    MashWaterVolumeLabel.Content = String.Format("Mash water volume [L]: {0:0.#}", mwv);
+                }
+                catch (ArgumentException e)
+                {
+                    MessageBox.Show(e.Message);
+                }
+                foreach (GridViewColumn c in MaltsGridView.Columns)
+                {
+                    c.Width = 0; //set it to no width
+                    c.Width = double.NaN; //resize it automatically
+                }
+                double ecb = ColorAlgorithms.CalculateColor(Grist.ToList(), Volumes);
+                string refString = ColorAlgorithms.GetReferenceBeer(ecb);
+                ColorLabel.Content = String.Format("Color [ECB]: {0:F1} eqv. to {1}", ecb, refString);
+
+                recalculateIbu();
+
             }
-
-            foreach (var grain in l)
-            {
-                Grist.Remove(grain);
-                Grist.Add(grain);
-            }
-
-            double topUpVolume = 0;
-            if (GrainBillSize > GrainfatherCalculator.SMALL_GRAINBILL || GrainBillSize == 0)
-            {
-                TopUpMashWaterVolumeTextBox.Visibility = Visibility.Hidden;
-                TopUpMashWaterVolumeLabel.Visibility = Visibility.Hidden;
-
-            }
-            else
-            {
-                TopUpMashWaterVolumeTextBox.Visibility = Visibility.Visible;
-                TopUpMashWaterVolumeLabel.Visibility = Visibility.Visible;
-                topUpVolume = TopUpMashWater;
-
-            }
-            try
-            {
-                var swv = GrainfatherCalculator.CalcSpargeWaterVolume(GrainBillSize,
-                    (Volumes.TotalBatchVolume +
-                    GrainfatherCalculator.GRAINFATHER_BOILER_TO_FERMENTOR_LOSS +
-                    GrainfatherCalculator.CalcBoilOffVolume(BoilTime) -
-                    ColdSteep.GetColdSteepWaterContibution(
-                    Grist.Where(x => x.Stage == FermentableStage.ColdSteep).ToList(),
-                    GrainBillSize)),
-                    topUpVolume);
-                if (swv < 0)
-                    swv = 0;
-                SpargeWaterVolumeLabel.Content = String.Format("Sparge water volume [L]: {0:0.#}", swv);
-
-                var mwv = GrainfatherCalculator.CalcMashVolume(Mash.CalculateMashGrainBillSize(Grist.ToList(), GrainBillSize));
-                if (mwv < 0)
-                    mwv = 0;
-                MashWaterVolumeLabel.Content = String.Format("Mash water volume [L]: {0:0.#}", mwv);
-            }
-            catch (ArgumentException e)
-            {
-                MessageBox.Show(e.Message);
-            }
-            foreach (GridViewColumn c in MaltsGridView.Columns)
-            {
-                c.Width = 0; //set it to no width
-                c.Width = double.NaN; //resize it automatically
-            }
-            double ecb = ColorAlgorithms.CalculateColor(Grist.ToList(), Volumes.TotalBatchVolume);
-            string refString = ColorAlgorithms.GetReferenceBeer(ecb);
-            ColorLabel.Content = String.Format("Color [ECB]: {0:F1} eqv. to {1}", ecb, refString);
-
-            recalculateIbu();
-
         }
 
 

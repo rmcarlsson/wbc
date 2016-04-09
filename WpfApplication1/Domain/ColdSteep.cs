@@ -18,28 +18,24 @@ namespace Grainsim.Domain
             return ret;
         }
 
-        public static double GetColdSteepWaterContibution(IEnumerable<GristPart> aGrist, double GrainbillSize)
+        public static double GetColdSteepWaterContibution(int aGrainWeight)
         {
-
-            var l = CalculateColdSteepGrainBill(aGrist);
-            var grainBillSizeColdSteep = l.Sum(x => (((double)(x.Amount)/100d) * GrainbillSize));
-
             // All weights are in grams, all volumes are in liters, hence divide by 1000;
-            var totalVolToAdd = ((grainBillSizeColdSteep/ COLDSTEEP_EFFICIENCY) * COLDSTEEP_WATER_TO_GRAIN_RATION) / 1000;
+            var totalVolToAdd = ((aGrainWeight / COLDSTEEP_EFFICIENCY) * COLDSTEEP_WATER_TO_GRAIN_RATION) / 1000;
 
-            var grainAborbtionVol = (GrainfatherCalculator.GRAIN_WATER_ABSORBTION * grainBillSizeColdSteep);
+            var grainAborbtionVol = (GrainfatherCalculator.GRAIN_WATER_ABSORBTION * aGrainWeight);
 
             return (totalVolToAdd - grainAborbtionVol);
         }
 
-        public static int GetGrainBillSize(GristPart grain, double grainBillSize)
-        {
-            double ret = 0;
+        //public static int GetGrainBillSize(double somePoints, double grainBillSize)
+        //{
+        //    double ret = 0;
+        //    //finalPoints
+        //    ret = ((grain.Amount * grainBillSize) / 100) / COLDSTEEP_EFFICIENCY;
 
-            ret = ((grain.Amount * grainBillSize) / 100) / COLDSTEEP_EFFICIENCY;
-
-            return (int)(Math.Round(ret));
-        }
+        //    return (int)(Math.Round(ret));
+        //}
 
         public static double GetWaterToAddToColdSteep(double aGrainAmountGrams)
         {

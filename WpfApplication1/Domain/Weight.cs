@@ -13,9 +13,9 @@ namespace Grainsim.Domain
             return aWeightInGrams * 0.00220462262d;
         }
 
-        static public double ConvertPoundsToGrams(double aWeightInPounds)
+        static public int ConvertPoundsToGrams(double aWeightInPounds)
         {
-            return aWeightInPounds / 0.00220462262d;
+            return (int)(Math.Round(aWeightInPounds / 0.00220462262d));
         }
     }
 

@@ -1,4 +1,5 @@
 ﻿using GFCalc.DataModel;
+using GFCalc.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,17 @@ namespace Grainsim.Domain
 {
     public class GravityAlorithms
     {
+        public static double GetPoints(double aGravity, double aVolume)
+        {
+            return (aGravity -  1) * 1000 * Volume.ConvertLitersToGallons(aVolume);
+        }
+
+        public static double GetGravity(double somePoints, double aVolume)
+        {
+            return ((somePoints / Volume.ConvertLitersToGallons(aVolume)) / 1000) + 1;
+        }
+
+
         public static double GetPostBoilVolume(double aGravity, List<GristPart> aMashFermentList, List<GristPart> aPostMashFermentList, int aMashEfficiency)
         {
             if (aGravity <= 0)
@@ -20,7 +32,16 @@ namespace Grainsim.Domain
             return potentialSum / aGravity;
         }
 
-        public static int GetGrainBillWeight(double aGravity, double aBatchSizeVolume, List<GristPart> aMashFermentList, List<GristPart> aPostMashFermentList, double aMashEfficiency)
+        public static int GetGrainWeight(double somePoints, double aPotential)
+        {
+
+
+            var ppg = (aPotential - 1) * 1000 * GrainfatherCalculator.MashEfficiency;
+            return Weight.ConvertPoundsToGrams(somePoints/ppg);
+
+        }
+
+        public static int GetGrainBillWeight(double aGravity, double aBatchSizeVolume, List<GristPart> aMashFermentList, double aMashEfficiency)
         {
             if (aGravity <= 1)
                 return 0;
@@ -44,7 +65,7 @@ namespace Grainsim.Domain
 
 
             // points per kilogram per liter = 8.346 (points/ lb/gal)
-            return (int)(Math.Round(ret));
+            return ret;
         }
 
         public static double CalcGravity(double aVolume, double aGrainBillSize, List<GristPart> aMashFermentList, double aMashEfficiency)
