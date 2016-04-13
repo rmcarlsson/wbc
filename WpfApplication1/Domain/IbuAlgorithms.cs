@@ -12,6 +12,8 @@ namespace Grainsim.Domain
         // 3.78541178 liters
         // = 7.48915170862
 
+            public const double IBU_TOLERANCE = 0.5;
+
 
 
         static public int CalcIbu(IEnumerable<HopAddition> aAdditions, double aGravityBoil, double aVolumeBoil)

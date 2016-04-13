@@ -18,6 +18,7 @@ using Grainsim.BeersmithImporterWizard;
 using System.Text;
 using System.Windows.Media;
 
+
 namespace GFCalc
 {
     /// <summary>
@@ -75,7 +76,7 @@ namespace GFCalc
             TopUpMashWater = 0;
 
             updateGuiTextboxes();
-
+            
         }
 
 
@@ -233,7 +234,11 @@ namespace GFCalc
             r.MashProfile = MashProfileList.ToList();
             r.OtherIngredients = OtherIngredientsList.ToList();
             r.Name = NameTextBox.Text;
-            r.BatchVolume = Volumes.TotalBatchVolume;
+
+            r.BatchVolume = Volumes.FinalBatchVolume;
+            r.PreBoilTapOffVolume = Volumes.PreBoilTapOff;
+            r.TopUpMashWater = 0;
+
             r.OriginalGravity = OriginalGravity;
             r.BoilTime = BoilTime;
 
@@ -436,6 +441,7 @@ namespace GFCalc
                 Paragraph pm = new Paragraph();
                 pm.Inlines.Add(new Bold(new Run("Normal step mash:\n")));
 
+
                 var mashGrainBillWeight = Grist.Where(x => x.Stage == FermentableStage.Mash).Sum(x => x.AmountGrams);
                 var topUpVolume = 0d;
 
@@ -468,12 +474,25 @@ namespace GFCalc
 
                 // Mash points
                 var mashGravityPercent = Grist.Where(x => x.Stage == FermentableStage.Mash).Sum(x => x.Amount);
-                var totalBatchMashPoints = (totalBatchPoints * ((double)(mashGravityPercent) / 100d));
+                var mashPoints = (totalBatchPoints * ((double)(mashGravityPercent) / 100d));
                 if (Volumes.PreBoilTapOff != 0)
-                    totalBatchMashPoints += totalBatchMashPoints * (Volumes.PreBoilTapOff / Volumes.PreBoilVolume);
+                    mashPoints += mashPoints * (Volumes.PreBoilTapOff / Volumes.PreBoilVolume);
+
+
+                // Cold steep points
+                var coldSteepGravityPercent = Grist.Where(x => x.Stage == FermentableStage.ColdSteep).Sum(x => x.Amount);
+                var coldSteepPoints = (totalBatchPoints * ((double)(coldSteepGravityPercent) / 100d));
+
+                // Fermentor points
+                var fermentorGravityPercent = Grist.Where(x => x.Stage == FermentableStage.Fermentor).Sum(x => x.Amount);
+                var fermentorPoints = (totalBatchPoints * ((double)(fermentorGravityPercent) / 100d));
+
+                var preBoilGravity = GravityAlorithms.GetGravity(mashPoints, Volumes.PreBoilVolume);
+                var postBoilGravity = GravityAlorithms.GetGravity((mashPoints + coldSteepPoints), Volumes.TotalBatchVolume);
+
 
                 pmp.Inlines.Add(new Run(String.Format("Pre-boil gravity [SG]: {0:F3}\n",
-                    GravityAlorithms.GetGravity(totalBatchMashPoints, Volumes.PreBoilVolume))));
+                    GravityAlorithms.GetGravity(mashPoints, Volumes.PreBoilVolume))));
 
                 doc.Blocks.Add(pmp);
 
@@ -516,7 +535,7 @@ namespace GFCalc
                         pbh.Inlines.Add(new Run(String.Format("Add the runnings of {0} to the boil 10 minutes before end\n", g.FermentableAdjunct.Name)));
                 }
 
-                pbh.Inlines.Add(new Run(String.Format("Expected post-boil gravity [SG]: {0:F3}\n", OriginalGravity)));
+                pbh.Inlines.Add(new Run(String.Format("Expected post-boil gravity [SG]: {0:F3}\n", postBoilGravity)));
 
                 doc.Blocks.Add(pbh);
                 #endregion
@@ -593,13 +612,23 @@ namespace GFCalc
 
                 // Mash points
                 var mashGravityPercent = Grist.Where(x => x.Stage == FermentableStage.Mash).Sum(x => x.Amount);
-                var totalBatchMashPoints = (totalBatchPoints * ((double)(mashGravityPercent) / 100d));
+                var mashPoints = (totalBatchPoints * ((double)(mashGravityPercent) / 100d));
                 if (Volumes.PreBoilTapOff != 0)
-                    totalBatchMashPoints += totalBatchMashPoints * (Volumes.PreBoilTapOff / Volumes.PreBoilVolume);
+                    mashPoints += mashPoints * (Volumes.PreBoilTapOff / Volumes.PreBoilVolume);
+
 
                 // Cold steep points
                 var coldSteepGravityPercent = Grist.Where(x => x.Stage == FermentableStage.ColdSteep).Sum(x => x.Amount);
                 var coldSteepPoints = (totalBatchPoints * ((double)(coldSteepGravityPercent) / 100d));
+
+                // Fermentor points
+                var fermentorGravityPercent = Grist.Where(x => x.Stage == FermentableStage.Fermentor).Sum(x => x.Amount);
+                var fermentorPoints = (totalBatchPoints * ((double)(fermentorGravityPercent) / 100d));
+
+                var preBoilGravity = GravityAlorithms.GetGravity(mashPoints, Volumes.PreBoilVolume);
+                var postBoilGravity = GravityAlorithms.GetGravity((mashPoints + coldSteepPoints), Volumes.TotalBatchVolume);
+
+                Gravitylabel.Content = String.Format("Gravity(pre -) / (post - boil)[SG]: ({0:F3}) / ({1:F3})", preBoilGravity, postBoilGravity);
 
 
                 Volumes.ColdSteepVolume = 0;
@@ -609,17 +638,18 @@ namespace GFCalc
                 {
                     if (grain.Stage == FermentableStage.ColdSteep)
                     {
-                        grain.AmountGrams = GravityAlorithms.GetGrainWeight(totalBatchPoints * ((double)grain.Amount / 100d), grain.FermentableAdjunct.Potential);
+                        double g = (double)GravityAlorithms.GetGrainWeight(totalBatchPoints * ((double)grain.Amount / 100d), grain.FermentableAdjunct.Potential);
+                        grain.AmountGrams = (int)Math.Round((g/ColdSteep.COLDSTEEP_EFFICIENCY));
                         Volumes.ColdSteepVolume += ColdSteep.GetColdSteepWaterContibution(grain.AmountGrams);
                     }
                     if (grain.Stage == FermentableStage.Mash)
                     {
-                        grain.AmountGrams = GravityAlorithms.GetGrainWeight(totalBatchMashPoints * ((double)grain.Amount / 100d),
+                        grain.AmountGrams = GravityAlorithms.GetGrainWeight(mashPoints * ((double)grain.Amount / 100d),
                             grain.FermentableAdjunct.Potential);
                     }
                     if (grain.Stage == FermentableStage.Fermentor)
                     {
-                        var boilerLossPercent = Volumes.TotalBatchVolume / (Volumes.TotalBatchVolume + GrainfatherCalculator.GRAINFATHER_BOILER_TO_FERMENTOR_LOSS);
+                        var boilerLossPercent = 1 - (GrainfatherCalculator.GRAINFATHER_BOILER_TO_FERMENTOR_LOSS / Volumes.TotalBatchVolume);
                         var pts = totalBatchPoints * ((double)grain.Amount / 100d) * boilerLossPercent;
                         grain.AmountGrams = GravityAlorithms.GetGrainWeight(pts, grain.FermentableAdjunct.Potential);
                     }
@@ -634,7 +664,8 @@ namespace GFCalc
                 }
 
                 double topUpVolume = 0;
-                if (GrainBillSize > GrainfatherCalculator.SMALL_GRAINBILL || GrainBillSize == 0)
+                var mashGrainBillWeight = Grist.Where(x => x.Stage == FermentableStage.Mash).Sum(x => x.AmountGrams);
+                if (mashGrainBillWeight > GrainfatherCalculator.SMALL_GRAINBILL || mashGrainBillWeight == 0)
                 {
                     TopUpMashWaterVolumeTextBox.Visibility = Visibility.Hidden;
                     TopUpMashWaterVolumeLabel.Visibility = Visibility.Hidden;
@@ -649,7 +680,6 @@ namespace GFCalc
                 }
                 try
                 {
-                    var mashGrainBillWeight = Grist.Where(x => x.Stage == FermentableStage.Mash).Sum(x => x.AmountGrams);
 
                     var swv = GrainfatherCalculator.CalcSpargeWaterVolume(mashGrainBillWeight,
                         (Volumes.PreBoilVolume),
@@ -686,7 +716,11 @@ namespace GFCalc
 
         private void recalculateIbu()
         {
-            IbuLabel.Content = string.Format("IBU: {0}", IbuAlgorithms.CalcIbu(BoilHops.Where(x => x.Stage == HopAdditionStage.Boil), OriginalGravity, Volumes.TotalBatchVolume));
+            var ibu = IbuAlgorithms.CalcIbu(BoilHops.Where(x => x.Stage == HopAdditionStage.Boil), OriginalGravity, Volumes.TotalBatchVolume);
+            var highIbu = ibu + IbuAlgorithms.IBU_TOLERANCE * ibu;
+            var lowIbu = ibu - IbuAlgorithms.IBU_TOLERANCE * ibu;
+
+            IbuLabel.Content = string.Format("IBU: {0:F0} - {1:F0} ({2:F0})", lowIbu, highIbu, ibu);
 
             foreach (HopAddition h in BoilHops)
             {
