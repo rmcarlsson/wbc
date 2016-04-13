@@ -608,13 +608,13 @@ namespace GFCalc
             else
             {
                 // Total volume points
-                var totalBatchPoints = GravityAlorithms.GetPoints(OriginalGravity, Volumes.TotalBatchVolume);
+                var totalBatchPoints = GravityAlorithms.GetPoints(OriginalGravity, Volumes.TotalBatchVolume - Volumes.PreBoilTapOff);
 
                 // Mash points
                 var mashGravityPercent = Grist.Where(x => x.Stage == FermentableStage.Mash).Sum(x => x.Amount);
                 var mashPoints = (totalBatchPoints * ((double)(mashGravityPercent) / 100d));
                 if (Volumes.PreBoilTapOff != 0)
-                    mashPoints += mashPoints * (Volumes.PreBoilTapOff / Volumes.PreBoilVolume);
+                    mashPoints += mashPoints * (Volumes.PreBoilTapOff / (Volumes.PreBoilVolume - Volumes.PreBoilTapOff));
 
 
                 // Cold steep points
@@ -784,11 +784,16 @@ namespace GFCalc
         {
             BoilTimeTextBox = (TextBox)(sender);
             int val = 0;
+
+            if (BoilTimeTextBox.Text.Equals(String.Empty))
+                return;
+
             if (Grist != null &&
-                 Int32.TryParse(BatchSizeVolumeTextBox.Text, out val))
+                 Int32.TryParse(BoilTimeTextBox.Text, out val))
             {
                 BoilTime = val;
-                recalculateIbu();
+                Volumes.BoilOffLoss = GrainfatherCalculator.CalcBoilOffVolume(BoilTime);
+                recalculateGrainBill();
             }
 
         }

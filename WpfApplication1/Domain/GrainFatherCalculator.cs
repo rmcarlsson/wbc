@@ -52,7 +52,7 @@ namespace GFCalc.Domain
 
         public static double CalcBoilOffVolume(int aBoilTime)
         {
-            return BOIL_OFF_RATE * (aBoilTime / 60);
+            return BOIL_OFF_RATE * ((double)aBoilTime / (double)60);
         }
 
         public static double CalcMashVolume(double aMashGrainbillSize)
