@@ -12,7 +12,7 @@ namespace Grainsim.Domain
     {
         public static double GetPoints(double aGravity, double aVolume)
         {
-            return (aGravity -  1) * 1000 * Volume.ConvertLitersToGallons(aVolume);
+            return (aGravity - 1) * 1000 * Volume.ConvertLitersToGallons(aVolume);
         }
 
         public static double GetGravity(double somePoints, double aVolume)
@@ -37,11 +37,11 @@ namespace Grainsim.Domain
 
 
             var ppg = (aPotential - 1) * 1000 * GrainfatherCalculator.MashEfficiency;
-            return Weight.ConvertPoundsToGrams(somePoints/ppg);
+            return Weight.ConvertPoundsToGrams(somePoints / ppg);
 
         }
 
-        public static int GetGrainBillWeight(double aGravity, double aBatchSizeVolume, List<GristPart> aMashFermentList, double aMashEfficiency)
+        public static int GetGrainBillWeight(double aGravity, double aBatchSizeVolume, List<GristPart> aFermentableList, double aMashEfficiency)
         {
             if (aGravity <= 1)
                 return 0;
@@ -50,8 +50,8 @@ namespace Grainsim.Domain
             // (Malt SG * (Solution Volume) ) / (Malt ppg) x(mash efficiency)
 
             double potentialSum = 0;
-            if (aMashFermentList != null)
-                potentialSum += aMashFermentList.Sum(x => (x.FermentableAdjunct.Potential * x.Amount) / 100);
+            if (aFermentableList != null)
+                potentialSum += aFermentableList.Sum(x => (x.FermentableAdjunct.Potential * x.Amount) / 100);
 
             var ppg = (potentialSum - 1) * 1000;
             var bhe = aMashEfficiency;
@@ -68,21 +68,39 @@ namespace Grainsim.Domain
             return ret;
         }
 
-        public static double CalcGravity(double aVolume, double aGrainBillSize, List<GristPart> aMashFermentList, double aMashEfficiency)
+        public static double GetGravity(double aVolume, List<GristPart> aFermentableList, double aMashEfficiency)
         {
-            if (aVolume == 0)
+            if (aVolume == 0 || (aFermentableList.Count == 0) || aFermentableList == null)
                 return 1;
 
-            var gbsLb = Weight.ConvertToPounds(aGrainBillSize);
             double potentialSumPointsPerGallon = 0;
-            if (aMashFermentList != null)
-                potentialSumPointsPerGallon += aMashFermentList.Sum(x => (((x.FermentableAdjunct.Potential - 1) * 1000) * gbsLb * (double)((double)x.Amount / 100d)));
+            if (aFermentableList != null)
+                potentialSumPointsPerGallon += aFermentableList.Sum(x => (((x.FermentableAdjunct.Potential - 1) * 1000) * ((double)Weight.ConvertToPounds(x.AmountGrams))));
             var ppgLbMashEffComp = aMashEfficiency * potentialSumPointsPerGallon;
             var g = ppgLbMashEffComp / Volume.ConvertLitersToGallons(aVolume);
 
             return (1 + (g / 1000));
         }
 
+        public static double GetGravityByPart(
+            double aVolume,
+            List<GristPart> aFermentableList,
+            int aGrainbillWeight,
+            double aMashEfficiency)
+        {
+            if (aVolume == 0 || (aFermentableList.Count == 0) || aFermentableList == null)
+                return 1;
+
+            var lbs = Weight.ConvertToPounds(aGrainbillWeight);
+
+            double potentialSumPointsPerGallon = 0;
+            if (aFermentableList != null)
+                potentialSumPointsPerGallon += aFermentableList.Sum(x => (((x.FermentableAdjunct.Potential - 1) * 1000) * lbs * ((double)(x.Amount) / 100d)));
+            var ppgLbMashEffComp = aMashEfficiency * potentialSumPointsPerGallon;
+            var g = ppgLbMashEffComp / Volume.ConvertLitersToGallons(aVolume);
+
+            return (1 + (g / 1000));
+        }
 
     }
 }

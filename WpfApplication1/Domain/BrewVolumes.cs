@@ -124,13 +124,13 @@ namespace Grainsim.Domain
         /// Calculated value. Not allowed to set out side class.
         /// </summary>
         public double PreBoilVolume { get; private set; }
-
-
+        public double PostBoilVolume { get; private set; }
 
         private void UpdateTotalBatchVolume()
         {
             TotalBatchVolume = boilerToFermentorLoss + finalBatchVolume + preBoilTapOff;
             PreBoilVolume = TotalBatchVolume + boilOffLoss - ColdSteepVolume;
+            PostBoilVolume = PreBoilVolume - boilOffLoss - PreBoilTapOff; 
         }
     }
 }

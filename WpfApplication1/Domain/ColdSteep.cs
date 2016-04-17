@@ -7,6 +7,12 @@ using System.Threading.Tasks;
 
 namespace Grainsim.Domain
 {
+    public class ColdSteepAddition
+    {
+        public int Weight { set; get; }
+        public double WaterContribution { set; get; }
+    }
+
     public class ColdSteep
     {
         public const double COLDSTEEP_WATER_TO_GRAIN_RATION = 5;
@@ -16,6 +22,15 @@ namespace Grainsim.Domain
         {
             var ret = aGrist.Where(x => (x.Stage == FermentableStage.ColdSteep));
             return ret;
+        }
+
+        public static void GetColdSteepCompensatedWeight(int aGrainWeight, out ColdSteepAddition aColdSteepAddition)
+        {
+            ColdSteepAddition ret = new ColdSteepAddition();
+            ret.Weight = (int)Math.Round((double)aGrainWeight / COLDSTEEP_EFFICIENCY);
+            ret.WaterContribution = ((double)ret.Weight * COLDSTEEP_WATER_TO_GRAIN_RATION)/1000d;
+
+            aColdSteepAddition = ret;
         }
 
         public static double GetColdSteepWaterContibution(int aGrainWeight)
