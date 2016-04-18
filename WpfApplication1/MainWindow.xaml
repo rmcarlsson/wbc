@@ -135,14 +135,14 @@
                 <Label x:Name="label1" Content="Boil time [min]:" HorizontalAlignment="Left" Height="32" Width="90" Canvas.Left="87" Canvas.Top="8"/>
                 <TextBox x:Name="BoilTimeTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="60" VerticalAlignment="Top" Width="61" TextChanged="BoilTimeTextBox_TextChanged" Grid.Row="1" Canvas.Left="182" Canvas.Top="10"/>
 
-                <Label x:Name="TopUpMashWaterVolumeLabel" Content="Top up mash water volume [L]:" HorizontalAlignment="Left"  Height="32" Width="173" Canvas.Left="4" Canvas.Top="238"/>
-                <TextBox x:Name="TopUpMashWaterVolumeTextBox" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="61" TextChanged="TopUpMashWaterVolumeTextBox_TextChanged" Grid.Row="1" Canvas.Left="182" Canvas.Top="240" RenderTransformOrigin="0.477,0.535"/>
+                <Label x:Name="TopUpMashWaterVolumeLabel" Content="Top up mash water volume [L]:" HorizontalAlignment="Left"  Height="32" Width="173"  ToolTip="States the amount of water you added before mashing to get water level up to overflow pipe" Canvas.Left="4" Canvas.Top="238"/>
+                <TextBox x:Name="TopUpMashWaterVolumeTextBox" ToolTip="Set the amount of water you added before mashing to get water level up to overflow pipe" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="61" TextChanged="TopUpMashWaterVolumeTextBox_TextChanged" Grid.Row="1" Canvas.Left="182" Canvas.Top="240" RenderTransformOrigin="0.477,0.535"/>
 
                 <Label x:Name="label7" Content="Recepie name:" HorizontalAlignment="Left"  Height="32"  Width="86" Canvas.Left="91" Canvas.Top="45"/>
                 <TextBox x:Name="NameTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="My new beer" VerticalAlignment="Top" Width="151" Canvas.Left="182" Canvas.Top="47" />
 
-                <Label x:Name="label" Content="Pre-boil volume removed [L]:" Canvas.Left="14" Canvas.Top="209"/>
-                <TextBox x:Name="PreBoilVolumeTextBox" Height="23" Canvas.Left="182" TextWrapping="Wrap" Text="0" Canvas.Top="212" Width="61" TextChanged="PreBoilVolumeTextBox_TextChanged"/>
+                <Label x:Name="label" ToolTip="States a value of a amount of wort to be taken away after mashing, for example for starters" Content="Pre-boil volume removed [L]:" Canvas.Left="14" Canvas.Top="209"/>
+                <TextBox x:Name="PreBoilVolumeTextBox" Height="23" Canvas.Left="182" TextWrapping="Wrap"  ToolTip="Set this value if you want to take some wort away after mashing, for example for starters" Text="0" Canvas.Top="212" Width="61" TextChanged="PreBoilVolumeTextBox_TextChanged"/>
                 <Label x:Name="Gravitylabel" Content="Gravity (pre- and post-boil) [SG]:" Canvas.Left="-5" Canvas.Top="178"/>
             </Canvas>
         </GroupBox>

@@ -414,21 +414,24 @@ namespace GFCalc
                     switch (g.Stage)
                     {
                         case FermentableStage.ColdSteep:
-                            strbcs.Append(g.ToString() + "\n");
+                            strbcs.Append("Add " + g.ToString() + "\n");
                             break;
                         case FermentableStage.Mash:
-                            strbmash.Append(g.ToString() + "\n");
+                            strbmash.Append("Add " + g.ToString() + "\n");
                             break;
                         case FermentableStage.Fermentor:
-                            strbferm.Append(g.ToString() + "\n");
+                            strbferm.Append("Add " + g.ToString() + "\n");
                             break;
                         default:
                             break;
                     }
                 }
 
+                var recepieHeading = new Paragraph(new Bold(new Run(String.Format("Recepie for {0}, approx. {1:F1} L in fermentor\n", NameTextBox.Text, Volumes.FinalBatchVolume))));
+
                 var mashHeading = new Paragraph(new Bold(new Run("Mash")));
-                mashHeading.FontSize = 18;
+                mashHeading.FontSize = recepieHeading.FontSize = 18;
+                doc.Blocks.Add(recepieHeading);
                 doc.Blocks.Add(mashHeading);
 
                 if (Grist.Any(x => x.Stage == FermentableStage.ColdSteep))
@@ -448,7 +451,6 @@ namespace GFCalc
 
                 pm.Inlines.Add(new Run(String.Format("Add {0:F1} liters of water to Grainfather for mashing\n",
                     GrainfatherCalculator.CalcMashVolume(mashGrainBillWeight))));
-                pm.Inlines.Add(new Run("\nGrain bill:\n"));
                 pm.Inlines.Add(new Run(strbmash.ToString()));
                 doc.Blocks.Add(pm);
 
@@ -456,7 +458,7 @@ namespace GFCalc
                 StringBuilder strmp = new StringBuilder("");
                 foreach (MashProfileStep mss in MashProfileList)
                 {
-                    strmp.Append(mss.ToString() + "\n");
+                    strmp.Append("Mash at " + mss.ToString() + "\n");
                 }
 
 
@@ -464,7 +466,7 @@ namespace GFCalc
                 pmp.Inlines.Add(new Bold(new Run("Mash profile:\n")));
                 pmp.Inlines.Add(new Run(strmp.ToString()));
 
-                pmp.Inlines.Add(new Run(String.Format("Sparge with {0:F1} liters of 78 C water\n",
+                pmp.Inlines.Add(new Run(String.Format("\nSparge with {0:F1} liters of 78 C water\n\n",
                     GrainfatherCalculator.CalcSpargeWaterVolume(mashGrainBillWeight,
                     (Volumes.PreBoilVolume),
                     topUpVolume))));
@@ -491,9 +493,16 @@ namespace GFCalc
                 //var preBoilGravity = GravityAlorithms.GetGravity(mashPoints, Volumes.PreBoilVolume);
                 //var postBoilGravity = GravityAlorithms.GetGravity((mashPoints + coldSteepPoints), Volumes.TotalBatchVolume);
 
-                var prbg = GravityAlorithms.GetGravity(Volumes.PreBoilVolume, Grist.Where(x => x.Stage == FermentableStage.Mash).ToList(), GrainfatherCalculator.MashEfficiency);
+                var prbg = GravityAlorithms.GetGravity(
+                    Volumes.PreBoilVolume, 
+                    Grist.Where(x => x.Stage == FermentableStage.Mash).ToList(), 
+                    GrainfatherCalculator.MashEfficiency);
 
-                var TotalGbs = GravityAlorithms.GetGrainBillWeight(OriginalGravity, Volumes.TotalBatchVolume - Volumes.PreBoilTapOff, Grist.ToList(), GrainfatherCalculator.MashEfficiency);
+                var TotalGbs = GravityAlorithms.GetGrainBillWeight(
+                    OriginalGravity, 
+                    Volumes.TotalBatchVolume - Volumes.PreBoilTapOff, 
+                    Grist.ToList(), 
+                    GrainfatherCalculator.MashEfficiency);
 
                 var pobg = GravityAlorithms.GetGravityByPart(
                     Volumes.PostBoilVolume,
@@ -501,8 +510,8 @@ namespace GFCalc
                     TotalGbs,
                     GrainfatherCalculator.MashEfficiency);
 
-                pmp.Inlines.Add(new Run(String.Format("Pre-boil gravity [SG]: {0:F3}\n",
-                    pobg)));
+                pmp.Inlines.Add(new Run(String.Format("\nExpected pre-boil gravity [SG]: {0:F3}",
+                    prbg)));
 
                 doc.Blocks.Add(pmp);
 
@@ -521,17 +530,17 @@ namespace GFCalc
                     switch (g.Stage)
                     {
                         case HopAdditionStage.Boil:
-                            strbboil.Append(g.ToString() + "\n");
+                            strbboil.Append("Add " + g.ToString() + "\n");
                             break;
                         case HopAdditionStage.Fermentation:
-                            strbboil.Append(g.ToString() + "\n");
+                            strbboil.Append("Add " + g.ToString() + "\n");
                             break;
                         default:
                             break;
                     }
                 }
-                doc.Blocks.Add(new Paragraph(new Run("Hop additions:")));
                 Paragraph pbh = new Paragraph();
+                pbh.Inlines.Add(new Run("Hop additions:\n"));
                 pbh.Inlines.Add(new Run(strbboil.ToString()));
 
 
@@ -545,7 +554,7 @@ namespace GFCalc
                         pbh.Inlines.Add(new Run(String.Format("Add the runnings of {0} to the boil 10 minutes before end\n", g.FermentableAdjunct.Name)));
                 }
 
-                pbh.Inlines.Add(new Run(String.Format("Expected post-boil gravity [SG]: {0:F3}\n", pobg)));
+                pbh.Inlines.Add(new Run(String.Format("Expected post-boil gravity [SG]: {0:F3}", pobg)));
 
                 doc.Blocks.Add(pbh);
                 #endregion
