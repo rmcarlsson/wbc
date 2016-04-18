@@ -93,10 +93,25 @@ namespace Grainsim.Domain
 
             var lbs = Weight.ConvertToPounds(aGrainbillWeight);
 
-            double potentialSumPointsPerGallon = 0;
-            if (aFermentableList != null)
-                potentialSumPointsPerGallon += aFermentableList.Sum(x => (((x.FermentableAdjunct.Potential - 1) * 1000) * lbs * ((double)(x.Amount) / 100d)));
-            var ppgLbMashEffComp = aMashEfficiency * potentialSumPointsPerGallon;
+            double ppgLbMashEffComp = 0;
+            foreach (var f in aFermentableList)
+            {
+                double eff = 1;
+                switch (f.Stage)
+                {
+                    case FermentableStage.Mash:
+                        eff = GrainfatherCalculator.MashEfficiency;
+                        break;
+                    case FermentableStage.ColdSteep:
+                        eff = ColdSteep.COLDSTEEP_EFFICIENCY;
+                        break;
+                    default:
+                        eff = 1;
+                        break;
+                }
+                ppgLbMashEffComp += eff * ((f.FermentableAdjunct.Potential - 1) * 1000) * lbs * ((double)(f.Amount) / 100d);
+
+            }
             var g = ppgLbMashEffComp / Volume.ConvertLitersToGallons(aVolume);
 
             return (1 + (g / 1000));

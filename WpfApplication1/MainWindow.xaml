@@ -36,7 +36,7 @@
                 <MenuItem Header="_Add malt" Click="MenuItem_IngredientsAddMalts"/>
             </MenuItem>
             <MenuItem Header="_Help">
-                <MenuItem Header="_About" />
+                <MenuItem Header="_About" Click="MenuItem_Click" />
             </MenuItem>
         </Menu>
 
@@ -143,7 +143,7 @@
 
                 <Label x:Name="label" Content="Pre-boil volume removed [L]:" Canvas.Left="14" Canvas.Top="209"/>
                 <TextBox x:Name="PreBoilVolumeTextBox" Height="23" Canvas.Left="182" TextWrapping="Wrap" Text="0" Canvas.Top="212" Width="61" TextChanged="PreBoilVolumeTextBox_TextChanged"/>
-                <Label x:Name="Gravitylabel" Content="Gravity (pre-)/(post-boil)[SG]:" Canvas.Left="12" Canvas.Top="178"/>
+                <Label x:Name="Gravitylabel" Content="Gravity (pre- and post-boil) [SG]:" Canvas.Left="-5" Canvas.Top="178"/>
             </Canvas>
         </GroupBox>
 

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 using GFCalc.DataModel;
 using System.Xml.Serialization;
 using System.IO;
+using System.Reflection;
 
 namespace GFCalc.Repos
 {
     public class HopsRepository : IHopsRepo
     {
-        public const string HOPS_DATA_FILEPATH = @"C:\Users\carltmik\Source\PrivateRepos\wbc\WpfApplication1\bin\Debug\hopses.xml";
         public const string HOPS_DATA_FILEPATH_SAVE = "hopsesData.xml";
 
         public List<Hops> hopses;
@@ -19,10 +19,26 @@ namespace GFCalc.Repos
         {
             if (hopses == null)
             {
+
+
                 XmlSerializer serializer = new XmlSerializer(typeof(HopsData));
-                FileStream loadStream = new FileStream(HOPS_DATA_FILEPATH, FileMode.Open, FileAccess.Read);
-                HopsData loadedObject = (HopsData)serializer.Deserialize(loadStream);
-                loadStream.Close();
+                HopsData loadedObject;
+                if (File.Exists(HOPS_DATA_FILEPATH_SAVE))
+                {
+                    FileStream loadStream = new FileStream(HOPS_DATA_FILEPATH_SAVE, FileMode.Open, FileAccess.Read);
+                    loadedObject = (HopsData)serializer.Deserialize(loadStream);
+                    loadStream.Close();
+                }
+                else
+                {
+                    var assembly = Assembly.GetExecutingAssembly();
+                    var resourceName = "WpfApplication1.Resources.hopses.xml";
+                    var stream =
+                        assembly.GetManifestResourceStream(resourceName);
+                    var reader = new System.IO.StreamReader(stream);
+                    loadedObject = (HopsData)serializer.Deserialize(reader);
+
+                }
                 hopses = loadedObject.Hopses;
             }
         }
@@ -44,21 +60,24 @@ namespace GFCalc.Repos
         }
 
 
-        public void AddHops(Hops aHop, bool aUpdatedEnabled)
+        public void AddHops(Hops aHop)
         {
 
-            var found = hopses.FirstOrDefault(x => x.Name == aHop.Name);
-            if (aUpdatedEnabled)
+            var hopInRepoFound = hopses.Any(x => x.Name == aHop.Name);
+            if (hopInRepoFound)
+            {
+                // Try to remove it if we find it.
+                var hopInRepo = hopses.FirstOrDefault(x => x.Name == aHop.Name);
+                hopses.Remove(hopInRepo);
+                // Always add whatever has been updated. This will cause duplicate data in some situations. 
+                // This implies that name is not allowed to be changed during update. Improvement ... TODO
+                hopses.Add(aHop);
+            }
+            else
             {
                 hopses.Add(aHop);
-                if (found != null)
-                    hopses.Remove(found);
-            }
-            else if (found == null)
-                hopses.Add(aHop);
-            else
-                throw new ArgumentException(String.Format("Hops with name = {0] is already present. Please use another name.", aHop.Name));
 
+            }
             Persist();
 
         }

@@ -1,0 +1,4782 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<HopsData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Hopses Name="Admiral">
+    <Characteristics>Aggressive but smooth bittering with an orange-citrus and herbal resonance </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="13" Max="16.2" />
+    <BetaAcid Min="4.8" Max="6.1" />
+    <CoHumulone Min="37" Max="45" />
+    <MyrceneOilComposition Min="39" Max="48" />
+    <HumuleneOilComposition Min="23" Max="26" />
+    <CaryophylleneOil Min="6" Max="7" />
+    <FarneseneOil Min="1.8" Max="2.2" />
+    <Country>UK</Country>
+    <ConeSize>Small to medium</ConeSize>
+    <ConeDensity>Compact </ConeDensity>
+    <SeasonalMaturity>Mid </SeasonalMaturity>
+    <YieldAmount>1300-1900 kg/hectare (1160-1700 lbs/acre)</YieldAmount>
+    <Substitutes> Chinook, Northdown, Challenger, Centennial, Cascade (US), Amarillo, Target</Substitutes>
+    <StyleGuide>Extra Special Bitter, American India Pale Ale, Belgian India Pale Ale, Imperial India Pale Ale, India Pale Ale, Pale Ale, Bitter</StyleGuide>
+  </Hopses>
+  <Hopses Name="Angus">
+    <Characteristics>Strong spicy and herbal notes </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="12.4" Max="0" />
+    <BetaAcid Min="0" Max="0" />
+    <CoHumulone Min="0" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>Czech Republic </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Apollo">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="15" Max="19" />
+    <BetaAcid Min="5.5" Max="8" />
+    <CoHumulone Min="24" Max="28" />
+    <MyrceneOilComposition Min="30" Max="50" />
+    <HumuleneOilComposition Min="20" Max="35" />
+    <CaryophylleneOil Min="14" Max="20" />
+    <FarneseneOil Min="1" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount>2900-3350 kg/hectare (2600-3000 lbs/acre)</YieldAmount>
+    <Substitutes>Nugget, Columbus, Zeus</Substitutes>
+    <StyleGuide>India Pale Ale, Imperial India Pale Ale, Experimental Beers</StyleGuide>
+  </Hopses>
+  <Hopses Name="Banner">
+    <Characteristics>Pleasant aroma</Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="10" Max="0" />
+    <BetaAcid Min="4" Max="0" />
+    <CoHumulone Min="32" Max="0" />
+    <MyrceneOilComposition Min="66" Max="0" />
+    <HumuleneOilComposition Min="12" Max="0" />
+    <CaryophylleneOil Min="7.7" Max="0" />
+    <FarneseneOil Min="0.1" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount>1930 kg/ hectare (1725 lbs/acre)</YieldAmount>
+    <Substitutes>Aquila, Cluster, Galena</Substitutes>
+    <StyleGuide>Bitter</StyleGuide>
+  </Hopses>
+  <Hopses Name="Bitter Gold">
+    <Characteristics>Use for bittering only, has no notable aroma</Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="15.4" Max="18.8" />
+    <BetaAcid Min="6.13" Max="8.01" />
+    <CoHumulone Min="36" Max="41" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes>Any Beer</Substitutes>
+    <StyleGuide>Belgian Ale</StyleGuide>
+  </Hopses>
+  <Hopses Name="Bravo">
+    <Characteristics>Spicy, earthy, and lightly floral aroma</Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="14" Max="17" />
+    <BetaAcid Min="3" Max="4" />
+    <CoHumulone Min="29" Max="34" />
+    <MyrceneOilComposition Min="25" Max="50" />
+    <HumuleneOilComposition Min="18" Max="20" />
+    <CaryophylleneOil Min="10" Max="12" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country> </Country>
+    <ConeSize>Medium</ConeSize>
+    <ConeDensity>Moderate to compact</ConeDensity>
+    <SeasonalMaturity>Late</SeasonalMaturity>
+    <YieldAmount>2700-3100 kg/hectare (2410-2770 lbs/acre)</YieldAmount>
+    <Substitutes>Columbus, Zeus, Apollo</Substitutes>
+    <StyleGuide>India Pale Ale</StyleGuide>
+  </Hopses>
+  <Hopses Name="Brewer's Gold">
+    <Characteristics>Spicy blackcurrant backnotes</Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="5.5" Max="7.8" />
+    <BetaAcid Min="2.5" Max="3.5" />
+    <CoHumulone Min="36" Max="48" />
+    <MyrceneOilComposition Min="37" Max="40" />
+    <HumuleneOilComposition Min="29" Max="31" />
+    <CaryophylleneOil Min="7" Max="8" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country>UK</Country>
+    <ConeSize>Small</ConeSize>
+    <ConeDensity>Compact</ConeDensity>
+    <SeasonalMaturity>Late</SeasonalMaturity>
+    <YieldAmount>1760-2400 kg/hectare (1570-2140 lbs/acre)</YieldAmount>
+    <Substitutes>Cascade, Bullion</Substitutes>
+    <StyleGuide>Bitter, Barley Wine, Imperial Stout</StyleGuide>
+  </Hopses>
+  <Hopses Name="Brewer's Gold (US)">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="5.5" Max="7.8" />
+    <BetaAcid Min="2.5" Max="3.5" />
+    <CoHumulone Min="36" Max="48" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>US </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes>Bullion </Substitutes>
+    <StyleGuide>India Pale Ale </StyleGuide>
+  </Hopses>
+  <Hopses Name="Bullion">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="8" Max="12.9" />
+    <BetaAcid Min="5" Max="6" />
+    <CoHumulone Min="35" Max="40" />
+    <MyrceneOilComposition Min="45" Max="55" />
+    <HumuleneOilComposition Min="23" Max="30" />
+    <CaryophylleneOil Min="9" Max="11" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country> </Country>
+    <ConeSize>Medium</ConeSize>
+    <ConeDensity>Compact</ConeDensity>
+    <SeasonalMaturity>Late</SeasonalMaturity>
+    <YieldAmount>2000-2400 kg/hectare (1780-2140 lbs/acre)</YieldAmount>
+    <Substitutes>Columbus, Northern Brewer</Substitutes>
+    <StyleGuide>Doppelbock, Barley Wine, Imperial Stout</StyleGuide>
+  </Hopses>
+  <Hopses Name="Bullion 10A">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="10.7" Max="0" />
+    <BetaAcid Min="5.2" Max="0" />
+    <CoHumulone Min="42" Max="0" />
+    <MyrceneOilComposition Min="63" Max="0" />
+    <HumuleneOilComposition Min="12" Max="0" />
+    <CaryophylleneOil Min="7" Max="0" />
+    <FarneseneOil Min="0.2" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early</SeasonalMaturity>
+    <YieldAmount>2240-2800 kg/hectare (2000-2500 lbs/acre)</YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide>Doppelbock</StyleGuide>
+  </Hopses>
+  <Hopses Name="California Cluster">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="5.5" Max="8.5" />
+    <BetaAcid Min="4.5" Max="5.5" />
+    <CoHumulone Min="36" Max="42" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>US</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes>Eroica, Galena</Substitutes>
+    <StyleGuide>American Barley Wine, Porter, English Pale Ale, Amber Ale, Honey Ale, Cream Ale</StyleGuide>
+  </Hopses>
+  <Hopses Name="Chelan">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="13.5" Max="15.5" />
+    <BetaAcid Min="9.5" Max="11.5" />
+    <CoHumulone Min="35" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early to mid</SeasonalMaturity>
+    <YieldAmount>2460-2910 kg/hectare (2200-2600 lbs/acre)</YieldAmount>
+    <Substitutes>Galena, Nugget</Substitutes>
+    <StyleGuide>American Ale</StyleGuide>
+  </Hopses>
+  <Hopses Name="Cluster (AUS)">
+    <Characteristics>Strongly resinous, herbal character </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="5.5" Max="7.8" />
+    <BetaAcid Min="0" Max="0" />
+    <CoHumulone Min="0" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>Australia </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Comet">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="9.4" Max="12.4" />
+    <BetaAcid Min="3" Max="6.1" />
+    <CoHumulone Min="41" Max="0" />
+    <MyrceneOilComposition Min="67" Max="0" />
+    <HumuleneOilComposition Min="1" Max="0" />
+    <CaryophylleneOil Min="10" Max="0" />
+    <FarneseneOil Min="0.1" Max="0" />
+    <Country>US</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Late</SeasonalMaturity>
+    <YieldAmount>1900-2240 kg/hectare (1700-2000 lbs/acre)</YieldAmount>
+    <Substitutes>Galena</Substitutes>
+    <StyleGuide>American Ale</StyleGuide>
+  </Hopses>
+  <Hopses Name="Eastern Gold">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="11" Max="14" />
+    <BetaAcid Min="5" Max="6" />
+    <CoHumulone Min="27" Max="0" />
+    <MyrceneOilComposition Min="42" Max="0" />
+    <HumuleneOilComposition Min="19" Max="0" />
+    <CaryophylleneOil Min="7" Max="8" />
+    <FarneseneOil Min="3" Max="0" />
+    <Country>Japan</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Late</SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Eroica">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="12.3" Max="0" />
+    <BetaAcid Min="4.5" Max="0" />
+    <CoHumulone Min="40" Max="0" />
+    <MyrceneOilComposition Min="55" Max="65" />
+    <HumuleneOilComposition Min="0" Max="1" />
+    <CaryophylleneOil Min="7" Max="13" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country> </Country>
+    <ConeSize>Medium</ConeSize>
+    <ConeDensity>Compact</ConeDensity>
+    <SeasonalMaturity>Late to very late</SeasonalMaturity>
+    <YieldAmount>2020-2470 kg/hectare (1800-2200 lbs/acre)</YieldAmount>
+    <Substitutes>Bullion, Brewer's Gold, Galena</Substitutes>
+    <StyleGuide>Bitter, Pale Ale, Amber Ale, Porter, India Pale Ale</StyleGuide>
+  </Hopses>
+  <Hopses Name="Feux-Coeur">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="12" Max="16" />
+    <BetaAcid Min="6" Max="0" />
+    <CoHumulone Min="0" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>Australia </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Galena">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="12" Max="0" />
+    <BetaAcid Min="7.5" Max="0" />
+    <CoHumulone Min="39" Max="0" />
+    <MyrceneOilComposition Min="55" Max="60" />
+    <HumuleneOilComposition Min="10" Max="15" />
+    <CaryophylleneOil Min="3" Max="6" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country>UK </Country>
+    <ConeSize>Medium</ConeSize>
+    <ConeDensity>Compact</ConeDensity>
+    <SeasonalMaturity>Mid </SeasonalMaturity>
+    <YieldAmount>1790-2240 kg/hectare (1600-2000 lbs/acre)</YieldAmount>
+    <Substitutes>Nugget, Columbus, Zeus, Chinook, Pride of Ringwood, Eroica, Newport, Cluster, Brewers Gold </Substitutes>
+    <StyleGuide>Imperial Stout, Stout, India Pale Ale, Barley Wine</StyleGuide>
+  </Hopses>
+  <Hopses Name="Hallertauer Northern Brewer">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="7" Max="10" />
+    <BetaAcid Min="3" Max="5" />
+    <CoHumulone Min="27" Max="33" />
+    <MyrceneOilComposition Min="25" Max="45" />
+    <HumuleneOilComposition Min="35" Max="50" />
+    <CaryophylleneOil Min="10" Max="20" />
+    <FarneseneOil Min="1" Max="0" />
+    <Country>UK </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount>1600 kg/hectare (1420 lbs/acre) </YieldAmount>
+    <Substitutes>Perle, Northern Brewer (American) </Substitutes>
+    <StyleGuide>Steam Beer, German Ale, German Lager </StyleGuide>
+  </Hopses>
+  <Hopses Name="Kitamidori">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="9" Max="12" />
+    <BetaAcid Min="5" Max="6" />
+    <CoHumulone Min="22" Max="0" />
+    <MyrceneOilComposition Min="34" Max="0" />
+    <HumuleneOilComposition Min="31" Max="0" />
+    <CaryophylleneOil Min="8" Max="10" />
+    <FarneseneOil Min="6" Max="7" />
+    <Country>Japan </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Late </SeasonalMaturity>
+    <YieldAmount>1490 kg/hectare (1330 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Magnum">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="12" Max="14" />
+    <BetaAcid Min="4.5" Max="5.5" />
+    <CoHumulone Min="24" Max="25" />
+    <MyrceneOilComposition Min="30" Max="35" />
+    <HumuleneOilComposition Min="34" Max="40" />
+    <CaryophylleneOil Min="8" Max="12" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country> </Country>
+    <ConeSize>Large </ConeSize>
+    <ConeDensity>Moderate </ConeDensity>
+    <SeasonalMaturity>Late  </SeasonalMaturity>
+    <YieldAmount>1340-1700 kg/hectare (1200-1520 lbs/acre)</YieldAmount>
+    <Substitutes>Hallertauer Taurus, Columbus, Nugget </Substitutes>
+    <StyleGuide>India Pilsner, Belgian India Pale Ale, American Ale, Blonde Ale, Pale Ale, Nut Brown Ale, Dark Ale, Pilsner, Bright Ale, Hefeweizen </StyleGuide>
+  </Hopses>
+  <Hopses Name="Magnum (US)">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="10" Max="14" />
+    <BetaAcid Min="4.5" Max="7" />
+    <CoHumulone Min="24" Max="30" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>US </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes>German Magnum, Horizon, Northdown, Northern Brewer </Substitutes>
+    <StyleGuide>American Pale Ale, American India Pale Ale, Strong Ale, American Lager </StyleGuide>
+  </Hopses>
+  <Hopses Name="Millennium">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="14.5" Max="16.5" />
+    <BetaAcid Min="4.3" Max="5.3" />
+    <CoHumulone Min="28" Max="32" />
+    <MyrceneOilComposition Min="30" Max="40" />
+    <HumuleneOilComposition Min="23" Max="27" />
+    <CaryophylleneOil Min="9" Max="12" />
+    <FarneseneOil Min="1" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes>Columbus, Nugget, Summit </Substitutes>
+    <StyleGuide>Stout </StyleGuide>
+  </Hopses>
+  <Hopses Name="Newport">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="13.5" Max="17" />
+    <BetaAcid Min="7.2" Max="9.1" />
+    <CoHumulone Min="36" Max="38" />
+    <MyrceneOilComposition Min="47" Max="54" />
+    <HumuleneOilComposition Min="9" Max="1" />
+    <CaryophylleneOil Min="1" Max="7" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country> </Country>
+    <ConeSize>Medium to large </ConeSize>
+    <ConeDensity>Loose to moderate </ConeDensity>
+    <SeasonalMaturity>Mid to late  </SeasonalMaturity>
+    <YieldAmount>1990-2250 kg/hectare (1775-2000 lbs/acre) </YieldAmount>
+    <Substitutes>Galena, Nugget </Substitutes>
+    <StyleGuide>Pale Ale, Amecan Lager </StyleGuide>
+  </Hopses>
+  <Hopses Name="Outeniqua">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="12" Max="13.5" />
+    <BetaAcid Min="4.1" Max="5.1" />
+    <CoHumulone Min="25" Max="30" />
+    <MyrceneOilComposition Min="38" Max="43" />
+    <HumuleneOilComposition Min="28" Max="33" />
+    <CaryophylleneOil Min="9" Max="10" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country> </Country>
+    <ConeSize>Small to medium</ConeSize>
+    <ConeDensity>Compact</ConeDensity>
+    <SeasonalMaturity>Mid to Late</SeasonalMaturity>
+    <YieldAmount>1590-1940 kg/hectare (1420-1730 lbs/acre)</YieldAmount>
+    <Substitutes>Southern Star</Substitutes>
+    <StyleGuide>Pilsner</StyleGuide>
+  </Hopses>
+  <Hopses Name="Pacific Gem">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="13" Max="16" />
+    <BetaAcid Min="7" Max="9" />
+    <CoHumulone Min="37" Max="40" />
+    <MyrceneOilComposition Min="33" Max="55" />
+    <HumuleneOilComposition Min="18" Max="30" />
+    <CaryophylleneOil Min="7" Max="11" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country>New Zealand</Country>
+    <ConeSize>Medium to large </ConeSize>
+    <ConeDensity>Compact</ConeDensity>
+    <SeasonalMaturity>Early to mid</SeasonalMaturity>
+    <YieldAmount>2380-2380 kg/hectare (2120-2120 lbs/acre)</YieldAmount>
+    <Substitutes>Fuggle</Substitutes>
+    <StyleGuide>Strong Ale</StyleGuide>
+  </Hopses>
+  <Hopses Name="Pacific Sunrise">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="12.5" Max="14.5" />
+    <BetaAcid Min="6" Max="6.5" />
+    <CoHumulone Min="27" Max="30" />
+    <MyrceneOilComposition Min="45" Max="55" />
+    <HumuleneOilComposition Min="19" Max="25" />
+    <CaryophylleneOil Min="6" Max="9" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes>Pacific Gem</Substitutes>
+    <StyleGuide>Lager</StyleGuide>
+  </Hopses>
+  <Hopses Name="Pilot">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="9" Max="10" />
+    <BetaAcid Min="3.3" Max="5" />
+    <CoHumulone Min="28" Max="33" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Pride of Ringwood">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="8" Max="11" />
+    <BetaAcid Min="6" Max="8" />
+    <CoHumulone Min="35" Max="0" />
+    <MyrceneOilComposition Min="53" Max="0" />
+    <HumuleneOilComposition Min="2" Max="0" />
+    <CaryophylleneOil Min="8" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>Australia </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early </SeasonalMaturity>
+    <YieldAmount>1010-1560 kg/hectare (900-1400 lbs/cre) </YieldAmount>
+    <Substitutes>Kent Goldings, Centennial, Galena, Cluster </Substitutes>
+    <StyleGuide>Amber Ale, Lager, Fruit Lambic, Pale Ale, Australian Lager, Strong Ale, Golden Ale, American Pale Ale </StyleGuide>
+  </Hopses>
+  <Hopses Name="SatusÂ®">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="12.5" Max="14" />
+    <BetaAcid Min="8.5" Max="9" />
+    <CoHumulone Min="32" Max="35" />
+    <MyrceneOilComposition Min="40" Max="45" />
+    <HumuleneOilComposition Min="15" Max="20" />
+    <CaryophylleneOil Min="7" Max="10" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country>US </Country>
+    <ConeSize>Medium</ConeSize>
+    <ConeDensity>Moderate </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount>2450-2550 kg/hectare (2190-2275 lbs/acre)</YieldAmount>
+    <Substitutes>Nugget, Galena </Substitutes>
+    <StyleGuide>India Pale Ale, Pale Ale, Stout, Barley Wine, Imperial Stout </StyleGuide>
+  </Hopses>
+  <Hopses Name="Sorachi Ace">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="16" Max="0" />
+    <BetaAcid Min="6" Max="7" />
+    <CoHumulone Min="23" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>Japan </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Mid </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Southern Brewer">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="5.6" Max="12" />
+    <BetaAcid Min="2.8" Max="5" />
+    <CoHumulone Min="33" Max="42" />
+    <MyrceneOilComposition Min="50" Max="62" />
+    <HumuleneOilComposition Min="10" Max="26" />
+    <CaryophylleneOil Min="4" Max="10" />
+    <FarneseneOil Min="3" Max="11.2" />
+    <Country> </Country>
+    <ConeSize>Medium to large </ConeSize>
+    <ConeDensity>Moderate to compact </ConeDensity>
+    <SeasonalMaturity>Early to mid </SeasonalMaturity>
+    <YieldAmount>1320-2210 kg/hectare (1180-1980 lbs/acre) </YieldAmount>
+    <Substitutes>Southern Promise </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Southern Star">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="12" Max="14" />
+    <BetaAcid Min="4.8" Max="5.2" />
+    <CoHumulone Min="31" Max="31" />
+    <MyrceneOilComposition Min="39" Max="0" />
+    <HumuleneOilComposition Min="22" Max="0" />
+    <CaryophylleneOil Min="15" Max="0" />
+    <FarneseneOil Min="12" Max="12" />
+    <Country> </Country>
+    <ConeSize>Medium</ConeSize>
+    <ConeDensity>Moderate to compact </ConeDensity>
+    <SeasonalMaturity>Mid </SeasonalMaturity>
+    <YieldAmount>1590-2470 kg/hectare (1420-2205 lbs/acre) </YieldAmount>
+    <Substitutes>Outeniqua</Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Sovereign">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="4.5" Max="6.5" />
+    <BetaAcid Min="2.1" Max="3.1" />
+    <CoHumulone Min="26" Max="30" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>UK </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide>American Lager, American Pale Ale </StyleGuide>
+  </Hopses>
+  <Hopses Name="Summit">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="16" Max="18" />
+    <BetaAcid Min="3.3" Max="4.3" />
+    <CoHumulone Min="26" Max="33" />
+    <MyrceneOilComposition Min="30" Max="50" />
+    <HumuleneOilComposition Min="15" Max="25" />
+    <CaryophylleneOil Min="10" Max="15" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country>US </Country>
+    <ConeSize>Medium </ConeSize>
+    <ConeDensity>Moderate to compact </ConeDensity>
+    <SeasonalMaturity>Mid </SeasonalMaturity>
+    <YieldAmount>2200-2700 kg/hectare (1965-2410 lbs/acre) </YieldAmount>
+    <Substitutes>Columbus, Simcoe </Substitutes>
+    <StyleGuide>India Pale Ale, Barley Wine, Imperial Stout </StyleGuide>
+  </Hopses>
+  <Hopses Name="Super Pride">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="13.5" Max="15" />
+    <BetaAcid Min="6.4" Max="6.9" />
+    <CoHumulone Min="26.8" Max="28" />
+    <MyrceneOilComposition Min="19" Max="34" />
+    <HumuleneOilComposition Min="1" Max="2" />
+    <CaryophylleneOil Min="5" Max="8" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount>2310-3030 kg/hectare (2060-2700 lbs/acre) </YieldAmount>
+    <Substitutes>Pride of Ringwood</Substitutes>
+    <StyleGuide>Imperial Pale Ale </StyleGuide>
+  </Hopses>
+  <Hopses Name="Symphony">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="16" Max="18" />
+    <BetaAcid Min="5" Max="5.6" />
+    <CoHumulone Min="44" Max="0" />
+    <MyrceneOilComposition Min="39" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="9" Max="0" />
+    <FarneseneOil Min="8.8" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Late </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Tillicum">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="13.5" Max="15.5" />
+    <BetaAcid Min="9.5" Max="11.5" />
+    <CoHumulone Min="35" Max="0" />
+    <MyrceneOilComposition Min="40" Max="0" />
+    <HumuleneOilComposition Min="14" Max="0" />
+    <CaryophylleneOil Min="7" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>US </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early </SeasonalMaturity>
+    <YieldAmount>2240-2690 kg/hectare (2000-2400 lbs/acre) </YieldAmount>
+    <Substitutes>Galena, Chelan </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Toyomidori">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="11" Max="13" />
+    <BetaAcid Min="5" Max="6" />
+    <CoHumulone Min="40" Max="0" />
+    <MyrceneOilComposition Min="59" Max="0" />
+    <HumuleneOilComposition Min="9" Max="12" />
+    <CaryophylleneOil Min="4" Max="5" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>Japan </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Mid </SeasonalMaturity>
+    <YieldAmount>1055 kg/hectare (940 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Warrior">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="14.5" Max="17" />
+    <BetaAcid Min="4.3" Max="5.5" />
+    <CoHumulone Min="22" Max="26" />
+    <MyrceneOilComposition Min="40" Max="50" />
+    <HumuleneOilComposition Min="15" Max="20" />
+    <CaryophylleneOil Min="8" Max="11" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country> </Country>
+    <ConeSize>Medium </ConeSize>
+    <ConeDensity>Moderate </ConeDensity>
+    <SeasonalMaturity>Mid </SeasonalMaturity>
+    <YieldAmount>2400-2600 kg/hectare (2140-2320 lbs/acre) </YieldAmount>
+    <Substitutes>Nugget, Columbus </Substitutes>
+    <StyleGuide>India Pale Ale </StyleGuide>
+  </Hopses>
+  <Hopses Name="Yakima Cluster">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="7.1" Max="0" />
+    <BetaAcid Min="4.3" Max="0" />
+    <CoHumulone Min="42" Max="0" />
+    <MyrceneOilComposition Min="60" Max="0" />
+    <HumuleneOilComposition Min="12" Max="0" />
+    <CaryophylleneOil Min="5" Max="0" />
+    <FarneseneOil Min="0.2" Max="0" />
+    <Country>US </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early </SeasonalMaturity>
+    <YieldAmount>2020-2250 kg/hectare (1800-2000 lbs/acre) </YieldAmount>
+    <Substitutes>Chinook </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Zenith">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="9" Max="11" />
+    <BetaAcid Min="3" Max="0" />
+    <CoHumulone Min="25" Max="0" />
+    <MyrceneOilComposition Min="52" Max="0" />
+    <HumuleneOilComposition Min="18" Max="0" />
+    <CaryophylleneOil Min="7" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Zeus">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering</Purpose>
+    <AlphaAcid Min="13" Max="17" />
+    <BetaAcid Min="4.5" Max="6.5" />
+    <CoHumulone Min="30" Max="40" />
+    <MyrceneOilComposition Min="55" Max="70" />
+    <HumuleneOilComposition Min="10" Max="20" />
+    <CaryophylleneOil Min="5" Max="10" />
+    <FarneseneOil Min="1" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Mid to late  </SeasonalMaturity>
+    <YieldAmount>2690-3365 kg/hectares (2400-3000 lbs/acre) </YieldAmount>
+    <Substitutes>Columbus </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Alliance">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="8" Max="9" />
+    <BetaAcid Min="2.5" Max="0" />
+    <CoHumulone Min="29" Max="0" />
+    <MyrceneOilComposition Min="37" Max="0" />
+    <HumuleneOilComposition Min="33" Max="0" />
+    <CaryophylleneOil Min="11" Max="0" />
+    <FarneseneOil Min="2.1" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount>1050 kg/hectare (940 lbs/arce) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="AlphAroma (Rakau)">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="5.8" Max="10.9" />
+    <BetaAcid Min="2.6" Max="4.8" />
+    <CoHumulone Min="27" Max="0" />
+    <MyrceneOilComposition Min="44" Max="65" />
+    <HumuleneOilComposition Min="15" Max="0" />
+    <CaryophylleneOil Min="3" Max="8" />
+    <FarneseneOil Min="5" Max="0" />
+    <Country>New Zealand </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Late to very late</SeasonalMaturity>
+    <YieldAmount>1230-3810 kg/hectare (1100-3400 lbs/acre)</YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide>Pale Ale, Lager</StyleGuide>
+  </Hopses>
+  <Hopses Name="Amallia">
+    <Characteristics>Deep earthy aroma</Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="5.5" Max="9" />
+    <BetaAcid Min="4.2" Max="8.3" />
+    <CoHumulone Min="0" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>US </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide>Brown Ale, Dark Ale </StyleGuide>
+  </Hopses>
+  <Hopses Name="Apolon">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="10" Max="12" />
+    <BetaAcid Min="4" Max="0" />
+    <CoHumulone Min="2.25" Max="0" />
+    <MyrceneOilComposition Min="63" Max="0" />
+    <HumuleneOilComposition Min="26" Max="0" />
+    <CaryophylleneOil Min="4" Max="0" />
+    <FarneseneOil Min="11.3" Max="0" />
+    <Country>Slovenia</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Late</SeasonalMaturity>
+    <YieldAmount>1000 kg/hectare (890 lbs/acre)</YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide>Bitter, India Pale Ale</StyleGuide>
+  </Hopses>
+  <Hopses Name="Aurora">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="10" Max="12" />
+    <BetaAcid Min="4" Max="5" />
+    <CoHumulone Min="22" Max="0" />
+    <MyrceneOilComposition Min="51" Max="0" />
+    <HumuleneOilComposition Min="17" Max="0" />
+    <CaryophylleneOil Min="5" Max="0" />
+    <FarneseneOil Min="5" Max="0" />
+    <Country>Slovenia</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Mid to late</SeasonalMaturity>
+    <YieldAmount>1055 kg/hectare (940 lbs/acre)</YieldAmount>
+    <Substitutes>Styrian Golding, Northern Brewer</Substitutes>
+    <StyleGuide>American Pale Ale, Dark Lager</StyleGuide>
+  </Hopses>
+  <Hopses Name="Azacca">
+    <Characteristics>Aromas of tropical fruits and citrus. Tasting notes of spicy mango, pineapple, tangerine and pine. </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="14" Max="16" />
+    <BetaAcid Min="5.4" Max="0" />
+    <CoHumulone Min="0" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide>India Pale Ale </StyleGuide>
+  </Hopses>
+  <Hopses Name="B Saaz">
+    <Characteristics>Fruity aroma with refreshing citrus and tropical notes</Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="6.5" Max="7.5" />
+    <BetaAcid Min="3" Max="8" />
+    <CoHumulone Min="24" Max="28" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>New Zealand</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes>Saaz</Substitutes>
+    <StyleGuide>Lager, Pilsner, Belgian Ale</StyleGuide>
+  </Hopses>
+  <Hopses Name="Belma">
+    <Characteristics>Notes of orange, melon, strawberry, pineapple with a hint of grapefruit </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="11.6" Max="0" />
+    <BetaAcid Min="0" Max="0" />
+    <CoHumulone Min="0" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>US </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Blue Northern Brewer">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="6" Max="8" />
+    <BetaAcid Min="3" Max="4" />
+    <CoHumulone Min="24" Max="0" />
+    <MyrceneOilComposition Min="27" Max="40" />
+    <HumuleneOilComposition Min="29" Max="0" />
+    <CaryophylleneOil Min="10" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>Belgium</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early</SeasonalMaturity>
+    <YieldAmount>90-730 kg/hectare (80-650 lbs/acre)</YieldAmount>
+    <Substitutes>Chinook</Substitutes>
+    <StyleGuide>India Pale Ale</StyleGuide>
+  </Hopses>
+  <Hopses Name="Bobek">
+    <Characteristics>Pleasant aroma</Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="6" Max="9.3" />
+    <BetaAcid Min="4" Max="6.6" />
+    <CoHumulone Min="26" Max="0" />
+    <MyrceneOilComposition Min="63" Max="0" />
+    <HumuleneOilComposition Min="12" Max="0" />
+    <CaryophylleneOil Min="4" Max="0" />
+    <FarneseneOil Min="3" Max="0" />
+    <Country>Slovenia</Country>
+    <ConeSize>Small</ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early</SeasonalMaturity>
+    <YieldAmount>900 kg/hectare (800 lbs/acre)</YieldAmount>
+    <Substitutes>Fuggle or Willamette</Substitutes>
+    <StyleGuide>English Ale, Extra Special Bitter, Lager, Pilsner</StyleGuide>
+  </Hopses>
+  <Hopses Name="Bouclier">
+    <Characteristics>Aromas of herb, grass and spice alongside a citrus and floral character</Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="7.9" Max="8.5" />
+    <BetaAcid Min="2.4" Max="3.3" />
+    <CoHumulone Min="20" Max="25" />
+    <MyrceneOilComposition Min="38" Max="0" />
+    <HumuleneOilComposition Min="34" Max="0" />
+    <CaryophylleneOil Min="3.4" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Bramling Cross">
+    <Characteristics>Notes of lemon, blackcurrant, blackberries and plums particularly when used as a late addition.</Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="5" Max="7.8" />
+    <BetaAcid Min="2.3" Max="3.2" />
+    <CoHumulone Min="33" Max="35" />
+    <MyrceneOilComposition Min="35" Max="40" />
+    <HumuleneOilComposition Min="28" Max="33" />
+    <CaryophylleneOil Min="14" Max="18" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country>UK</Country>
+    <ConeSize>Medium</ConeSize>
+    <ConeDensity>Moderate</ConeDensity>
+    <SeasonalMaturity>Early to mid</SeasonalMaturity>
+    <YieldAmount>1500-1680 kg/hectare (1340-500 lbs/acre)</YieldAmount>
+    <Substitutes>Whitbread Golding, Progress, East Kent Golding</Substitutes>
+    <StyleGuide>Golden Ale, Strong Ale</StyleGuide>
+  </Hopses>
+  <Hopses Name="Buket">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="11" Max="0" />
+    <BetaAcid Min="4.9" Max="0" />
+    <CoHumulone Min="24" Max="0" />
+    <MyrceneOilComposition Min="57" Max="0" />
+    <HumuleneOilComposition Min="17" Max="0" />
+    <CaryophylleneOil Min="5.4" Max="0" />
+    <FarneseneOil Min="5.5" Max="0" />
+    <Country>Slovenia</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early</SeasonalMaturity>
+    <YieldAmount>1190 kg/hectare (1060 lbs/acre)</YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide>BEnglish Ale, Extra Special Bitter, Lager, Pilsner</StyleGuide>
+  </Hopses>
+  <Hopses Name="Calicross">
+    <Characteristics>Floral flavor and aroma</Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="5.8" Max="7.9" />
+    <BetaAcid Min="4" Max="7.8" />
+    <CoHumulone Min="36" Max="44" />
+    <MyrceneOilComposition Min="54" Max="68" />
+    <HumuleneOilComposition Min="12" Max="19" />
+    <CaryophylleneOil Min="2" Max="6" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country>New Zealand</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Late</SeasonalMaturity>
+    <YieldAmount>1200-2300 kg/hectare (1070-2050 lbs/acre)</YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide>English Ale, Porter, Mild Ale, Bitter, Extra Special Bitter, Lambic, Amber Ale, Cask Ale, Stout, Oatmeal Stout, Strong Ale, Nut Brown Ale, Golden Ale, Christmas Ale</StyleGuide>
+  </Hopses>
+  <Hopses Name="Calypso">
+    <Characteristics>Crisp, fruity aroma. Flavour of Apples, pears, stone fruit and lime citrus. </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="12" Max="14" />
+    <BetaAcid Min="5" Max="6" />
+    <CoHumulone Min="40" Max="42" />
+    <MyrceneOilComposition Min="30" Max="0" />
+    <HumuleneOilComposition Min="20" Max="0" />
+    <CaryophylleneOil Min="9" Max="0" />
+    <FarneseneOil Min="1" Max="0" />
+    <Country>US </Country>
+    <ConeSize>Very large </ConeSize>
+    <ConeDensity>Compact </ConeDensity>
+    <SeasonalMaturity>Early</SeasonalMaturity>
+    <YieldAmount>2800-3370 kg/hectare (2500-3000 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide>Ale, Stout, Barley Wine</StyleGuide>
+  </Hopses>
+  <Hopses Name="Cascade (New Zealand)">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="6" Max="8" />
+    <BetaAcid Min="5" Max="5.5" />
+    <CoHumulone Min="21" Max="24" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>New Zealand</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes>Hallertau, Goldings, Ahtanum, Centennial</Substitutes>
+    <StyleGuide>Barley Wine, American Pale Ale, Imperial Stout</StyleGuide>
+  </Hopses>
+  <Hopses Name="Cascade (US)">
+    <Characteristics>Floral, with elements of citrus and notes of grapefruit</Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="4.5" Max="7" />
+    <BetaAcid Min="4.5" Max="7" />
+    <CoHumulone Min="33" Max="40" />
+    <MyrceneOilComposition Min="45" Max="60" />
+    <HumuleneOilComposition Min="8" Max="16" />
+    <CaryophylleneOil Min="4" Max="6" />
+    <FarneseneOil Min="4" Max="8" />
+    <Country>US</Country>
+    <ConeSize>Medium</ConeSize>
+    <ConeDensity>Compact</ConeDensity>
+    <SeasonalMaturity>Mid</SeasonalMaturity>
+    <YieldAmount>1600-2000 kg/hectare (1425-1780 lbs/acre)</YieldAmount>
+    <Substitutes>Centennial, Amarillo, Columbus, Ahtanum</Substitutes>
+    <StyleGuide>Barley Wine, American Pale Ale</StyleGuide>
+  </Hopses>
+  <Hopses Name="Cashmere">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="7.7" Max="9.1" />
+    <BetaAcid Min="6.4" Max="7.1" />
+    <CoHumulone Min="22" Max="24" />
+    <MyrceneOilComposition Min="39" Max="42" />
+    <HumuleneOilComposition Min="26" Max="29" />
+    <CaryophylleneOil Min="12" Max="13" />
+    <FarneseneOil Min="1" Max="0" />
+    <Country>US</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Centennial">
+    <Characteristics>Earthy and floral with an element of citrus</Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="9.5" Max="11.5" />
+    <BetaAcid Min="3.5" Max="4.5" />
+    <CoHumulone Min="28" Max="30" />
+    <MyrceneOilComposition Min="45" Max="55" />
+    <HumuleneOilComposition Min="10" Max="18" />
+    <CaryophylleneOil Min="5" Max="8" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country> </Country>
+    <ConeSize>Medium</ConeSize>
+    <ConeDensity>Compact</ConeDensity>
+    <SeasonalMaturity>Mid</SeasonalMaturity>
+    <YieldAmount>1500-1750 kg/hectare (1330-1560 lbs/acre)</YieldAmount>
+    <Substitutes>Chinook, Galena, Nugget, Zeus, Columbus, Cascade</Substitutes>
+    <StyleGuide>Extra Special Bitter, Barley Wine, Imperial Stout</StyleGuide>
+  </Hopses>
+  <Hopses Name="Cerera">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="5" Max="6" />
+    <BetaAcid Min="4" Max="0" />
+    <CoHumulone Min="25" Max="0" />
+    <MyrceneOilComposition Min="58" Max="0" />
+    <HumuleneOilComposition Min="13" Max="0" />
+    <CaryophylleneOil Min="6" Max="0" />
+    <FarneseneOil Min="3.1" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Late</SeasonalMaturity>
+    <YieldAmount>1090 kg/hectare (965 lbs/acre)</YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Challenger">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="6.5" Max="8.5" />
+    <BetaAcid Min="4" Max="4.5" />
+    <CoHumulone Min="20" Max="25" />
+    <MyrceneOilComposition Min="30" Max="42" />
+    <HumuleneOilComposition Min="25" Max="32" />
+    <CaryophylleneOil Min="8" Max="10" />
+    <FarneseneOil Min="1" Max="3" />
+    <Country>UK</Country>
+    <ConeSize>Medium to large</ConeSize>
+    <ConeDensity>Moderate to compact</ConeDensity>
+    <SeasonalMaturity>Late</SeasonalMaturity>
+    <YieldAmount>1400-1800 kg/hectare (1240-1610 lbs/acre)</YieldAmount>
+    <Substitutes>Perle (US), Northern Brewer, Admiral</Substitutes>
+    <StyleGuide>Golden Ale, Barley Wine, Imperial Stout</StyleGuide>
+  </Hopses>
+  <Hopses Name="Chinook">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="12" Max="14" />
+    <BetaAcid Min="3" Max="4" />
+    <CoHumulone Min="29" Max="34" />
+    <MyrceneOilComposition Min="35" Max="40" />
+    <HumuleneOilComposition Min="18" Max="25" />
+    <CaryophylleneOil Min="9" Max="11" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country> </Country>
+    <ConeSize>Medium</ConeSize>
+    <ConeDensity>Compact</ConeDensity>
+    <SeasonalMaturity>Mid to late</SeasonalMaturity>
+    <YieldAmount>1700-2230 kg/hectare (1520-2000 lbs/acre)</YieldAmount>
+    <Substitutes>Galena, Eroica, Nugget, Bullion, Columbus, Northern Brewer, Target</Substitutes>
+    <StyleGuide>Winter Ale, Pale Ale, India Pale Ale, Porter, Stout, Lager, Barley Wine, American Lager</StyleGuide>
+  </Hopses>
+  <Hopses Name="Cicero">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="6" Max="7" />
+    <BetaAcid Min="2.4" Max="0" />
+    <CoHumulone Min="29" Max="0" />
+    <MyrceneOilComposition Min="51" Max="0" />
+    <HumuleneOilComposition Min="18" Max="0" />
+    <CaryophylleneOil Min="7" Max="0" />
+    <FarneseneOil Min="3" Max="0" />
+    <Country>Slovenia</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Late</SeasonalMaturity>
+    <YieldAmount>810 kg/hectare (720 lbs/acre)</YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide>American Pale Ale</StyleGuide>
+  </Hopses>
+  <Hopses Name="Citra">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="10" Max="11" />
+    <BetaAcid Min="0" Max="0" />
+    <CoHumulone Min="30" Max="35" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes>Simcoe, Cascade, Centennial</Substitutes>
+    <StyleGuide>India Pale Ale</StyleGuide>
+  </Hopses>
+  <Hopses Name="Cluster (US)">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="5.5" Max="8.5" />
+    <BetaAcid Min="4.5" Max="5.5" />
+    <CoHumulone Min="36" Max="42" />
+    <MyrceneOilComposition Min="45" Max="55" />
+    <HumuleneOilComposition Min="15" Max="18" />
+    <CaryophylleneOil Min="6" Max="7" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country>US</Country>
+    <ConeSize>Medium</ConeSize>
+    <ConeDensity>Compact</ConeDensity>
+    <SeasonalMaturity>Mid</SeasonalMaturity>
+    <YieldAmount>1600-2140 kg/hectare (1420-1900 lbs/acre)</YieldAmount>
+    <Substitutes>Eroica, Galena</Substitutes>
+    <StyleGuide>Barley Wine, Porter, English Pale Ale, Amber Ale, Honey Ale, Cream Ale, American Lager</StyleGuide>
+  </Hopses>
+  <Hopses Name="Columbus">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="14" Max="18" />
+    <BetaAcid Min="4.5" Max="5.5" />
+    <CoHumulone Min="30" Max="35" />
+    <MyrceneOilComposition Min="25" Max="45" />
+    <HumuleneOilComposition Min="15" Max="25" />
+    <CaryophylleneOil Min="8" Max="12" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country>US</Country>
+    <ConeSize>Medium to large</ConeSize>
+    <ConeDensity>Compact</ConeDensity>
+    <SeasonalMaturity>Mid to late</SeasonalMaturity>
+    <YieldAmount>2000-2500 kg/hectare (1780-2230 lbs/acre)</YieldAmount>
+    <Substitutes>Zeus, Chinook, Northern Brewer, Nugget, Target, Warrior, Millenium, Bullion</Substitutes>
+    <StyleGuide>Imperial Brown Ale, Barley Wine, Imperial Stout</StyleGuide>
+  </Hopses>
+  <Hopses Name="Delta">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="6.5" Max="0" />
+    <BetaAcid Min="2.1" Max="0" />
+    <CoHumulone Min="0" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes>Cascade, Delta, Nelson Sauvin</Substitutes>
+    <StyleGuide>American Pale Ale, American India Pale Ale</StyleGuide>
+  </Hopses>
+  <Hopses Name="Falconerâ€™s FlightÂ®">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="10" Max="12" />
+    <BetaAcid Min="4" Max="5" />
+    <CoHumulone Min="20" Max="25" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> Cascade, Columbus, Centennial Technical</Substitutes>
+    <StyleGuide> India Pale Ale</StyleGuide>
+  </Hopses>
+  <Hopses Name="First Gold">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="6.5" Max="8.5" />
+    <BetaAcid Min="3" Max="4.1" />
+    <CoHumulone Min="31" Max="36" />
+    <MyrceneOilComposition Min="27" Max="28" />
+    <HumuleneOilComposition Min="20" Max="24" />
+    <CaryophylleneOil Min="6" Max="7" />
+    <FarneseneOil Min="3" Max="3.5" />
+    <Country> </Country>
+    <ConeSize>Medium to large</ConeSize>
+    <ConeDensity>Moderate to compact</ConeDensity>
+    <SeasonalMaturity>Mid</SeasonalMaturity>
+    <YieldAmount>1100-1700 kg/hectare (980-1500 lbs/acre) </YieldAmount>
+    <Substitutes>Willamette, East Kent Golding, Styrian Golding</Substitutes>
+    <StyleGuide> Porter, English Bitter, Wheat Beer, Celtic Ale, Summer Ale, Amber Ale, Dark Amber Ale, India Pale Ale, Imperial India Pale Ale</StyleGuide>
+  </Hopses>
+  <Hopses Name="Fuggle Tetraploid">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="5" Max="0" />
+    <BetaAcid Min="2.4" Max="0" />
+    <CoHumulone Min="26" Max="0" />
+    <MyrceneOilComposition Min="49" Max="0" />
+    <HumuleneOilComposition Min="24" Max="0" />
+    <CaryophylleneOil Min="20.2" Max="0" />
+    <FarneseneOil Min="3.9" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early  </SeasonalMaturity>
+    <YieldAmount>&amp;lt; 1120 kg/hecatare (&amp;lt; 1000 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Galaxy Â®">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="11" Max="16" />
+    <BetaAcid Min="5" Max="6.9" />
+    <CoHumulone Min="32" Max="42" />
+    <MyrceneOilComposition Min="33" Max="67" />
+    <HumuleneOilComposition Min="1" Max="2" />
+    <CaryophylleneOil Min="7" Max="9" />
+    <FarneseneOil Min="2" Max="4" />
+    <Country>Australia </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Mid to late </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes>Citra, Amarillo, Centennial </Substitutes>
+    <StyleGuide>Pale Ale, India Pale Ale </StyleGuide>
+  </Hopses>
+  <Hopses Name="Glacier">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="3.3" Max="9.7" />
+    <BetaAcid Min="5.4" Max="9.7" />
+    <CoHumulone Min="11" Max="13" />
+    <MyrceneOilComposition Min="33" Max="62" />
+    <HumuleneOilComposition Min="24" Max="36" />
+    <CaryophylleneOil Min="7" Max="10" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country> </Country>
+    <ConeSize>Medium  </ConeSize>
+    <ConeDensity>Compact  </ConeDensity>
+    <SeasonalMaturity>Mid </SeasonalMaturity>
+    <YieldAmount>2400-2600 kg/hectare (2140-2320 lbs/acre) </YieldAmount>
+    <Substitutes>Willamette, Fuggle (US), Tettnanger (GR) </Substitutes>
+    <StyleGuide>Extra Special Bitter, India Pale Ale, Wheat Beer </StyleGuide>
+  </Hopses>
+  <Hopses Name="Goldings (NZ)">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="4.4" Max="0" />
+    <BetaAcid Min="0" Max="0" />
+    <CoHumulone Min="0" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>New Zealand </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Green Bullet">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="11" Max="15" />
+    <BetaAcid Min="2.9" Max="5.6" />
+    <CoHumulone Min="41" Max="43" />
+    <MyrceneOilComposition Min="52" Max="53" />
+    <HumuleneOilComposition Min="19" Max="20" />
+    <CaryophylleneOil Min="19" Max="20" />
+    <FarneseneOil Min="19" Max="20" />
+    <Country>New Zealand </Country>
+    <ConeSize>Medium to Large </ConeSize>
+    <ConeDensity>Compact </ConeDensity>
+    <SeasonalMaturity>Late Season </SeasonalMaturity>
+    <YieldAmount>2100-2400 kg/hectare (1875-2140 lbs/acre) </YieldAmount>
+    <Substitutes>Liberty, Hallertauer, Crystal, Mount Hood, Ultra </Substitutes>
+    <StyleGuide>Bock </StyleGuide>
+  </Hopses>
+  <Hopses Name="Greenburg">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="5" Max="7" />
+    <BetaAcid Min="7.2" Max="0" />
+    <CoHumulone Min="27.14" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Hallertauer Taurus">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="12.3" Max="17.9" />
+    <BetaAcid Min="4" Max="6" />
+    <CoHumulone Min="23" Max="25" />
+    <MyrceneOilComposition Min="30" Max="30" />
+    <HumuleneOilComposition Min="30" Max="30" />
+    <CaryophylleneOil Min="8" Max="0" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country> </Country>
+    <ConeSize>Medium</ConeSize>
+    <ConeDensity>Moderate </ConeDensity>
+    <SeasonalMaturity>Late  </SeasonalMaturity>
+    <YieldAmount>1410-1590 kg/hectare (1260-1420 lbs/acre) </YieldAmount>
+    <Substitutes>Hallertauer Magnum </Substitutes>
+    <StyleGuide>Schwarzbier, Oktoberfest</StyleGuide>
+  </Hopses>
+  <Hopses Name="Herald">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="11.9" Max="12.8" />
+    <BetaAcid Min="4.8" Max="5.5" />
+    <CoHumulone Min="35" Max="37" />
+    <MyrceneOilComposition Min="40" Max="40" />
+    <HumuleneOilComposition Min="15" Max="15" />
+    <CaryophylleneOil Min="7" Max="0" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country> </Country>
+    <ConeSize>Large </ConeSize>
+    <ConeDensity>Moderate to compact </ConeDensity>
+    <SeasonalMaturity>Early  </SeasonalMaturity>
+    <YieldAmount>1200-1250 kg/hectare (1070-1120 lbs/acre) </YieldAmount>
+    <Substitutes>Pioneer </Substitutes>
+    <StyleGuide>Pale Ale, Golden Ale </StyleGuide>
+  </Hopses>
+  <Hopses Name="Herkules">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="12" Max="17" />
+    <BetaAcid Min="4" Max="5.5" />
+    <CoHumulone Min="32" Max="38" />
+    <MyrceneOilComposition Min="30" Max="50" />
+    <HumuleneOilComposition Min="30" Max="45" />
+    <CaryophylleneOil Min="7" Max="12" />
+    <FarneseneOil Min="1" Max="0" />
+    <Country>Germany </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide>German Ale </StyleGuide>
+  </Hopses>
+  <Hopses Name="Horizon">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="10.2" Max="16.5" />
+    <BetaAcid Min="6.5" Max="8.5" />
+    <CoHumulone Min="16" Max="22" />
+    <MyrceneOilComposition Min="55" Max="70" />
+    <HumuleneOilComposition Min="8" Max="13" />
+    <CaryophylleneOil Min="8" Max="13" />
+    <FarneseneOil Min="8" Max="13" />
+    <Country> </Country>
+    <ConeSize>Medium </ConeSize>
+    <ConeDensity>Compact </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount>1800-2000 kg/hectare (1610-1780 lbs/acre) </YieldAmount>
+    <Substitutes>Hallertauer Magnum </Substitutes>
+    <StyleGuide>Light Ale, Red Ale, Pumpkin Ale </StyleGuide>
+  </Hopses>
+  <Hopses Name="HÃ¼ller Bitterer">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="4.5" Max="7" />
+    <BetaAcid Min="4.5" Max="5.5" />
+    <CoHumulone Min="26" Max="31" />
+    <MyrceneOilComposition Min="28" Max="51" />
+    <HumuleneOilComposition Min="9" Max="21" />
+    <CaryophylleneOil Min="5" Max="8" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country>Germany </Country>
+    <ConeSize>Medium </ConeSize>
+    <ConeDensity>Moderate </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount>1150-1370 kg/hectare (1020-1220 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide>Schwarzbier, Lager </StyleGuide>
+  </Hopses>
+  <Hopses Name="Kirin II">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="8" Max="0" />
+    <BetaAcid Min="6.4" Max="0" />
+    <CoHumulone Min="43" Max="45" />
+    <MyrceneOilComposition Min="50" Max="0" />
+    <HumuleneOilComposition Min="14" Max="0" />
+    <CaryophylleneOil Min="9.4" Max="0" />
+    <FarneseneOil Min="0.2" Max="0" />
+    <Country>Japan </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Very late  </SeasonalMaturity>
+    <YieldAmount>1860 kg/hectare (1660 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Late Cluster L-16">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="5.8" Max="0" />
+    <BetaAcid Min="4.2" Max="0" />
+    <CoHumulone Min="39" Max="0" />
+    <MyrceneOilComposition Min="44" Max="0" />
+    <HumuleneOilComposition Min="18" Max="0" />
+    <CaryophylleneOil Min="7.4" Max="0" />
+    <FarneseneOil Min="0.2" Max="0" />
+    <Country>US </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Late </SeasonalMaturity>
+    <YieldAmount>2020-2470 kg/hectare (1800-2200 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Legacyâ„¢">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="7.3" Max="10.2" />
+    <BetaAcid Min="0" Max="0" />
+    <CoHumulone Min="0" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>US </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes>Cluster, Galena, Northern Brewer </Substitutes>
+    <StyleGuide>Ale, Lager, Stout </StyleGuide>
+  </Hopses>
+  <Hopses Name="Marynka">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="9" Max="12" />
+    <BetaAcid Min="10.2" Max="13" />
+    <CoHumulone Min="26" Max="33" />
+    <MyrceneOilComposition Min="28" Max="31" />
+    <HumuleneOilComposition Min="36" Max="33" />
+    <CaryophylleneOil Min="10" Max="13" />
+    <FarneseneOil Min="1.8" Max="2.2" />
+    <Country>Poland </Country>
+    <ConeSize>Medium </ConeSize>
+    <ConeDensity>Compact </ConeDensity>
+    <SeasonalMaturity>Early to mid </SeasonalMaturity>
+    <YieldAmount>1940-2200 kg/hectare (1730-1970 lbs/acre) </YieldAmount>
+    <Substitutes>Tettnanger (GR) </Substitutes>
+    <StyleGuide>Bitter, India Pale Ale, Pale Ale, Pilsner </StyleGuide>
+  </Hopses>
+  <Hopses Name="Melba">
+    <Characteristics>Clean spicy bitterness, aromas of passionfruit, grapefruit and citrus.</Characteristics>
+    <Purpose>Bittering &amp; Aroma</Purpose>
+    <AlphaAcid Min="7" Max="10" />
+    <BetaAcid Min="2.5" Max="5" />
+    <CoHumulone Min="25" Max="35" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>Australia</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity>Compact </ConeDensity>
+    <SeasonalMaturity>Early </SeasonalMaturity>
+    <YieldAmount>2200-2800 kg/hectare (1962-2498 lbs/acre) </YieldAmount>
+    <Substitutes>Galaxy </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Merkur">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="12" Max="16.2" />
+    <BetaAcid Min="5" Max="7.3" />
+    <CoHumulone Min="17.8" Max="19" />
+    <MyrceneOilComposition Min="48" Max="49" />
+    <HumuleneOilComposition Min="29" Max="32" />
+    <CaryophylleneOil Min="8" Max="9" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country>Germany </Country>
+    <ConeSize>Medium </ConeSize>
+    <ConeDensity>Moderate </ConeDensity>
+    <SeasonalMaturity>Late  </SeasonalMaturity>
+    <YieldAmount>1760-1940 kg/hectare (1570-1730 lbs/acre) </YieldAmount>
+    <Substitutes>Hallertauer Magnum </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="MultiHead">
+    <Characteristics>Heady, floral aroma </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="3.5" Max="5.5" />
+    <BetaAcid Min="6.5" Max="8" />
+    <CoHumulone Min="0" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>US </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Nelson Sauvin">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="12" Max="13" />
+    <BetaAcid Min="6" Max="8" />
+    <CoHumulone Min="24" Max="0" />
+    <MyrceneOilComposition Min="22" Max="0" />
+    <HumuleneOilComposition Min="36" Max="0" />
+    <CaryophylleneOil Min="11" Max="0" />
+    <FarneseneOil Min="1" Max="0" />
+    <Country>New Zealand </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes>Pacific Jade, Pacifica </Substitutes>
+    <StyleGuide>American Pale Ale </StyleGuide>
+  </Hopses>
+  <Hopses Name="Neo1">
+    <Characteristics>Significant lemon-citrus character </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="7" Max="9" />
+    <BetaAcid Min="3" Max="3.3" />
+    <CoHumulone Min="0" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>US </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Neoplanta">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="7.4" Max="12" />
+    <BetaAcid Min="2.9" Max="5" />
+    <CoHumulone Min="36" Max="0" />
+    <MyrceneOilComposition Min="49" Max="0" />
+    <HumuleneOilComposition Min="20" Max="0" />
+    <CaryophylleneOil Min="8.9" Max="0" />
+    <FarneseneOil Min="5" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Late  </SeasonalMaturity>
+    <YieldAmount>1435 kg/hectare (1280 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Northdown">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="7.5" Max="9.5" />
+    <BetaAcid Min="5" Max="5.5" />
+    <CoHumulone Min="24" Max="32" />
+    <MyrceneOilComposition Min="23" Max="29" />
+    <HumuleneOilComposition Min="40" Max="45" />
+    <CaryophylleneOil Min="13" Max="17" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country> </Country>
+    <ConeSize>Medium to large </ConeSize>
+    <ConeDensity>Loose </ConeDensity>
+    <SeasonalMaturity>Mid </SeasonalMaturity>
+    <YieldAmount>1320-1700 kg/hectare (1180-1520 lbs/acre) </YieldAmount>
+    <Substitutes>Challenger, Admiral </Substitutes>
+    <StyleGuide>Blonde Ale </StyleGuide>
+  </Hopses>
+  <Hopses Name="Northern Brewer">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="9.5" Max="0" />
+    <BetaAcid Min="4" Max="0" />
+    <CoHumulone Min="26" Max="0" />
+    <MyrceneOilComposition Min="56" Max="0" />
+    <HumuleneOilComposition Min="21" Max="0" />
+    <CaryophylleneOil Min="7.6" Max="0" />
+    <FarneseneOil Min="0.1" Max="0" />
+    <Country>UK</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early  </SeasonalMaturity>
+    <YieldAmount>900-1340 kg/hectare (800-1200 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Northern Brewer (GR)">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="7" Max="10" />
+    <BetaAcid Min="3.5" Max="5" />
+    <CoHumulone Min="28" Max="33" />
+    <MyrceneOilComposition Min="30" Max="35" />
+    <HumuleneOilComposition Min="25" Max="30" />
+    <CaryophylleneOil Min="8" Max="10" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country>Germany </Country>
+    <ConeSize>Medium </ConeSize>
+    <ConeDensity>Loose to moderate </ConeDensity>
+    <SeasonalMaturity>Early to mid </SeasonalMaturity>
+    <YieldAmount>1600-2150 kg/hectare (1420-1910 lbs/are) </YieldAmount>
+    <Substitutes>Chinook</Substitutes>
+    <StyleGuide>Extra Special Bitter </StyleGuide>
+  </Hopses>
+  <Hopses Name="Northern Brewer (US)">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="8" Max="10" />
+    <BetaAcid Min="3" Max="5" />
+    <CoHumulone Min="20" Max="30" />
+    <MyrceneOilComposition Min="50" Max="60" />
+    <HumuleneOilComposition Min="20" Max="30" />
+    <CaryophylleneOil Min="5" Max="10" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country>US </Country>
+    <ConeSize>Medium </ConeSize>
+    <ConeDensity>Moderate to compact </ConeDensity>
+    <SeasonalMaturity>Early to mid </SeasonalMaturity>
+    <YieldAmount>1600-1800 kg/hectare (1420-1610 lbs/acre) </YieldAmount>
+    <Substitutes>Chinook </Substitutes>
+    <StyleGuide>India Pale Ale </StyleGuide>
+  </Hopses>
+  <Hopses Name="Nugget">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="9.5" Max="14" />
+    <BetaAcid Min="4.2" Max="5.8" />
+    <CoHumulone Min="22" Max="30" />
+    <MyrceneOilComposition Min="48" Max="59" />
+    <HumuleneOilComposition Min="12" Max="22" />
+    <CaryophylleneOil Min="7" Max="10" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country> </Country>
+    <ConeSize>Medium to large </ConeSize>
+    <ConeDensity>Compact </ConeDensity>
+    <SeasonalMaturity>Mid </SeasonalMaturity>
+    <YieldAmount>1700-2200 kg/hectare (1520-1970 lbs/acre) </YieldAmount>
+    <Substitutes>Galena </Substitutes>
+    <StyleGuide>India Pale Ale </StyleGuide>
+  </Hopses>
+  <Hopses Name="Opal">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="13" Max="14" />
+    <BetaAcid Min="3.5" Max="5.5" />
+    <CoHumulone Min="28" Max="34" />
+    <MyrceneOilComposition Min="30" Max="45" />
+    <HumuleneOilComposition Min="20" Max="25" />
+    <CaryophylleneOil Min="9" Max="10" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country>Germany</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early to mid</SeasonalMaturity>
+    <YieldAmount>1600-1650 kg/hectare (1420-1470 lbs/acre)</YieldAmount>
+    <Substitutes>East Kent Golding, Styrian Golding</Substitutes>
+    <StyleGuide>Pilsner, Hefeweizen, Helles, Lager, Brown Ale</StyleGuide>
+  </Hopses>
+  <Hopses Name="Orbit">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="4" Max="6" />
+    <BetaAcid Min="4" Max="6" />
+    <CoHumulone Min="25" Max="0" />
+    <MyrceneOilComposition Min="33" Max="0" />
+    <HumuleneOilComposition Min="33" Max="0" />
+    <CaryophylleneOil Min="14" Max="0" />
+    <FarneseneOil Min="2" Max="0" />
+    <Country>New Zealand </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Orion">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="8" Max="9" />
+    <BetaAcid Min="4.94" Max="5.73" />
+    <CoHumulone Min="25" Max="29" />
+    <MyrceneOilComposition Min="41" Max="56" />
+    <HumuleneOilComposition Min="17" Max="26" />
+    <CaryophylleneOil Min="7" Max="13" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country>Germany</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Mid</SeasonalMaturity>
+    <YieldAmount>1500-1800 kg/hectare (1330-1610 lbs/acre)</YieldAmount>
+    <Substitutes>Perle</Substitutes>
+    <StyleGuide>Helles</StyleGuide>
+  </Hopses>
+  <Hopses Name="Perle">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="8" Max="9" />
+    <BetaAcid Min="8" Max="0" />
+    <CoHumulone Min="28" Max="0" />
+    <MyrceneOilComposition Min="44" Max="0" />
+    <HumuleneOilComposition Min="29" Max="0" />
+    <CaryophylleneOil Min="10.2" Max="0" />
+    <FarneseneOil Min="0.2" Max="0" />
+    <Country>Germany </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Mid (Germany), early (US) </SeasonalMaturity>
+    <YieldAmount>1680-2130 kg/hectare (1500-1900 lbs/acre) </YieldAmount>
+    <Substitutes>Perle (GR), Northern Brewer (GR)</Substitutes>
+    <StyleGuide>Hefeweizen, Belgian Strong Ale, Lager, Pilsner, Kölsch </StyleGuide>
+  </Hopses>
+  <Hopses Name="Perle (US)">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="6" Max="10" />
+    <BetaAcid Min="3" Max="5" />
+    <CoHumulone Min="27" Max="32" />
+    <MyrceneOilComposition Min="45" Max="55" />
+    <HumuleneOilComposition Min="28" Max="33" />
+    <CaryophylleneOil Min="10" Max="12" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country>US </Country>
+    <ConeSize>Medium </ConeSize>
+    <ConeDensity>Loose </ConeDensity>
+    <SeasonalMaturity>Early </SeasonalMaturity>
+    <YieldAmount>1150-1600 kg/hectare (1020-1420 lbs/acre) </YieldAmount>
+    <Substitutes>Perle (GR), Northern Brewer (GR) </Substitutes>
+    <StyleGuide>Hefeweizen, Belgian Strong Ale, Lager, Pilsner, Kölsch </StyleGuide>
+  </Hopses>
+  <Hopses Name="Phoenix">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="8.5" Max="13.5" />
+    <BetaAcid Min="3.3" Max="5.5" />
+    <CoHumulone Min="24" Max="33" />
+    <MyrceneOilComposition Min="24" Max="32" />
+    <HumuleneOilComposition Min="25" Max="32" />
+    <CaryophylleneOil Min="8" Max="11" />
+    <FarneseneOil Min="1" Max="1.4" />
+    <Country> </Country>
+    <ConeSize>Medium </ConeSize>
+    <ConeDensity>Loose to moderate </ConeDensity>
+    <SeasonalMaturity>Early  </SeasonalMaturity>
+    <YieldAmount>980-1560 kg/hectare (870-1390 lbs/acre)</YieldAmount>
+    <Substitutes>Northdown, Challenger, East Kent Golding </Substitutes>
+    <StyleGuide>India Pale Ale, Bitter, Golden Ale, Triple India Pale Ale, English Ale, Extra Special Bitter, Stout, Brown Ale </StyleGuide>
+  </Hopses>
+  <Hopses Name="Pilgrim">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma </Purpose>
+    <AlphaAcid Min="9" Max="13" />
+    <BetaAcid Min="4.2" Max="5.2" />
+    <CoHumulone Min="36" Max="38" />
+    <MyrceneOilComposition Min="36" Max="36" />
+    <HumuleneOilComposition Min="17" Max="0" />
+    <CaryophylleneOil Min="7" Max="0" />
+    <FarneseneOil Min="0.3" Max="0" />
+    <Country> </Country>
+    <ConeSize>Medium to large </ConeSize>
+    <ConeDensity>Moderate </ConeDensity>
+    <SeasonalMaturity>Mid to Late  </SeasonalMaturity>
+    <YieldAmount>2030 kg/hectare (1810 lbs/acre) </YieldAmount>
+    <Substitutes>Target, Pioneer, Challenger </Substitutes>
+    <StyleGuide>English Pale Ale, India Pale Ale, Wheat Beer, Stout, Barley Wine, Imperial Stout </StyleGuide>
+  </Hopses>
+  <Hopses Name="Pioneer">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="8" Max="10" />
+    <BetaAcid Min="3.5" Max="4" />
+    <CoHumulone Min="36" Max="40" />
+    <MyrceneOilComposition Min="31" Max="36" />
+    <HumuleneOilComposition Min="22" Max="24" />
+    <CaryophylleneOil Min="7" Max="8" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country> </Country>
+    <ConeSize>Small to medium </ConeSize>
+    <ConeDensity>Moderate to compact </ConeDensity>
+    <SeasonalMaturity>Mid to Late  </SeasonalMaturity>
+    <YieldAmount>1200-1500 kg/hectare (1070-1330 lbs/acre) </YieldAmount>
+    <Substitutes>East Kent Golding </Substitutes>
+    <StyleGuide>India Pale Ale, Red Ale, Specialty Ale, Strong Bitter </StyleGuide>
+  </Hopses>
+  <Hopses Name="Polaris">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="18" Max="23" />
+    <BetaAcid Min="4.5" Max="6" />
+    <CoHumulone Min="22" Max="28" />
+    <MyrceneOilComposition Min="50" Max="0" />
+    <HumuleneOilComposition Min="20" Max="35" />
+    <CaryophylleneOil Min="8" Max="13" />
+    <FarneseneOil Min="1" Max="0" />
+    <Country>Germany </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide>Ales, Pale Ales </StyleGuide>
+  </Hopses>
+  <Hopses Name="Pride of Kent">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="8" Max="11" />
+    <BetaAcid Min="6" Max="8" />
+    <CoHumulone Min="35" Max="0" />
+    <MyrceneOilComposition Min="70" Max="0" />
+    <HumuleneOilComposition Min="9" Max="0" />
+    <CaryophylleneOil Min="3" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early </SeasonalMaturity>
+    <YieldAmount>1010-1560 kg/hectare (900-1400 lbs/acre) </YieldAmount>
+    <Substitutes>Galena Hops </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Simcoe">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="12" Max="14" />
+    <BetaAcid Min="4" Max="5" />
+    <CoHumulone Min="15" Max="20" />
+    <MyrceneOilComposition Min="60" Max="65" />
+    <HumuleneOilComposition Min="10" Max="15" />
+    <CaryophylleneOil Min="5" Max="8" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country> </Country>
+    <ConeSize>Medium </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount>2300-2500 kg/hectare (2050-2230 lbs/acre) </YieldAmount>
+    <Substitutes>Summit </Substitutes>
+    <StyleGuide>Double India Pale Ale </StyleGuide>
+  </Hopses>
+  <Hopses Name="Smaragd">
+    <Characteristics>Predominantly fruity aroma with bold floral notes </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="4" Max="6" />
+    <BetaAcid Min="3.5" Max="5.5" />
+    <CoHumulone Min="13" Max="18" />
+    <MyrceneOilComposition Min="20" Max="40" />
+    <HumuleneOilComposition Min="30" Max="50" />
+    <CaryophylleneOil Min="9" Max="14" />
+    <FarneseneOil Min="1" Max="0" />
+    <Country>Germany </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide>Ale </StyleGuide>
+  </Hopses>
+  <Hopses Name="Smooth Cone">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="7" Max="9.5" />
+    <BetaAcid Min="3.4" Max="5.2" />
+    <CoHumulone Min="31" Max="31" />
+    <MyrceneOilComposition Min="55" Max="0" />
+    <HumuleneOilComposition Min="21" Max="0" />
+    <CaryophylleneOil Min="6" Max="0" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country>New Zealand </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount>650-1520 kg/hectare (580-1360 lbs/acre) </YieldAmount>
+    <Substitutes>Cluster </Substitutes>
+    <StyleGuide>Lager </StyleGuide>
+  </Hopses>
+  <Hopses Name="Southern Cross">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="13" Max="14" />
+    <BetaAcid Min="6" Max="7" />
+    <CoHumulone Min="28" Max="0" />
+    <MyrceneOilComposition Min="58" Max="0" />
+    <HumuleneOilComposition Min="14" Max="0" />
+    <CaryophylleneOil Min="4" Max="0" />
+    <FarneseneOil Min="5" Max="0" />
+    <Country>New Zealand </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Late </SeasonalMaturity>
+    <YieldAmount>850 kg/hectare (750 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide>Pale Ale, India Pale Ale, Lager </StyleGuide>
+  </Hopses>
+  <Hopses Name="Southern Promise">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="9.5" Max="11.5" />
+    <BetaAcid Min="3.6" Max="5.4" />
+    <CoHumulone Min="20" Max="22" />
+    <MyrceneOilComposition Min="22" Max="0" />
+    <HumuleneOilComposition Min="26" Max="26" />
+    <CaryophylleneOil Min="9" Max="0" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country> </Country>
+    <ConeSize>Medium </ConeSize>
+    <ConeDensity>Moderate to compact</ConeDensity>
+    <SeasonalMaturity>Mid </SeasonalMaturity>
+    <YieldAmount>1760-2210 kg/hectare (1570-1980 lbs/acre) </YieldAmount>
+    <Substitutes>Southern Brewer </Substitutes>
+    <StyleGuide>Lager, Pale Ale </StyleGuide>
+  </Hopses>
+  <Hopses Name="Sterling">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="4.5" Max="9" />
+    <BetaAcid Min="4" Max="6" />
+    <CoHumulone Min="21" Max="28" />
+    <MyrceneOilComposition Min="44" Max="48" />
+    <HumuleneOilComposition Min="19" Max="23" />
+    <CaryophylleneOil Min="5" Max="8" />
+    <FarneseneOil Min="11" Max="17" />
+    <Country> </Country>
+    <ConeSize>Medium </ConeSize>
+    <ConeDensity>Compact </ConeDensity>
+    <SeasonalMaturity>Mid </SeasonalMaturity>
+    <YieldAmount>1800-2000 kg/hectare (1610-1785 lbs/acre)</YieldAmount>
+    <Substitutes>Saaz </Substitutes>
+    <StyleGuide>India Pale Ale </StyleGuide>
+  </Hopses>
+  <Hopses Name="Sticklebract">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="13" Max="14.2" />
+    <BetaAcid Min="7.5" Max="8.5" />
+    <CoHumulone Min="40" Max="45" />
+    <MyrceneOilComposition Min="51" Max="64" />
+    <HumuleneOilComposition Min="8" Max="11" />
+    <CaryophylleneOil Min="3" Max="6" />
+    <FarneseneOil Min="4" Max="4.6" />
+    <Country>New Zealand </Country>
+    <ConeSize>Medium to large </ConeSize>
+    <ConeDensity>Moderate </ConeDensity>
+    <SeasonalMaturity>Mid to Late  </SeasonalMaturity>
+    <YieldAmount>1900-2560 kg/hectare (1695-2290 lbs/acre)</YieldAmount>
+    <Substitutes>Northern Brewer (GR) </Substitutes>
+    <StyleGuide>Extra Special Bitter </StyleGuide>
+  </Hopses>
+  <Hopses Name="Styrian Gold">
+    <Characteristics>Balanced noble aroma </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="3.5" Max="6.5" />
+    <BetaAcid Min="3.5" Max="5.9" />
+    <CoHumulone Min="28" Max="35" />
+    <MyrceneOilComposition Min="38" Max="47" />
+    <HumuleneOilComposition Min="19" Max="22" />
+    <CaryophylleneOil Min="5" Max="10" />
+    <FarneseneOil Min="6" Max="10" />
+    <Country>Slovenia </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early </SeasonalMaturity>
+    <YieldAmount>1600-2400 kg/hectare (1430-1140 lbs/acre) </YieldAmount>
+    <Substitutes>Styrian Golding</Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Super Alpha (Dr Rudi)">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="10" Max="12" />
+    <BetaAcid Min="7" Max="8.5" />
+    <CoHumulone Min="36" Max="39" />
+    <MyrceneOilComposition Min="29" Max="48" />
+    <HumuleneOilComposition Min="22" Max="33" />
+    <CaryophylleneOil Min="6" Max="10" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country> </Country>
+    <ConeSize>Medium </ConeSize>
+    <ConeDensity>Compact </ConeDensity>
+    <SeasonalMaturity>Early to mid </SeasonalMaturity>
+    <YieldAmount>1940-1940 kg/hectare (1730-1730 lbs/acre) </YieldAmount>
+    <Substitutes>Green Bullet </Substitutes>
+    <StyleGuide>Lager </StyleGuide>
+  </Hopses>
+  <Hopses Name="Talisman">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="5.7" Max="6.7" />
+    <BetaAcid Min="2.8" Max="3.6" />
+    <CoHumulone Min="53" Max="0" />
+    <MyrceneOilComposition Min="68" Max="0" />
+    <HumuleneOilComposition Min="4" Max="0" />
+    <CaryophylleneOil Min="5.9" Max="0" />
+    <FarneseneOil Min="0.2" Max="0" />
+    <Country>US </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Very late  </SeasonalMaturity>
+    <YieldAmount>2240-2700 kg/hectare (2000-2600 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Target">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="8" Max="12.5" />
+    <BetaAcid Min="5" Max="5.5" />
+    <CoHumulone Min="29" Max="35" />
+    <MyrceneOilComposition Min="17" Max="22" />
+    <HumuleneOilComposition Min="8" Max="10" />
+    <CaryophylleneOil Min="0" Max="1" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country> </Country>
+    <ConeSize>Small to medium </ConeSize>
+    <ConeDensity>Compact </ConeDensity>
+    <SeasonalMaturity>Late  </SeasonalMaturity>
+    <YieldAmount>1350-1800 kg/hectare (1200-1610 lbs/acre) </YieldAmount>
+    <Substitutes>Fuggle, Willamette </Substitutes>
+    <StyleGuide>Bitter, Pale Ale, Kentish Bitter, India Pale Ale, Brown Ale, American Lager </StyleGuide>
+  </Hopses>
+  <Hopses Name="Tettnanger (US)">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="4" Max="5" />
+    <BetaAcid Min="3" Max="4.5" />
+    <CoHumulone Min="20" Max="25" />
+    <MyrceneOilComposition Min="3" Max="45" />
+    <HumuleneOilComposition Min="18" Max="23" />
+    <CaryophylleneOil Min="6" Max="7" />
+    <FarneseneOil Min="5" Max="8" />
+    <Country>US </Country>
+    <ConeSize>Small to medium </ConeSize>
+    <ConeDensity>Moderate </ConeDensity>
+    <SeasonalMaturity>Early  </SeasonalMaturity>
+    <YieldAmount>1000-1340 kg/hectare (890-1200 lbs/acre) </YieldAmount>
+    <Substitutes>Spalter Select, Santiam, Czech Saaz, Spalter </Substitutes>
+    <StyleGuide>Bitter, Blonde Ale, Red Ale, Pilsner, Lager, American Lager </StyleGuide>
+  </Hopses>
+  <Hopses Name="Universal">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="5.2" Max="0" />
+    <BetaAcid Min="3.7" Max="0" />
+    <CoHumulone Min="23" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>Czech Republic </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early </SeasonalMaturity>
+    <YieldAmount>&amp;lt; 220 kg/hectare (&amp;lt; 200 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Vic Secret">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="14" Max="17" />
+    <BetaAcid Min="6.1" Max="7.8" />
+    <CoHumulone Min="51" Max="56" />
+    <MyrceneOilComposition Min="38" Max="41" />
+    <HumuleneOilComposition Min="12" Max="21" />
+    <CaryophylleneOil Min="11" Max="15" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country>Australia </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount>2310-3290 kg/hectare (2060-2935 lbs/acre) </YieldAmount>
+    <Substitutes>Galaxy </Substitutes>
+    <StyleGuide>Pale Ale, India Pale Ale, Stout, Porter </StyleGuide>
+  </Hopses>
+  <Hopses Name="Vital">
+    <Characteristics>Spicy hop aroma </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="14" Max="17" />
+    <BetaAcid Min="8" Max="11" />
+    <CoHumulone Min="0" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>Czech Republic </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Waimea">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="16" Max="19" />
+    <BetaAcid Min="7" Max="9" />
+    <CoHumulone Min="0" Max="0" />
+    <MyrceneOilComposition Min="60" Max="0" />
+    <HumuleneOilComposition Min="10" Max="0" />
+    <CaryophylleneOil Min="3" Max="0" />
+    <FarneseneOil Min="5" Max="0" />
+    <Country>New Zealand </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Wakatu">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="6.5" Max="8.5" />
+    <BetaAcid Min="8.5" Max="0" />
+    <CoHumulone Min="28" Max="30" />
+    <MyrceneOilComposition Min="36" Max="0" />
+    <HumuleneOilComposition Min="17" Max="0" />
+    <CaryophylleneOil Min="8" Max="0" />
+    <FarneseneOil Min="6.7" Max="0" />
+    <Country>New Zealand </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide>Lager </StyleGuide>
+  </Hopses>
+  <Hopses Name="Willow Creek">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="0" Max="0" />
+    <BetaAcid Min="0" Max="0" />
+    <CoHumulone Min="0" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Yakima Cluster L">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="4.4" Max="9.8" />
+    <BetaAcid Min="3" Max="6.1" />
+    <CoHumulone Min="42" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>US</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early </SeasonalMaturity>
+    <YieldAmount>2020-2250 kg/hectare (1800-2000 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Yakima Gold">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="8.8" Max="10.5" />
+    <BetaAcid Min="4.3" Max="5" />
+    <CoHumulone Min="21" Max="23" />
+    <MyrceneOilComposition Min="45" Max="50" />
+    <HumuleneOilComposition Min="21" Max="25" />
+    <CaryophylleneOil Min="6" Max="8" />
+    <FarneseneOil Min="9" Max="10" />
+    <Country>US </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Yeoman">
+    <Characteristics> </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="12" Max="16" />
+    <BetaAcid Min="4" Max="5" />
+    <CoHumulone Min="25" Max="0" />
+    <MyrceneOilComposition Min="48" Max="0" />
+    <HumuleneOilComposition Min="20" Max="0" />
+    <CaryophylleneOil Min="10" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>UK </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early </SeasonalMaturity>
+    <YieldAmount>1610-1680 kg/hectare (800-1500 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Ahil">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="10" Max="12" />
+    <BetaAcid Min="4" Max="5" />
+    <CoHumulone Min="25" Max="0" />
+    <MyrceneOilComposition Min="61" Max="0" />
+    <HumuleneOilComposition Min="8" Max="0" />
+    <CaryophylleneOil Min="4" Max="0" />
+    <FarneseneOil Min="10.5" Max="0" />
+    <Country>Slovenia</Country>
+    <ConeSize>Small to medium</ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount>1540 kg/hectare (1370 lbs/acre)</YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide>Belgian Ale</StyleGuide>
+  </Hopses>
+  <Hopses Name="Ahtanum">
+    <Characteristics>Distinct citrus chracter with notes of grapefruit</Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="4" Max="6.3" />
+    <BetaAcid Min="5" Max="6.5" />
+    <CoHumulone Min="30" Max="35" />
+    <MyrceneOilComposition Min="50" Max="55" />
+    <HumuleneOilComposition Min="16" Max="20" />
+    <CaryophylleneOil Min="9" Max="12" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country> </Country>
+    <ConeSize>Small</ConeSize>
+    <ConeDensity>Compact</ConeDensity>
+    <SeasonalMaturity>Mid</SeasonalMaturity>
+    <YieldAmount>1990-2190 kg/hectare (1780-1950 lbs/acre)</YieldAmount>
+    <Substitutes>Cascade, Amarillo, Simcoe</Substitutes>
+    <StyleGuide>India Pale Ale</StyleGuide>
+  </Hopses>
+  <Hopses Name="Amarillo">
+    <Characteristics>Orange citrus flavor</Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="8" Max="11" />
+    <BetaAcid Min="6" Max="7" />
+    <CoHumulone Min="21" Max="24" />
+    <MyrceneOilComposition Min="68" Max="70" />
+    <HumuleneOilComposition Min="9" Max="11" />
+    <CaryophylleneOil Min="2" Max="4" />
+    <FarneseneOil Min="2" Max="4" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Mid</SeasonalMaturity>
+    <YieldAmount>1200-1600 kg/hectare (1075-1420 lbs/acre)</YieldAmount>
+    <Substitutes>Cascade, Centennial, Summit, Ahtanum</Substitutes>
+    <StyleGuide>American Pale Ale, India Pale Ale, American Wheat, Bitter, Wheat Beer, Red Ale</StyleGuide>
+  </Hopses>
+  <Hopses Name="Amethyst">
+    <Characteristics>Notably earthy, citrusy, and spicy </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="2.5" Max="0" />
+    <BetaAcid Min="7" Max="8" />
+    <CoHumulone Min="23" Max="28" />
+    <MyrceneOilComposition Min="46" Max="0" />
+    <HumuleneOilComposition Min="19" Max="0" />
+    <CaryophylleneOil Min="6" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>Czech Republic </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide>Pale Ale, Lager </StyleGuide>
+  </Hopses>
+  <Hopses Name="Amos' Early Bird">
+    <Characteristics>Pleasing, delicate aroma</Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="4.4" Max="6.7" />
+    <BetaAcid Min="1.9" Max="2.8" />
+    <CoHumulone Min="26" Max="32" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country> </Country>
+    <ConeSize>Medium</ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early</SeasonalMaturity>
+    <YieldAmount>1500-2000 kg/hectare (1340-1780 lbs/acre)</YieldAmount>
+    <Substitutes>Kent Golding, Cobb, Bramling Cross</Substitutes>
+    <StyleGuide>India Pale Ale</StyleGuide>
+  </Hopses>
+  <Hopses Name="Aquila">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="6.7" Max="8.9" />
+    <BetaAcid Min="4.1" Max="4.9" />
+    <CoHumulone Min="46" Max="0" />
+    <MyrceneOilComposition Min="62" Max="0" />
+    <HumuleneOilComposition Min="2" Max="0" />
+    <CaryophylleneOil Min="5" Max="0" />
+    <FarneseneOil Min="2.2" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Late</SeasonalMaturity>
+    <YieldAmount>2380 kg/hectare (2120 lbs/acre)</YieldAmount>
+    <Substitutes>Cluster, Galena</Substitutes>
+    <StyleGuide>Belgian Farmhouse Ale</StyleGuide>
+  </Hopses>
+  <Hopses Name="Aramis">
+    <Characteristics>Sweet with notes of spice, citrus and herbs</Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="8.1" Max="0" />
+    <BetaAcid Min="3.8" Max="4.5" />
+    <CoHumulone Min="42.1" Max="42.2" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>France</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes>Willamette, Challenger, Ahtanum</Substitutes>
+    <StyleGuide>Pilsner, Lager, Wheat, Belgian Saison</StyleGuide>
+  </Hopses>
+  <Hopses Name="Atlas">
+    <Characteristics>Intense notes of lime, blossom, and pine</Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="9" Max="11" />
+    <BetaAcid Min="4" Max="0" />
+    <CoHumulone Min="36" Max="0" />
+    <MyrceneOilComposition Min="59" Max="0" />
+    <HumuleneOilComposition Min="9" Max="0" />
+    <CaryophylleneOil Min="4" Max="0" />
+    <FarneseneOil Min="13.3" Max="0" />
+    <Country>Slovenia</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Late</SeasonalMaturity>
+    <YieldAmount>730 kg/hectare (650 lbs/acre)</YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide>American Pale Ale, Belgian Ale</StyleGuide>
+  </Hopses>
+  <Hopses Name="Backa">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="3.1" Max="6.9" />
+    <BetaAcid Min="4" Max="7.4" />
+    <CoHumulone Min="25" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>Slovenia</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide>Lager, Pilsner</StyleGuide>
+  </Hopses>
+  <Hopses Name="Bianca">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="7" Max="8" />
+    <BetaAcid Min="3.4" Max="0" />
+    <CoHumulone Min="20" Max="28" />
+    <MyrceneOilComposition Min="30" Max="0" />
+    <HumuleneOilComposition Min="25" Max="0" />
+    <CaryophylleneOil Min="8" Max="0" />
+    <FarneseneOil Min="13" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early</SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide>Lager, Pilsner, Belgian Ale</StyleGuide>
+  </Hopses>
+  <Hopses Name="Blato">
+    <Characteristics>Similar delicate aroma profile to other Saaz hops</Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="4.5" Max="0" />
+    <BetaAcid Min="3.5" Max="0" />
+    <CoHumulone Min="21" Max="0" />
+    <MyrceneOilComposition Min="47" Max="0" />
+    <HumuleneOilComposition Min="18" Max="0" />
+    <CaryophylleneOil Min="5" Max="0" />
+    <FarneseneOil Min="11.2" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount>670 kg/hectare (600 lbs/acre)</YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide>Lager,Pilsner</StyleGuide>
+  </Hopses>
+  <Hopses Name="Blisk">
+    <Characteristics>Pleasant aroma</Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="9.7" Max="14.1" />
+    <BetaAcid Min="3.3" Max="4.8" />
+    <CoHumulone Min="33" Max="0" />
+    <MyrceneOilComposition Min="58" Max="0" />
+    <HumuleneOilComposition Min="12" Max="0" />
+    <CaryophylleneOil Min="3.7" Max="0" />
+    <FarneseneOil Min="15.6" Max="0" />
+    <Country>Slovenia</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Mid to late</SeasonalMaturity>
+    <YieldAmount>1350-3250 kg/hectare (1200-2900 lbs/acre)</YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide>English Ale, Extra Special Bitter, Lager, Pilsner</StyleGuide>
+  </Hopses>
+  <Hopses Name="Boadicea">
+    <Characteristics>Delicate aroma of orchard blossoms and grass. Subtle spicy character.</Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="8" Max="11" />
+    <BetaAcid Min="3" Max="4" />
+    <CoHumulone Min="26" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount>/td&amp;gt;</YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide>Pilsner</StyleGuide>
+  </Hopses>
+  <Hopses Name="BOR">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="2" Max="3" />
+    <BetaAcid Min="3" Max="4" />
+    <CoHumulone Min="16" Max="20" />
+    <MyrceneOilComposition Min="21" Max="0" />
+    <HumuleneOilComposition Min="46" Max="0" />
+    <CaryophylleneOil Min="13" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>US</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early</SeasonalMaturity>
+    <YieldAmount>1010-1790 kg/hectare (900-1600 lbs/acre)</YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide>German Pilsner, Pale Ale, Wheat Beer</StyleGuide>
+  </Hopses>
+  <Hopses Name="Bramling">
+    <Characteristics>Pleasant European aroma</Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="5.8" Max="0" />
+    <BetaAcid Min="3" Max="0" />
+    <CoHumulone Min="27" Max="0" />
+    <MyrceneOilComposition Min="21" Max="0" />
+    <HumuleneOilComposition Min="46" Max="0" />
+    <CaryophylleneOil Min="13" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>UK</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early</SeasonalMaturity>
+    <YieldAmount>670-1120 kg/hectare (600-1000 lbs/acre)</YieldAmount>
+    <Substitutes>Whitbread Golding, Progress, East Kent Golding</Substitutes>
+    <StyleGuide>Golden Ale, Bitter, Rye Ale, India Pale Ale, Stout, Golden Ale, Imperial Stout, Pale Ale, Holiday Ale</StyleGuide>
+  </Hopses>
+  <Hopses Name="British Columbia Golding">
+    <Characteristics>Exhibits an earthy aroma profile with a flavor profile of smooth, rounded spice.</Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="4" Max="7" />
+    <BetaAcid Min="0" Max="0" />
+    <CoHumulone Min="0" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>Canada</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early</SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes>East Kent Golding, Golding (American), Fuggle, Willamette</Substitutes>
+    <StyleGuide>English Pale Ale, Stout, Porter</StyleGuide>
+  </Hopses>
+  <Hopses Name="Canadian Redvine">
+    <Characteristics>Harsh aftertaste but produces a "zing" when paired with other hops.</Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="5" Max="0" />
+    <BetaAcid Min="5" Max="6" />
+    <CoHumulone Min="47" Max="0" />
+    <MyrceneOilComposition Min="70" Max="0" />
+    <HumuleneOilComposition Min="2" Max="0" />
+    <CaryophylleneOil Min="2" Max="0" />
+    <FarneseneOil Min="4" Max="7" />
+    <Country>Canada</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Late</SeasonalMaturity>
+    <YieldAmount>2240 kg/hectare (2000 lbs/acre)</YieldAmount>
+    <Substitutes>Newport, Magnum, Galena</Substitutes>
+    <StyleGuide>Red Ale, Canadian Porter, French Porter</StyleGuide>
+  </Hopses>
+  <Hopses Name="Canterbury Golding">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="4" Max="6" />
+    <BetaAcid Min="1.9" Max="2.8" />
+    <CoHumulone Min="28" Max="32" />
+    <MyrceneOilComposition Min="41" Max="0" />
+    <HumuleneOilComposition Min="29" Max="0" />
+    <CaryophylleneOil Min="9" Max="0" />
+    <FarneseneOil Min="4.5" Max="0" />
+    <Country>UK</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount>605 kg/hectare (540 lbs/acre)</YieldAmount>
+    <Substitutes>Cascade, Centennial, Simcoe</Substitutes>
+    <StyleGuide>Extra Special Bitter, Porter, Stout</StyleGuide>
+  </Hopses>
+  <Hopses Name="Canterbury Whitebine">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="0" Max="0" />
+    <BetaAcid Min="0" Max="0" />
+    <CoHumulone Min="0" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>UK</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Cascade (Argentina)">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="3.2" Max="0" />
+    <BetaAcid Min="4.5" Max="7" />
+    <CoHumulone Min="33" Max="40" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>Argentina</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes>Hallertau, Goldings</Substitutes>
+    <StyleGuide>Barley Wine, American Pale Ale</StyleGuide>
+  </Hopses>
+  <Hopses Name="Cascade (Australia)">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="5" Max="7" />
+    <BetaAcid Min="0.8" Max="1.3" />
+    <CoHumulone Min="33" Max="40" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>Australia</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes>Hallertau, Goldings</Substitutes>
+    <StyleGuide>Barley Wine, American Pale Ale</StyleGuide>
+  </Hopses>
+  <Hopses Name="Cekin">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="6" Max="8" />
+    <BetaAcid Min="2" Max="3" />
+    <CoHumulone Min="24" Max="0" />
+    <MyrceneOilComposition Min="48" Max="0" />
+    <HumuleneOilComposition Min="17" Max="0" />
+    <CaryophylleneOil Min="6" Max="0" />
+    <FarneseneOil Min="7.1" Max="0" />
+    <Country>Slovenia</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Late</SeasonalMaturity>
+    <YieldAmount>630 kg/hectare (560 lbs/acre)</YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Celeia">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="5" Max="6" />
+    <BetaAcid Min="3" Max="4" />
+    <CoHumulone Min="25" Max="0" />
+    <MyrceneOilComposition Min="50" Max="0" />
+    <HumuleneOilComposition Min="18" Max="0" />
+    <CaryophylleneOil Min="7" Max="0" />
+    <FarneseneOil Min="5.6" Max="0" />
+    <Country>Slovenia</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early</SeasonalMaturity>
+    <YieldAmount>960 kg/hectare (850 lbs/acre)</YieldAmount>
+    <Substitutes>Saaz, Bobek, Styrian Golding</Substitutes>
+    <StyleGuide>English Ale, Lager, American Lager, Pilsner, English Ale, Extra Special Bitter</StyleGuide>
+  </Hopses>
+  <Hopses Name="Cobb">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="4.4" Max="6.7" />
+    <BetaAcid Min="1.9" Max="2.8" />
+    <CoHumulone Min="26" Max="32" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country> </Country>
+    <ConeSize>Medium</ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Mid</SeasonalMaturity>
+    <YieldAmount>1500-2000 kg/hectare (1330-1780 lbs/acre)</YieldAmount>
+    <Substitutes>East Kent Golding, Early Bird</Substitutes>
+    <StyleGuide>India Pale Ale</StyleGuide>
+  </Hopses>
+  <Hopses Name="Columbia">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="8.8" Max="0" />
+    <BetaAcid Min="4" Max="0" />
+    <CoHumulone Min="40" Max="0" />
+    <MyrceneOilComposition Min="55" Max="0" />
+    <HumuleneOilComposition Min="17" Max="0" />
+    <CaryophylleneOil Min="7" Max="0" />
+    <FarneseneOil Min="4.1" Max="0" />
+    <Country> </Country>
+    <ConeSize>Medium</ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Late</SeasonalMaturity>
+    <YieldAmount>1710 kg/hectare (1520 lbs/acre)</YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Crystal">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="2.8" Max="4.4" />
+    <BetaAcid Min="5.8" Max="7" />
+    <CoHumulone Min="21" Max="26" />
+    <MyrceneOilComposition Min="47" Max="0" />
+    <HumuleneOilComposition Min="26" Max="0" />
+    <CaryophylleneOil Min="7" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Late</SeasonalMaturity>
+    <YieldAmount>2020-2460 kg/hectare (1800-2200 lbs/acre)</YieldAmount>
+    <Substitutes>Liberty, Mount Hood, German Hallertau, Ultra, Strisselspalter, Hersbrucker</Substitutes>
+    <StyleGuide>Bitter, Pilsner, Light Lager, Golden Ale, Nut Brown Ale, Pale Ale, India Pale Ale, Stout, Chocolate Stout, American Lager</StyleGuide>
+  </Hopses>
+  <Hopses Name="Czech Premiant">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="7" Max="11" />
+    <BetaAcid Min="3.5" Max="6" />
+    <CoHumulone Min="18" Max="23" />
+    <MyrceneOilComposition Min="35" Max="50" />
+    <HumuleneOilComposition Min="25" Max="35" />
+    <CaryophylleneOil Min="7" Max="13" />
+    <FarneseneOil Min="1.5" Max="3" />
+    <Country>Czech Republic</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Czech Sladek">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="5" Max="9" />
+    <BetaAcid Min="8" Max="11" />
+    <CoHumulone Min="22" Max="28" />
+    <MyrceneOilComposition Min="25" Max="40" />
+    <HumuleneOilComposition Min="30" Max="40" />
+    <CaryophylleneOil Min="10" Max="14" />
+    <FarneseneOil Min="0.5" Max="0" />
+    <Country>Czech Republic</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide>Lager</StyleGuide>
+  </Hopses>
+  <Hopses Name="Dana">
+    <Characteristics>Subtle floral/citrus character </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="7.2" Max="12.6" />
+    <BetaAcid Min="2.7" Max="4.4" />
+    <CoHumulone Min="22" Max="26" />
+    <MyrceneOilComposition Min="35" Max="53" />
+    <HumuleneOilComposition Min="20" Max="27" />
+    <CaryophylleneOil Min="4" Max="8" />
+    <FarneseneOil Min="6" Max="9" />
+    <Country>Slovenia </Country>
+    <ConeSize>Medium </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Defender">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="3.3" Max="6" />
+    <BetaAcid Min="1.1" Max="2.5" />
+    <CoHumulone Min="27" Max="0" />
+    <MyrceneOilComposition Min="31" Max="0" />
+    <HumuleneOilComposition Min="35" Max="0" />
+    <CaryophylleneOil Min="14" Max="0" />
+    <FarneseneOil Min="3.7" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early</SeasonalMaturity>
+    <YieldAmount>1120-1340 kg/hectare (1000-1200 lbs/acre)</YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Density">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="4.4" Max="6.6" />
+    <BetaAcid Min="3.3" Max="0" />
+    <CoHumulone Min="0" Max="0" />
+    <MyrceneOilComposition Min="57" Max="0" />
+    <HumuleneOilComposition Min="17" Max="0" />
+    <CaryophylleneOil Min="7" Max="0" />
+    <FarneseneOil Min="0.3" Max="0" />
+    <Country> </Country>
+    <ConeSize>Small</ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount>1120-1570 kg/hectare (1000-1400 lbs/acre)</YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Dunav">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="6.9" Max="0" />
+    <BetaAcid Min="3.6" Max="0" />
+    <CoHumulone Min="30" Max="0" />
+    <MyrceneOilComposition Min="19" Max="0" />
+    <HumuleneOilComposition Min="18" Max="0" />
+    <CaryophylleneOil Min="6" Max="0" />
+    <FarneseneOil Min="6.2" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Late</SeasonalMaturity>
+    <YieldAmount>1565 kg/hectare (1400 lbs/acre)</YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Early Green">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="0" Max="0" />
+    <BetaAcid Min="0" Max="0" />
+    <CoHumulone Min="0" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>UK</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Mid to late</SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Early Prolific">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="4.7" Max="0" />
+    <BetaAcid Min="2.2" Max="0" />
+    <CoHumulone Min="23" Max="0" />
+    <MyrceneOilComposition Min="50" Max="0" />
+    <HumuleneOilComposition Min="21" Max="0" />
+    <CaryophylleneOil Min="7" Max="0" />
+    <FarneseneOil Min="4.6" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early</SeasonalMaturity>
+    <YieldAmount>560-670 kg/hectare (500-600 lbs/acre)</YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Early Promise">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="6.1" Max="0" />
+    <BetaAcid Min="1.7" Max="0" />
+    <CoHumulone Min="30" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="18" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>UK</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early</SeasonalMaturity>
+    <YieldAmount>670-900 kg/hectare (600-800 lbs/acre)</YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="East Kent Golding">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="5" Max="6" />
+    <BetaAcid Min="2" Max="3" />
+    <CoHumulone Min="29" Max="0" />
+    <MyrceneOilComposition Min="42" Max="0" />
+    <HumuleneOilComposition Min="27" Max="0" />
+    <CaryophylleneOil Min="9" Max="0" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country> </Country>
+    <ConeSize>Large</ConeSize>
+    <ConeDensity>Loose</ConeDensity>
+    <SeasonalMaturity>Early</SeasonalMaturity>
+    <YieldAmount>640 kg/hectare (570 lbs/acre)</YieldAmount>
+    <Substitutes>Golding (UK), Whitbread Golding, Progress, Fuggle, First Gold</Substitutes>
+    <StyleGuide>Pale Ale, Extra Special English Ale, English Dark Ale, English Light Ale, Belgian Ale, Christmas Ale</StyleGuide>
+  </Hopses>
+  <Hopses Name="Eastern Green">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="5.15" Max="0" />
+    <BetaAcid Min="1.91" Max="0" />
+    <CoHumulone Min="25.5" Max="0" />
+    <MyrceneOilComposition Min="25" Max="0" />
+    <HumuleneOilComposition Min="25" Max="0" />
+    <CaryophylleneOil Min="8" Max="0" />
+    <FarneseneOil Min="4.9" Max="0" />
+    <Country>Japan</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Mid to late</SeasonalMaturity>
+    <YieldAmount>2110 kg/hectare (1875 lbs/acre)</YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Eastwell Golding">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="6" Max="0" />
+    <BetaAcid Min="3" Max="0" />
+    <CoHumulone Min="30" Max="0" />
+    <MyrceneOilComposition Min="50" Max="0" />
+    <HumuleneOilComposition Min="25" Max="0" />
+    <CaryophylleneOil Min="8" Max="0" />
+    <FarneseneOil Min="0.2" Max="0" />
+    <Country>UK</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Mid to late</SeasonalMaturity>
+    <YieldAmount>810 kg/hectare (720 lbs/acre)</YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="El Dorado">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="10" Max="13" />
+    <BetaAcid Min="7" Max="8" />
+    <CoHumulone Min="20" Max="30" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes>Galena</Substitutes>
+    <StyleGuide>India Pale Ale</StyleGuide>
+  </Hopses>
+  <Hopses Name="Ella">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="13.3" Max="16.3" />
+    <BetaAcid Min="4.8" Max="7.8" />
+    <CoHumulone Min="34" Max="38" />
+    <MyrceneOilComposition Min="40" Max="50" />
+    <HumuleneOilComposition Min="16" Max="22" />
+    <CaryophylleneOil Min="12" Max="18" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country>Australia</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity>Compact</ConeDensity>
+    <SeasonalMaturity>Late</SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide>Lager, Pilsner</StyleGuide>
+  </Hopses>
+  <Hopses Name="Elsaesser">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="4.65" Max="0" />
+    <BetaAcid Min="5.78" Max="0" />
+    <CoHumulone Min="24.45" Max="0" />
+    <MyrceneOilComposition Min="38" Max="0" />
+    <HumuleneOilComposition Min="29" Max="0" />
+    <CaryophylleneOil Min="116.3" Max="0" />
+    <FarneseneOil Min="1.7" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> 810 kg/hectare (720 lbs/acre)</YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Equinox">
+    <Characteristics>Notes of lemon and lime citrus, fruits like papaya and apple, green peppers and herbs </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="14.5" Max="15.5" />
+    <BetaAcid Min="4.5" Max="5.5" />
+    <CoHumulone Min="32" Max="38" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>US</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide>IPA, American Ale, Pilsner</StyleGuide>
+  </Hopses>
+  <Hopses Name="First Choice">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="4.8" Max="6.7" />
+    <BetaAcid Min="3.5" Max="6.7" />
+    <CoHumulone Min="39" Max="0" />
+    <MyrceneOilComposition Min="71" Max="0" />
+    <HumuleneOilComposition Min="1" Max="0" />
+    <CaryophylleneOil Min="1.3" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>New Zealand </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Late</SeasonalMaturity>
+    <YieldAmount>900-1570 kg/hectare (800-1400 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Fuggle">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="5.1" Max="0" />
+    <BetaAcid Min="2.4" Max="0" />
+    <CoHumulone Min="27" Max="0" />
+    <MyrceneOilComposition Min="43" Max="0" />
+    <HumuleneOilComposition Min="26" Max="0" />
+    <CaryophylleneOil Min="9" Max="0" />
+    <FarneseneOil Min="4.3" Max="0" />
+    <Country>UK </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount>890 kg/hectare (795 lbs/acre)</YieldAmount>
+    <Substitutes>Fuggle (US), Willamette, Styrian Golding, Tettnanger, Newport </Substitutes>
+    <StyleGuide>English Ale, Porter, Mild Ale, Bitter, Extra Special Bitter, Lambic, Amber Ale, Cask Ale, Stout, Oatmeal Stout, Strong Ale, Nut Brown Ale, Golden Ale, Christmas Ale</StyleGuide>
+  </Hopses>
+  <Hopses Name="Fuggle (UK)">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="3.5" Max="5.5" />
+    <BetaAcid Min="2" Max="3.1" />
+    <CoHumulone Min="23" Max="33" />
+    <MyrceneOilComposition Min="24" Max="28" />
+    <HumuleneOilComposition Min="35" Max="40" />
+    <CaryophylleneOil Min="11" Max="13" />
+    <FarneseneOil Min="5" Max="7" />
+    <Country>UK </Country>
+    <ConeSize>Medium </ConeSize>
+    <ConeDensity>Moderate to compact</ConeDensity>
+    <SeasonalMaturity>Early to mid</SeasonalMaturity>
+    <YieldAmount>1050-1350 kg/hectare (940-1200 lbs/acre)</YieldAmount>
+    <Substitutes>Fuggle (US), Willamette, Styrian Golding </Substitutes>
+    <StyleGuide>Stout, Oatmeal Stout, Strong Ale, Nut Brown Ale, Golden Ale, Christmas Ale </StyleGuide>
+  </Hopses>
+  <Hopses Name="Fuggle (US)">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="4" Max="5.5" />
+    <BetaAcid Min="1.5" Max="2" />
+    <CoHumulone Min="25" Max="33" />
+    <MyrceneOilComposition Min="24" Max="28" />
+    <HumuleneOilComposition Min="35" Max="40" />
+    <CaryophylleneOil Min="11" Max="13" />
+    <FarneseneOil Min="4" Max="5" />
+    <Country>US </Country>
+    <ConeSize>Small</ConeSize>
+    <ConeDensity>Moderate to compact</ConeDensity>
+    <SeasonalMaturity>Early  </SeasonalMaturity>
+    <YieldAmount>1070-1600 kg/hectare (955-1420 lbs/acre)</YieldAmount>
+    <Substitutes>Fuggle (UK), Willamette, Styrian Golding, Tettnanger (GR) </Substitutes>
+    <StyleGuide>English Pale Ale, Belgian India Pale Ale, Extra Special Bitter, Brown Ale, Red Ale </StyleGuide>
+  </Hopses>
+  <Hopses Name="Fuggle H">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="2.8" Max="0" />
+    <BetaAcid Min="2.8" Max="0" />
+    <CoHumulone Min="26" Max="0" />
+    <MyrceneOilComposition Min="47" Max="0" />
+    <HumuleneOilComposition Min="24" Max="0" />
+    <CaryophylleneOil Min="8.1" Max="0" />
+    <FarneseneOil Min="4.1" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early  </SeasonalMaturity>
+    <YieldAmount>1120-1570 kg/hectare (1000-1400 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide>Stout, English Pale Ale, Belgian India Pale Ale, Extra Special Bitter, Brown Ale, Red Ale</StyleGuide>
+  </Hopses>
+  <Hopses Name="Fuggle N">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma, Breeding</Purpose>
+    <AlphaAcid Min="0" Max="0" />
+    <BetaAcid Min="0" Max="0" />
+    <CoHumulone Min="0" Max="0" />
+    <MyrceneOilComposition Min="48" Max="0" />
+    <HumuleneOilComposition Min="24" Max="0" />
+    <CaryophylleneOil Min="8" Max="0" />
+    <FarneseneOil Min="4.2" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Furano Ace">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="7" Max="8" />
+    <BetaAcid Min="5" Max="8" />
+    <CoHumulone Min="21" Max="0" />
+    <MyrceneOilComposition Min="50" Max="0" />
+    <HumuleneOilComposition Min="19" Max="0" />
+    <CaryophylleneOil Min="7" Max="0" />
+    <FarneseneOil Min="12" Max="0" />
+    <Country>Japan </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount>1040 kg/hectares (925 lbs/acre)</YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Gargoyle">
+    <Characteristics>Citrusy-mango aroma </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="7.5" Max="0" />
+    <BetaAcid Min="0" Max="0" />
+    <CoHumulone Min="0" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>US </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes>Cluster </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Golden Star">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="5.4" Max="0" />
+    <BetaAcid Min="4.6" Max="0" />
+    <CoHumulone Min="50" Max="0" />
+    <MyrceneOilComposition Min="57" Max="0" />
+    <HumuleneOilComposition Min="13" Max="0" />
+    <CaryophylleneOil Min="5" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>Japan </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Late </SeasonalMaturity>
+    <YieldAmount>1790-2240 kg/hectare (1600-2000 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Golding (US)">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="4" Max="6" />
+    <BetaAcid Min="2" Max="3" />
+    <CoHumulone Min="0" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>US </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes>Fuggle, East Kent Golding, Styrian Golding, Progress, Whitbread Golding Variety </Substitutes>
+    <StyleGuide>Bitter, Pale Ale, Belgian Ale, Barley Wine, Imperial Stout </StyleGuide>
+  </Hopses>
+  <Hopses Name="Groene Bel">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="4.9" Max="0" />
+    <BetaAcid Min="3.5" Max="0" />
+    <CoHumulone Min="27" Max="0" />
+    <MyrceneOilComposition Min="39" Max="0" />
+    <HumuleneOilComposition Min="32" Max="0" />
+    <CaryophylleneOil Min="18" Max="0" />
+    <FarneseneOil Min="2.41" Max="0" />
+    <Country>Belgium </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Mid to late </SeasonalMaturity>
+    <YieldAmount>825 kg/hectare (740 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Hallertau (US)">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="3.5" Max="5.5" />
+    <BetaAcid Min="3.5" Max="5.5" />
+    <CoHumulone Min="18" Max="24" />
+    <MyrceneOilComposition Min="35" Max="44" />
+    <HumuleneOilComposition Min="30" Max="38" />
+    <CaryophylleneOil Min="10" Max="12" />
+    <FarneseneOil Min="1" Max="0" />
+    <Country>US </Country>
+    <ConeSize>Small</ConeSize>
+    <ConeDensity>Loose </ConeDensity>
+    <SeasonalMaturity>Early </SeasonalMaturity>
+    <YieldAmount>1900-1400 kg/hectare (1695-1240 lbs/acre) </YieldAmount>
+    <Substitutes>Mount Hood, Liberty, Crystal, Hallertauer Mittelfrüh, Hallertauer Tradition, Ultra </Substitutes>
+    <StyleGuide>Lager, Pilsner, Bock, Wheat Beer, Kölsch, Munich Helles, Belgian Ale, American Lager </StyleGuide>
+  </Hopses>
+  <Hopses Name="Hallertau Blanc">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="9" Max="12" />
+    <BetaAcid Min="4.5" Max="5.5" />
+    <CoHumulone Min="22" Max="26" />
+    <MyrceneOilComposition Min="50" Max="75" />
+    <HumuleneOilComposition Min="0" Max="3" />
+    <CaryophylleneOil Min="0" Max="2" />
+    <FarneseneOil Min="1" Max="0" />
+    <Country>Germany </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount>1150-1600 kg/hectare (1020-1420 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide>American Ale </StyleGuide>
+  </Hopses>
+  <Hopses Name="Hallertauer (New Zealand)">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="8" Max="9" />
+    <BetaAcid Min="8.5" Max="0" />
+    <CoHumulone Min="28" Max="30" />
+    <MyrceneOilComposition Min="58" Max="0" />
+    <HumuleneOilComposition Min="10" Max="0" />
+    <CaryophylleneOil Min="5.1" Max="0" />
+    <FarneseneOil Min="4.1" Max="0" />
+    <Country>New Zealand </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes>Hallertauer Mittelfrüh, Perle </Substitutes>
+    <StyleGuide>Pale Ale, Lager, Pilsner, Bitter, Bock, American Lager </StyleGuide>
+  </Hopses>
+  <Hopses Name="Hallertauer Gold">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="7" Max="10" />
+    <BetaAcid Min="5" Max="7" />
+    <CoHumulone Min="20" Max="0" />
+    <MyrceneOilComposition Min="63" Max="0" />
+    <HumuleneOilComposition Min="17" Max="0" />
+    <CaryophylleneOil Min="4.8" Max="0" />
+    <FarneseneOil Min="0.2" Max="0" />
+    <Country>Germany </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early </SeasonalMaturity>
+    <YieldAmount>1345-1565 kg/hectare (1200-1400 lbs/acre) </YieldAmount>
+    <Substitutes>Hallertauer Mittelfrüh, Tettnanger, East Kent Golding, Crystal, Mount Hood </Substitutes>
+    <StyleGuide>American Lager </StyleGuide>
+  </Hopses>
+  <Hopses Name="Hallertauer MittelfrÃ¼h">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="3.5" Max="3.5" />
+    <BetaAcid Min="3.5" Max="4.5" />
+    <CoHumulone Min="20" Max="26" />
+    <MyrceneOilComposition Min="35" Max="44" />
+    <HumuleneOilComposition Min="30" Max="55" />
+    <CaryophylleneOil Min="10" Max="15" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country>Germany </Country>
+    <ConeSize>Small </ConeSize>
+    <ConeDensity>Loose </ConeDensity>
+    <SeasonalMaturity>Early to mid </SeasonalMaturity>
+    <YieldAmount>800-1100 kg/hectare (700-980 lbs/acre) </YieldAmount>
+    <Substitutes>Liberty, Hallertauer, German Tradition </Substitutes>
+    <StyleGuide>German Pilsner, Pale Ale, Wheat, American Lager </StyleGuide>
+  </Hopses>
+  <Hopses Name="Hallertauer Tradition">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="4.6" Max="7" />
+    <BetaAcid Min="4" Max="5" />
+    <CoHumulone Min="23" Max="29" />
+    <MyrceneOilComposition Min="20" Max="25" />
+    <HumuleneOilComposition Min="40" Max="55" />
+    <CaryophylleneOil Min="10" Max="15" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country>Germany </Country>
+    <ConeSize>Medium </ConeSize>
+    <ConeDensity>Compact </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount>1560-1780 kg/hectare (1390-1580 lbs/acre) </YieldAmount>
+    <Substitutes>Liberty, Ultra, Crystal </Substitutes>
+    <StyleGuide>American Lager </StyleGuide>
+  </Hopses>
+  <Hopses Name="Helga">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="5.4" Max="7.3" />
+    <BetaAcid Min="4" Max="5" />
+    <CoHumulone Min="20" Max="23" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>Australia</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes>Hallertau </Substitutes>
+    <StyleGuide>Ales </StyleGuide>
+  </Hopses>
+  <Hopses Name="Hersbrucker">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="2" Max="5" />
+    <BetaAcid Min="4" Max="6" />
+    <CoHumulone Min="19" Max="25" />
+    <MyrceneOilComposition Min="10" Max="25" />
+    <HumuleneOilComposition Min="15" Max="35" />
+    <CaryophylleneOil Min="7" Max="15" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country>Germany </Country>
+    <ConeSize>Medium </ConeSize>
+    <ConeDensity>Moderate</ConeDensity>
+    <SeasonalMaturity>Late </SeasonalMaturity>
+    <YieldAmount>1400-1800 kg/hectare (1240-1610 lbs/acre) </YieldAmount>
+    <Substitutes>Mount Hood, Strisselspalter </Substitutes>
+    <StyleGuide>Dunkel, Strong Ale, Pilsner </StyleGuide>
+  </Hopses>
+  <Hopses Name="Hersbrucker E">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="4" Max="6" />
+    <BetaAcid Min="5" Max="7" />
+    <CoHumulone Min="22" Max="24" />
+    <MyrceneOilComposition Min="46" Max="0" />
+    <HumuleneOilComposition Min="29" Max="0" />
+    <CaryophylleneOil Min="9" Max="0" />
+    <FarneseneOil Min="0.2" Max="0" />
+    <Country>UK </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Late  </SeasonalMaturity>
+    <YieldAmount>700 kg/hectare (620 lbs/acre) </YieldAmount>
+    <Substitutes>Strisselspalter, Mount Hood </Substitutes>
+    <StyleGuide>Lager, Pilsner, Bock, Weizenbock, Wheat Beer, Belgian Ale, Kölsch, Munich Helles </StyleGuide>
+  </Hopses>
+  <Hopses Name="Hersbrucker Pure">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="4.7" Max="6" />
+    <BetaAcid Min="2" Max="3" />
+    <CoHumulone Min="20" Max="28" />
+    <MyrceneOilComposition Min="24" Max="50" />
+    <HumuleneOilComposition Min="10" Max="27" />
+    <CaryophylleneOil Min="4" Max="11" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country> </Country>
+    <ConeSize>Medium </ConeSize>
+    <ConeDensity>Moderate </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount>1500-1550 kg/hectare (1330-1390 lbs/acre) </YieldAmount>
+    <Substitutes>Hersbrucker, Hallertauer Mittelfrüh </Substitutes>
+    <StyleGuide>Pilsner, Hefeweizen, Lager </StyleGuide>
+  </Hopses>
+  <Hopses Name="Hersbrucker Red-Stem">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="5" Max="6" />
+    <BetaAcid Min="5" Max="6" />
+    <CoHumulone Min="18" Max="0" />
+    <MyrceneOilComposition Min="55" Max="0" />
+    <HumuleneOilComposition Min="10" Max="0" />
+    <CaryophylleneOil Min="9" Max="0" />
+    <FarneseneOil Min="175" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Late  </SeasonalMaturity>
+    <YieldAmount>1110 kg/hectare (990 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Hersbrucker SpÃ¤t">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="1.5" Max="4" />
+    <BetaAcid Min="2.5" Max="6" />
+    <CoHumulone Min="17" Max="25" />
+    <MyrceneOilComposition Min="15" Max="30" />
+    <HumuleneOilComposition Min="20" Max="30" />
+    <CaryophylleneOil Min="8" Max="13" />
+    <FarneseneOil Min="1" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Late </SeasonalMaturity>
+    <YieldAmount>1700 kg/hectare (1520 lbs/acre) </YieldAmount>
+    <Substitutes>Hallertauer Mittelfrüh </Substitutes>
+    <StyleGuide>Traditional German Beers </StyleGuide>
+  </Hopses>
+  <Hopses Name="HÃ¼ll Melon">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="6.9" Max="7.5" />
+    <BetaAcid Min="7.3" Max="7.9" />
+    <CoHumulone Min="25" Max="30" />
+    <MyrceneOilComposition Min="36" Max="0" />
+    <HumuleneOilComposition Min="10" Max="20" />
+    <CaryophylleneOil Min="5" Max="10" />
+    <FarneseneOil Min="1" Max="0" />
+    <Country>Germany </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Hybrid-2">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="10.2" Max="0" />
+    <BetaAcid Min="6.3" Max="0" />
+    <CoHumulone Min="32" Max="0" />
+    <MyrceneOilComposition Min="52" Max="0" />
+    <HumuleneOilComposition Min="3" Max="0" />
+    <CaryophylleneOil Min="9" Max="0" />
+    <FarneseneOil Min="3.9" Max="0" />
+    <Country>India </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Mid to late  </SeasonalMaturity>
+    <YieldAmount>1570-2240 kg/hectare (1400-2000 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Ivanhoe">
+    <Characteristics>Mellow aroma of citrus and pine. Heady floral and herbal notes. </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="7.3" Max="8" />
+    <BetaAcid Min="4.6" Max="0" />
+    <CoHumulone Min="0" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>US </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes>Galena, Cluster, Northern Brewer </Substitutes>
+    <StyleGuide>American Ale, California Common, Stout, India Pale Ale </StyleGuide>
+  </Hopses>
+  <Hopses Name="Janus">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="5.1" Max="0" />
+    <BetaAcid Min="2.3" Max="0" />
+    <CoHumulone Min="32" Max="0" />
+    <MyrceneOilComposition Min="40" Max="0" />
+    <HumuleneOilComposition Min="34" Max="0" />
+    <CaryophylleneOil Min="10.9" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Very early  </SeasonalMaturity>
+    <YieldAmount>&amp;lt; 1120 kg/hectare (&amp;lt; 1000 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Keyworth's Early">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="8.6" Max="0" />
+    <BetaAcid Min="3.3" Max="0" />
+    <CoHumulone Min="33" Max="0" />
+    <MyrceneOilComposition Min="45" Max="0" />
+    <HumuleneOilComposition Min="22" Max="0" />
+    <CaryophylleneOil Min="7" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>UK </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount>710 kg/hectare (630 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Keyworth's Midseason">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="7.5" Max="0" />
+    <BetaAcid Min="3.1" Max="0" />
+    <CoHumulone Min="46" Max="0" />
+    <MyrceneOilComposition Min="56" Max="0" />
+    <HumuleneOilComposition Min="13" Max="0" />
+    <CaryophylleneOil Min="10" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>UK </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount>1680-2460 kg/hectare (1500-2200 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Kohatu">
+    <Characteristics>Intense tropical fuit and pine needle aroma </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="6.8" Max="0" />
+    <BetaAcid Min="0" Max="0" />
+    <CoHumulone Min="0" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>New Zealand </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Landhopfen">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="3.5" Max="0" />
+    <BetaAcid Min="3.2" Max="0" />
+    <CoHumulone Min="23" Max="0" />
+    <MyrceneOilComposition Min="37" Max="0" />
+    <HumuleneOilComposition Min="22" Max="0" />
+    <CaryophylleneOil Min="6.3" Max="0" />
+    <FarneseneOil Min="13.3" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early </SeasonalMaturity>
+    <YieldAmount>&amp;lt; 1120 kg/hectare (&amp;lt; 1000 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Liberty">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="3" Max="5" />
+    <BetaAcid Min="3.5" Max="0" />
+    <CoHumulone Min="24" Max="28" />
+    <MyrceneOilComposition Min="46" Max="0" />
+    <HumuleneOilComposition Min="31" Max="0" />
+    <CaryophylleneOil Min="9" Max="12" />
+    <FarneseneOil Min="1" Max="0" />
+    <Country> </Country>
+    <ConeSize>Medium</ConeSize>
+    <ConeDensity>Compact </ConeDensity>
+    <SeasonalMaturity>Early  </SeasonalMaturity>
+    <YieldAmount>1200-2000 kg/hectare (1070-1780 lbs/acre) </YieldAmount>
+    <Substitutes>Hallertau, Mount Hood, Traditon </Substitutes>
+    <StyleGuide>Bock </StyleGuide>
+  </Hopses>
+  <Hopses Name="Lubelska">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="3" Max="5" />
+    <BetaAcid Min="2.5" Max="4" />
+    <CoHumulone Min="25" Max="28" />
+    <MyrceneOilComposition Min="22" Max="35" />
+    <HumuleneOilComposition Min="30" Max="40" />
+    <CaryophylleneOil Min="6" Max="11" />
+    <FarneseneOil Min="10" Max="14" />
+    <Country>Poland </Country>
+    <ConeSize>Medium </ConeSize>
+    <ConeDensity>Loose </ConeDensity>
+    <SeasonalMaturity>Early  </SeasonalMaturity>
+    <YieldAmount>900-1250 kg/hectare (800-1120 lbs/acre) </YieldAmount>
+    <Substitutes>Saaz, Sterling</Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Lubelska-Pulawy">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="5" Max="7" />
+    <BetaAcid Min="3" Max="5" />
+    <CoHumulone Min="23" Max="25" />
+    <MyrceneOilComposition Min="52" Max="0" />
+    <HumuleneOilComposition Min="14" Max="0" />
+    <CaryophylleneOil Min="4" Max="6" />
+    <FarneseneOil Min="12" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early  </SeasonalMaturity>
+    <YieldAmount>340 kg/hectare (310 lbs/acre) </YieldAmount>
+    <Substitutes>Brewer's Gold, Nugget Glacier  </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Lucan">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="4" Max="0" />
+    <BetaAcid Min="3.3" Max="0" />
+    <CoHumulone Min="21" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>Czech Republic </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early  </SeasonalMaturity>
+    <YieldAmount>340 kg/hectare (300 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Mandarina Bavaria">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="8.5" Max="10.5" />
+    <BetaAcid Min="5" Max="6.5" />
+    <CoHumulone Min="33" Max="0" />
+    <MyrceneOilComposition Min="70" Max="0" />
+    <HumuleneOilComposition Min="5" Max="0" />
+    <CaryophylleneOil Min="2" Max="0" />
+    <FarneseneOil Min="1" Max="0" />
+    <Country>Germany </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes>Columbus, Nugget, Cascade </Substitutes>
+    <StyleGuide>Belgian Ale, French Ale </StyleGuide>
+  </Hopses>
+  <Hopses Name="Mathon">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="4.4" Max="6.7" />
+    <BetaAcid Min="1.9" Max="2.8" />
+    <CoHumulone Min="26" Max="32" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country> </Country>
+    <ConeSize>Medium </ConeSize>
+    <ConeDensity>Compact </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes>Bramling, Kent Golding, Progress, Whitbread Golding </Substitutes>
+    <StyleGuide>Extra Special Bitter, Bitter, Pale Ale </StyleGuide>
+  </Hopses>
+  <Hopses Name="Mosaic">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="11.5" Max="13.5" />
+    <BetaAcid Min="3.2" Max="3.9" />
+    <CoHumulone Min="24" Max="26" />
+    <MyrceneOilComposition Min="47" Max="53" />
+    <HumuleneOilComposition Min="13" Max="16" />
+    <CaryophylleneOil Min="5" Max="8" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide>India Pale Ale </StyleGuide>
+  </Hopses>
+  <Hopses Name="Motueka">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="6.9" Max="0" />
+    <BetaAcid Min="5" Max="5.5" />
+    <CoHumulone Min="29" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>New Zealand </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes>Czech Saaz, Saaz (US) </Substitutes>
+    <StyleGuide>European Ale, English Ale, Dark Lager </StyleGuide>
+  </Hopses>
+  <Hopses Name="Mount Hood">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="4" Max="8" />
+    <BetaAcid Min="5" Max="8" />
+    <CoHumulone Min="21" Max="23" />
+    <MyrceneOilComposition Min="30" Max="40" />
+    <HumuleneOilComposition Min="12" Max="38" />
+    <CaryophylleneOil Min="7" Max="16" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country>US </Country>
+    <ConeSize>Medium </ConeSize>
+    <ConeDensity>Moderate to compact </ConeDensity>
+    <SeasonalMaturity>Early to mid </SeasonalMaturity>
+    <YieldAmount>1450-1960 kg/hectare (1290-1750 lbs/acre)</YieldAmount>
+    <Substitutes>Crystal, Strisselspalter, Hersbrucker</Substitutes>
+    <StyleGuide>Hefeweizen, Doppelbock, Russian Imperial Stout, Brown Ale, Golden Ale, Pale Ale, Amber Ale, Weizenbock, India Pale Ale, Holiday Lager, Bock, American Wheat, Alt Munich Helles, American Lager </StyleGuide>
+  </Hopses>
+  <Hopses Name="Mount Rainier">
+    <Purpose>Aroma</Purpose>
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <Substitutes>Hallertauer, Fuggle</Substitutes>
+  </Hopses>
+  <Hopses Name="Nadwislanska">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="3" Max="5" />
+    <BetaAcid Min="2.5" Max="5" />
+    <CoHumulone Min="23" Max="0" />
+    <MyrceneOilComposition Min="32" Max="0" />
+    <HumuleneOilComposition Min="27" Max="0" />
+    <CaryophylleneOil Min="8.2" Max="0" />
+    <FarneseneOil Min="13.5" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early  </SeasonalMaturity>
+    <YieldAmount>220-450 kg/hectare (200-400 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Nordgaard">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="7.5" Max="0" />
+    <BetaAcid Min="3.4" Max="0" />
+    <CoHumulone Min="29" Max="0" />
+    <MyrceneOilComposition Min="47" Max="0" />
+    <HumuleneOilComposition Min="27" Max="0" />
+    <CaryophylleneOil Min="11" Max="0" />
+    <FarneseneOil Min="1.7" Max="0" />
+    <Country>Belgium </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early  </SeasonalMaturity>
+    <YieldAmount>340-1230 kg/hectare (300-1100 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Olympic">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="13" Max="0" />
+    <BetaAcid Min="5.5" Max="0" />
+    <CoHumulone Min="31" Max="0" />
+    <MyrceneOilComposition Min="67" Max="0" />
+    <HumuleneOilComposition Min="7" Max="0" />
+    <CaryophylleneOil Min="5.8" Max="0" />
+    <FarneseneOil Min="1.2" Max="0" />
+    <Country>US </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Mid to late  </SeasonalMaturity>
+    <YieldAmount>1790-2460 kg/hectare (1600-2200 lbs/acre) </YieldAmount>
+    <Substitutes>Galena, Nugget, Chinook </Substitutes>
+    <StyleGuide>American Lager </StyleGuide>
+  </Hopses>
+  <Hopses Name="Omega">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="9" Max="10" />
+    <BetaAcid Min="3" Max="4" />
+    <CoHumulone Min="29" Max="0" />
+    <MyrceneOilComposition Min="53" Max="0" />
+    <HumuleneOilComposition Min="17" Max="0" />
+    <CaryophylleneOil Min="5" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount>1040 kg/hectare (925 lbs/acre)</YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Pacific Hallertau">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="5" Max="6" />
+    <BetaAcid Min="6" Max="6.2" />
+    <CoHumulone Min="25" Max="26" />
+    <MyrceneOilComposition Min="32" Max="0" />
+    <HumuleneOilComposition Min="36" Max="0" />
+    <CaryophylleneOil Min="13" Max="13" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country>New Zealand</Country>
+    <ConeSize>Medium</ConeSize>
+    <ConeDensity>Loose</ConeDensity>
+    <SeasonalMaturity>Early</SeasonalMaturity>
+    <YieldAmount>1700-1750 kg/hectare (1520-1560 lbs/acre)</YieldAmount>
+    <Substitutes>Liberty</Substitutes>
+    <StyleGuide>Porter</StyleGuide>
+  </Hopses>
+  <Hopses Name="Pacific Jade">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="12" Max="14" />
+    <BetaAcid Min="7" Max="8" />
+    <CoHumulone Min="24" Max="0" />
+    <MyrceneOilComposition Min="33" Max="0" />
+    <HumuleneOilComposition Min="33" Max="0" />
+    <CaryophylleneOil Min="10" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>New Zealand </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity>Compact </ConeDensity>
+    <SeasonalMaturity>Mid to late </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes>Magnum </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Palisade">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="5.5" Max="9.5" />
+    <BetaAcid Min="6" Max="8" />
+    <CoHumulone Min="24" Max="29" />
+    <MyrceneOilComposition Min="9" Max="10" />
+    <HumuleneOilComposition Min="19" Max="22" />
+    <CaryophylleneOil Min="16" Max="18" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country>US</Country>
+    <ConeSize>Medium</ConeSize>
+    <ConeDensity>Moderate</ConeDensity>
+    <SeasonalMaturity>Mid</SeasonalMaturity>
+    <YieldAmount>2200-3000 kg/hectare (1970-2680 lbs/acre)</YieldAmount>
+    <Substitutes>Styrian Golding</Substitutes>
+    <StyleGuide>Golden Ale</StyleGuide>
+  </Hopses>
+  <Hopses Name="Petham Golding">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="6.9" Max="0" />
+    <BetaAcid Min="2" Max="0" />
+    <CoHumulone Min="28" Max="0" />
+    <MyrceneOilComposition Min="57" Max="0" />
+    <HumuleneOilComposition Min="16" Max="0" />
+    <CaryophylleneOil Min="9" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Late </SeasonalMaturity>
+    <YieldAmount>1345 kg/hectare (1200 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Pocket Talisman">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="6" Max="0" />
+    <BetaAcid Min="3.2" Max="0" />
+    <CoHumulone Min="55" Max="0" />
+    <MyrceneOilComposition Min="65" Max="70" />
+    <HumuleneOilComposition Min="5" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount>680 kg/hectare (600 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Precoce d'Bourgogne">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="3.4" Max="0" />
+    <BetaAcid Min="3.1" Max="0" />
+    <CoHumulone Min="23" Max="0" />
+    <MyrceneOilComposition Min="45" Max="0" />
+    <HumuleneOilComposition Min="20" Max="0" />
+    <CaryophylleneOil Min="5.9" Max="0" />
+    <FarneseneOil Min="10.6" Max="0" />
+    <Country>France </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early </SeasonalMaturity>
+    <YieldAmount>1345-1680 kg/hectare (1200-1500 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Progress">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="6.7" Max="0" />
+    <BetaAcid Min="2.6" Max="0" />
+    <CoHumulone Min="28" Max="0" />
+    <MyrceneOilComposition Min="34" Max="0" />
+    <HumuleneOilComposition Min="37" Max="0" />
+    <CaryophylleneOil Min="11" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Very early </SeasonalMaturity>
+    <YieldAmount>900-1120 kg/hectare (800-1000 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Record">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="8.9" Max="0" />
+    <BetaAcid Min="6.6" Max="0" />
+    <CoHumulone Min="27" Max="0" />
+    <MyrceneOilComposition Min="50" Max="0" />
+    <HumuleneOilComposition Min="24" Max="0" />
+    <CaryophylleneOil Min="8.2" Max="0" />
+    <FarneseneOil Min="0.16" Max="0" />
+    <Country>Germany </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early </SeasonalMaturity>
+    <YieldAmount>1345 kg/hectare (1200 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Red Earth">
+    <Characteristics>Decidedly spicy, woody aroma and flavor with an undernote of citrus </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="0" Max="0" />
+    <BetaAcid Min="0" Max="0" />
+    <CoHumulone Min="0" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>Australia </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Riwaka">
+    <Characteristics>Grapefruit notes </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="4.5" Max="6.5" />
+    <BetaAcid Min="4" Max="5" />
+    <CoHumulone Min="29" Max="36" />
+    <MyrceneOilComposition Min="68" Max="0" />
+    <HumuleneOilComposition Min="9" Max="0" />
+    <CaryophylleneOil Min="4" Max="0" />
+    <FarneseneOil Min="1" Max="0" />
+    <Country>New Zealand </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity>Loose </ConeDensity>
+    <SeasonalMaturity>Early </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes>Czech Saaz </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Saaz">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="2" Max="5" />
+    <BetaAcid Min="7" Max="8" />
+    <CoHumulone Min="23" Max="28" />
+    <MyrceneOilComposition Min="42" Max="0" />
+    <HumuleneOilComposition Min="19" Max="0" />
+    <CaryophylleneOil Min="6" Max="0" />
+    <FarneseneOil Min="15" Max="0" />
+    <Country>Czech Republic</Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes>Saaz, Sterling, Polish Lublin</Substitutes>
+    <StyleGuide>Lager</StyleGuide>
+  </Hopses>
+  <Hopses Name="Saaz (US)">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="3" Max="4.5" />
+    <BetaAcid Min="3" Max="4.5" />
+    <CoHumulone Min="24" Max="28" />
+    <MyrceneOilComposition Min="25" Max="37" />
+    <HumuleneOilComposition Min="23" Max="40" />
+    <CaryophylleneOil Min="7" Max="11" />
+    <FarneseneOil Min="9" Max="13" />
+    <Country>US </Country>
+    <ConeSize>Small to medium </ConeSize>
+    <ConeDensity>Loose to Moderate </ConeDensity>
+    <SeasonalMaturity>Early  </SeasonalMaturity>
+    <YieldAmount>600-1000 kg/hectare (540-890 lbs/acre) </YieldAmount>
+    <Substitutes>Saaz </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Santiam">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="4.8" Max="8.4" />
+    <BetaAcid Min="5.3" Max="8.5" />
+    <CoHumulone Min="18" Max="24" />
+    <MyrceneOilComposition Min="25" Max="48" />
+    <HumuleneOilComposition Min="13" Max="30" />
+    <CaryophylleneOil Min="5" Max="9" />
+    <FarneseneOil Min="9.3" Max="15.9" />
+    <Country> </Country>
+    <ConeSize>Small to medium </ConeSize>
+    <ConeDensity>Loose </ConeDensity>
+    <SeasonalMaturity>Mid </SeasonalMaturity>
+    <YieldAmount>1430-1780 kg/hectare (1280-1580 lbs/acre) </YieldAmount>
+    <Substitutes>Tettnanger, Spalter, Spalter Select </Substitutes>
+    <StyleGuide>American Blonde Ale, American Lager </StyleGuide>
+  </Hopses>
+  <Hopses Name="Saphir">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="2" Max="4.5" />
+    <BetaAcid Min="4" Max="7" />
+    <CoHumulone Min="12" Max="17" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes>Hallertauer Mittelfrüh </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Saxon">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="8" Max="10" />
+    <BetaAcid Min="4" Max="5" />
+    <CoHumulone Min="20" Max="0" />
+    <MyrceneOilComposition Min="54" Max="0" />
+    <HumuleneOilComposition Min="12" Max="0" />
+    <CaryophylleneOil Min="6" Max="0" />
+    <FarneseneOil Min="6.7" Max="0" />
+    <Country>UK </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early </SeasonalMaturity>
+    <YieldAmount>500 kg/hectare (450 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Serebrianka">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="3" Max="4" />
+    <BetaAcid Min="3" Max="0" />
+    <CoHumulone Min="23" Max="0" />
+    <MyrceneOilComposition Min="30" Max="0" />
+    <HumuleneOilComposition Min="27" Max="0" />
+    <CaryophylleneOil Min="8" Max="0" />
+    <FarneseneOil Min="12" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early </SeasonalMaturity>
+    <YieldAmount>220 kg/hectare (200 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Shinshuwase">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="5.8" Max="0" />
+    <BetaAcid Min="4.7" Max="0" />
+    <CoHumulone Min="51" Max="0" />
+    <MyrceneOilComposition Min="57.56" Max="0" />
+    <HumuleneOilComposition Min="12" Max="0" />
+    <CaryophylleneOil Min="20.3" Max="0" />
+    <FarneseneOil Min="0.1" Max="0" />
+    <Country>Japan </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Late </SeasonalMaturity>
+    <YieldAmount>1790-2470 kg/hectare) (1600-2200 lbs/acre) </YieldAmount>
+    <Substitutes>Saaz, Hallertau, Santiam </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Sonnet">
+    <Characteristics>Deep floral aroma </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="4.8" Max="0" />
+    <BetaAcid Min="0" Max="0" />
+    <CoHumulone Min="0" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Spalter">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="5.7" Max="0" />
+    <BetaAcid Min="4.6" Max="0" />
+    <CoHumulone Min="23" Max="0" />
+    <MyrceneOilComposition Min="47" Max="0" />
+    <HumuleneOilComposition Min="17" Max="0" />
+    <CaryophylleneOil Min="5.3" Max="0" />
+    <FarneseneOil Min="10" Max="0" />
+    <Country>Germany </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early </SeasonalMaturity>
+    <YieldAmount>1120 kg/ hectare (1000 lbs/acre) </YieldAmount>
+    <Substitutes>Saaz, Tettnanger, Spalt, Santiam, Liberty, Hallertau </Substitutes>
+    <StyleGuide>German Ale, Lager, Pilsner </StyleGuide>
+  </Hopses>
+  <Hopses Name="Spalter Select">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="3.5" Max="5.5" />
+    <BetaAcid Min="3" Max="4.5" />
+    <CoHumulone Min="20" Max="28" />
+    <MyrceneOilComposition Min="40" Max="50" />
+    <HumuleneOilComposition Min="15" Max="20" />
+    <CaryophylleneOil Min="6" Max="8" />
+    <FarneseneOil Min="10" Max="15" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity>Compact </ConeDensity>
+    <SeasonalMaturity>Mid to Late  </SeasonalMaturity>
+    <YieldAmount>1600-1780 kg/hectare (1430-1580 lbs/acre) </YieldAmount>
+    <Substitutes>Saaz, Tettnanger </Substitutes>
+    <StyleGuide>Kölsch, Belgian Ale, French Ale </StyleGuide>
+  </Hopses>
+  <Hopses Name="Star">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="3.2" Max="0" />
+    <BetaAcid Min="1.7" Max="0" />
+    <CoHumulone Min="24" Max="0" />
+    <MyrceneOilComposition Min="34" Max="0" />
+    <HumuleneOilComposition Min="34" Max="0" />
+    <CaryophylleneOil Min="12" Max="0" />
+    <FarneseneOil Min="3.7" Max="0" />
+    <Country>Belgium </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early </SeasonalMaturity>
+    <YieldAmount>560 kg/hectare (500 lbs/acre) </YieldAmount>
+    <Substitutes>Outeniqua </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Strisselspalter">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="4.8" Max="0" />
+    <BetaAcid Min="3.3" Max="0" />
+    <CoHumulone Min="27" Max="0" />
+    <MyrceneOilComposition Min="48" Max="0" />
+    <HumuleneOilComposition Min="28" Max="32" />
+    <CaryophylleneOil Min="10.3" Max="0" />
+    <FarneseneOil Min="0.1" Max="0" />
+    <Country>France </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Mid </SeasonalMaturity>
+    <YieldAmount>900 kg/hectare (800 lbs/acre) </YieldAmount>
+    <Substitutes>Mount Hood, Crystal, Hersbrucker </Substitutes>
+    <StyleGuide>Lager, Saison, Blonde Ale, Amber Ale, Belgian Ale, Bock, Maibock, Golden Ale, Belgian Pale Ale </StyleGuide>
+  </Hopses>
+  <Hopses Name="Styrian Golding">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="4.5" Max="6" />
+    <BetaAcid Min="2" Max="3" />
+    <CoHumulone Min="25" Max="30" />
+    <MyrceneOilComposition Min="27" Max="33" />
+    <HumuleneOilComposition Min="34" Max="38" />
+    <CaryophylleneOil Min="9" Max="11" />
+    <FarneseneOil Min="2" Max="5" />
+    <Country>Austria </Country>
+    <ConeSize>Medium </ConeSize>
+    <ConeDensity>Compact </ConeDensity>
+    <SeasonalMaturity>Early  </SeasonalMaturity>
+    <YieldAmount>1150-1500 kg/hectare (1025-1330 lbs/acre) </YieldAmount>
+    <Substitutes>Fuggle (US), Willamette </Substitutes>
+    <StyleGuide>Extra Special Bitter </StyleGuide>
+  </Hopses>
+  <Hopses Name="Summer">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="0" Max="0" />
+    <BetaAcid Min="0" Max="0" />
+    <CoHumulone Min="0" Max="0" />
+    <MyrceneOilComposition Min="29" Max="38" />
+    <HumuleneOilComposition Min="28" Max="50" />
+    <CaryophylleneOil Min="8" Max="11" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>Australia </Country>
+    <ConeSize>5.6%-6.4% </ConeSize>
+    <ConeDensity>4.8%-6.1% </ConeDensity>
+    <SeasonalMaturity>20%-25% </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Sun">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="12" Max="16" />
+    <BetaAcid Min="0" Max="0" />
+    <CoHumulone Min="0" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount>2250 kg/hectare (2000 lbs/acre) </YieldAmount>
+    <Substitutes>Magnum </Substitutes>
+    <StyleGuide>Barley Wine, Imperial Stout </StyleGuide>
+  </Hopses>
+  <Hopses Name="Sunbeam">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="4" Max="5" />
+    <BetaAcid Min="2.5" Max="0" />
+    <CoHumulone Min="36" Max="0" />
+    <MyrceneOilComposition Min="56" Max="0" />
+    <HumuleneOilComposition Min="14" Max="0" />
+    <CaryophylleneOil Min="4" Max="0" />
+    <FarneseneOil Min="6" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Sunshine">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="7.5" Max="0" />
+    <BetaAcid Min="2.7" Max="0" />
+    <CoHumulone Min="34" Max="0" />
+    <MyrceneOilComposition Min="55" Max="0" />
+    <HumuleneOilComposition Min="1" Max="0" />
+    <CaryophylleneOil Min="4.5" Max="0" />
+    <FarneseneOil Min="0.3" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount>560-900 kg/hectare (500-800 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Sussex">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="4.3" Max="5.8" />
+    <BetaAcid Min="2.4" Max="3.2" />
+    <CoHumulone Min="29" Max="32" />
+    <MyrceneOilComposition Min="42" Max="0" />
+    <HumuleneOilComposition Min="23" Max="0" />
+    <CaryophylleneOil Min="8" Max="7.2" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>UK </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Sylva">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="6" Max="7" />
+    <BetaAcid Min="0" Max="0" />
+    <CoHumulone Min="0" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>Australia </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Tahoma">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="7.2" Max="8.2" />
+    <BetaAcid Min="8.5" Max="9.5" />
+    <CoHumulone Min="15" Max="17" />
+    <MyrceneOilComposition Min="67" Max="72" />
+    <HumuleneOilComposition Min="9" Max="11" />
+    <CaryophylleneOil Min="3" Max="4" />
+    <FarneseneOil Min="1" Max="0" />
+    <Country>US </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Tardif de Burgogne">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="4.3" Max="0" />
+    <BetaAcid Min="4.8" Max="0" />
+    <CoHumulone Min="20" Max="0" />
+    <MyrceneOilComposition Min="44" Max="0" />
+    <HumuleneOilComposition Min="13" Max="0" />
+    <CaryophylleneOil Min="5.7" Max="0" />
+    <FarneseneOil Min="0.2" Max="0" />
+    <Country>France </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Late </SeasonalMaturity>
+    <YieldAmount>1345-1790 kg/hectare (1200-1600 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Teamaker">
+    <Characteristics>No bitterness whatsoever </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="0.6" Max="1.8" />
+    <BetaAcid Min="5.4" Max="13.2" />
+    <CoHumulone Min="0" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Mid </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Tettnang Tettnanger">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="3" Max="6" />
+    <BetaAcid Min="3" Max="5" />
+    <CoHumulone Min="20" Max="29" />
+    <MyrceneOilComposition Min="15" Max="25" />
+    <HumuleneOilComposition Min="18" Max="30" />
+    <CaryophylleneOil Min="6" Max="13" />
+    <FarneseneOil Min="12" Max="34" />
+    <Country>Germany</Country>
+    <ConeSize>Medium</ConeSize>
+    <ConeDensity>Moderate to compact</ConeDensity>
+    <SeasonalMaturity>Early to mid </SeasonalMaturity>
+    <YieldAmount>1000-1400 kg/hectare (890-1240 lbs/acre)</YieldAmount>
+    <Substitutes>Czech Saaz, Spalter, Santiam, Spalter Select, Saaz, Tettnanger (US) </Substitutes>
+    <StyleGuide>Bitter, California Blonde Ale, Red Ale, Pilsner, Lager, American Amber Ale, Winter Ale, Pale Ale, Wheat Beer, Bavarian Hefeweizen, Cream Ale, American Lager </StyleGuide>
+  </Hopses>
+  <Hopses Name="Tettnanger (Swiss)">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="4.7" Max="0" />
+    <BetaAcid Min="4.7" Max="0" />
+    <CoHumulone Min="22" Max="0" />
+    <MyrceneOilComposition Min="42" Max="0" />
+    <HumuleneOilComposition Min="21" Max="0" />
+    <CaryophylleneOil Min="6" Max="0" />
+    <FarneseneOil Min="14.1" Max="0" />
+    <Country>Switzerland </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early </SeasonalMaturity>
+    <YieldAmount>1120-1450 kg/hectare (1000-1300 lbs/acre) </YieldAmount>
+    <Substitutes>Tettnang Tettnanger, Fuggle, Czech Saaz, Spalter, Ultra </Substitutes>
+    <StyleGuide>Lager, Wheat Beer </StyleGuide>
+  </Hopses>
+  <Hopses Name="Tettnanger A">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="4.4" Max="0" />
+    <BetaAcid Min="5" Max="0" />
+    <CoHumulone Min="23" Max="0" />
+    <MyrceneOilComposition Min="47" Max="0" />
+    <HumuleneOilComposition Min="17" Max="0" />
+    <CaryophylleneOil Min="5" Max="0" />
+    <FarneseneOil Min="13.6" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early </SeasonalMaturity>
+    <YieldAmount>&amp;lt; 1120 kg/hectare (&amp;lt; 1000 lbs/acre) </YieldAmount>
+    <Substitutes>Spalter Select, Santiam </Substitutes>
+    <StyleGuide>Bitter, California Blonde Ale, Red Ale, Pilsner, Lager, American Amber Ale, Winter Ale, Pale Ale, Wheat Beer </StyleGuide>
+  </Hopses>
+  <Hopses Name="Tettnanger B">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="5.3" Max="0" />
+    <BetaAcid Min="5.2" Max="0" />
+    <CoHumulone Min="23" Max="0" />
+    <MyrceneOilComposition Min="54" Max="0" />
+    <HumuleneOilComposition Min="14" Max="0" />
+    <CaryophylleneOil Min="4" Max="0" />
+    <FarneseneOil Min="11.5" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early </SeasonalMaturity>
+    <YieldAmount>&amp;lt; 1120 kg/hectare (&amp;lt; 1000 lbs/acre) </YieldAmount>
+    <Substitutes>Czech Saaz, Spalter, Ultra </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Tolhurst">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="2.2" Max="0" />
+    <BetaAcid Min="2.9" Max="0" />
+    <CoHumulone Min="31" Max="0" />
+    <MyrceneOilComposition Min="43" Max="0" />
+    <HumuleneOilComposition Min="19" Max="0" />
+    <CaryophylleneOil Min="8" Max="0" />
+    <FarneseneOil Min="8.3" Max="0" />
+    <Country>UK </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early </SeasonalMaturity>
+    <YieldAmount>335-785 kg/hectares (300-700 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Topaz">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="13.7" Max="17.7" />
+    <BetaAcid Min="6.4" Max="7.9" />
+    <CoHumulone Min="48" Max="51" />
+    <MyrceneOilComposition Min="34" Max="56" />
+    <HumuleneOilComposition Min="8" Max="13" />
+    <CaryophylleneOil Min="7" Max="13" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country>Australia </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Triskel">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="8" Max="9" />
+    <BetaAcid Min="4" Max="4.7" />
+    <CoHumulone Min="20" Max="23" />
+    <MyrceneOilComposition Min="60" Max="0" />
+    <HumuleneOilComposition Min="14" Max="0" />
+    <CaryophylleneOil Min="6" Max="0" />
+    <FarneseneOil Min="1" Max="0" />
+    <Country>France </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes>Ahtanum, Centennial, Chinook, Simcoe</Substitutes>
+    <StyleGuide>Belgian Ale </StyleGuide>
+  </Hopses>
+  <Hopses Name="Ultra">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="4" Max="5" />
+    <BetaAcid Min="3.6" Max="4.7" />
+    <CoHumulone Min="25" Max="35" />
+    <MyrceneOilComposition Min="25" Max="35" />
+    <HumuleneOilComposition Min="30" Max="40" />
+    <CaryophylleneOil Min="10" Max="15" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country>US </Country>
+    <ConeSize>Small </ConeSize>
+    <ConeDensity>Moderate </ConeDensity>
+    <SeasonalMaturity>Mid </SeasonalMaturity>
+    <YieldAmount>1600-1800 kg/hectare (1420-1610 lbs/acre) </YieldAmount>
+    <Substitutes>Tettnanger (GR), Saaz, Hallertauer Tradition, Liberty </Substitutes>
+    <StyleGuide>Oktoberfest, Blonde Ale, Harvest Ale, Lager, Pilsner, Pale Ale, American Lager </StyleGuide>
+  </Hopses>
+  <Hopses Name="Vanguard">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="4.4" Max="6" />
+    <BetaAcid Min="6" Max="7" />
+    <CoHumulone Min="14" Max="16" />
+    <MyrceneOilComposition Min="20" Max="25" />
+    <HumuleneOilComposition Min="45" Max="50" />
+    <CaryophylleneOil Min="12" Max="14" />
+    <FarneseneOil Min="0" Max="1" />
+    <Country>US </Country>
+    <ConeSize>Small to medium </ConeSize>
+    <ConeDensity>Loose to Moderate </ConeDensity>
+    <SeasonalMaturity>Early  </SeasonalMaturity>
+    <YieldAmount>1300-1700 kg/hectare (1160-1520 lbs/acre) </YieldAmount>
+    <Substitutes>Liberty, Mount Hood, Hallertauer Mittelfrüh, Saaz    </Substitutes>
+    <StyleGuide>Porter, Cream Ale, Lager, Rye Ale, Amber Ale, Belgian Ale, French Ale </StyleGuide>
+  </Hopses>
+  <Hopses Name="Viking">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="8" Max="10" />
+    <BetaAcid Min="4" Max="5" />
+    <CoHumulone Min="21" Max="24" />
+    <MyrceneOilComposition Min="47" Max="0" />
+    <HumuleneOilComposition Min="11" Max="0" />
+    <CaryophylleneOil Min="5" Max="0" />
+    <FarneseneOil Min="9.1" Max="0" />
+    <Country>UK </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide>American Brown Ale</StyleGuide>
+  </Hopses>
+  <Hopses Name="Vojvodina">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="8.6" Max="0" />
+    <BetaAcid Min="3.6" Max="0" />
+    <CoHumulone Min="30" Max="0" />
+    <MyrceneOilComposition Min="67" Max="0" />
+    <HumuleneOilComposition Min="13" Max="0" />
+    <CaryophylleneOil Min="5" Max="0" />
+    <FarneseneOil Min="0.6" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Very late </SeasonalMaturity>
+    <YieldAmount>1720 kg/hectare (1540 lbs/acre) </YieldAmount>
+    <Substitutes>Northern Brewer, Goldings </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Wai-iti">
+    <Characteristics>Mandarin-lime notes </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="3" Max="3.4" />
+    <BetaAcid Min="0" Max="0" />
+    <CoHumulone Min="26" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>New Zealand </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide>Pale Ale, India Pale Ale, Wheat Beer </StyleGuide>
+  </Hopses>
+  <Hopses Name="Whitbread Golding">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="6" Max="7" />
+    <BetaAcid Min="3" Max="0" />
+    <CoHumulone Min="33" Max="0" />
+    <MyrceneOilComposition Min="47" Max="0" />
+    <HumuleneOilComposition Min="25" Max="0" />
+    <CaryophylleneOil Min="9" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>UK </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early </SeasonalMaturity>
+    <YieldAmount>720 kg/hectare (640 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide>Ale </StyleGuide>
+  </Hopses>
+  <Hopses Name="Willamette">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="4" Max="6" />
+    <BetaAcid Min="3" Max="4" />
+    <CoHumulone Min="30" Max="35" />
+    <MyrceneOilComposition Min="30" Max="55" />
+    <HumuleneOilComposition Min="20" Max="30" />
+    <CaryophylleneOil Min="7" Max="8" />
+    <FarneseneOil Min="5" Max="6" />
+    <Country>US </Country>
+    <ConeSize>Small to medium </ConeSize>
+    <ConeDensity>Loose to Moderate </ConeDensity>
+    <SeasonalMaturity>Early to mid </SeasonalMaturity>
+    <YieldAmount>1340-1700 kg/hectare (1200-1520 lbs/acre)</YieldAmount>
+    <Substitutes>Fuggle, Styrian Golding, Tettnanger (US) </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Willamette (AUS)">
+    <Characteristics>Mildly resinous, floral character </Characteristics>
+    <Purpose>Bittering &amp;amp; Aroma</Purpose>
+    <AlphaAcid Min="5" Max="7.2" />
+    <BetaAcid Min="0" Max="0" />
+    <CoHumulone Min="0" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>Australia </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Wuerttemberger">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="5" Max="0" />
+    <BetaAcid Min="4" Max="0" />
+    <CoHumulone Min="28" Max="0" />
+    <MyrceneOilComposition Min="59" Max="0" />
+    <HumuleneOilComposition Min="18" Max="0" />
+    <CaryophylleneOil Min="6" Max="0" />
+    <FarneseneOil Min="4" Max="0" />
+    <Country>Germany </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Zlatan">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="5.2" Max="0" />
+    <BetaAcid Min="4.3" Max="0" />
+    <CoHumulone Min="21" Max="0" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country>Czech Republic </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity>Early </SeasonalMaturity>
+    <YieldAmount>220 kg/gectare (200 lbs/acre) </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide> </StyleGuide>
+  </Hopses>
+  <Hopses Name="Zythos">
+    <Characteristics> </Characteristics>
+    <Purpose>Aroma</Purpose>
+    <AlphaAcid Min="10" Max="12.5" />
+    <BetaAcid Min="4.7" Max="6.2" />
+    <CoHumulone Min="28" Max="31" />
+    <MyrceneOilComposition Min="0" Max="0" />
+    <HumuleneOilComposition Min="0" Max="0" />
+    <CaryophylleneOil Min="0" Max="0" />
+    <FarneseneOil Min="0" Max="0" />
+    <Country> </Country>
+    <ConeSize> </ConeSize>
+    <ConeDensity> </ConeDensity>
+    <SeasonalMaturity> </SeasonalMaturity>
+    <YieldAmount> </YieldAmount>
+    <Substitutes> </Substitutes>
+    <StyleGuide>American Ale </StyleGuide>
+  </Hopses>
+</HopsData>

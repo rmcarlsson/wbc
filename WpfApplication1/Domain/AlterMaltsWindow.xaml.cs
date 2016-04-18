@@ -81,12 +81,7 @@ namespace Grainsim.Domain
                 return;
             }
 
-            if (AddButton.Content.Equals("Update"))
-                Repo.AddFermentable(f, true);
-            else
-                Repo.AddFermentable(f, false);
-
-            Fermentables.Add(f);
+            Repo.AddFermentable(f);
 
             AddButton.Content = "Add";
 

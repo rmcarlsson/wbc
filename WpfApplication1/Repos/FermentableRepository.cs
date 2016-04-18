@@ -4,21 +4,35 @@ using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
 using GFCalc.DataModel;
+using System.Reflection;
 
 namespace GFCalc.Repos
 {
     public class FermentableRepository : IFermentableRepository
     {
 
-        public const string MALT_DATA_FILEPATH = @"C:\Users\carltmik\Source\PrivateRepos\wbc\WpfApplication1\bin\Debug\maltsOut.xml";
-        public const string MALT_DATA_FILEPATH_SAVE = @"maltData.xml";
+        public const string MALT_DATA_FILEPATH_SAVE = @"maltsData.xml";
 
         public FermentableRepository()
         {
+            FermentableAdjuncts loadedObject;
             XmlSerializer serializer = new XmlSerializer(typeof(FermentableAdjuncts));
-            FileStream loadStream = new FileStream(MALT_DATA_FILEPATH, FileMode.Open, FileAccess.Read);
-            FermentableAdjuncts loadedObject = (FermentableAdjuncts)serializer.Deserialize(loadStream);
-            loadStream.Close();
+
+            if (!File.Exists(MALT_DATA_FILEPATH_SAVE))
+            {
+                var assembly = Assembly.GetExecutingAssembly();
+                var resourceName = "WpfApplication1.Resources.malts.xml";
+
+                var stream = assembly.GetManifestResourceStream(resourceName);
+                var reader = new System.IO.StreamReader(stream);
+                loadedObject = (FermentableAdjuncts)serializer.Deserialize(reader);
+            }
+            else
+            {
+                FileStream loadStream = new FileStream(MALT_DATA_FILEPATH_SAVE, FileMode.Open, FileAccess.Read);
+                loadedObject = (FermentableAdjuncts)serializer.Deserialize(loadStream);
+
+            }
             ferms = loadedObject.FermentableAdjunct;
         }
 
@@ -35,20 +49,19 @@ namespace GFCalc.Repos
 
         public List<FermentableAdjunct> ferms;
 
-        public void AddFermentable(FermentableAdjunct aFermentable, bool aUpdatedEnabled)
+        public void AddFermentable(FermentableAdjunct aFermentable)
         {
 
-            var found = ferms.FirstOrDefault(x => x.Name == aFermentable.Name);
-            if (aUpdatedEnabled)
+            var found = ferms.Any(x => x.Name == aFermentable.Name);
+            if (found)
             {
+                var ferm = ferms.FirstOrDefault(x => x.Name == aFermentable.Name);
+                ferms.Remove(ferm);
+
                 ferms.Add(aFermentable);
-                if (found != null)
-                    ferms.Remove(found);
             }
-            else if (found == null)
-                ferms.Add(aFermentable);
             else
-                throw new ArgumentException(String.Format("Fermentable with name = {0] is already present. Please use another name.", aFermentable.Name));
+                ferms.Add(aFermentable);
 
             Persist();
 

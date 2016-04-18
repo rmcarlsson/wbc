@@ -470,30 +470,39 @@ namespace GFCalc
                     topUpVolume))));
 
 
-                // Total volume points
-                var totalBatchPoints = GravityAlorithms.GetPoints(OriginalGravity, Volumes.TotalBatchVolume);
+                //// Total volume points
+                //var totalBatchPoints = GravityAlorithms.GetPoints(OriginalGravity, Volumes.TotalBatchVolume);
 
-                // Mash points
-                var mashGravityPercent = Grist.Where(x => x.Stage == FermentableStage.Mash).Sum(x => x.Amount);
-                var mashPoints = (totalBatchPoints * ((double)(mashGravityPercent) / 100d));
-                if (Volumes.PreBoilTapOff != 0)
-                    mashPoints += mashPoints * (Volumes.PreBoilTapOff / Volumes.PreBoilVolume);
+                //// Mash points
+                //var mashGravityPercent = Grist.Where(x => x.Stage == FermentableStage.Mash).Sum(x => x.Amount);
+                //var mashPoints = (totalBatchPoints * ((double)(mashGravityPercent) / 100d));
+                //if (Volumes.PreBoilTapOff != 0)
+                //    mashPoints += mashPoints * (Volumes.PreBoilTapOff / Volumes.PreBoilVolume);
 
 
-                // Cold steep points
-                var coldSteepGravityPercent = Grist.Where(x => x.Stage == FermentableStage.ColdSteep).Sum(x => x.Amount);
-                var coldSteepPoints = (totalBatchPoints * ((double)(coldSteepGravityPercent) / 100d));
+                //// Cold steep points
+                //var coldSteepGravityPercent = Grist.Where(x => x.Stage == FermentableStage.ColdSteep).Sum(x => x.Amount);
+                //var coldSteepPoints = (totalBatchPoints * ((double)(coldSteepGravityPercent) / 100d));
 
-                // Fermentor points
-                var fermentorGravityPercent = Grist.Where(x => x.Stage == FermentableStage.Fermentor).Sum(x => x.Amount);
-                var fermentorPoints = (totalBatchPoints * ((double)(fermentorGravityPercent) / 100d));
+                //// Fermentor points
+                //var fermentorGravityPercent = Grist.Where(x => x.Stage == FermentableStage.Fermentor).Sum(x => x.Amount);
+                //var fermentorPoints = (totalBatchPoints * ((double)(fermentorGravityPercent) / 100d));
 
-                var preBoilGravity = GravityAlorithms.GetGravity(mashPoints, Volumes.PreBoilVolume);
-                var postBoilGravity = GravityAlorithms.GetGravity((mashPoints + coldSteepPoints), Volumes.TotalBatchVolume);
+                //var preBoilGravity = GravityAlorithms.GetGravity(mashPoints, Volumes.PreBoilVolume);
+                //var postBoilGravity = GravityAlorithms.GetGravity((mashPoints + coldSteepPoints), Volumes.TotalBatchVolume);
 
+                var prbg = GravityAlorithms.GetGravity(Volumes.PreBoilVolume, Grist.Where(x => x.Stage == FermentableStage.Mash).ToList(), GrainfatherCalculator.MashEfficiency);
+
+                var TotalGbs = GravityAlorithms.GetGrainBillWeight(OriginalGravity, Volumes.TotalBatchVolume - Volumes.PreBoilTapOff, Grist.ToList(), GrainfatherCalculator.MashEfficiency);
+
+                var pobg = GravityAlorithms.GetGravityByPart(
+                    Volumes.PostBoilVolume,
+                    Grist.Where(x => x.Stage != FermentableStage.Fermentor).ToList(),
+                    TotalGbs,
+                    GrainfatherCalculator.MashEfficiency);
 
                 pmp.Inlines.Add(new Run(String.Format("Pre-boil gravity [SG]: {0:F3}\n",
-                    GravityAlorithms.GetGravity(mashPoints, Volumes.PreBoilVolume))));
+                    pobg)));
 
                 doc.Blocks.Add(pmp);
 
@@ -536,7 +545,7 @@ namespace GFCalc
                         pbh.Inlines.Add(new Run(String.Format("Add the runnings of {0} to the boil 10 minutes before end\n", g.FermentableAdjunct.Name)));
                 }
 
-                pbh.Inlines.Add(new Run(String.Format("Expected post-boil gravity [SG]: {0:F3}\n", postBoilGravity)));
+                pbh.Inlines.Add(new Run(String.Format("Expected post-boil gravity [SG]: {0:F3}\n", pobg)));
 
                 doc.Blocks.Add(pbh);
                 #endregion
@@ -612,42 +621,42 @@ namespace GFCalc
 
                 var TotalGbs = GravityAlorithms.GetGrainBillWeight(OriginalGravity, Volumes.TotalBatchVolume - Volumes.PreBoilTapOff, Grist.ToList(), GrainfatherCalculator.MashEfficiency);
 
-                #region Points based calculation
-                // Total volume points
-                var totalBatchPoints = GravityAlorithms.GetPoints(OriginalGravity, Volumes.TotalBatchVolume - Volumes.PreBoilTapOff);
+                //#region Points based calculation
+                //// Total volume points
+                //var totalBatchPoints = GravityAlorithms.GetPoints(OriginalGravity, Volumes.TotalBatchVolume - Volumes.PreBoilTapOff);
 
-                // Mash points
-                var mashGbsPercent = Grist.Where(x => x.Stage == FermentableStage.Mash).Sum(x => x.Amount);
-                var mashPoints = (totalBatchPoints * ((double)(mashGbsPercent) / 100d));
-                if (Volumes.PreBoilTapOff != 0)
-                    mashPoints += mashPoints * (Volumes.PreBoilTapOff / (Volumes.PreBoilVolume - Volumes.PreBoilTapOff));
-                #endregion
+                //// Mash points
+                //var mashGbsPercent = Grist.Where(x => x.Stage == FermentableStage.Mash).Sum(x => x.Amount);
+                //var mashPoints = (totalBatchPoints * ((double)(mashGbsPercent) / 100d));
+                //if (Volumes.PreBoilTapOff != 0)
+                //    mashPoints += mashPoints * (Volumes.PreBoilTapOff / (Volumes.PreBoilVolume - Volumes.PreBoilTapOff));
+                //#endregion
 
-                var mashGbs = (int)Math.Round(TotalGbs * ((double)(mashGbsPercent) / 100d));
-                if (Volumes.PreBoilTapOff != 0)
-                    mashGbs += (int)Math.Round(mashGbs * (Volumes.PreBoilTapOff / (Volumes.PreBoilVolume - Volumes.PreBoilTapOff)));
+                //var mashGbs = (int)Math.Round(TotalGbs * ((double)(mashGbsPercent) / 100d));
+                //if (Volumes.PreBoilTapOff != 0)
+                //    mashGbs += (int)Math.Round(mashGbs * (Volumes.PreBoilTapOff / (Volumes.PreBoilVolume - Volumes.PreBoilTapOff)));
 
-                #region Points based calculation
-                // Cold steep points
-                var coldSteepGravityPercent = Grist.Where(x => x.Stage == FermentableStage.ColdSteep).Sum(x => x.Amount);
-                var coldSteepPoints = (totalBatchPoints * ((double)(coldSteepGravityPercent) / 100d));
-                #endregion
+                //#region Points based calculation
+                //// Cold steep points
+                //var coldSteepGravityPercent = Grist.Where(x => x.Stage == FermentableStage.ColdSteep).Sum(x => x.Amount);
+                //var coldSteepPoints = (totalBatchPoints * ((double)(coldSteepGravityPercent) / 100d));
+                //#endregion
 
-                var coldSteepGbs = (TotalGbs * ((double)(coldSteepGravityPercent) / 100d));
+                //var coldSteepGbs = (TotalGbs * ((double)(coldSteepGravityPercent) / 100d));
 
-                #region Points based calculation
-                // Fermentor points
-                var fermentorGravityPercent = Grist.Where(x => x.Stage == FermentableStage.Fermentor).Sum(x => x.Amount);
-                var fermentorPoints = (totalBatchPoints * ((double)(fermentorGravityPercent) / 100d));
-                #endregion
+                //#region Points based calculation
+                //// Fermentor points
+                //var fermentorGravityPercent = Grist.Where(x => x.Stage == FermentableStage.Fermentor).Sum(x => x.Amount);
+                //var fermentorPoints = (totalBatchPoints * ((double)(fermentorGravityPercent) / 100d));
+                //#endregion
 
-                var fermentorGbs = (TotalGbs * ((double)(fermentorGravityPercent) / 100d));
+                //var fermentorGbs = (TotalGbs * ((double)(fermentorGravityPercent) / 100d));
 
 
 
-                var preBoilGravity = GravityAlorithms.GetGravity(mashPoints, Volumes.PreBoilVolume);
+                //var preBoilGravity = GravityAlorithms.GetGravity(mashPoints, Volumes.PreBoilVolume);
 
-                var postBoilGravity = GravityAlorithms.GetGravity((mashPoints + coldSteepPoints), Volumes.TotalBatchVolume);
+                //var postBoilGravity = GravityAlorithms.GetGravity((mashPoints + coldSteepPoints), Volumes.TotalBatchVolume);
 
 
 
@@ -687,15 +696,14 @@ namespace GFCalc
 
                 var pobg = GravityAlorithms.GetGravityByPart(
                     Volumes.PostBoilVolume, 
-                    Grist.Where(x => x.Stage == FermentableStage.Mash).ToList(), 
+                    Grist.Where(x => x.Stage != FermentableStage.Fermentor).ToList(), 
                     TotalGbs, 
                     GrainfatherCalculator.MashEfficiency);
 
-                Gravitylabel.Content = String.Format("Gravity(pre -) / (post - boil)[SG]: ({0:F3}) / ({1:F3}) - ({2:F3}) / ({3:F3})",
-    preBoilGravity,
-    postBoilGravity,
-    prbg,
-    pobg);
+                Gravitylabel.Content = String.Format("Gravity (pre- and post-boil) [SG]: {0:F3} {1:F3})",
+                    prbg,
+                    pobg);
+
                 foreach (var grain in l)
                 {
                     Grist.Remove(grain);
@@ -891,6 +899,12 @@ namespace GFCalc
                 Volumes.PreBoilTapOff = volRemoved;
                 recalculateGrainBill();
             }
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            var aboutWindow = new WpfApplication1.About();
+            aboutWindow.ShowDialog();
         }
     }
 }

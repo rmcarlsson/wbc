@@ -115,10 +115,10 @@ namespace Grainsim.Domain
 
 
             if (!ParseMaxMinAcid(h.AlphaAcid, AlphaAcidTextBox.Text))
-                msg = "Please state a validf float value for Alpha acid";
+                msg = "Please state a valid float value for Alpha acid";
 
             if (!ParseMaxMinAcid(h.BetaAcid, BetaAcidTextBox.Text))
-                msg = "Please state a validf float value for Beta acid";
+                msg = "Please state a valid float value for Beta acid";
 
 
             if (!ParseMaxMinAcid(h.CoHumulone, coHumTextBox.Text))
@@ -130,9 +130,14 @@ namespace Grainsim.Domain
                 return;
             }
 
-            Hopses.Add(h);
             try {
-                Repo.AddHops(h, false);
+                Repo.AddHops(h);
+
+                Hopses.Clear();
+                var fList = Repo.Get();
+                foreach (Hops x in fList)
+                    Hopses.Add(x);
+
             }
             catch (ArgumentException ex)
             {
@@ -140,6 +145,11 @@ namespace Grainsim.Domain
             }
             AddButton.Content = "Add";
 
+        }
+
+        private void DoneButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
