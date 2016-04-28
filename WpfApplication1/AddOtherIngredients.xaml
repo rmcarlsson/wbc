@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Grainsim"
         mc:Ignorable="d"
-        Title="Add other ingredients" Height="300" Width="300">
+        Title="Add other ingredients" Height="300" Width="310">
     <Grid>
         <Label x:Name="label" Content="Name:" HorizontalAlignment="Left" Margin="45,10,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1" Content="Amount[g/L]:" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label2" Content="Notes:" HorizontalAlignment="Left" Margin="45,72,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="NameTextBox" HorizontalAlignment="Left" Height="23" Margin="94,12,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="AmountTextBox1" HorizontalAlignment="Left" Height="23" Margin="95,43,0,0" TextWrapping="Wrap" Text="0,6" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="DoneButton" Content="Done" HorizontalAlignment="Left" Margin="209,240,0,0" VerticalAlignment="Top" Width="75" Click="DoneButton_Click"/>
-        <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="129,240,0,0" VerticalAlignment="Top" Width="75" Click="CancelButton_Click"/>
+        <Button x:Name="DoneButton" Content="Done" HorizontalAlignment="Left" Margin="217,240,10,10" VerticalAlignment="Top" Width="75" Click="DoneButton_Click"/>
+        <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="129,240,10,10" VerticalAlignment="Top" Width="75" Click="CancelButton_Click"/>
         <TextBox x:Name="NotesTextBox" HorizontalAlignment="Left" Height="161" Margin="95,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="189"/>
 
     </Grid>

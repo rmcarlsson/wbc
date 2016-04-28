@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Grainsim"
         mc:Ignorable="d"
-        Title="Select hops for Boil, type and amount" Height="255.733" Width="470.429">
+        Title="Select hops" Height="255.733" Width="470.429">
     <Grid>
         <ComboBox x:Name="HopsComboBox" DisplayMemberPath="Name" HorizontalAlignment="Left" Margin="25,48,0,0" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="label" Content="Hops" HorizontalAlignment="Left" Margin="25,17,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.283,0.115"/>
-        <Button x:Name="Cancel" Content="Cancel" HorizontalAlignment="Left" Margin="328,196,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
-        <Button x:Name="Done" Content="Done" HorizontalAlignment="Left" Margin="248,196,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click"/>
+        <Button x:Name="Cancel" Content="Cancel" HorizontalAlignment="Left" Margin="377,195,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+        <Button x:Name="Done" Content="Done" HorizontalAlignment="Left" Margin="297,195,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click"/>
         <TextBox x:Name="AmountTextBox" HorizontalAlignment="Left" Height="23" Margin="379,20,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="75"/>
         <Label x:Name="label1" Content="Amount [g/L] :" HorizontalAlignment="Left" Margin="288,18,0,0" VerticalAlignment="Top"/>
 

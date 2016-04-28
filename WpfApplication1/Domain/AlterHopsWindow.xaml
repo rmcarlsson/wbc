@@ -5,37 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Grainsim.Domain"
         mc:Ignorable="d"
-        Title="AlterHopsWindow" Height="300" Width="696.8">
+        Title="Add, remove and moidify hops" Height="310" Width="760">
     <Grid>
-        <ListView x:Name="listView" HorizontalAlignment="Left" Height="249" Margin="10,10,0,0" VerticalAlignment="Top" Width="319" MouseDoubleClick="listView_MouseDoubleClick" KeyDown="listView_KeyDown">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Name}"  Header="Name" />
-                    <GridViewColumn DisplayMemberBinding="{Binding AlphaAcid}"  Header="Alpha acid" />
-                    <GridViewColumn DisplayMemberBinding="{Binding Purpose}"  Header="Purpose" />
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <Label x:Name="label" Content="Name" HorizontalAlignment="Left" Margin="334,14,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1" Content="AlphaAcid" HorizontalAlignment="Left" Margin="334,42,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label2" Content="BetaAcid" HorizontalAlignment="Left" Margin="334,70,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.531,0.868"/>
-        <Label x:Name="label3" Content="CoHumulone" HorizontalAlignment="Left" Margin="334,98,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label4" Content="Country" HorizontalAlignment="Left" Margin="334,126,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label5" Content="Substitutes" HorizontalAlignment="Left" Margin="334,154,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="PurposeComboBox" HorizontalAlignment="Left" Margin="442,190,0,0" VerticalAlignment="Top" Width="120">
-            <ComboBoxItem  Name="cbi1">Aroma</ComboBoxItem>
-            <ComboBoxItem  Name="cbi2">Bittering</ComboBoxItem>
-        </ComboBox>
-        <Label x:Name="label6" Content="Purpose" HorizontalAlignment="Left" Margin="334,190,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="NameTextBox" HorizontalAlignment="Left" Height="23" Margin="442,14,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="189"/>
-        <TextBox x:Name="AlphaAcidTextBox" HorizontalAlignment="Left" Height="23" Margin="442,42,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="BetaAcidTextBox" HorizontalAlignment="Left" Height="23" Margin="442,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="coHumTextBox" HorizontalAlignment="Left" Height="23" Margin="442,98,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="CountryTextBox" HorizontalAlignment="Left" Height="23" Margin="442,126,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="189"/>
-        <TextBox x:Name="SubstTextBox" HorizontalAlignment="Left" Height="23" Margin="442,154,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="232"/>
-        <Button x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Margin="607,239,0,0" VerticalAlignment="Top" Width="75" Click="AddButton_Click"/>
-        <Button x:Name="DoneButton" Content="Cancel" HorizontalAlignment="Left" Margin="527,239,0,0" VerticalAlignment="Top" Width="75" Click="DoneButton_Click"/>
-
+        <Canvas Margin="10,10,10,20">
+            <ListView x:Name="listView" HorizontalAlignment="Left" Height="239" VerticalAlignment="Top" Width="367" MouseDoubleClick="listView_MouseDoubleClick" KeyDown="listView_KeyDown" Canvas.Left="10" Canvas.Top="10">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding Name}"  Header="Name" />
+                        <GridViewColumn DisplayMemberBinding="{Binding AlphaAcid}"  Header="Alpha acid" />
+                        <GridViewColumn DisplayMemberBinding="{Binding Purpose}"  Header="Purpose" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Label x:Name="label" Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="382" Canvas.Top="14"/>
+            <Label x:Name="label1" Content="AlphaAcid" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="382" Canvas.Top="42"/>
+            <Label x:Name="label2" Content="BetaAcid" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.531,0.868" Canvas.Left="382" Canvas.Top="70"/>
+            <Label x:Name="label3" Content="CoHumulone" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="382" Canvas.Top="98"/>
+            <Label x:Name="label4" Content="Country" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="382" Canvas.Top="126"/>
+            <Label x:Name="label5" Content="Substitutes" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="382" Canvas.Top="154"/>
+            <ComboBox x:Name="PurposeComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Canvas.Left="490" Canvas.Top="190">
+                <ComboBoxItem  Name="cbi1">Aroma</ComboBoxItem>
+                <ComboBoxItem  Name="cbi2">Bittering</ComboBoxItem>
+            </ComboBox>
+            <Label x:Name="label6" Content="Purpose" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="382" Canvas.Top="190"/>
+            <TextBox x:Name="NameTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="189" Canvas.Left="490" Canvas.Top="14"/>
+            <TextBox x:Name="AlphaAcidTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Canvas.Left="490" Canvas.Top="42"/>
+            <TextBox x:Name="BetaAcidTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Canvas.Left="490" Canvas.Top="70"/>
+            <TextBox x:Name="coHumTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Canvas.Left="490" Canvas.Top="98"/>
+            <TextBox x:Name="CountryTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="189" Canvas.Left="490" Canvas.Top="126"/>
+            <TextBox x:Name="SubstTextBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="232" Canvas.Left="490" Canvas.Top="154"/>
+            <Button x:Name="AddButton" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="AddButton_Click" Canvas.Left="657" Canvas.Top="229"/>
+            <Button x:Name="DoneButton" Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="DoneButton_Click" Canvas.Left="577" Canvas.Top="229"/>
+        </Canvas>
     </Grid>
 
 </Window>

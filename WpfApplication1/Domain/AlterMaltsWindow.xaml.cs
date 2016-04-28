@@ -83,6 +83,12 @@ namespace Grainsim.Domain
 
             Repo.AddFermentable(f);
 
+            Fermentables.Clear();
+            var fList = Repo.Get();
+            foreach (FermentableAdjunct x in fList)
+                Fermentables.Add(x);
+
+
             AddButton.Content = "Add";
 
 
@@ -118,8 +124,11 @@ namespace Grainsim.Domain
                 foreach (FermentableAdjunct listViewItem in ((ListView)sender).SelectedItems)
                 {
                     Repo.RemoveFermentable(listViewItem);
-                    Fermentables.Remove(listViewItem);
-                    MessageBox.Show(String.Format("Shit, want to remove {0}?", listViewItem.Name));
+
+                    Fermentables.Clear();
+                    var fList = Repo.Get();
+                    foreach (FermentableAdjunct x in fList)
+                        Fermentables.Add(x);
                     break;
                 }
             }

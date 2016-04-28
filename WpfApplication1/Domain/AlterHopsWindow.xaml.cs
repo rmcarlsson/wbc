@@ -69,8 +69,7 @@ namespace Grainsim.Domain
                 foreach (Hops listViewItem in ((ListView)sender).SelectedItems)
                 {
                     Repo.RemoveHops(listViewItem);
-                    Hopses.Remove(listViewItem);
-                    MessageBox.Show(String.Format("Shit, want to remove {0}?", listViewItem.Name));
+                    RefreashListview();
                     break;
                 }
             }
@@ -133,10 +132,7 @@ namespace Grainsim.Domain
             try {
                 Repo.AddHops(h);
 
-                Hopses.Clear();
-                var fList = Repo.Get();
-                foreach (Hops x in fList)
-                    Hopses.Add(x);
+                RefreashListview();
 
             }
             catch (ArgumentException ex)
@@ -150,6 +146,15 @@ namespace Grainsim.Domain
         private void DoneButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void RefreashListview()
+        {
+
+            Hopses.Clear();
+            var fList = Repo.Get();
+            foreach (Hops x in fList)
+                Hopses.Add(x);
         }
     }
 }

@@ -14,7 +14,7 @@
         <Button x:Name="button" Content="Done" HorizontalAlignment="Left" Margin="207,239,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
         <ComboBox x:Name="StageComboBox" HorizontalAlignment="Left" Margin="102,87,0,0" VerticalAlignment="Top" Width="120">
         </ComboBox>
-        <Label x:Name="label1" Content="Addded at" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="Added at" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top"/>
         <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="127,240,0,0" VerticalAlignment="Top" Width="75" Click="CancelButton_Click"/>
 
     </Grid>

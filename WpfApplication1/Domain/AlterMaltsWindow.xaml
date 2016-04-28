@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Grainsim.Domain"
         mc:Ignorable="d"
-        Title="AlterMaltsWindow" Height="400" Width="600">
+        Title="Add, remove and modify malts" Height="340" Width="560">
     <Grid>
-        <ListView x:Name="listView" HorizontalAlignment="Left" Height="349" Margin="10,10,0,0" VerticalAlignment="Top" Width="316" MouseDoubleClick="listView_MouseDoubleClick" KeyDown="listView_KeyDown">
+        <ListView x:Name="listView" HorizontalAlignment="Left" Height="277" Margin="10,10,0,0" VerticalAlignment="Top" Width="316" MouseDoubleClick="listView_MouseDoubleClick" KeyDown="listView_KeyDown">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding Name}"  Header="Name" />
@@ -16,8 +16,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="DoneButton" Content="Cancel" HorizontalAlignment="Left" Margin="429,340,0,0" VerticalAlignment="Top" Width="75" Click="DoneButton_Click"/>
-        <Button x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Margin="509,340,0,0" VerticalAlignment="Top" Width="75" Click="AddButton_Click"/>
+        <Button x:Name="DoneButton" Content="Cancel" HorizontalAlignment="Right" Margin="10,10,90,10" VerticalAlignment="Bottom" Width="75" Click="DoneButton_Click"/>
+        <Button x:Name="AddButton" Content="Add" HorizontalAlignment="Right" Margin="10,10,10,10" VerticalAlignment="Bottom" Width="75" Click="AddButton_Click"/>
         <Label x:Name="label" Content="Name:" HorizontalAlignment="Left" Margin="331,46,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1" Content="Origin:" HorizontalAlignment="Left" Margin="331,74,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label2" Content="Color:" HorizontalAlignment="Left" Margin="331,103,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.631,0.703"/>

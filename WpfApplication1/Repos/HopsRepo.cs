@@ -7,12 +7,13 @@ using GFCalc.DataModel;
 using System.Xml.Serialization;
 using System.IO;
 using System.Reflection;
+using System.Windows;
 
 namespace GFCalc.Repos
 {
     public class HopsRepository : IHopsRepo
     {
-        public const string HOPS_DATA_FILEPATH_SAVE = "hopsesData.xml";
+        public const string HOPS_DATA_FILENAME = "hopsesData.xml";
 
         public List<Hops> hopses;
         public HopsRepository()
@@ -23,9 +24,11 @@ namespace GFCalc.Repos
 
                 XmlSerializer serializer = new XmlSerializer(typeof(HopsData));
                 HopsData loadedObject;
-                if (File.Exists(HOPS_DATA_FILEPATH_SAVE))
+                var path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                var fullpath = String.Format("{0}\\{1}", path, HOPS_DATA_FILENAME);
+                if (File.Exists(fullpath))
                 {
-                    FileStream loadStream = new FileStream(HOPS_DATA_FILEPATH_SAVE, FileMode.Open, FileAccess.Read);
+                   FileStream loadStream = new FileStream(fullpath, FileMode.Open, FileAccess.Read);
                     loadedObject = (HopsData)serializer.Deserialize(loadStream);
                     loadStream.Close();
                 }
@@ -47,11 +50,25 @@ namespace GFCalc.Repos
         public void Persist()
         {
             XmlSerializer serializer = new XmlSerializer(typeof(HopsData));
-            FileStream saveStream = new FileStream(HOPS_DATA_FILEPATH_SAVE, FileMode.Create, FileAccess.Write);
-            var h = new HopsData();
-            h.Hopses = hopses;
-            serializer.Serialize(saveStream, h);
-            saveStream.Close();
+            FileStream saveStream = null;
+            try {
+                var path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                var fullpath = String.Format("{0}\\{1}", path, HOPS_DATA_FILENAME);
+                saveStream = new FileStream(fullpath, FileMode.Create, FileAccess.Write);
+                var h = new HopsData();
+                h.Hopses = hopses;
+                serializer.Serialize(saveStream, h);
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(String.Format("Filed to open {0}, exception {1}", HOPS_DATA_FILENAME, e));
+            }
+            finally
+            {
+                if (saveStream != null)
+                    saveStream.Close();
+            }
         }
 
         public IEnumerable<Hops> Get()
