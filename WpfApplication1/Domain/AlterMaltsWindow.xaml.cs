@@ -88,20 +88,33 @@ namespace Grainsim.Domain
             foreach (FermentableAdjunct x in fList)
                 Fermentables.Add(x);
 
+            listView.ItemsSource = Fermentables;
 
+            // Reset GUI
             AddButton.Content = "Add";
+            NameTextBox.Text = String.Empty;
+            OriginTextBox.Text = String.Empty;
+            MashNeededCheckBox.IsChecked = false;
+            PotentialTextBox.Text = String.Empty;
+            ColorTextBox.Text = String.Empty;
+            MaxPartTextBox.Text = String.Empty;
+            TypeComboBox.Text = String.Empty;
 
 
         }
 
         private void listView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (listView.SelectedIndex >= Fermentables.Count() || listView.SelectedIndex < 0)
+            var v =  (ListView)sender;
+            if (listView.SelectedIndex >= Fermentables.Count() || 
+                listView.SelectedIndex < 0 ||
+                listView.SelectedItem == null)
                 return;
+
 
             AddButton.Content = "Update";
 
-            var f = Fermentables.ToArray()[listView.SelectedIndex];
+            FermentableAdjunct f = (FermentableAdjunct)listView.SelectedItem;
 
             NameTextBox.Text = f.Name;
             OriginTextBox.Text = f.Origin;
@@ -129,6 +142,8 @@ namespace Grainsim.Domain
                     var fList = Repo.Get();
                     foreach (FermentableAdjunct x in fList)
                         Fermentables.Add(x);
+
+                    listView.ItemsSource = Fermentables;
                     break;
                 }
             }

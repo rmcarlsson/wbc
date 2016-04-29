@@ -139,8 +139,18 @@ namespace Grainsim.Domain
             {
                 MessageBox.Show(ex.Message);
             }
+
+
+            // Reset GUI
             AddButton.Content = "Add";
 
+            NameTextBox.Text = String.Empty;
+            coHumTextBox.Text = String.Empty;
+            BetaAcidTextBox.Text = String.Empty;
+            AlphaAcidTextBox.Text = String.Empty;
+            CountryTextBox.Text = String.Empty;
+            SubstTextBox.Text = String.Empty;
+            PurposeComboBox.Text = String.Empty; 
         }
 
         private void DoneButton_Click(object sender, RoutedEventArgs e)
@@ -155,6 +165,8 @@ namespace Grainsim.Domain
             var fList = Repo.Get();
             foreach (Hops x in fList)
                 Hopses.Add(x);
+
+            listView.ItemsSource = Hopses;
         }
     }
 }
