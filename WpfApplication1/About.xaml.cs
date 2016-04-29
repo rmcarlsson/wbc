@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,6 +23,18 @@ namespace WpfApplication1
         public About()
         {
             InitializeComponent();
+
+            Assembly thisAssem = typeof(About).Assembly;
+            AssemblyName thisAssemName = thisAssem.GetName();
+
+            Version ver = thisAssemName.Version;
+
+            textBox.Text = String.Format(@"{0} version {1}.
+
+Grainsim is a simple tool for receipe creation for Grainfather.
+
+If you want to contribute please contact r_m_carlsson@hotmail.com", thisAssemName.Name, ver);
+
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
