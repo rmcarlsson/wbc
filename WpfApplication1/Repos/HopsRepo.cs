@@ -21,7 +21,6 @@ namespace GFCalc.Repos
             if (hopses == null)
             {
 
-
                 XmlSerializer serializer = new XmlSerializer(typeof(HopsData));
                 HopsData loadedObject;
                 var path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
@@ -34,7 +33,7 @@ namespace GFCalc.Repos
                 }
                 else
                 {
-                    var assembly = Assembly.GetExecutingAssembly();
+                    Assembly assembly = typeof(HopsRepository).Assembly;
                     var resourceName = "WpfApplication1.Resources.hopses.xml";
                     var stream =
                         assembly.GetManifestResourceStream(resourceName);
