@@ -14,26 +14,27 @@ namespace GFCalc.Repos
     public class HopsRepository : IHopsRepo
     {
         public const string HOPS_DATA_FILENAME = "hopsesData.xml";
+        public string HopsDataLocalPath;
 
         public List<Hops> hopses;
         public HopsRepository()
         {
             if (hopses == null)
             {
-
+                Assembly assembly = typeof(HopsRepository).Assembly;
                 XmlSerializer serializer = new XmlSerializer(typeof(HopsData));
                 HopsData loadedObject;
-                var path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-                var fullpath = String.Format("{0}\\{1}", path, HOPS_DATA_FILENAME);
-                if (File.Exists(fullpath))
+                var path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+                HopsDataLocalPath = String.Format("{0}\\{1}\\{2}", path, assembly.GetName().Name, HOPS_DATA_FILENAME);
+                if (File.Exists(HopsDataLocalPath))
                 {
-                   FileStream loadStream = new FileStream(fullpath, FileMode.Open, FileAccess.Read);
+                   FileStream loadStream = new FileStream(HopsDataLocalPath, FileMode.Open, FileAccess.Read);
                     loadedObject = (HopsData)serializer.Deserialize(loadStream);
                     loadStream.Close();
                 }
                 else
                 {
-                    Assembly assembly = typeof(HopsRepository).Assembly;
+
                     var resourceName = "WpfApplication1.Resources.hopses.xml";
                     var stream =
                         assembly.GetManifestResourceStream(resourceName);
@@ -51,9 +52,7 @@ namespace GFCalc.Repos
             XmlSerializer serializer = new XmlSerializer(typeof(HopsData));
             FileStream saveStream = null;
             try {
-                var path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-                var fullpath = String.Format("{0}\\{1}", path, HOPS_DATA_FILENAME);
-                saveStream = new FileStream(fullpath, FileMode.Create, FileAccess.Write);
+                saveStream = new FileStream(HopsDataLocalPath, FileMode.Create, FileAccess.Write);
                 var h = new HopsData();
                 h.Hopses = hopses;
                 serializer.Serialize(saveStream, h);

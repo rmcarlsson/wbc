@@ -13,17 +13,18 @@ namespace GFCalc.Repos
     {
 
         public const string MALT_DATA_FILEPATH_SAVE = @"maltsData.xml";
+        private string MaltsDataLocalPath;
 
         public FermentableRepository()
         {
             FermentableAdjuncts loadedObject;
+            var assembly = Assembly.GetExecutingAssembly();
             XmlSerializer serializer = new XmlSerializer(typeof(FermentableAdjuncts));
-            var path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            var fullpath = String.Format("{0}\\{1}", path, MALT_DATA_FILEPATH_SAVE);
+            var path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            var fullpath = String.Format("{0}\\{1}\\{2}", path, assembly.GetName().Name, MALT_DATA_FILEPATH_SAVE);
 
-            if (!File.Exists(fullpath))
+            if (!File.Exists(MaltsDataLocalPath))
             {
-                var assembly = Assembly.GetExecutingAssembly();
                 var resourceName = "WpfApplication1.Resources.malts.xml";
 
                 var stream = assembly.GetManifestResourceStream(resourceName);
@@ -32,7 +33,7 @@ namespace GFCalc.Repos
             }
             else
             {
-                FileStream loadStream = new FileStream(fullpath, FileMode.Open, FileAccess.Read);
+                FileStream loadStream = new FileStream(MaltsDataLocalPath, FileMode.Open, FileAccess.Read);
                 loadedObject = (FermentableAdjuncts)serializer.Deserialize(loadStream);
 
             }
@@ -45,17 +46,14 @@ namespace GFCalc.Repos
             FileStream saveStream = null;
             try
             {
-                var path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-                var fullpath = String.Format("{0}\\{1}", path, MALT_DATA_FILEPATH_SAVE);
-
-                saveStream = new FileStream(fullpath, FileMode.Create, FileAccess.Write);
+                saveStream = new FileStream(MaltsDataLocalPath, FileMode.Create, FileAccess.Write);
                 var f = new FermentableAdjuncts();
                 f.FermentableAdjunct = ferms;
                 serializer.Serialize(saveStream, f);
             }
             catch (Exception e)
             {
-                MessageBox.Show(String.Format("Filed to open {0}, exception {1}", MALT_DATA_FILEPATH_SAVE, e));
+                MessageBox.Show(String.Format("Filed to open {0}, exception {1}", MaltsDataLocalPath, e));
             }
             finally
             {
