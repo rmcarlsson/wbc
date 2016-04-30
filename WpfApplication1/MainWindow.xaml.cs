@@ -17,7 +17,7 @@ using BSImport;
 using Grainsim.BeersmithImporterWizard;
 using System.Text;
 using System.Windows.Media;
-
+using System.Reflection;
 
 namespace GFCalc
 {
@@ -50,6 +50,18 @@ namespace GFCalc
         {
             InitializeComponent();
 
+            var assembly = Assembly.GetExecutingAssembly();
+            var path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            var fullpath = String.Format("{0}\\{1}", path, assembly.GetName().Name);
+            try {
+                if (!Directory.Exists(fullpath))
+                    Directory.CreateDirectory(fullpath);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(String.Format("Unable to create {0}. Exception {1}", fullpath, e));
+
+            }
             HopsRepo = new HopsRepository();
             MaltRepo = new FermentableRepository();
 
