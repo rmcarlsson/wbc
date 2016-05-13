@@ -20,7 +20,8 @@ namespace Grainsim.Domain
 
 
         /// <summary>
-        /// This volume is the total volume of the batch. 
+        /// This volume is the total volume used ofr gravity and color 
+        /// calcalations 
         /// </summary>
         public double TotalBatchVolume
         {
@@ -35,7 +36,7 @@ namespace Grainsim.Domain
         }
 
         /// <summary>
-        /// This volume is the expected volume that ends up in the fermentor
+        /// This volume is the expected volume out from the counter flow chiller going into the fermentor
         /// </summary>
         public double FinalBatchVolume
         {
@@ -128,9 +129,13 @@ namespace Grainsim.Domain
 
         private void UpdateTotalBatchVolume()
         {
+            // One part left in the boiler, one part out of the counter flow 
+            // chiller and one part taken away between mash and boil.
             TotalBatchVolume = boilerToFermentorLoss + finalBatchVolume + preBoilTapOff;
+
             PreBoilVolume = TotalBatchVolume + boilOffLoss - ColdSteepVolume;
-            PostBoilVolume = PreBoilVolume - boilOffLoss - PreBoilTapOff; 
+
+            PostBoilVolume = TotalBatchVolume - PreBoilTapOff; 
         }
     }
 }

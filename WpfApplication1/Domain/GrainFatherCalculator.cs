@@ -15,9 +15,7 @@ namespace GFCalc.Domain
 
         public const double GRAINFATHER_WATER_TO_GRAIN_RATIO_IN_MASH = 2.7;
 
-        //public const double GRAINFATHER_BOILER_TO_FERMENTOR_LOSS = 2.5;
-
-        public const double GRAIN_WATER_ABSORBTION = (0.652/1000); // l/kg
+        public const double GRAIN_WATER_ABSORBTION = (0.8/1000); // l/kg
 
         public const double MASH_VOLUME_INCREASE_WITH_GRAINS = (0.325/1000); //l/kg
 
@@ -25,9 +23,9 @@ namespace GFCalc.Domain
 
         public static double MashEfficiency = 0.78;
 
-        public const double BOIL_OFF_RATE = 2;
+        public const double BOIL_OFF_RATE = 2.7;
 
-        public static double GRAINFATHER_BOILER_TO_FERMENTOR_LOSS = 1;
+        public static double GRAINFATHER_BOILER_TO_FERMENTOR_LOSS = 2.3;
         
         //
         // Input:
