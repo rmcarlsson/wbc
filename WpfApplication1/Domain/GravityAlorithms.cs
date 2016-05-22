@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Grainsim.Domain
 {
-    public class GravityAlorithms
+    public class GravityAlgorithms
     {
         public static double GetPoints(double aGravity, double aVolume)
         {
@@ -34,9 +34,9 @@ namespace Grainsim.Domain
 
         public static int GetGrainWeight(double somePoints, double aPotential)
         {
+            var gfc = new GrainfatherCalculator();
 
-
-            var ppg = (aPotential - 1) * 1000 * GrainfatherCalculator.MashEfficiency;
+            var ppg = (aPotential - 1) * 1000 * gfc.MashEfficiency;
             return Weight.ConvertPoundsToGrams(somePoints / ppg);
 
         }
@@ -100,7 +100,8 @@ namespace Grainsim.Domain
                 switch (f.Stage)
                 {
                     case FermentableStage.Mash:
-                        eff = GrainfatherCalculator.MashEfficiency;
+                        var gfc = new GrainfatherCalculator();
+                        eff = gfc.MashEfficiency;
                         break;
                     case FermentableStage.ColdSteep:
                         eff = ColdSteep.COLDSTEEP_EFFICIENCY;

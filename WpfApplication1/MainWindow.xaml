@@ -35,6 +35,10 @@
                 <MenuItem Header="_Add hops" Click="MenuItem_Add_Hops" />
                 <MenuItem Header="_Add malt" Click="MenuItem_IngredientsAddMalts"/>
             </MenuItem>
+            <MenuItem Header="_Settings">
+                <MenuItem Header="_Mash efficency" Click="MenuItem_SettingsMashEfficiency" />
+            </MenuItem>
+
             <MenuItem Header="_Help">
                 <MenuItem Header="_About" Click="MenuItem_Click" />
             </MenuItem>

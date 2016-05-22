@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GFCalc.Domain
 {
-    class GrainfatherCalculator
+    public class GrainfatherCalculator
     {
         public const double SMALL_GRAINBILL = 4500;
 
@@ -21,12 +21,26 @@ namespace GFCalc.Domain
 
         private static readonly ILog logger = LogManager.GetLogger(typeof(GrainfatherCalculator));
 
-        public static double MashEfficiency = 0.78;
+        public static double mashEfficiency = 0.78;
 
         public const double BOIL_OFF_RATE = 2.7;
 
         public static double GRAINFATHER_BOILER_TO_FERMENTOR_LOSS = 2.3;
-        
+
+        public double MashEfficiency
+        {
+            set
+            {
+                mashEfficiency = value;
+            }
+
+            get
+            {
+                return mashEfficiency;
+            }
+        }
+
+
         //
         // Input:
         //

@@ -8,7 +8,8 @@
         Title="About" Height="300" Width="300">
     <Grid>
         <Button x:Name="button" Content="OK" HorizontalAlignment="Left" Margin="110,240,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="207" Margin="10,10,0,0" TextWrapping="Wrap" Text="Grainsim is a simple tool for receipe creation for Grainfather. &#xA;&#xA;If you want to contribute please contact r_m_carlsson@hotmail.com.&#xA;" VerticalAlignment="Top" Width="274"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="207" Margin="10,10,10,10" TextWrapping="Wrap" Text="Grainsim is a simple tool for receipe creation for Grainfather. &#xA;&#xA;If you want to contribute please contact r_m_carlsson@hotmail.com.&#xA;" VerticalAlignment="Top" Width="274"/>
+        <Button x:Name="donateButton" Content="Donate" HorizontalAlignment="Left" Margin="110,136,0,0" VerticalAlignment="Top" Width="75" Click="donateButton_Click"/>
 
     </Grid>
 </Window>

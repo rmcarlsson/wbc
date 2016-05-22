@@ -42,5 +42,25 @@ If you want to contribute please contact r_m_carlsson@hotmail.com", thisAssemNam
             this.Close();
         }
 
+        private void donateButton_Click(object sender, RoutedEventArgs e)
+         
+        {
+            string url = "";
+
+            string business = "rmcarlsson@gmail.com";  // your paypal email
+            string description = "Donation";            // '%20' represents a space. remember HTML!
+            string country = "SE";                  // AU, US, etc.
+            string currency = "EUR";                 // AUD, USD, etc.
+
+            url += "https://www.paypal.com/cgi-bin/webscr" +
+                "?cmd=" + "_donations" +
+                "&business=" + business +
+                "&lc=" + country +
+                "&item_name=" + description +
+                "&currency_code=" + currency +
+                "&bn=" + "PP%2dDonationsBF";
+
+            System.Diagnostics.Process.Start(url);
+        }
     }
 }

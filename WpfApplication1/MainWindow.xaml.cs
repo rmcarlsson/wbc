@@ -18,6 +18,7 @@ using Grainsim.BeersmithImporterWizard;
 using System.Text;
 using System.Windows.Media;
 using System.Reflection;
+using WpfApplication1;
 
 namespace GFCalc
 {
@@ -401,6 +402,7 @@ namespace GFCalc
             PrintDialog pDialog = new PrintDialog();
             pDialog.PageRangeSelection = PageRangeSelection.AllPages;
             pDialog.UserPageRangeEnabled = true;
+            var gfc = new GrainfatherCalculator();
 
             // Display the dialog. This returns true if the user presses the Print button.
             Nullable<Boolean> print = pDialog.ShowDialog();
@@ -484,22 +486,22 @@ namespace GFCalc
                     topUpVolume))));
 
 
-                var prbg = GravityAlorithms.GetGravity(
+                var prbg = GravityAlgorithms.GetGravity(
                     Volumes.PreBoilVolume, 
-                    Grist.Where(x => x.Stage == FermentableStage.Mash).ToList(), 
-                    GrainfatherCalculator.MashEfficiency);
+                    Grist.Where(x => x.Stage == FermentableStage.Mash).ToList(),
+                    gfc.MashEfficiency);
 
-                var TotalGbs = GravityAlorithms.GetGrainBillWeight(
+                var TotalGbs = GravityAlgorithms.GetGrainBillWeight(
                     OriginalGravity, 
                     Volumes.TotalBatchVolume - Volumes.PreBoilTapOff, 
-                    Grist.ToList(), 
-                    GrainfatherCalculator.MashEfficiency);
+                    Grist.ToList(),
+                    gfc.MashEfficiency);
 
-                var pobg = GravityAlorithms.GetGravityByPart(
+                var pobg = GravityAlgorithms.GetGravityByPart(
                     Volumes.PostBoilVolume,
                     Grist.Where(x => x.Stage != FermentableStage.Fermentor).ToList(),
                     TotalGbs,
-                    GrainfatherCalculator.MashEfficiency);
+                    gfc.MashEfficiency);
 
                 pmp.Inlines.Add(new Run(String.Format("\nExpected pre-boil gravity is {0:F3}. Pre-boil volume shall be {1:F1} liters",
                     prbg, Volumes.PreBoilVolume)));
@@ -603,6 +605,8 @@ namespace GFCalc
 
         private void recalculateGrainBill()
         {
+            var gfc = new GrainfatherCalculator();
+
             var sum = Grist.Sum(g => g.Amount);
             if (sum != 100)
             {
@@ -613,7 +617,7 @@ namespace GFCalc
             {
                 var preBoilTappOffLoss = (Volumes.PreBoilTapOff / (Volumes.PreBoilVolume - Volumes.PreBoilTapOff));
 
-                var TotalGbs = GravityAlorithms.GetGrainBillWeight(OriginalGravity, Volumes.TotalBatchVolume - Volumes.PreBoilTapOff, Grist.ToList(), GrainfatherCalculator.MashEfficiency);
+                var TotalGbs = GravityAlgorithms.GetGrainBillWeight(OriginalGravity, Volumes.TotalBatchVolume - Volumes.PreBoilTapOff, Grist.ToList(), gfc.MashEfficiency);
 
 
                 Volumes.ColdSteepVolume = 0;
@@ -646,13 +650,13 @@ namespace GFCalc
 
                 }
 
-                var prbg = GravityAlorithms.GetGravity(Volumes.PreBoilVolume, Grist.Where(x => x.Stage == FermentableStage.Mash).ToList(), GrainfatherCalculator.MashEfficiency);
+                var prbg = GravityAlgorithms.GetGravity(Volumes.PreBoilVolume, Grist.Where(x => x.Stage == FermentableStage.Mash).ToList(), gfc.MashEfficiency);
 
-                var pobg = GravityAlorithms.GetGravityByPart(
+                var pobg = GravityAlgorithms.GetGravityByPart(
                     Volumes.PostBoilVolume, 
                     Grist.Where(x => x.Stage != FermentableStage.Fermentor).ToList(), 
-                    TotalGbs, 
-                    GrainfatherCalculator.MashEfficiency);
+                    TotalGbs,
+                    gfc.MashEfficiency);
 
                 Gravitylabel.Content = String.Format("Gravity (pre- and post-boil) [SG]: {0:F3} {1:F3})",
                     prbg,
@@ -859,6 +863,26 @@ namespace GFCalc
         {
             var aboutWindow = new WpfApplication1.About();
             aboutWindow.ShowDialog();
+        }
+
+        private void MenuItem_SettingsMashEfficiency(object sender, RoutedEventArgs e)
+        {
+            var meWindow = new MashEffeciency();
+            meWindow.ShowDialog();
+
+            var measuredPts = GravityAlgorithms.GetPoints(meWindow.Gravity, meWindow.Volume);
+            var prbg = GravityAlgorithms.GetGravity(Volumes.PreBoilVolume, Grist.Where(x => x.Stage == FermentableStage.Mash).ToList(), 1);
+            var possiblePts = GravityAlgorithms.GetPoints(prbg, Volumes.PreBoilVolume);
+
+            var me = measuredPts/possiblePts;
+
+            MessageBox.Show(String.Format("Mash effciency weas {0:F0}, will update settings", me * 100));
+            var gfc = new GrainfatherCalculator();
+            gfc.MashEfficiency = me;
+
+            recalculateGrainBill();
+            recalculateIbu();
+
         }
     }
 }

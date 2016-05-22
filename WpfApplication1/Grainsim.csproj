@@ -126,6 +126,9 @@
     <Compile Include="SelectHops.xaml.cs">
       <DependentUpon>SelectHops.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MashEfficiency.xaml.cs">
+      <DependentUpon>MashEfficiency.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -197,6 +200,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SelectHops.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MashEfficiency.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
