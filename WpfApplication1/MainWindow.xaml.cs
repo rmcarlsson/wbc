@@ -36,7 +36,6 @@ namespace GFCalc
         public double PreBoilVolume { get; set; }
         public double OriginalGravity { get; set; }
         public double PreBoilGravity { get; set; }
-        public double MashEfficieny { get; set; }
         public int GrainBillSize { get; set; }
         public int BoilTime { set; get; }
         public double TopUpMashWater { set; get; }
@@ -868,7 +867,7 @@ namespace GFCalc
 
         private void MenuItem_SettingsMashEfficiency(object sender, RoutedEventArgs e)
         {
-            var meWindow = new MashEffeciency(gfc.MashEfficiency);
+            var meWindow = new MashEffeciency((int)(gfc.MashEfficiency*100d));
             meWindow.ShowDialog();
 
             double me = 0;
@@ -884,10 +883,10 @@ namespace GFCalc
                 var possiblePts = GravityAlgorithms.GetPoints(prbg, Volumes.PreBoilVolume);
 
                 me = measuredPts / possiblePts;
-                MessageBox.Show(String.Format("Mash efficiency updated to {0:F0}%, will update settings", me * 100));
+                MessageBox.Show(String.Format("Mash efficiency updated to {0:F0}%, will update settings", me));
             }
             else if (meWindow.MashEfficiency != 0)
-                me = meWindow.MashEfficiency;
+                me = (double)meWindow.MashEfficiency/100d;
             else
                 return;
             

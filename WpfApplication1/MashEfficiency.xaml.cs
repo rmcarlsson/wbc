@@ -21,9 +21,9 @@ namespace WpfApplication1
     {
         private double volume;
         private double gravity;
-        private double mashEfficiency;
+        private int mashEfficiency;
 
-        public double MashEfficiency
+        public int MashEfficiency
         {
 
             private set
@@ -62,7 +62,7 @@ namespace WpfApplication1
             }
         }
 
-        public MashEffeciency(double aMashEfficiency)
+        public MashEffeciency(int aMashEfficiency)
         {
             InitializeComponent();
 
@@ -102,11 +102,22 @@ namespace WpfApplication1
 
             if (radioButtonME.IsChecked == true)
             {
-                if (!double.TryParse(textBoxMashEfficiency.Text, out mashEfficiency))
+                string msg = null;
+                if (!int.TryParse(textBoxMashEfficiency.Text, out mashEfficiency))
                 {
-                    MessageBox.Show("Please provide a valid number for mash efficiency");
+                    msg = "Please provide a valid number for mash efficiency";
+                }
+
+                if (mashEfficiency < 0 || mashEfficiency > 100)
+                    msg = "Mash efficiency is a value between 0 - 100";
+
+                if(msg != null)
+                {
+                    MessageBox.Show(msg);
+                    mashEfficiency = 0;
                     return;
                 }
+
             }
 
             this.Close();

@@ -21,7 +21,7 @@ namespace Grainsim.Domain
         }
 
 
-        public static double GetPostBoilVolume(double aGravity, List<GristPart> aMashFermentList, List<GristPart> aPostMashFermentList, int aMashEfficiency)
+        public static double GetPostBoilVolume(double aGravity, List<GristPart> aMashFermentList, List<GristPart> aPostMashFermentList)
         {
             if (aGravity <= 0)
                 return 0;
@@ -32,11 +32,11 @@ namespace Grainsim.Domain
             return potentialSum / aGravity;
         }
 
-        public static int GetGrainWeight(double somePoints, double aPotential)
+        public static int GetGrainWeight(double somePoints, double aPotential, double aMashEfficiency)
         {
             var gfc = new GrainfatherCalculator();
 
-            var ppg = (aPotential - 1) * 1000 * gfc.MashEfficiency;
+            var ppg = (aPotential - 1) * 1000 * aMashEfficiency;
             return Weight.ConvertPoundsToGrams(somePoints / ppg);
 
         }
@@ -101,7 +101,7 @@ namespace Grainsim.Domain
                 {
                     case FermentableStage.Mash:
                         var gfc = new GrainfatherCalculator();
-                        eff = gfc.MashEfficiency;
+                        eff = aMashEfficiency;
                         break;
                     case FermentableStage.ColdSteep:
                         eff = ColdSteep.COLDSTEEP_EFFICIENCY;
