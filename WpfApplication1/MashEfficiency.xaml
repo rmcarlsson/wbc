@@ -5,15 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
-        Title="Mash effeciency" Height="222.826" Width="389.13">
+        Title="Mash effeciency" Height="222.826" Width="531.739">
     <Grid>
-        <TextBox x:Name="textBoxPreBoilVolume" HorizontalAlignment="Left" Height="23" Margin="218,21,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBoxPreBoilGravity" HorizontalAlignment="Left" Height="23" Margin="218,49,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="PreboilVolume" Content="Mesured pre-boil volume [L]:" HorizontalAlignment="Left" Margin="10,18,0,0" VerticalAlignment="Top" Width="203"/>
-        <Label x:Name="GravitySg" Content="Measured pre-boil gravity [SG]:" HorizontalAlignment="Left" Margin="10,46,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.493,-0.065" Width="203"/>
-        <Button x:Name="btnOk" Content="OK" HorizontalAlignment="Left" Margin="296,162,0,0" VerticalAlignment="Top" Width="75" Click="btnOk_Click"/>
-        <Button x:Name="BtnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="216,162,0,0" VerticalAlignment="Top" Width="75" Click="BtnCancel_Click"/>
-        <Label x:Name="LblResult" Content="Mash efficiency" HorizontalAlignment="Left" Margin="10,113,0,0" VerticalAlignment="Top" Width="361"/>
+        <TextBox x:Name="textBoxPreBoilVolume" HorizontalAlignment="Left" Height="23" Margin="383,14,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBoxPreBoilGravity" HorizontalAlignment="Left" Height="23" Margin="383,42,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="PreboilVolume" Content="Measured pre-boil volume [L]:" HorizontalAlignment="Left" Margin="214,12,0,0" VerticalAlignment="Top" Width="164"/>
+        <Label x:Name="GravitySg" Content="Measured pre-boil gravity [SG]:" HorizontalAlignment="Left" Margin="203,39,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.493,-0.065" Width="175"/>
+        <Button x:Name="btnOk" Content="OK" HorizontalAlignment="Left" Margin="429,160,0,0" VerticalAlignment="Top" Width="75" Click="btnOk_Click"/>
+        <Button x:Name="BtnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="349,160,0,0" VerticalAlignment="Top" Width="75" Click="BtnCancel_Click"/>
+        <RadioButton x:Name="radioButtonVG" Content="Volume/gravity" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Checked="radioButtonVG_Checked"/>
+        <RadioButton x:Name="radioButtonME" Content="Pre-calculated mash efficiency" HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top" Checked="radioButtonME_Checked"/>
+        <TextBox x:Name="textBoxMashEfficiency" HorizontalAlignment="Left" Height="23" Margin="383,82,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label" Content="Mash efficiency [%]:" HorizontalAlignment="Left" Margin="269,79,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

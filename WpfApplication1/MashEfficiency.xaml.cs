@@ -21,6 +21,20 @@ namespace WpfApplication1
     {
         private double volume;
         private double gravity;
+        private double mashEfficiency;
+
+        public double MashEfficiency
+        {
+
+            private set
+            {
+                mashEfficiency = value;
+            }
+            get
+            {
+                return mashEfficiency;
+            }
+        }
 
         public double Volume
         {
@@ -48,9 +62,19 @@ namespace WpfApplication1
             }
         }
 
-        public MashEffeciency()
+        public MashEffeciency(double aMashEfficiency)
         {
             InitializeComponent();
+
+            radioButtonME.IsChecked = true;
+
+            textBoxMashEfficiency.Text = aMashEfficiency.ToString();
+
+
+            textBoxPreBoilVolume.IsEnabled = false;
+            textBoxPreBoilGravity.IsEnabled = false;
+            textBoxPreBoilVolume.Text = String.Empty;
+            textBoxPreBoilGravity.Text = String.Empty;
         }
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
@@ -60,22 +84,62 @@ namespace WpfApplication1
 
         private void btnOk_Click(object sender, RoutedEventArgs e)
         {
-            volume = 0;
-            if (!double.TryParse(textBoxPreBoilVolume.Text, out volume))
+            if (radioButtonVG.IsChecked == true)
             {
-                MessageBox.Show("Please provide a valid number for pre-boil volume");
-                return;
+                volume = 0;
+                if (!double.TryParse(textBoxPreBoilVolume.Text, out volume))
+                {
+                    MessageBox.Show("Please provide a valid number for pre-boil volume");
+                    return;
+                }
+                gravity = 0;
+                if (!double.TryParse(textBoxPreBoilGravity.Text, out gravity))
+                {
+                    MessageBox.Show("Please provide a valid number for pre-boil gravity");
+                    return;
+                }
             }
-            gravity = 0;
-            if (!double.TryParse(textBoxPreBoilGravity.Text, out gravity))
+
+            if (radioButtonME.IsChecked == true)
             {
-                MessageBox.Show("Please provide a valid number for pre-boil gravity");
-                return;
+                if (!double.TryParse(textBoxMashEfficiency.Text, out mashEfficiency))
+                {
+                    MessageBox.Show("Please provide a valid number for mash efficiency");
+                    return;
+                }
             }
 
             this.Close();
 
         }
 
+        private void radioButtonVG_Checked(object sender, RoutedEventArgs e)
+        {
+            radioButtonME.IsChecked = false;
+
+            textBoxPreBoilVolume.IsEnabled = true;
+            textBoxPreBoilGravity.IsEnabled = true;
+
+
+            textBoxMashEfficiency.IsEnabled = false;
+            textBoxMashEfficiency.Text = String.Empty;
+            mashEfficiency = 0;
+
+
+        }
+
+        private void radioButtonME_Checked(object sender, RoutedEventArgs e)
+        {
+            radioButtonVG.IsChecked = false;
+
+            textBoxMashEfficiency.IsEnabled = true;
+
+            textBoxPreBoilVolume.IsEnabled = false;
+            textBoxPreBoilGravity.IsEnabled = false;
+            textBoxPreBoilVolume.Text = String.Empty;
+            textBoxPreBoilGravity.Text = String.Empty;
+            volume = 0;
+            gravity = 0;
+        }
     }
 }

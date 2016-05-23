@@ -46,6 +46,7 @@ namespace GFCalc
 
         private FermentableRepository MaltRepo;
         private HopsRepository HopsRepo;
+        private GrainfatherCalculator gfc;
 
         public MainWindow()
         {
@@ -87,6 +88,9 @@ namespace GFCalc
             Volumes.PreBoilTapOff = 0;
 
             TopUpMashWater = 0;
+
+            gfc = new GrainfatherCalculator();
+            gfc.MashEfficiency = (double)WpfApplication1.Properties.Settings.Default["MashEfficiency"];
 
             updateGuiTextboxes();
 
@@ -263,7 +267,7 @@ namespace GFCalc
 
             // Set filter for file extension and default file extension 
             dlg.DefaultExt = ".gsrx";
-            dlg.Filter = "Grainfather recepie files (*.gsrx)|*.gsrx";
+            dlg.Filter = "Grainfather recipe files (*.gsrx)|*.gsrx";
             dlg.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             dlg.FileName = NameTextBox.Text;
 
@@ -292,7 +296,7 @@ namespace GFCalc
 
 
             // Set filter for file extension and default file extension 
-            dlg.Filter = "Grainfather recepie files (*.gsrx)|*.gsrx|Beersmith2 file (*.bsmx)|*.bsmx";
+            dlg.Filter = "Grainfather recipe files (*.gsrx)|*.gsrx|Beersmith2 file (*.bsmx)|*.bsmx";
             dlg.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
 
@@ -402,7 +406,6 @@ namespace GFCalc
             PrintDialog pDialog = new PrintDialog();
             pDialog.PageRangeSelection = PageRangeSelection.AllPages;
             pDialog.UserPageRangeEnabled = true;
-            var gfc = new GrainfatherCalculator();
 
             // Display the dialog. This returns true if the user presses the Print button.
             Nullable<Boolean> print = pDialog.ShowDialog();
@@ -441,7 +444,7 @@ namespace GFCalc
                     }
                 }
 
-                var recepieHeading = new Paragraph(new Bold(new Run(String.Format("Recepie for {0}, approx. {1:F1} L in fermentor", NameTextBox.Text, Volumes.FinalBatchVolume))));
+                var recepieHeading = new Paragraph(new Bold(new Run(String.Format("Recipe for {0}, approx. {1:F1} L in fermentor", NameTextBox.Text, Volumes.FinalBatchVolume))));
 
                 var mashHeading = new Paragraph(new Bold(new Run("Mash")));
                 mashHeading.FontSize = recepieHeading.FontSize = 18;
@@ -605,8 +608,6 @@ namespace GFCalc
 
         private void recalculateGrainBill()
         {
-            var gfc = new GrainfatherCalculator();
-
             var sum = Grist.Sum(g => g.Amount);
             if (sum != 100)
             {
@@ -867,18 +868,33 @@ namespace GFCalc
 
         private void MenuItem_SettingsMashEfficiency(object sender, RoutedEventArgs e)
         {
-            var meWindow = new MashEffeciency();
+            var meWindow = new MashEffeciency(gfc.MashEfficiency);
             meWindow.ShowDialog();
 
-            var measuredPts = GravityAlgorithms.GetPoints(meWindow.Gravity, meWindow.Volume);
-            var prbg = GravityAlgorithms.GetGravity(Volumes.PreBoilVolume, Grist.Where(x => x.Stage == FermentableStage.Mash).ToList(), 1);
-            var possiblePts = GravityAlgorithms.GetPoints(prbg, Volumes.PreBoilVolume);
+            double me = 0;
+            if (meWindow.Gravity != 0 && meWindow.Volume != 0)
+            {
+                if (GrainBillSize == 0)
+                {
+                    MessageBox.Show("Mash efficiency based on pre-boil gravity and volume must be correlated to a valid recipe. There is currently no valid recipe in Grainsim.");
+                    return;
+                }
+                var measuredPts = GravityAlgorithms.GetPoints(meWindow.Gravity, meWindow.Volume);
+                var prbg = GravityAlgorithms.GetGravity(Volumes.PreBoilVolume, Grist.Where(x => x.Stage == FermentableStage.Mash).ToList(), 1);
+                var possiblePts = GravityAlgorithms.GetPoints(prbg, Volumes.PreBoilVolume);
 
-            var me = measuredPts/possiblePts;
+                me = measuredPts / possiblePts;
+                MessageBox.Show(String.Format("Mash efficiency updated to {0:F0}%, will update settings", me * 100));
+            }
+            else if (meWindow.MashEfficiency != 0)
+                me = meWindow.MashEfficiency;
+            else
+                return;
+            
 
-            MessageBox.Show(String.Format("Mash effciency weas {0:F0}, will update settings", me * 100));
-            var gfc = new GrainfatherCalculator();
             gfc.MashEfficiency = me;
+            WpfApplication1.Properties.Settings.Default["MashEfficiency"] = me;
+            WpfApplication1.Properties.Settings.Default.Save();
 
             recalculateGrainBill();
             recalculateIbu();

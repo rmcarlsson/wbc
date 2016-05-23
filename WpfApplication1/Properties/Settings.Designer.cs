@@ -22,5 +22,17 @@ namespace WpfApplication1.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0.8")]
+        public double MashEfficiency {
+            get {
+                return ((double)(this["MashEfficiency"]));
+            }
+            set {
+                this["MashEfficiency"] = value;
+            }
+        }
     }
 }
