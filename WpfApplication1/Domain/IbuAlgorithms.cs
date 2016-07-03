@@ -30,10 +30,14 @@ namespace Grainsim.Domain
             foreach (HopAddition hopAdd in aAdditions) 
             {
                 var fTinseth = (1 - Math.Pow(Math.E, (- 0.04 * hopAdd.Duration))) / 4.15;
-                var hopAmountGrams = (hopAdd.Amount * aVolumeBoil);
+                
                 var utilization = fGravity * fTinseth;
 
-                res += utilization * (hopAdd.Hop.AlphaAcid.GetAphaAcid() * hopAmountGrams * 10 ) / aVolumeBoil;
+                var hopAmountGrams = (hopAdd.Amount * aVolumeBoil);
+                var decimal_aa = hopAdd.Hop.AlphaAcid.GetAphaAcid() / (100);
+                var mg_per_liter = (decimal_aa * hopAmountGrams * 1000) / aVolumeBoil;
+
+                res += utilization * mg_per_liter;
             }
 
             return Convert.ToInt32(res);

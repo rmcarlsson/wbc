@@ -875,7 +875,7 @@ namespace GFCalc
 
         private void recalculateIbu()
         {
-            var ibu = IbuAlgorithms.CalcIbu(BoilHops.Where(x => x.Stage == HopAdditionStage.Boil), OriginalGravity, Volumes.TotalBatchVolume);
+            var ibu = IbuAlgorithms.CalcIbu(BoilHops.Where(x => x.Stage == HopAdditionStage.Boil), OriginalGravity, Volumes.PostBoilVolume);
             var highIbu = ibu + IbuAlgorithms.IBU_TOLERANCE * ibu;
             var lowIbu = ibu - IbuAlgorithms.IBU_TOLERANCE * ibu;
 

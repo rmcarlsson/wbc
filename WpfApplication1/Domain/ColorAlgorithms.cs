@@ -53,7 +53,7 @@ namespace Grainsim.Domain
                 else
                     w = g.AmountGrams;
 
-                mcu += ((w / 1000) * g.FermentableAdjunct.Color) / aSetOfBrewVolumes.TotalBatchVolume;
+                mcu += (Weight.ConvertToPounds(w) * g.FermentableAdjunct.Color) / Volume.ConvertLitersToGallons(aSetOfBrewVolumes.PostBoilVolume);
             }
             double srm = 1.4922 * Math.Pow(mcu, 0.6859d);
             return (srm * SRM_TO_EBC);

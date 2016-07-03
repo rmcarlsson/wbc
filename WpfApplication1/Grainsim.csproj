@@ -123,6 +123,7 @@
     <Compile Include="Domain\HopAddition.cs" />
     <Compile Include="Domain\IBrewSystemCalculator.cs" />
     <Compile Include="Domain\IbuAlgorithms.cs" />
+    <Compile Include="Domain\IIbuAlgorithms.cs" />
     <Compile Include="Domain\Mash.cs" />
     <Compile Include="Domain\Recepie.cs" />
     <Compile Include="Domain\Weight.cs" />
