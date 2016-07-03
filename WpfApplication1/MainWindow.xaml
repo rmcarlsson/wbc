@@ -5,26 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GFCalc"
         mc:Ignorable="d"
-        Title="Grainsim"  SizeToContent="WidthAndHeight" Closing="Window_Closing" Icon="qzez0_text_i0y_icon.ico">
-    <Grid Height="Auto" Width="Auto">
+        Title="Grainsim" SizeToContent="WidthAndHeight" Closing="Window_Closing" Icon="qzez0_text_i0y_icon.ico">
+    <Grid Height="Auto" Width="Auto" >
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*">
+            <ColumnDefinition MinWidth="470">
             </ColumnDefinition>
-            <ColumnDefinition Width="*">
+            <ColumnDefinition MinWidth="370">
             </ColumnDefinition>
 
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto">
-            </RowDefinition>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition MinHeight="210"/>
+            <RowDefinition MinHeight="210"/>
+            <RowDefinition MinHeight="210"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
 
-        <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" VerticalAlignment="Center">
+        <Menu Name="MainMenu" Grid.Row="0" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" VerticalAlignment="Center">
             <MenuItem Header="_File">
                 <MenuItem Header="_Open" Click="MenuItem_FileOpen"/>
                 <MenuItem Header="_Save" Click="MenuItem_FileSave"/>
@@ -38,6 +37,11 @@
             <MenuItem Header="_Settings">
                 <MenuItem Header="_Mash efficency" Click="MenuItem_SettingsMashEfficiency" />
             </MenuItem>
+            <MenuItem Header="_Grainbrain" Name="GrainBrainMenuItem">
+                <MenuItem Header="_Start" Click="MenuItem_GrainbrainStart" />
+                <MenuItem Header="_Brewing monitor" Click="MenuItem_GrainbrainBrewingMonitor" />
+                <MenuItem Header="_Stop" Click="MenuItem_GrainbrainStop" />
+            </MenuItem>
 
             <MenuItem Header="_Help">
                 <MenuItem Header="_About" Click="MenuItem_Click" />
@@ -46,9 +50,9 @@
 
 
 
-        <GroupBox x:Name="groupBox" Header="Fermentables" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="198" Width="450" Margin="10,10,10,10">
+        <GroupBox x:Name="groupBox" Header="Fermentables" Grid.Row="1" Height="198" Width="450" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
             <Canvas>
-                <ListView x:Name="MaltsListView" PreviewKeyDown="MaltsListView_KeyDown" HorizontalAlignment="Left" Height="121" Margin="10,10,0,0" VerticalAlignment="Top" Width="423" MouseDoubleClick="MaltsListView_MouseDoubleClick">
+                <ListView x:Name="MaltsListView" PreviewKeyDown="MaltsListView_KeyDown" Height="120" Width="400" MouseDoubleClick="MaltsListView_MouseDoubleClick">
                     <ListView.View >
                         <GridView x:Name="MaltsGridView">
                             <GridViewColumn DisplayMemberBinding="{Binding FermentableAdjunct.Name}"  Header="Fermentable" />
@@ -58,7 +62,7 @@
                         </GridView>
                     </ListView.View>
                 </ListView>
-                <Button x:Name="addGrains" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="addGrains_Click" Grid.Row="1" Canvas.Left="358" Canvas.Top="136"/>
+                <Button x:Name="addGrains" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="addGrains_Click" Grid.Row="1" Canvas.Left="325" Canvas.Top="125"/>
 
             </Canvas>
         </GroupBox>
@@ -66,7 +70,7 @@
 
 
 
-        <GroupBox x:Name="groupBox1" Header="Mash - Profile" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Height="181" Width="450" Margin="10,10,10,10">
+        <GroupBox x:Name="groupBox1" Header="Mash - Profile" HorizontalAlignment="Stretch" Grid.Row="2" VerticalAlignment="Stretch" Height="181" Width="450" >
             <Canvas >
                 <ListView x:Name="MashStepListView" HorizontalAlignment="Left" Height="124" VerticalAlignment="Top" Width="191" KeyDown="MashStepListView_KeyDown" MouseDoubleClick="MashStepListView_MouseDoubleClick" Canvas.Left="10" Canvas.Top="10">
                     <ListView.View>
@@ -86,9 +90,9 @@
         </GroupBox>
 
 
-        <GroupBox x:Name="groupBox2" Header="Hops" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Height="193" Width="450" Grid.RowSpan="2" Margin="10,10,10,10">
+        <GroupBox x:Name="groupBox2" Header="Hops" Grid.Row="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="193" Width="450" >
             <Canvas>
-                <ListView x:Name="HopsListView" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="423" MouseDoubleClick="HopsListView_MouseDoubleClick" Canvas.Left="10" Canvas.Top="10" KeyDown="HopsListView_KeyDown" >
+                <ListView x:Name="HopsListView" HorizontalAlignment="Center" Height="100" VerticalAlignment="Top" Width="423" MouseDoubleClick="HopsListView_MouseDoubleClick" Canvas.Left="10" Canvas.Top="10" KeyDown="HopsListView_KeyDown" >
                     <ListView.View>
                         <GridView>
                             <GridViewColumn DisplayMemberBinding="{Binding Hop.Name}"  Header="Hops" />
@@ -105,7 +109,7 @@
             </Canvas>
         </GroupBox>
 
-        <GroupBox x:Name="groupBox9" Header="Other" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="3" VerticalAlignment="Top" Height="193" Width="347" Grid.RowSpan="2" Margin="10,10,10,10">
+        <GroupBox x:Name="groupBox9" Header="Other" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="3"  Height="193" Width="350" >
             <Canvas>
                 <ListView x:Name="OtherIngredientsListView" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" MouseDoubleClick="HopsListView_MouseDoubleClick" Canvas.Left="10" Canvas.Top="20" Width="324" >
                     <ListView.View>
@@ -123,7 +127,7 @@
 
 
 
-        <GroupBox x:Name="groupBox3" Header="Recipe data" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" VerticalAlignment="Top" Height="399" Width="357" Margin="10,10,10,10">
+        <GroupBox x:Name="groupBox3" Header="Recipe data"  Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="399" Width="350" >
             <Canvas  >
                 <Label x:Name="MashWaterVolumeLabel" Content="Mash water volume [L]:" HorizontalAlignment="Left" VerticalAlignment="Top"  Height="26" Canvas.Left="44" Canvas.Top="306"/>
                 <Label x:Name="SpargeWaterVolumeLabel" Content="Sparge water volume [L]:" HorizontalAlignment="Left"  VerticalAlignment="Top"  Height="26" Canvas.Left="36" Canvas.Top="275"/>
@@ -153,7 +157,32 @@
 
 
 
-        <StatusBar HorizontalAlignment="Center" Height="25"  Grid.ColumnSpan="2" VerticalAlignment="Bottom"  Grid.Row="4"/>
+        <StatusBar HorizontalAlignment="Stretch" Height="25" Grid.ColumnSpan="2" VerticalAlignment="Bottom"  Grid.Row="4" >
+            <StatusBar.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid  >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="200" />
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ItemsPanelTemplate>
+            </StatusBar.ItemsPanel>
+            <StatusBarItem HorizontalAlignment="Center" Grid.Column="0">
+                <TextBlock Name="lblRemainingTime" Text="Not connected - inactive"/>
+            </StatusBarItem>
+            <Separator Grid.Column="1" />
+            <StatusBarItem Grid.Column="2" HorizontalAlignment="Center">
+                <TextBlock Name="lblGrainBrainState" Text="State: IDLE" />
+            </StatusBarItem>
+            <Separator Grid.Column="3" />
+            <StatusBarItem Grid.Column="4">
+                <ProgressBar  Name="progressBar" Value="0" Width="190" Height="16" />
+            </StatusBarItem>
+        </StatusBar>
 
 
     </Grid>

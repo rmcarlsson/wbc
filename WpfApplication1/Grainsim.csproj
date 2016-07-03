@@ -29,6 +29,8 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -56,12 +58,24 @@
     <StartupObject>GFCalc.App</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Google.Protobuf, Version=3.0.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.0.0-beta3\lib\dotnet\Google.Protobuf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Grpc.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d754f35622e28bad, processorArchitecture=MSIL">
+      <HintPath>..\packages\Grpc.Core.0.15.0\lib\net45\Grpc.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Interactive.Async, Version=1.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ix-Async.1.2.5\lib\net45\System.Interactive.Async.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -89,6 +103,9 @@
     <Compile Include="BeersmithImporterWizard\TCW.xaml.cs">
       <DependentUpon>TCW.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BrewingMonitor.xaml.cs">
+      <DependentUpon>BrewingMonitor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DataModel\Country.cs" />
     <Compile Include="DataModel\FermentableAdjunct.cs" />
     <Compile Include="DataModel\Hops.cs" />
@@ -109,6 +126,7 @@
     <Compile Include="Domain\Mash.cs" />
     <Compile Include="Domain\Recepie.cs" />
     <Compile Include="Domain\Weight.cs" />
+    <Compile Include="GrainbrainNetDiscovery.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -128,6 +146,21 @@
     </Compile>
     <Compile Include="MashEfficiency.xaml.cs">
       <DependentUpon>MashEfficiency.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SpargeDoneWindow.xaml.cs">
+      <DependentUpon>SpargeDoneWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StartGrainbrainWindow.xaml.cs">
+      <DependentUpon>StartGrainbrainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StopBrewingProcessWindow.xaml.cs">
+      <DependentUpon>StopBrewingProcessWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StrikeWaterReachedWindow.xaml.cs">
+      <DependentUpon>StrikeWaterReachedWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WortChillerSanitizedWindow.xaml.cs">
+      <DependentUpon>WortChillerSanitizedWindow.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -183,6 +216,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="BrewingMonitor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Domain\AlterHopsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -207,6 +244,26 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="SpargeDoneWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StartGrainbrainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StopBrewingProcessWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StrikeWaterReachedWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WortChillerSanitizedWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="qzez0_text_i0y_icon.ico" />
@@ -216,6 +273,10 @@
       <Project>{17676cc8-e906-48fc-b864-dd00428765d9}</Project>
       <Name>BSImport</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GrainbrainClient\GrainbrainClient.csproj">
+      <Project>{c9df846d-a4be-4f65-9522-b454260d7256}</Project>
+      <Name>GrainbrainClient</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\hopses.xml" />
@@ -224,12 +285,21 @@
     <None Include="bin\Debug\maltsOut.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\malts.xml" />
+    <EmbeddedResource Include="Resources\malts.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\hopses.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Grpc.Core.0.15.0\build\net45\Grpc.Core.targets" Condition="Exists('..\packages\Grpc.Core.0.15.0\build\net45\Grpc.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Grpc.Core.0.15.0\build\net45\Grpc.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Grpc.Core.0.15.0\build\net45\Grpc.Core.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

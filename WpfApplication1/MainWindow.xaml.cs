@@ -19,6 +19,11 @@ using System.Text;
 using System.Windows.Media;
 using System.Reflection;
 using WpfApplication1;
+using System.Windows.Threading;
+using System.Net;
+using Grpcproto;
+using Grpc.Core;
+using Google.Protobuf.WellKnownTypes;
 
 namespace GFCalc
 {
@@ -29,7 +34,7 @@ namespace GFCalc
     {
         public ObservableCollection<GristPart> Grist { set; get; }
         public ObservableCollection<HopAddition> BoilHops { set; get; }
-        public ObservableCollection<MashProfileStep> MashProfileList { get; set; }
+        public ObservableCollection<Domain.MashProfileStep> MashProfileList { get; set; }
         public ObservableCollection<OtherIngredient> OtherIngredientsList { get; set; }
 
 
@@ -46,6 +51,10 @@ namespace GFCalc
         private FermentableRepository MaltRepo;
         private HopsRepository HopsRepo;
         private GrainfatherCalculator gfc;
+
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger
+    (System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        private DispatcherTimer dispatcherTimer;
 
         public MainWindow()
         {
@@ -71,7 +80,7 @@ namespace GFCalc
             BoilHops = new ObservableCollection<HopAddition>();
             HopsListView.ItemsSource = BoilHops;
 
-            MashProfileList = new ObservableCollection<MashProfileStep>();
+            MashProfileList = new ObservableCollection<Domain.MashProfileStep>();
             MashStepListView.ItemsSource = MashProfileList;
 
             OtherIngredientsList = new ObservableCollection<OtherIngredient>();
@@ -92,6 +101,145 @@ namespace GFCalc
             gfc.MashEfficiency = (double)WpfApplication1.Properties.Settings.Default["MashEfficiency"];
 
             updateGuiTextboxes();
+
+            GrainBrainMenuItem.IsEnabled = false;
+
+            dispatcherTimer = new DispatcherTimer();
+            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 5);
+            dispatcherTimer.Start();
+
+        }
+
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            bool grainBrainConnected = false;
+            if (GrainbrainNetDiscovery.ScanGrainBrains())
+                   grainBrainConnected = true;
+           
+            handleGrainBrainStatus(grainBrainConnected);
+
+            
+ 
+        }
+
+        private void handleBrewProcess(GrainBrainStatus status)
+        {
+
+
+            if (status.State == BrewStep.StrikeWaterTempReached)
+            {
+                //dispatcherTimer.Tick -= brewProcessTimer_Tick;
+                dispatcherTimer.IsEnabled = false;
+
+                var swrw = new StrikeWaterReachedWindow();
+                swrw.ShowDialog();
+
+                IPAddress ipAddr;
+                if (!GrainbrainNetDiscovery.GetGrainBrainAddress(out ipAddr))
+                    return;
+
+                string addr = String.Format("{0}:50051", ipAddr);
+                Channel ch = new Channel(addr, ChannelCredentials.Insecure);
+
+                McServer.McServerClient cl = new McServer.McServerClient(ch);
+
+                GrainsAddedNotify req = new GrainsAddedNotify();
+                Empty resp = cl.GrainsAdded(req);
+                ch.ShutdownAsync().Wait();
+
+                //dispatcherTimer.Tick += brewProcessTimer_Tick;
+                dispatcherTimer.IsEnabled = true;
+
+
+            }
+
+            if (status.State == BrewStep.MashDoneStartSparge)
+            {
+                dispatcherTimer.IsEnabled = false;
+
+                var sdw = new SpargeDoneWindow();
+                sdw.ShowDialog();
+
+                IPAddress ipAddr;
+                if (!GrainbrainNetDiscovery.GetGrainBrainAddress(out ipAddr))
+                    return;
+
+                string addr = String.Format("{0}:50051", ipAddr);
+
+                Channel ch = new Channel(addr, ChannelCredentials.Insecure);
+
+                McServer.McServerClient cl = new McServer.McServerClient(ch);
+
+                SpargeDoneNotify req = new SpargeDoneNotify();
+                Empty resp = cl.SpargeDone(req);
+                ch.ShutdownAsync().Wait();
+
+                dispatcherTimer.IsEnabled = true;
+
+            }
+
+            if (status.State == BrewStep.BoilDone)
+            {
+                dispatcherTimer.IsEnabled = false;
+
+                var wcsw = new WortChillerSanitizedWindow();
+                wcsw.ShowDialog();
+
+                IPAddress ipAddr;
+                if (!GrainbrainNetDiscovery.GetGrainBrainAddress(out ipAddr))
+                    return;
+
+                string addr = String.Format("{0}:50051", ipAddr);
+
+                Channel ch = new Channel(addr, ChannelCredentials.Insecure);
+
+                McServer.McServerClient cl = new McServer.McServerClient(ch);
+
+                WortChillerSanitizedDoneNotify req = new WortChillerSanitizedDoneNotify();
+                Empty resp = cl.WortChillerSanitizedDone(req);
+                ch.ShutdownAsync().Wait();
+
+                dispatcherTimer.IsEnabled = true;
+            }
+
+        }
+        private void handleGrainBrainStatus(bool isConnectToGrainBrain)
+        {
+
+            GrainBrainMenuItem.IsEnabled = isConnectToGrainBrain;
+
+            if (!isConnectToGrainBrain)
+            {
+                lblGrainBrainState.Text = "State - Not connected";
+                lblRemainingTime.Text = "-";
+                return;
+            }
+
+            var s = GrainbrainNetDiscovery.GetGrainBrainStatus();
+            if (s.State == BrewStep.Idle)
+            {
+                lblGrainBrainState.Text = String.Format("State - {0}", s.State);
+                lblRemainingTime.Text = "-";
+                return;
+            }
+
+            lblGrainBrainState.Text = String.Format("State - {0}", s.State);
+
+
+            string time;
+            if (s.RemainingMashStepList.Count() != 0)
+            {
+                var ms = s.RemainingMashStepList.First();
+                time = String.Format("{0} minutes left at {1}", ms.Time, ms.Temperature);
+            }
+            else
+                time = String.Format("{0} minutes of boiling left", s.RemainingBoilTime);
+            lblRemainingTime.Text = time;
+
+            this.progressBar.Value = s.Progress;
+
+            handleBrewProcess(s);
 
         }
 
@@ -199,7 +347,7 @@ namespace GFCalc
 
             if (Key.Delete == e.Key)
             {
-                foreach (MashProfileStep listViewItem in ((ListView)sender).SelectedItems)
+                foreach (Domain.MashProfileStep listViewItem in ((ListView)sender).SelectedItems)
                 {
                     MashProfileList.Remove(listViewItem);
                     break;
@@ -209,9 +357,15 @@ namespace GFCalc
 
         private void MashStepListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            if (MashStepListView.SelectedIndex < 0 ||
+                MashStepListView.SelectedIndex >= MashProfileList.Count)
+            {
+                return;
+            }
+
             MashStepTempTextBox.Text = MashProfileList.ToArray()[MashStepListView.SelectedIndex].Temperature.ToString();
             MashStepTimeTextBox.Text = MashProfileList.ToArray()[MashStepListView.SelectedIndex].Time.ToString();
-            MashProfileList.Remove((MashProfileStep)MashStepListView.SelectedItem);
+            MashProfileList.Remove((Domain.MashProfileStep)MashStepListView.SelectedItem);
             AddMashStepButton.Content = "Update";
 
         }
@@ -225,13 +379,13 @@ namespace GFCalc
             if (!int.TryParse(MashStepTimeTextBox.Text, out time))
                 return;
 
-            var mps = new MashProfileStep();
+            var mps = new Domain.MashProfileStep();
             mps.Temperature = temp;
             mps.Time = time;
             MashProfileList.Add(mps);
             var ol = MashProfileList.OrderBy(x => x.Temperature).ToList();
             MashProfileList.Clear();
-            foreach (MashProfileStep ms in ol)
+            foreach (Domain.MashProfileStep ms in ol)
             {
                 MashProfileList.Add(ms);
             }
@@ -364,7 +518,7 @@ namespace GFCalc
                 BoilHops.Add(h);
 
             MashProfileList.Clear();
-            foreach (MashProfileStep mps in aRecepie.MashProfile)
+            foreach (Domain.MashProfileStep mps in aRecepie.MashProfile)
                 MashProfileList.Add(mps);
 
             OtherIngredientsList.Clear();
@@ -472,7 +626,7 @@ namespace GFCalc
 
 
                 StringBuilder strmp = new StringBuilder("");
-                foreach (MashProfileStep mss in MashProfileList)
+                foreach (Domain.MashProfileStep mss in MashProfileList)
                 {
                     strmp.Append("Mash at " + mss.ToString() + "\n");
                 }
@@ -898,6 +1052,81 @@ namespace GFCalc
             recalculateGrainBill();
             recalculateIbu();
 
+        }
+
+        private void MenuItem_GrainbrainStart(object sender, RoutedEventArgs e)
+        {
+
+            var sgw = new StartGrainbrainWindow();
+            sgw.ShowDialog();
+
+            LoadBrewProfileRequest req = new LoadBrewProfileRequest();
+            req.BoilTime = BoilTime;
+
+            foreach (Domain.MashProfileStep ms in  MashProfileList)
+            {
+                req.MashProfileSteps.Add(new Grpcproto.MashProfileStep { Temperature = (int)(Math.Round(ms.Temperature)), Time = ms.Time });
+                log.Info(String.Format("Mash time {0} at {1} C", ms.Time, ms.Temperature));
+            }
+
+            foreach (HopAddition bh in BoilHops)
+            {
+                if (bh.Stage == HopAdditionStage.Boil)
+                {
+                    req.HopAdditionStep.Add(new HopAdditionStep { Time = bh.Duration, Name = bh.Hop.Name });
+                    log.Info(String.Format("{0} at {1} min", bh.Hop.Name, bh.Duration));
+                }
+
+            }
+
+            IPAddress ipAddr;
+            GrainbrainNetDiscovery.GetGrainBrainAddress(out ipAddr);
+            string addr = String.Format("{0}:50051", ipAddr);
+            Channel channel = new Channel(addr, ChannelCredentials.Insecure);
+
+            McServer.McServerClient client = new McServer.McServerClient(channel);
+            SuccessReply reply = client.LoadBrewProfile(req);
+            
+            StartStopRequest startReq = new StartStopRequest();
+            startReq.StartStop = StartStopRequest.Types.StartStop.Start;
+            SuccessReply relpy2 = client.StartStopAbort(startReq);
+            log.Info("Started - Response: " + reply.Success.ToString());
+
+
+        }
+
+
+        private void MenuItem_GrainbrainBrewingMonitor(object sender, RoutedEventArgs e)
+        {
+            IPAddress ipAddr;
+            if (GrainbrainNetDiscovery.GetGrainBrainAddress(out ipAddr))
+            {
+                var bm = new BrewingMonitor(ipAddr);
+                bm.ShowDialog();
+            }
+        }
+
+        private void MenuItem_GrainbrainStop(object sender, RoutedEventArgs e)
+        {
+            var sbpw = new StopBrewingProcessWindow();
+            sbpw.ShowDialog();
+            if (sbpw.Abort)
+            {
+                IPAddress ipAddr;
+                if (!GrainbrainNetDiscovery.GetGrainBrainAddress(out ipAddr))
+                    return;
+                string addr = String.Format("{0}:50051", ipAddr);
+
+                Channel ch = new Channel(addr, ChannelCredentials.Insecure);
+
+                McServer.McServerClient cl = new McServer.McServerClient(ch);
+
+                StartStopRequest req = new StartStopRequest();
+                req.StartStop = StartStopRequest.Types.StartStop.Stop;
+                SuccessReply resp = cl.StartStopAbort(req);
+                ch.ShutdownAsync().Wait();
+
+            }
         }
     }
 }
