@@ -1027,17 +1027,13 @@ namespace GFCalc
             double me = 0;
             if (meWindow.Gravity != 0 && meWindow.Volume != 0)
             {
-                if (GrainBillSize == 0)
-                {
-                    MessageBox.Show("Mash efficiency based on pre-boil gravity and volume must be correlated to a valid recipe. There is currently no valid recipe in Grainsim.");
-                    return;
-                }
+
                 var measuredPts = GravityAlgorithms.GetPoints(meWindow.Gravity, meWindow.Volume);
                 var prbg = GravityAlgorithms.GetGravity(Volumes.PreBoilVolume, Grist.Where(x => x.Stage == FermentableStage.Mash).ToList(), 1);
                 var possiblePts = GravityAlgorithms.GetPoints(prbg, Volumes.PreBoilVolume);
 
                 me = measuredPts / possiblePts;
-                MessageBox.Show(String.Format("Mash efficiency updated to {0:F0}%, will update settings", me));
+                MessageBox.Show(String.Format("Mash efficiency updated to {0:F0}%, will update settings", me * 100));
             }
             else if (meWindow.MashEfficiency != 0)
                 me = (double)meWindow.MashEfficiency/100d;
