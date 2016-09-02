@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using GFCalc.DataModel;
 using Grainsim.Domain;
 using System.Xml.Serialization;
+using System.ComponentModel;
 
 namespace GFCalc.Domain
 {
@@ -49,16 +50,30 @@ namespace GFCalc.Domain
 
     }
 
-    public class MashProfileStep
+    public class MashProfileStep : INotifyPropertyChanged
     {
-        [XmlAttribute("Time")]
-        public int Time { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [XmlAttribute("HeatOverTime")]
+        public int HeatOverTime { get; set; }
+        [XmlAttribute("StepTime")]
+        public int StepTime { get; set; }
         [XmlAttribute("Temp")]
         public double Temperature { get; set; }
 
+        // Create the OnPropertyChanged method to raise the event
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
+        }
+
         public override string ToString()
         {
-            return String.Format("{0} C for {1} minutes", Temperature, Time);
+            return String.Format("{0} C for {1} minutes", Temperature, StepTime);
         }
 
     }

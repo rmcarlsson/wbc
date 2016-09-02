@@ -24,6 +24,7 @@ using System.Net;
 using Grpcproto;
 using Grpc.Core;
 using Google.Protobuf.WellKnownTypes;
+using System.Collections.Specialized;
 
 namespace GFCalc
 {
@@ -109,6 +110,22 @@ namespace GFCalc
             dispatcherTimer.Interval = new TimeSpan(0, 0, 5);
             dispatcherTimer.Start();
 
+            MashProfileList.CollectionChanged += this.OnCollectionChanged;
+
+        }
+
+        private void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (MashProfileList.Count == 0)
+            {
+                MashHeatOverTimeTextBox.IsEnabled = false;
+                MashHeatOverTimeLabel.IsEnabled = false;
+            }
+            else
+            {
+                MashHeatOverTimeTextBox.IsEnabled = true;
+                MashHeatOverTimeLabel.IsEnabled = true;
+            }
         }
 
         private void dispatcherTimer_Tick(object sender, EventArgs e)
@@ -231,7 +248,7 @@ namespace GFCalc
             if (s.RemainingMashStepList.Count() != 0)
             {
                 var ms = s.RemainingMashStepList.First();
-                time = String.Format("{0} minutes left at {1}", ms.Time, ms.Temperature);
+                time = String.Format("{0} minutes left at {1}", ms.StepTime, ms.Temperature);
             }
             else
                 time = String.Format("{0} minutes of boiling left", s.RemainingBoilTime);
@@ -353,6 +370,7 @@ namespace GFCalc
                     break;
                 }
             }
+
         }
 
         private void MashStepListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -364,7 +382,13 @@ namespace GFCalc
             }
 
             MashStepTempTextBox.Text = MashProfileList.ToArray()[MashStepListView.SelectedIndex].Temperature.ToString();
-            MashStepTimeTextBox.Text = MashProfileList.ToArray()[MashStepListView.SelectedIndex].Time.ToString();
+            MashStepTimeTextBox.Text = MashProfileList.ToArray()[MashStepListView.SelectedIndex].StepTime.ToString();
+
+            if (MashStepListView.SelectedIndex == 0)
+                MashHeatOverTimeTextBox.Text = "0";
+            else
+                MashHeatOverTimeTextBox.Text = MashProfileList.ToArray()[MashStepListView.SelectedIndex].HeatOverTime.ToString();
+
             MashProfileList.Remove((Domain.MashProfileStep)MashStepListView.SelectedItem);
             AddMashStepButton.Content = "Update";
 
@@ -375,13 +399,21 @@ namespace GFCalc
             if (!double.TryParse(MashStepTempTextBox.Text, out temp))
                 return;
 
-            int time;
-            if (!int.TryParse(MashStepTimeTextBox.Text, out time))
+            int stepTime;
+            if (!int.TryParse(MashStepTimeTextBox.Text, out stepTime))
                 return;
+
+            int heatOverTime = 0;
+            if (MashProfileList.Count > 0)
+            {
+                if (!int.TryParse(MashHeatOverTimeTextBox.Text, out heatOverTime))
+                    return;
+            }
 
             var mps = new Domain.MashProfileStep();
             mps.Temperature = temp;
-            mps.Time = time;
+            mps.StepTime = stepTime;
+            mps.HeatOverTime = heatOverTime;
             MashProfileList.Add(mps);
             var ol = MashProfileList.OrderBy(x => x.Temperature).ToList();
             MashProfileList.Clear();
@@ -494,7 +526,7 @@ namespace GFCalc
             }
             catch (Exception e)
             {
-                MessageBox.Show("The recipe can be parsed.");
+                MessageBox.Show("The recipe can be parsed. {0}", e.ToString());
             }
             finally
             {
@@ -1050,6 +1082,7 @@ namespace GFCalc
 
         }
 
+        #region Grainbrain menu items
         private void MenuItem_GrainbrainStart(object sender, RoutedEventArgs e)
         {
 
@@ -1061,8 +1094,8 @@ namespace GFCalc
 
             foreach (Domain.MashProfileStep ms in  MashProfileList)
             {
-                req.MashProfileSteps.Add(new Grpcproto.MashProfileStep { Temperature = (int)(Math.Round(ms.Temperature)), Time = ms.Time });
-                log.Info(String.Format("Mash time {0} at {1} C", ms.Time, ms.Temperature));
+                req.MashProfileSteps.Add(new Grpcproto.MashProfileStep { Temperature = (int)(Math.Round(ms.Temperature)), StepTime = ms.StepTime, HeatOverTime = ms.HeatOverTime });
+                log.Info(String.Format("Mash time {0} at {1} C", ms.StepTime, ms.Temperature));
             }
 
             foreach (HopAddition bh in BoilHops)
@@ -1090,8 +1123,7 @@ namespace GFCalc
 
 
         }
-
-
+        
         private void MenuItem_GrainbrainBrewingMonitor(object sender, RoutedEventArgs e)
         {
             IPAddress ipAddr;
@@ -1124,6 +1156,7 @@ namespace GFCalc
 
             }
         }
+        #endregion
     }
 }
 

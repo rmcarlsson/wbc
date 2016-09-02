@@ -31,36 +31,37 @@ namespace Grpcproto {
             "ZWREb25lTm90aWZ5EgoKAmlkGAEgASgFImwKDFN1Y2Nlc3NSZXBseRIwCgdz",
             "dWNjZXNzGAEgASgOMh8uZ3JwY3Byb3RvLlN1Y2Nlc3NSZXBseS5TdWNjZXNz",
             "EgsKA21zZxgCIAEoCSIdCgdTdWNjZXNzEgYKAk9LEAASCgoGRkFMSUVEEAEi",
-            "NAoPTWFzaFByb2ZpbGVTdGVwEhMKC3RlbXBlcmF0dXJlGAEgASgFEgwKBHRp",
-            "bWUYAiABKAUiLQoPSG9wQWRkaXRpb25TdGVwEgwKBHRpbWUYASABKAUSDAoE",
-            "bmFtZRgCIAEoCSKkAgoPQnJld1N0YXR1c1JlcGx5Ei4KEWN1cnJlbnRfYnJl",
-            "d19zdGVwGAEgASgOMhMuZ3JwY3Byb3RvLkJyZXdTdGVwEjgKFHJlbWFpbmlu",
-            "Z19tYXNoX3N0ZXBzGAIgAygLMhouZ3JwY3Byb3RvLk1hc2hQcm9maWxlU3Rl",
-            "cBIYChBtYXNoX3RlbXBlcmF0dXJlGAMgASgBEiEKGW1hc2hfdGVtcGVyYXR1",
-            "cmVfc2V0cG9pbnQYBCABKAESOwoXcmVtYWluaW5nX2hvcF9hZGRpdGlvbnMY",
-            "BSADKAsyGi5ncnBjcHJvdG8uSG9wQWRkaXRpb25TdGVwEhsKE3JlbWFpbmlu",
-            "Z19ib2lsX3RpbWUYBiABKAUSEAoIcHJvZ3Jlc3MYByABKAUimgEKFkxvYWRC",
-            "cmV3UHJvZmlsZVJlcXVlc3QSNgoSbWFzaF9wcm9maWxlX3N0ZXBzGAEgAygL",
-            "MhouZ3JwY3Byb3RvLk1hc2hQcm9maWxlU3RlcBI1ChFob3BfYWRkaXRpb25f",
-            "c3RlcBgCIAMoCzIaLmdycGNwcm90by5Ib3BBZGRpdGlvblN0ZXASEQoJYm9p",
-            "bF90aW1lGAMgASgFInoKEFN0YXJ0U3RvcFJlcXVlc3QSOQoKc3RhcnRfc3Rv",
-            "cBgBIAEoDjIlLmdycGNwcm90by5TdGFydFN0b3BSZXF1ZXN0LlN0YXJ0U3Rv",
-            "cCIrCglTdGFydFN0b3ASCQoFU1RBUlQQABIICgRTVE9QEAESCQoFQUJPUlQQ",
-            "AiqFAQoIQnJld1N0ZXASCAoESURMRRAAEgsKB0hFQVRJTkcQARIdChlTVFJJ",
-            "S0VfV0FURVJfVEVNUF9SRUFDSEVEEAISCwoHTUFTSElORxADEhoKFk1BU0hf",
-            "RE9ORV9TVEFSVF9TUEFSR0UQBBILCgdCT0lMSU5HEAUSDQoJQk9JTF9ET05F",
-            "EAYy1QMKCE1jU2VydmVyEk8KD0xvYWRCcmV3UHJvZmlsZRIhLmdycGNwcm90",
-            "by5Mb2FkQnJld1Byb2ZpbGVSZXF1ZXN0GhcuZ3JwY3Byb3RvLlN1Y2Nlc3NS",
-            "ZXBseSIAEkgKDlN0YXJ0U3RvcEFib3J0EhsuZ3JwY3Byb3RvLlN0YXJ0U3Rv",
-            "cFJlcXVlc3QaFy5ncnBjcHJvdG8uU3VjY2Vzc1JlcGx5IgASRQoLR3JhaW5z",
-            "QWRkZWQSHC5ncnBjcHJvdG8uR3JhaW5zQWRkZWROb3RpZnkaFi5nb29nbGUu",
-            "cHJvdG9idWYuRW1wdHkiABJDCgpTcGFyZ2VEb25lEhsuZ3JwY3Byb3RvLlNw",
-            "YXJnZURvbmVOb3RpZnkaFi5nb29nbGUucHJvdG9idWYuRW1wdHkiABJfChhX",
-            "b3J0Q2hpbGxlclNhbml0aXplZERvbmUSKS5ncnBjcHJvdG8uV29ydENoaWxs",
-            "ZXJTYW5pdGl6ZWREb25lTm90aWZ5GhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5",
-            "IgASQQoJR2V0U3RhdHVzEhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5GhouZ3Jw",
-            "Y3Byb3RvLkJyZXdTdGF0dXNSZXBseSIAQikKFHNlLnRyYW50b3IuZ3JwY3By",
-            "b3RvQg9HcmFpbmJyYWluUHJvdG9QAWIGcHJvdG8z"));
+            "UQoPTWFzaFByb2ZpbGVTdGVwEhYKDmhlYXRfb3Zlcl90aW1lGAEgASgFEhMK",
+            "C3RlbXBlcmF0dXJlGAIgASgFEhEKCXN0ZXBfdGltZRgDIAEoBSItCg9Ib3BB",
+            "ZGRpdGlvblN0ZXASDAoEdGltZRgBIAEoBRIMCgRuYW1lGAIgASgJIqQCCg9C",
+            "cmV3U3RhdHVzUmVwbHkSLgoRY3VycmVudF9icmV3X3N0ZXAYASABKA4yEy5n",
+            "cnBjcHJvdG8uQnJld1N0ZXASOAoUcmVtYWluaW5nX21hc2hfc3RlcHMYAiAD",
+            "KAsyGi5ncnBjcHJvdG8uTWFzaFByb2ZpbGVTdGVwEhgKEG1hc2hfdGVtcGVy",
+            "YXR1cmUYAyABKAESIQoZbWFzaF90ZW1wZXJhdHVyZV9zZXRwb2ludBgEIAEo",
+            "ARI7ChdyZW1haW5pbmdfaG9wX2FkZGl0aW9ucxgFIAMoCzIaLmdycGNwcm90",
+            "by5Ib3BBZGRpdGlvblN0ZXASGwoTcmVtYWluaW5nX2JvaWxfdGltZRgGIAEo",
+            "BRIQCghwcm9ncmVzcxgHIAEoBSKaAQoWTG9hZEJyZXdQcm9maWxlUmVxdWVz",
+            "dBI2ChJtYXNoX3Byb2ZpbGVfc3RlcHMYASADKAsyGi5ncnBjcHJvdG8uTWFz",
+            "aFByb2ZpbGVTdGVwEjUKEWhvcF9hZGRpdGlvbl9zdGVwGAIgAygLMhouZ3Jw",
+            "Y3Byb3RvLkhvcEFkZGl0aW9uU3RlcBIRCglib2lsX3RpbWUYAyABKAUiegoQ",
+            "U3RhcnRTdG9wUmVxdWVzdBI5CgpzdGFydF9zdG9wGAEgASgOMiUuZ3JwY3By",
+            "b3RvLlN0YXJ0U3RvcFJlcXVlc3QuU3RhcnRTdG9wIisKCVN0YXJ0U3RvcBIJ",
+            "CgVTVEFSVBAAEggKBFNUT1AQARIJCgVBQk9SVBACKoUBCghCcmV3U3RlcBII",
+            "CgRJRExFEAASCwoHSEVBVElORxABEh0KGVNUUklLRV9XQVRFUl9URU1QX1JF",
+            "QUNIRUQQAhILCgdNQVNISU5HEAMSGgoWTUFTSF9ET05FX1NUQVJUX1NQQVJH",
+            "RRAEEgsKB0JPSUxJTkcQBRINCglCT0lMX0RPTkUQBjLVAwoITWNTZXJ2ZXIS",
+            "TwoPTG9hZEJyZXdQcm9maWxlEiEuZ3JwY3Byb3RvLkxvYWRCcmV3UHJvZmls",
+            "ZVJlcXVlc3QaFy5ncnBjcHJvdG8uU3VjY2Vzc1JlcGx5IgASSAoOU3RhcnRT",
+            "dG9wQWJvcnQSGy5ncnBjcHJvdG8uU3RhcnRTdG9wUmVxdWVzdBoXLmdycGNw",
+            "cm90by5TdWNjZXNzUmVwbHkiABJFCgtHcmFpbnNBZGRlZBIcLmdycGNwcm90",
+            "by5HcmFpbnNBZGRlZE5vdGlmeRoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIA",
+            "EkMKClNwYXJnZURvbmUSGy5ncnBjcHJvdG8uU3BhcmdlRG9uZU5vdGlmeRoW",
+            "Lmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAEl8KGFdvcnRDaGlsbGVyU2FuaXRp",
+            "emVkRG9uZRIpLmdycGNwcm90by5Xb3J0Q2hpbGxlclNhbml0aXplZERvbmVO",
+            "b3RpZnkaFi5nb29nbGUucHJvdG9idWYuRW1wdHkiABJBCglHZXRTdGF0dXMS",
+            "Fi5nb29nbGUucHJvdG9idWYuRW1wdHkaGi5ncnBjcHJvdG8uQnJld1N0YXR1",
+            "c1JlcGx5IgBCKQoUc2UudHJhbnRvci5ncnBjcHJvdG9CD0dyYWluYnJhaW5Q",
+            "cm90b1ABYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Grpcproto.BrewStep), }, new pbr::GeneratedClrTypeInfo[] {
@@ -70,7 +71,7 @@ namespace Grpcproto {
             new pbr::GeneratedClrTypeInfo(typeof(global::Grpcproto.SpargeDoneNotify), global::Grpcproto.SpargeDoneNotify.Parser, new[]{ "Id" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Grpcproto.WortChillerSanitizedDoneNotify), global::Grpcproto.WortChillerSanitizedDoneNotify.Parser, new[]{ "Id" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Grpcproto.SuccessReply), global::Grpcproto.SuccessReply.Parser, new[]{ "Success", "Msg" }, null, new[]{ typeof(global::Grpcproto.SuccessReply.Types.Success) }, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Grpcproto.MashProfileStep), global::Grpcproto.MashProfileStep.Parser, new[]{ "Temperature", "Time" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Grpcproto.MashProfileStep), global::Grpcproto.MashProfileStep.Parser, new[]{ "HeatOverTime", "Temperature", "StepTime" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Grpcproto.HopAdditionStep), global::Grpcproto.HopAdditionStep.Parser, new[]{ "Time", "Name" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Grpcproto.BrewStatusReply), global::Grpcproto.BrewStatusReply.Parser, new[]{ "CurrentBrewStep", "RemainingMashSteps", "MashTemperature", "MashTemperatureSetpoint", "RemainingHopAdditions", "RemainingBoilTime", "Progress" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Grpcproto.LoadBrewProfileRequest), global::Grpcproto.LoadBrewProfileRequest.Parser, new[]{ "MashProfileSteps", "HopAdditionStep", "BoilTime" }, null, null, null),
@@ -771,16 +772,27 @@ namespace Grpcproto {
     partial void OnConstruction();
 
     public MashProfileStep(MashProfileStep other) : this() {
+      heatOverTime_ = other.heatOverTime_;
       temperature_ = other.temperature_;
-      time_ = other.time_;
+      stepTime_ = other.stepTime_;
     }
 
     public MashProfileStep Clone() {
       return new MashProfileStep(this);
     }
 
+    /// <summary>Field number for the "heat_over_time" field.</summary>
+    public const int HeatOverTimeFieldNumber = 1;
+    private int heatOverTime_;
+    public int HeatOverTime {
+      get { return heatOverTime_; }
+      set {
+        heatOverTime_ = value;
+      }
+    }
+
     /// <summary>Field number for the "temperature" field.</summary>
-    public const int TemperatureFieldNumber = 1;
+    public const int TemperatureFieldNumber = 2;
     private int temperature_;
     public int Temperature {
       get { return temperature_; }
@@ -789,13 +801,13 @@ namespace Grpcproto {
       }
     }
 
-    /// <summary>Field number for the "time" field.</summary>
-    public const int TimeFieldNumber = 2;
-    private int time_;
-    public int Time {
-      get { return time_; }
+    /// <summary>Field number for the "step_time" field.</summary>
+    public const int StepTimeFieldNumber = 3;
+    private int stepTime_;
+    public int StepTime {
+      get { return stepTime_; }
       set {
-        time_ = value;
+        stepTime_ = value;
       }
     }
 
@@ -810,15 +822,17 @@ namespace Grpcproto {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (HeatOverTime != other.HeatOverTime) return false;
       if (Temperature != other.Temperature) return false;
-      if (Time != other.Time) return false;
+      if (StepTime != other.StepTime) return false;
       return true;
     }
 
     public override int GetHashCode() {
       int hash = 1;
+      if (HeatOverTime != 0) hash ^= HeatOverTime.GetHashCode();
       if (Temperature != 0) hash ^= Temperature.GetHashCode();
-      if (Time != 0) hash ^= Time.GetHashCode();
+      if (StepTime != 0) hash ^= StepTime.GetHashCode();
       return hash;
     }
 
@@ -827,23 +841,30 @@ namespace Grpcproto {
     }
 
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Temperature != 0) {
+      if (HeatOverTime != 0) {
         output.WriteRawTag(8);
+        output.WriteInt32(HeatOverTime);
+      }
+      if (Temperature != 0) {
+        output.WriteRawTag(16);
         output.WriteInt32(Temperature);
       }
-      if (Time != 0) {
-        output.WriteRawTag(16);
-        output.WriteInt32(Time);
+      if (StepTime != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(StepTime);
       }
     }
 
     public int CalculateSize() {
       int size = 0;
+      if (HeatOverTime != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(HeatOverTime);
+      }
       if (Temperature != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Temperature);
       }
-      if (Time != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Time);
+      if (StepTime != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(StepTime);
       }
       return size;
     }
@@ -852,11 +873,14 @@ namespace Grpcproto {
       if (other == null) {
         return;
       }
+      if (other.HeatOverTime != 0) {
+        HeatOverTime = other.HeatOverTime;
+      }
       if (other.Temperature != 0) {
         Temperature = other.Temperature;
       }
-      if (other.Time != 0) {
-        Time = other.Time;
+      if (other.StepTime != 0) {
+        StepTime = other.StepTime;
       }
     }
 
@@ -868,11 +892,15 @@ namespace Grpcproto {
             input.SkipLastField();
             break;
           case 8: {
-            Temperature = input.ReadInt32();
+            HeatOverTime = input.ReadInt32();
             break;
           }
           case 16: {
-            Time = input.ReadInt32();
+            Temperature = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            StepTime = input.ReadInt32();
             break;
           }
         }

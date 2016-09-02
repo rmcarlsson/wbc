@@ -58,7 +58,7 @@ namespace WpfApplication1
             {
                 var mps = new GFCalc.Domain.MashProfileStep();
                 mps.Temperature = statusMp.Temperature;
-                mps.Time = statusMp.Time;
+                mps.StepTime = statusMp.StepTime;
 
                 status.RemainingMashStepList.Add(mps);
             }
