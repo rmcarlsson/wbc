@@ -643,6 +643,9 @@ namespace GFCalc
                     pcs.Inlines.Add(new Run(strbcs.ToString()));
                     doc.Blocks.Add(pcs);
                 }
+                Paragraph pcsw = new Paragraph();
+                pcsw.Inlines.Add(new Run(String.Format("Mix with {0:F1} cold water\n", (Volumes.ColdSteepVolume * (1 - ColdSteep.COLDSTEEP_VOLUME_TO_SPARGE_RATIO)))));
+
 
                 Paragraph pm = new Paragraph();
                 pm.Inlines.Add(new Bold(new Run("Normal step mash:\n")));
@@ -734,6 +737,8 @@ namespace GFCalc
                     if (g.Stage == FermentableStage.ColdSteep)
                         pbh.Inlines.Add(new Run(String.Format("Add the runnings of {0} to the boil 10 minutes before end\n", g.FermentableAdjunct.Name)));
                 }
+                pbh.Inlines.Add(new Run(String.Format("Sparge all runnings with {0:F1}L water.\n", Volumes.ColdSteepVolume * (ColdSteep.COLDSTEEP_VOLUME_TO_SPARGE_RATIO))));
+
 
                 pbh.Inlines.Add(new Run(String.Format("Expected post-boil gravity is {0:F3}. Post-boil volume shall be {1:F1} liters", pobg, Volumes.PostBoilVolume)));
 
@@ -817,7 +822,7 @@ namespace GFCalc
                         ColdSteepAddition csa = new ColdSteepAddition();
                         ColdSteep.GetColdSteepCompensatedWeight(g, out csa);
                         grain.AmountGrams = csa.Weight;
-                        Volumes.ColdSteepVolume = csa.WaterContribution;
+                        Volumes.ColdSteepVolume += csa.WaterContribution;
                     }
 
                     if (grain.Stage == FermentableStage.Mash)

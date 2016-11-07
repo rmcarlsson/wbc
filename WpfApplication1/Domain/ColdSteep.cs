@@ -17,6 +17,7 @@ namespace Grainsim.Domain
     {
         public const double COLDSTEEP_WATER_TO_GRAIN_RATION = 5;
         public const double COLDSTEEP_EFFICIENCY = 0.85;
+        public const double COLDSTEEP_VOLUME_TO_SPARGE_RATIO = 0.1;
 
         public static IEnumerable<GristPart> CalculateColdSteepGrainBill(IEnumerable<GristPart> aGrist)
         {
@@ -29,6 +30,7 @@ namespace Grainsim.Domain
             ColdSteepAddition ret = new ColdSteepAddition();
             ret.Weight = (int)Math.Round((double)aGrainWeight / COLDSTEEP_EFFICIENCY);
             ret.WaterContribution = ((double)ret.Weight * COLDSTEEP_WATER_TO_GRAIN_RATION)/1000d;
+            ret.WaterContribution += ret.WaterContribution * COLDSTEEP_VOLUME_TO_SPARGE_RATIO;
 
             aColdSteepAddition = ret;
         }

@@ -104,7 +104,7 @@ namespace Grainsim.Domain
                         eff = aMashEfficiency;
                         break;
                     case FermentableStage.ColdSteep:
-                        eff = ColdSteep.COLDSTEEP_EFFICIENCY;
+                        eff = ColdSteep.COLDSTEEP_EFFICIENCY * aMashEfficiency;
                         break;
                     default:
                         eff = 1;
