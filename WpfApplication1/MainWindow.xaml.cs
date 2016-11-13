@@ -320,12 +320,23 @@ namespace GFCalc
             if (w.hop != null)
             {
                 BoilHops.Remove((HopAddition)HopsListView.SelectedItem);
-                BoilHops.Add(w.hop);
-                recalculateIbu();
+                hopsCompositionChanged(w.hop);
             }
 
 
         }
+
+        private void hopsCompositionChanged(HopAddition addedHop)
+        {
+            var vol = Volumes.FinalBatchVolume;
+            if (addedHop.Stage == HopAdditionStage.Boil)
+                vol = Volumes.PostBoilVolume;
+
+            addedHop.AmountGrams = addedHop.Amount * vol;
+            BoilHops.Add(addedHop);
+            recalculateIbu();
+        }
+
         private void HopsListView_KeyDown(object sender, KeyEventArgs e)
         {
             if (HopsListView.SelectedIndex >= BoilHops.Count() || HopsListView.SelectedIndex < 0)
@@ -336,8 +347,6 @@ namespace GFCalc
                 HopAddition h = (HopAddition)HopsListView.SelectedItem;
                 BoilHops.Remove(h);
                 recalculateIbu();
-
-                MessageBox.Show(String.Format("Shit, want to remove {0}. That is {1} away", h.Hop.Name, h.Amount));
             }
         }
 
@@ -351,8 +360,7 @@ namespace GFCalc
                 var ol = BoilHops.OrderBy(x => x).ToList();
                 BoilHops.Clear();
                 foreach (HopAddition h in ol)
-                    BoilHops.Add(h);
-                recalculateIbu();
+                    hopsCompositionChanged(h);
             }
         }
 
@@ -918,11 +926,6 @@ namespace GFCalc
 
             IbuLabel.Content = string.Format("IBU: {0:F0} - {1:F0} ({2:F0})", lowIbu, highIbu, ibu);
 
-            foreach (HopAddition h in BoilHops)
-            {
-                h.AmountGrams = Math.Round((Volumes.TotalBatchVolume * h.Amount));
-            }
-
         }
 
 
@@ -1162,6 +1165,7 @@ namespace GFCalc
             }
         }
         #endregion
+
     }
 }
 

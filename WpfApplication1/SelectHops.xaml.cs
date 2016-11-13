@@ -35,6 +35,8 @@ namespace Grainsim
             TimeDurationTextBox.Text = aBoilTime.ToString();
             StageComboBox.ItemsSource = Enum.GetValues(typeof(HopAdditionStage)).Cast<HopAdditionStage>();
             StageComboBox.SelectedIndex = 0;
+
+            UnitCheckBox.IsChecked = false;
         }
 
         public SelectHops(HopsRepository aRepo, HopAddition aHopAddition)
@@ -48,10 +50,21 @@ namespace Grainsim
             HopsComboBox.SelectedValue = hops.FirstOrDefault(x => x.Name.Equals(aHopAddition.Hop.Name));
 
             TimeDurationTextBox.Text = aHopAddition.Duration.ToString();
-            AmountTextBox.Text = aHopAddition.Amount.ToString();
             StageComboBox.ItemsSource = Enum.GetValues(typeof(HopAdditionStage)).Cast<HopAdditionStage>();
-            StageComboBox.SelectedItem = (HopAdditionStage)aHopAddition.Stage; 
+            StageComboBox.SelectedItem = (HopAdditionStage)aHopAddition.Stage;
 
+            if (aHopAddition.AmountUnit == HopAmountUnitE.IBU)
+            {
+                UnitCheckBox.IsChecked = false;
+                AmountLabel.Content = "Bitterness [IBU] :";
+                AmountTextBox.Text = aHopAddition.Bitterness.ToString();
+            }
+            else
+            {
+                UnitCheckBox.IsChecked = true;
+                AmountLabel.Content = "Amount [g/L] :";
+                AmountTextBox.Text = aHopAddition.Amount.ToString();
+            }
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
@@ -81,7 +94,17 @@ namespace Grainsim
             float amount;
             if (float.TryParse(AmountTextBox.Text, out amount))
             {
-                hop.Amount = Math.Round(amount, 2);
+                if (UnitCheckBox.IsChecked == false)
+                {
+                    hop.Bitterness = (int)Math.Round(amount,0);
+                    hop.AmountUnit = HopAmountUnitE.IBU;
+                }
+                else
+                {
+                    hop.Amount = Math.Round(amount, 2);
+                    hop.AmountUnit = HopAmountUnitE.GRAMS_PER_LITER;
+                }
+                    
                 this.Close();
             }
             else
@@ -100,11 +123,28 @@ namespace Grainsim
             if ((HopAdditionStage)(StageComboBox.SelectedItem) == (HopAdditionStage.Fermentation))
             {
                 TimeDuration.Content = "Time[Days]:";
+                UnitCheckBox.IsChecked = true;
+                UnitCheckBox.IsEnabled = false;
+                AmountLabel.Content = "Amount [g/L] :";
+
             }
             else
             {
                 TimeDuration.Content = "Time[minutes from boil end]:";
+                UnitCheckBox.IsEnabled = true;
             }
+        }
+
+        private void UnitCheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            if (UnitCheckBox.IsChecked == false) {
+                AmountLabel.Content = "Bitterness [IBU] :";
+            }
+            else
+            {
+                AmountLabel.Content = "Amount [g/L] :";
+            }
+
         }
     }
 }

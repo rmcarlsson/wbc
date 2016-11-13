@@ -15,17 +15,37 @@ namespace Grainsim.Domain
         Fermentation,
     }
 
+
+    public enum HopAmountUnitE
+    {
+        IBU,
+        GRAMS_PER_LITER
+    }
+
     //[ValueConversion(typeof(Amount), typeof(AmountGrams))]
     public class HopAddition : IComparable<HopAddition>
     {
         [XmlElement("Hop")]
         public Hops Hop { set; get; }
+
         [XmlAttribute("Name")]
+        public String Name { set; get; }
+
+        [XmlAttribute("Amount")]
         public double Amount { get; set; }
+
+        [XmlAttribute("AmountUnit")]
+        public HopAmountUnitE AmountUnit { get; set; }
+
         [XmlAttribute("AmountGrams")]
         public double AmountGrams { get; set; }
+
+        [XmlAttribute("Bitterness")]
+        public int Bitterness { get; set; }
+
         [XmlAttribute("Duration")]
         public int Duration { get; set; }
+
         [XmlAttribute("Stage")]
         public HopAdditionStage Stage { get; set; }
 

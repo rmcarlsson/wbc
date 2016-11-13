@@ -29,15 +29,30 @@ namespace Grainsim.Domain
             var res = 0d;
             foreach (HopAddition hopAdd in aAdditions) 
             {
-                var fTinseth = (1 - Math.Pow(Math.E, (- 0.04 * hopAdd.Duration))) / 4.15;
-                
+                var fTinseth = (1 - Math.Pow(Math.E, (-0.04 * hopAdd.Duration))) / 4.15;
                 var utilization = fGravity * fTinseth;
-
-                var hopAmountGrams = (hopAdd.Amount * aVolumeBoil);
                 var decimal_aa = hopAdd.Hop.AlphaAcid.GetAphaAcid() / (100);
-                var mg_per_liter = (decimal_aa * hopAmountGrams * 1000) / aVolumeBoil;
 
-                res += utilization * mg_per_liter;
+                if (hopAdd.AmountUnit == HopAmountUnitE.GRAMS_PER_LITER)
+                {
+                    var hopAmountGrams = (hopAdd.Amount * aVolumeBoil);
+                    var mg_per_liter = (decimal_aa * hopAmountGrams * 1000) / aVolumeBoil;
+                    var ibu = utilization * mg_per_liter;
+                    hopAdd.Bitterness = Convert.ToInt32(Math.Round(ibu));
+                    res += ibu;
+                }
+                else
+                {
+                    // Calculate amount instead
+                    var mg_per_liter = hopAdd.Bitterness / utilization;
+                    var hopAmountGrams = (mg_per_liter * aVolumeBoil) / (decimal_aa * 1000);
+                    hopAdd.Amount = hopAmountGrams / aVolumeBoil;
+
+                    // Just add up the IBU to the total sum
+                    res += hopAdd.Bitterness;
+                }
+
+                hopAdd.AmountGrams = Math.Round((aVolumeBoil * hopAdd.Amount));
             }
 
             return Convert.ToInt32(res);

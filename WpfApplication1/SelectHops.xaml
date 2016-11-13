@@ -11,14 +11,15 @@
         <Label x:Name="label" Content="Hops" HorizontalAlignment="Left" Margin="25,17,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.283,0.115"/>
         <Button x:Name="Cancel" Content="Cancel" HorizontalAlignment="Left" Margin="377,195,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
         <Button x:Name="Done" Content="Done" HorizontalAlignment="Left" Margin="297,195,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click"/>
-        <TextBox x:Name="AmountTextBox" HorizontalAlignment="Left" Height="23" Margin="379,20,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="75"/>
-        <Label x:Name="label1" Content="Amount [g/L] :" HorizontalAlignment="Left" Margin="288,18,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="AmountTextBox" HorizontalAlignment="Left" Height="23" Margin="377,20,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="75"/>
+        <Label x:Name="AmountLabel" Content="Bitterness [IBU] :" HorizontalAlignment="Right" Margin="0,17,90,0" VerticalAlignment="Top"/>
 
         <ComboBox x:Name="StageComboBox" HorizontalAlignment="Left" Margin="25,127,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="StageComboBox_SelectionChanged">
         </ComboBox>
         <Label x:Name="label3" Content="Stage" HorizontalAlignment="Left" Margin="25,96,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="TimeDuration" Content="Time [minutes from boil end] :" HorizontalAlignment="Right" Margin="0,53,90,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TimeDurationTextBox" HorizontalAlignment="Left" Height="23" Margin="379,55,0,0" TextWrapping="Wrap" Text="90" VerticalAlignment="Top" Width="75"/>
+        <Label x:Name="TimeDuration" Content="Time [minutes from boil end] :" HorizontalAlignment="Right" Margin="0,80,82,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TimeDurationTextBox" HorizontalAlignment="Left" Height="23" Margin="387,82,0,0" TextWrapping="Wrap" Text="90" VerticalAlignment="Top" Width="75"/>
+        <CheckBox x:Name="UnitCheckBox" Content="Provide grams/Liter" HorizontalAlignment="Left" Margin="328,48,0,0" VerticalAlignment="Top" Click="UnitCheckBox_Click"/>
 
     </Grid>
 </Window>
