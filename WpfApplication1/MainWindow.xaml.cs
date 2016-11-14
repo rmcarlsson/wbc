@@ -128,6 +128,7 @@ namespace GFCalc
             }
         }
 
+        #region Grainbrain hanlding
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
             bool grainBrainConnected = false;
@@ -259,7 +260,7 @@ namespace GFCalc
             handleBrewProcess(s);
 
         }
-
+        #endregion
 
         #region MaltsListView event handlers
         private void MaltsListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -326,16 +327,6 @@ namespace GFCalc
 
         }
 
-        private void hopsCompositionChanged(HopAddition addedHop)
-        {
-            var vol = Volumes.FinalBatchVolume;
-            if (addedHop.Stage == HopAdditionStage.Boil)
-                vol = Volumes.PostBoilVolume;
-
-            addedHop.AmountGrams = addedHop.Amount * vol;
-            BoilHops.Add(addedHop);
-            recalculateIbu();
-        }
 
         private void HopsListView_KeyDown(object sender, KeyEventArgs e)
         {
@@ -363,6 +354,21 @@ namespace GFCalc
                     hopsCompositionChanged(h);
             }
         }
+
+        private void hopsCompositionChanged(HopAddition addedHop)
+        {
+            if (addedHop != null)
+            {
+                var vol = Volumes.FinalBatchVolume;
+                if (addedHop.Stage == HopAdditionStage.Boil)
+                    vol = Volumes.PostBoilVolume;
+
+                addedHop.AmountGrams = addedHop.Amount * vol;
+                BoilHops.Add(addedHop);
+            }
+            recalculateIbu();
+        }
+
 
         #endregion
 
@@ -745,7 +751,11 @@ namespace GFCalc
                     if (g.Stage == FermentableStage.ColdSteep)
                         pbh.Inlines.Add(new Run(String.Format("Add the runnings of {0} to the boil 10 minutes before end\n", g.FermentableAdjunct.Name)));
                 }
-                pbh.Inlines.Add(new Run(String.Format("Sparge all runnings with {0:F1}L water.\n", Volumes.ColdSteepVolume * (ColdSteep.COLDSTEEP_VOLUME_TO_SPARGE_RATIO))));
+
+                if (Grist.Any(x => x.Stage == FermentableStage.ColdSteep))
+                {
+                    pbh.Inlines.Add(new Run(String.Format("\nSparge all runnings with {0:F1}L water.\n", Volumes.ColdSteepVolume * (ColdSteep.COLDSTEEP_VOLUME_TO_SPARGE_RATIO))));
+                }
 
 
                 pbh.Inlines.Add(new Run(String.Format("Expected post-boil gravity is {0:F3}. Post-boil volume shall be {1:F1} liters", pobg, Volumes.PostBoilVolume)));
@@ -912,6 +922,11 @@ namespace GFCalc
 
                 recalculateIbu();
 
+                var ol = BoilHops.OrderBy(x => x).ToList();
+                BoilHops.Clear();
+                foreach (HopAddition h in ol)
+                    hopsCompositionChanged(h);
+
             }
         }
 
@@ -937,6 +952,7 @@ namespace GFCalc
             BoilTimeTextBox.Text = BoilTime.ToString();
             TopUpMashWaterVolumeTextBox.Text = TopUpMashWater.ToString();
             PreBoilVolumeTextBox.Text = Volumes.PreBoilTapOff.ToString();
+
         }
         #endregion
 
