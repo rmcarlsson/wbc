@@ -826,7 +826,7 @@ namespace GFCalc
             {
                 var preBoilTappOffLoss = (Volumes.PreBoilTapOff / (Volumes.PreBoilVolume - Volumes.PreBoilTapOff));
 
-                var TotalGbs = GravityAlgorithms.GetGrainBillWeight(OriginalGravity, Volumes.TotalBatchVolume - Volumes.PreBoilTapOff, Grist.ToList(), gfc.MashEfficiency);
+                var TotalGbs = GravityAlgorithms.GetGrainBillWeight(OriginalGravity, Volumes.TotalBatchVolume - Volumes.PreBoilTapOff, Grist.ToList(), 1);
 
 
                 Volumes.ColdSteepVolume = 0;
@@ -836,7 +836,8 @@ namespace GFCalc
                 {
                     if (grain.Stage == FermentableStage.ColdSteep)
                     {
-                        var g = (int)Math.Round((double)TotalGbs * ((double)grain.Amount / 100d));
+                        var tgbs = ((double)(TotalGbs) / gfc.MashEfficiency);
+                        var g = (int)Math.Round(tgbs * ((double)grain.Amount / 100d));
                         ColdSteepAddition csa = new ColdSteepAddition();
                         ColdSteep.GetColdSteepCompensatedWeight(g, out csa);
                         grain.AmountGrams = csa.Weight;
@@ -845,14 +846,16 @@ namespace GFCalc
 
                     if (grain.Stage == FermentableStage.Mash)
                     {
-                        grain.AmountGrams = (int)Math.Round(TotalGbs * ((double)grain.Amount / 100d));
+                        var tgbs = ((double)(TotalGbs) / gfc.MashEfficiency);
+                        grain.AmountGrams = (int)Math.Round(tgbs * ((double)grain.Amount / 100d));
                         grain.AmountGrams += (int)Math.Round(grain.AmountGrams * (Volumes.PreBoilTapOff / (Volumes.PreBoilVolume - Volumes.PreBoilTapOff)));
                     }
 
                     if (grain.Stage == FermentableStage.Fermentor)
                     {
-                        var boilerLossPercent = 1 - (GrainfatherCalculator.GRAINFATHER_BOILER_TO_FERMENTOR_LOSS / Volumes.TotalBatchVolume);
-                        grain.AmountGrams = (int)Math.Round(TotalGbs * ((double)grain.Amount / 100d) * boilerLossPercent);
+                        var boilerLossPercent =  GrainfatherCalculator.GRAINFATHER_BOILER_TO_FERMENTOR_LOSS / (Volumes.TotalBatchVolume - Volumes.PreBoilTapOff);
+                        grain.AmountGrams = (int)Math.Round(TotalGbs * ((double)grain.Amount / 100d));
+                        grain.AmountGrams -= (int)Math.Round(boilerLossPercent * grain.AmountGrams);
                     }
 
                     l.Add(grain);
