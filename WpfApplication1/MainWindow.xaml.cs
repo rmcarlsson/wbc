@@ -128,7 +128,7 @@ namespace GFCalc
             }
         }
 
-        #region Grainbrain hanlding
+        #region Grainbrain handling
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
             bool grainBrainConnected = false;
@@ -708,8 +708,14 @@ namespace GFCalc
                     TotalGbs,
                     gfc.MashEfficiency);
 
-                pmp.Inlines.Add(new Run(String.Format("\nExpected pre-boil gravity is {0:F3}. Pre-boil volume shall be {1:F1} liters",
+                pmp.Inlines.Add(new Run(String.Format("\nExpected post-mash gravity is {0:F3}. Post-mash volume shall be {1:F1} liters",
                     prbg, Volumes.PreBoilVolume)));
+                if(Volumes.PreBoilTapOff > 0)
+                {
+                    pmp.Inlines.Add(new Run(String.Format("\nTap off {0:F1} liters wort before boil start. Expected Pre-boil volume is {1:F1} liters.\n", 
+                        Volumes.PreBoilTapOff,
+                        Volumes.PreBoilVolume - Volumes.PreBoilTapOff)));
+                }
 
                 doc.Blocks.Add(pmp);
 
@@ -867,7 +873,7 @@ namespace GFCalc
                 var pobg = GravityAlgorithms.GetGravityByPart(
                     Volumes.PostBoilVolume, 
                     Grist.Where(x => x.Stage != FermentableStage.Fermentor).ToList(), 
-                    TotalGbs,
+                    Convert.ToInt32(((double)(TotalGbs) / gfc.MashEfficiency)),
                     gfc.MashEfficiency);
 
                 Gravitylabel.Content = String.Format("Gravity (pre- and post-boil) [SG]: {0:F3} {1:F3})",
