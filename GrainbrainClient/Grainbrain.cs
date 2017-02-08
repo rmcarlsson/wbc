@@ -10,7 +10,6 @@ using scg = global::System.Collections.Generic;
 namespace Grpcproto {
 
   /// <summary>Holder for reflection information generated from grainbrain.proto</summary>
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public static partial class GrainbrainReflection {
 
     #region Descriptor
@@ -40,28 +39,29 @@ namespace Grpcproto {
             "YXR1cmUYAyABKAESIQoZbWFzaF90ZW1wZXJhdHVyZV9zZXRwb2ludBgEIAEo",
             "ARI7ChdyZW1haW5pbmdfaG9wX2FkZGl0aW9ucxgFIAMoCzIaLmdycGNwcm90",
             "by5Ib3BBZGRpdGlvblN0ZXASGwoTcmVtYWluaW5nX2JvaWxfdGltZRgGIAEo",
-            "BRIQCghwcm9ncmVzcxgHIAEoBSKaAQoWTG9hZEJyZXdQcm9maWxlUmVxdWVz",
+            "BRIQCghwcm9ncmVzcxgHIAEoBSLPAQoWTG9hZEJyZXdQcm9maWxlUmVxdWVz",
             "dBI2ChJtYXNoX3Byb2ZpbGVfc3RlcHMYASADKAsyGi5ncnBjcHJvdG8uTWFz",
             "aFByb2ZpbGVTdGVwEjUKEWhvcF9hZGRpdGlvbl9zdGVwGAIgAygLMhouZ3Jw",
-            "Y3Byb3RvLkhvcEFkZGl0aW9uU3RlcBIRCglib2lsX3RpbWUYAyABKAUiegoQ",
-            "U3RhcnRTdG9wUmVxdWVzdBI5CgpzdGFydF9zdG9wGAEgASgOMiUuZ3JwY3By",
-            "b3RvLlN0YXJ0U3RvcFJlcXVlc3QuU3RhcnRTdG9wIisKCVN0YXJ0U3RvcBIJ",
-            "CgVTVEFSVBAAEggKBFNUT1AQARIJCgVBQk9SVBACKoUBCghCcmV3U3RlcBII",
-            "CgRJRExFEAASCwoHSEVBVElORxABEh0KGVNUUklLRV9XQVRFUl9URU1QX1JF",
-            "QUNIRUQQAhILCgdNQVNISU5HEAMSGgoWTUFTSF9ET05FX1NUQVJUX1NQQVJH",
-            "RRAEEgsKB0JPSUxJTkcQBRINCglCT0lMX0RPTkUQBjLVAwoITWNTZXJ2ZXIS",
-            "TwoPTG9hZEJyZXdQcm9maWxlEiEuZ3JwY3Byb3RvLkxvYWRCcmV3UHJvZmls",
-            "ZVJlcXVlc3QaFy5ncnBjcHJvdG8uU3VjY2Vzc1JlcGx5IgASSAoOU3RhcnRT",
-            "dG9wQWJvcnQSGy5ncnBjcHJvdG8uU3RhcnRTdG9wUmVxdWVzdBoXLmdycGNw",
-            "cm90by5TdWNjZXNzUmVwbHkiABJFCgtHcmFpbnNBZGRlZBIcLmdycGNwcm90",
-            "by5HcmFpbnNBZGRlZE5vdGlmeRoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIA",
-            "EkMKClNwYXJnZURvbmUSGy5ncnBjcHJvdG8uU3BhcmdlRG9uZU5vdGlmeRoW",
-            "Lmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAEl8KGFdvcnRDaGlsbGVyU2FuaXRp",
-            "emVkRG9uZRIpLmdycGNwcm90by5Xb3J0Q2hpbGxlclNhbml0aXplZERvbmVO",
-            "b3RpZnkaFi5nb29nbGUucHJvdG9idWYuRW1wdHkiABJBCglHZXRTdGF0dXMS",
-            "Fi5nb29nbGUucHJvdG9idWYuRW1wdHkaGi5ncnBjcHJvdG8uQnJld1N0YXR1",
-            "c1JlcGx5IgBCKQoUc2UudHJhbnRvci5ncnBjcHJvdG9CD0dyYWluYnJhaW5Q",
-            "cm90b1ABYgZwcm90bzM="));
+            "Y3Byb3RvLkhvcEFkZGl0aW9uU3RlcBIRCglib2lsX3RpbWUYAyABKAUSGQoR",
+            "bWFzaF93YXRlcl92b2x1bWUYBCABKAESGAoQZ3JhaW5iaWxsX3dlaWdodBgF",
+            "IAEoASJ6ChBTdGFydFN0b3BSZXF1ZXN0EjkKCnN0YXJ0X3N0b3AYASABKA4y",
+            "JS5ncnBjcHJvdG8uU3RhcnRTdG9wUmVxdWVzdC5TdGFydFN0b3AiKwoJU3Rh",
+            "cnRTdG9wEgkKBVNUQVJUEAASCAoEU1RPUBABEgkKBUFCT1JUEAIqhQEKCEJy",
+            "ZXdTdGVwEggKBElETEUQABILCgdIRUFUSU5HEAESHQoZU1RSSUtFX1dBVEVS",
+            "X1RFTVBfUkVBQ0hFRBACEgsKB01BU0hJTkcQAxIaChZNQVNIX0RPTkVfU1RB",
+            "UlRfU1BBUkdFEAQSCwoHQk9JTElORxAFEg0KCUJPSUxfRE9ORRAGMtUDCghN",
+            "Y1NlcnZlchJPCg9Mb2FkQnJld1Byb2ZpbGUSIS5ncnBjcHJvdG8uTG9hZEJy",
+            "ZXdQcm9maWxlUmVxdWVzdBoXLmdycGNwcm90by5TdWNjZXNzUmVwbHkiABJI",
+            "Cg5TdGFydFN0b3BBYm9ydBIbLmdycGNwcm90by5TdGFydFN0b3BSZXF1ZXN0",
+            "GhcuZ3JwY3Byb3RvLlN1Y2Nlc3NSZXBseSIAEkUKC0dyYWluc0FkZGVkEhwu",
+            "Z3JwY3Byb3RvLkdyYWluc0FkZGVkTm90aWZ5GhYuZ29vZ2xlLnByb3RvYnVm",
+            "LkVtcHR5IgASQwoKU3BhcmdlRG9uZRIbLmdycGNwcm90by5TcGFyZ2VEb25l",
+            "Tm90aWZ5GhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5IgASXwoYV29ydENoaWxs",
+            "ZXJTYW5pdGl6ZWREb25lEikuZ3JwY3Byb3RvLldvcnRDaGlsbGVyU2FuaXRp",
+            "emVkRG9uZU5vdGlmeRoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eSIAEkEKCUdl",
+            "dFN0YXR1cxIWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRoaLmdycGNwcm90by5C",
+            "cmV3U3RhdHVzUmVwbHkiAEIpChRzZS50cmFudG9yLmdycGNwcm90b0IPR3Jh",
+            "aW5icmFpblByb3RvUAFiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Grpcproto.BrewStep), }, new pbr::GeneratedClrTypeInfo[] {
@@ -74,7 +74,7 @@ namespace Grpcproto {
             new pbr::GeneratedClrTypeInfo(typeof(global::Grpcproto.MashProfileStep), global::Grpcproto.MashProfileStep.Parser, new[]{ "HeatOverTime", "Temperature", "StepTime" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Grpcproto.HopAdditionStep), global::Grpcproto.HopAdditionStep.Parser, new[]{ "Time", "Name" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Grpcproto.BrewStatusReply), global::Grpcproto.BrewStatusReply.Parser, new[]{ "CurrentBrewStep", "RemainingMashSteps", "MashTemperature", "MashTemperatureSetpoint", "RemainingHopAdditions", "RemainingBoilTime", "Progress" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Grpcproto.LoadBrewProfileRequest), global::Grpcproto.LoadBrewProfileRequest.Parser, new[]{ "MashProfileSteps", "HopAdditionStep", "BoilTime" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Grpcproto.LoadBrewProfileRequest), global::Grpcproto.LoadBrewProfileRequest.Parser, new[]{ "MashProfileSteps", "HopAdditionStep", "BoilTime", "MashWaterVolume", "GrainbillWeight" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Grpcproto.StartStopRequest), global::Grpcproto.StartStopRequest.Parser, new[]{ "StartStop" }, null, new[]{ typeof(global::Grpcproto.StartStopRequest.Types.StartStop) }, null)
           }));
     }
@@ -95,29 +95,34 @@ namespace Grpcproto {
   #endregion
 
   #region Messages
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class NetworkDiscoveryRequest : pb::IMessage<NetworkDiscoveryRequest> {
     private static readonly pb::MessageParser<NetworkDiscoveryRequest> _parser = new pb::MessageParser<NetworkDiscoveryRequest>(() => new NetworkDiscoveryRequest());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<NetworkDiscoveryRequest> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::Grpcproto.GrainbrainReflection.Descriptor.MessageTypes[0]; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public NetworkDiscoveryRequest() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public NetworkDiscoveryRequest(NetworkDiscoveryRequest other) : this() {
       name_ = other.name_;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public NetworkDiscoveryRequest Clone() {
       return new NetworkDiscoveryRequest(this);
     }
@@ -125,6 +130,7 @@ namespace Grpcproto {
     /// <summary>Field number for the "name" field.</summary>
     public const int NameFieldNumber = 1;
     private string name_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Name {
       get { return name_; }
       set {
@@ -132,10 +138,12 @@ namespace Grpcproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as NetworkDiscoveryRequest);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Equals(NetworkDiscoveryRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -147,16 +155,19 @@ namespace Grpcproto {
       return true;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
       if (Name.Length != 0) hash ^= Name.GetHashCode();
       return hash;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (Name.Length != 0) {
         output.WriteRawTag(10);
@@ -164,6 +175,7 @@ namespace Grpcproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
       if (Name.Length != 0) {
@@ -172,6 +184,7 @@ namespace Grpcproto {
       return size;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(NetworkDiscoveryRequest other) {
       if (other == null) {
         return;
@@ -181,6 +194,7 @@ namespace Grpcproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
@@ -198,29 +212,34 @@ namespace Grpcproto {
 
   }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class NetworkDiscoveryReply : pb::IMessage<NetworkDiscoveryReply> {
     private static readonly pb::MessageParser<NetworkDiscoveryReply> _parser = new pb::MessageParser<NetworkDiscoveryReply>(() => new NetworkDiscoveryReply());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<NetworkDiscoveryReply> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::Grpcproto.GrainbrainReflection.Descriptor.MessageTypes[1]; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public NetworkDiscoveryReply() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public NetworkDiscoveryReply(NetworkDiscoveryReply other) : this() {
       name_ = other.name_;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public NetworkDiscoveryReply Clone() {
       return new NetworkDiscoveryReply(this);
     }
@@ -228,6 +247,7 @@ namespace Grpcproto {
     /// <summary>Field number for the "name" field.</summary>
     public const int NameFieldNumber = 1;
     private string name_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Name {
       get { return name_; }
       set {
@@ -235,10 +255,12 @@ namespace Grpcproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as NetworkDiscoveryReply);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Equals(NetworkDiscoveryReply other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -250,16 +272,19 @@ namespace Grpcproto {
       return true;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
       if (Name.Length != 0) hash ^= Name.GetHashCode();
       return hash;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (Name.Length != 0) {
         output.WriteRawTag(10);
@@ -267,6 +292,7 @@ namespace Grpcproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
       if (Name.Length != 0) {
@@ -275,6 +301,7 @@ namespace Grpcproto {
       return size;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(NetworkDiscoveryReply other) {
       if (other == null) {
         return;
@@ -284,6 +311,7 @@ namespace Grpcproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
@@ -301,29 +329,34 @@ namespace Grpcproto {
 
   }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class GrainsAddedNotify : pb::IMessage<GrainsAddedNotify> {
     private static readonly pb::MessageParser<GrainsAddedNotify> _parser = new pb::MessageParser<GrainsAddedNotify>(() => new GrainsAddedNotify());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<GrainsAddedNotify> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::Grpcproto.GrainbrainReflection.Descriptor.MessageTypes[2]; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public GrainsAddedNotify() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public GrainsAddedNotify(GrainsAddedNotify other) : this() {
       id_ = other.id_;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public GrainsAddedNotify Clone() {
       return new GrainsAddedNotify(this);
     }
@@ -331,6 +364,7 @@ namespace Grpcproto {
     /// <summary>Field number for the "id" field.</summary>
     public const int IdFieldNumber = 1;
     private int id_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Id {
       get { return id_; }
       set {
@@ -338,10 +372,12 @@ namespace Grpcproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as GrainsAddedNotify);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Equals(GrainsAddedNotify other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -353,16 +389,19 @@ namespace Grpcproto {
       return true;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
       if (Id != 0) hash ^= Id.GetHashCode();
       return hash;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (Id != 0) {
         output.WriteRawTag(8);
@@ -370,6 +409,7 @@ namespace Grpcproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
       if (Id != 0) {
@@ -378,6 +418,7 @@ namespace Grpcproto {
       return size;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(GrainsAddedNotify other) {
       if (other == null) {
         return;
@@ -387,6 +428,7 @@ namespace Grpcproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
@@ -404,29 +446,34 @@ namespace Grpcproto {
 
   }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class SpargeDoneNotify : pb::IMessage<SpargeDoneNotify> {
     private static readonly pb::MessageParser<SpargeDoneNotify> _parser = new pb::MessageParser<SpargeDoneNotify>(() => new SpargeDoneNotify());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<SpargeDoneNotify> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::Grpcproto.GrainbrainReflection.Descriptor.MessageTypes[3]; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public SpargeDoneNotify() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public SpargeDoneNotify(SpargeDoneNotify other) : this() {
       id_ = other.id_;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public SpargeDoneNotify Clone() {
       return new SpargeDoneNotify(this);
     }
@@ -434,6 +481,7 @@ namespace Grpcproto {
     /// <summary>Field number for the "id" field.</summary>
     public const int IdFieldNumber = 1;
     private int id_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Id {
       get { return id_; }
       set {
@@ -441,10 +489,12 @@ namespace Grpcproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as SpargeDoneNotify);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Equals(SpargeDoneNotify other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -456,16 +506,19 @@ namespace Grpcproto {
       return true;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
       if (Id != 0) hash ^= Id.GetHashCode();
       return hash;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (Id != 0) {
         output.WriteRawTag(8);
@@ -473,6 +526,7 @@ namespace Grpcproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
       if (Id != 0) {
@@ -481,6 +535,7 @@ namespace Grpcproto {
       return size;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(SpargeDoneNotify other) {
       if (other == null) {
         return;
@@ -490,6 +545,7 @@ namespace Grpcproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
@@ -507,29 +563,34 @@ namespace Grpcproto {
 
   }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class WortChillerSanitizedDoneNotify : pb::IMessage<WortChillerSanitizedDoneNotify> {
     private static readonly pb::MessageParser<WortChillerSanitizedDoneNotify> _parser = new pb::MessageParser<WortChillerSanitizedDoneNotify>(() => new WortChillerSanitizedDoneNotify());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<WortChillerSanitizedDoneNotify> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::Grpcproto.GrainbrainReflection.Descriptor.MessageTypes[4]; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public WortChillerSanitizedDoneNotify() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public WortChillerSanitizedDoneNotify(WortChillerSanitizedDoneNotify other) : this() {
       id_ = other.id_;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public WortChillerSanitizedDoneNotify Clone() {
       return new WortChillerSanitizedDoneNotify(this);
     }
@@ -537,6 +598,7 @@ namespace Grpcproto {
     /// <summary>Field number for the "id" field.</summary>
     public const int IdFieldNumber = 1;
     private int id_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Id {
       get { return id_; }
       set {
@@ -544,10 +606,12 @@ namespace Grpcproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as WortChillerSanitizedDoneNotify);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Equals(WortChillerSanitizedDoneNotify other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -559,16 +623,19 @@ namespace Grpcproto {
       return true;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
       if (Id != 0) hash ^= Id.GetHashCode();
       return hash;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (Id != 0) {
         output.WriteRawTag(8);
@@ -576,6 +643,7 @@ namespace Grpcproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
       if (Id != 0) {
@@ -584,6 +652,7 @@ namespace Grpcproto {
       return size;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(WortChillerSanitizedDoneNotify other) {
       if (other == null) {
         return;
@@ -593,6 +662,7 @@ namespace Grpcproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
@@ -610,30 +680,35 @@ namespace Grpcproto {
 
   }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class SuccessReply : pb::IMessage<SuccessReply> {
     private static readonly pb::MessageParser<SuccessReply> _parser = new pb::MessageParser<SuccessReply>(() => new SuccessReply());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<SuccessReply> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::Grpcproto.GrainbrainReflection.Descriptor.MessageTypes[5]; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public SuccessReply() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public SuccessReply(SuccessReply other) : this() {
       success_ = other.success_;
       msg_ = other.msg_;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public SuccessReply Clone() {
       return new SuccessReply(this);
     }
@@ -641,6 +716,7 @@ namespace Grpcproto {
     /// <summary>Field number for the "success" field.</summary>
     public const int SuccessFieldNumber = 1;
     private global::Grpcproto.SuccessReply.Types.Success success_ = 0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Grpcproto.SuccessReply.Types.Success Success {
       get { return success_; }
       set {
@@ -651,6 +727,7 @@ namespace Grpcproto {
     /// <summary>Field number for the "msg" field.</summary>
     public const int MsgFieldNumber = 2;
     private string msg_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Msg {
       get { return msg_; }
       set {
@@ -658,10 +735,12 @@ namespace Grpcproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as SuccessReply);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Equals(SuccessReply other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -674,6 +753,7 @@ namespace Grpcproto {
       return true;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
       if (Success != 0) hash ^= Success.GetHashCode();
@@ -681,10 +761,12 @@ namespace Grpcproto {
       return hash;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (Success != 0) {
         output.WriteRawTag(8);
@@ -696,6 +778,7 @@ namespace Grpcproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
       if (Success != 0) {
@@ -707,6 +790,7 @@ namespace Grpcproto {
       return size;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(SuccessReply other) {
       if (other == null) {
         return;
@@ -719,6 +803,7 @@ namespace Grpcproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
@@ -740,7 +825,7 @@ namespace Grpcproto {
 
     #region Nested types
     /// <summary>Container for nested types declared in the SuccessReply message type.</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static partial class Types {
       public enum Success {
         [pbr::OriginalName("OK")] Ok = 0,
@@ -752,31 +837,36 @@ namespace Grpcproto {
 
   }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class MashProfileStep : pb::IMessage<MashProfileStep> {
     private static readonly pb::MessageParser<MashProfileStep> _parser = new pb::MessageParser<MashProfileStep>(() => new MashProfileStep());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<MashProfileStep> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::Grpcproto.GrainbrainReflection.Descriptor.MessageTypes[6]; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public MashProfileStep() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public MashProfileStep(MashProfileStep other) : this() {
       heatOverTime_ = other.heatOverTime_;
       temperature_ = other.temperature_;
       stepTime_ = other.stepTime_;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public MashProfileStep Clone() {
       return new MashProfileStep(this);
     }
@@ -784,6 +874,7 @@ namespace Grpcproto {
     /// <summary>Field number for the "heat_over_time" field.</summary>
     public const int HeatOverTimeFieldNumber = 1;
     private int heatOverTime_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int HeatOverTime {
       get { return heatOverTime_; }
       set {
@@ -794,6 +885,7 @@ namespace Grpcproto {
     /// <summary>Field number for the "temperature" field.</summary>
     public const int TemperatureFieldNumber = 2;
     private int temperature_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Temperature {
       get { return temperature_; }
       set {
@@ -804,6 +896,7 @@ namespace Grpcproto {
     /// <summary>Field number for the "step_time" field.</summary>
     public const int StepTimeFieldNumber = 3;
     private int stepTime_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int StepTime {
       get { return stepTime_; }
       set {
@@ -811,10 +904,12 @@ namespace Grpcproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as MashProfileStep);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Equals(MashProfileStep other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -828,6 +923,7 @@ namespace Grpcproto {
       return true;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
       if (HeatOverTime != 0) hash ^= HeatOverTime.GetHashCode();
@@ -836,10 +932,12 @@ namespace Grpcproto {
       return hash;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (HeatOverTime != 0) {
         output.WriteRawTag(8);
@@ -855,6 +953,7 @@ namespace Grpcproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
       if (HeatOverTime != 0) {
@@ -869,6 +968,7 @@ namespace Grpcproto {
       return size;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(MashProfileStep other) {
       if (other == null) {
         return;
@@ -884,6 +984,7 @@ namespace Grpcproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
@@ -909,30 +1010,35 @@ namespace Grpcproto {
 
   }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class HopAdditionStep : pb::IMessage<HopAdditionStep> {
     private static readonly pb::MessageParser<HopAdditionStep> _parser = new pb::MessageParser<HopAdditionStep>(() => new HopAdditionStep());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<HopAdditionStep> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::Grpcproto.GrainbrainReflection.Descriptor.MessageTypes[7]; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public HopAdditionStep() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public HopAdditionStep(HopAdditionStep other) : this() {
       time_ = other.time_;
       name_ = other.name_;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public HopAdditionStep Clone() {
       return new HopAdditionStep(this);
     }
@@ -940,6 +1046,7 @@ namespace Grpcproto {
     /// <summary>Field number for the "time" field.</summary>
     public const int TimeFieldNumber = 1;
     private int time_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Time {
       get { return time_; }
       set {
@@ -950,6 +1057,7 @@ namespace Grpcproto {
     /// <summary>Field number for the "name" field.</summary>
     public const int NameFieldNumber = 2;
     private string name_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Name {
       get { return name_; }
       set {
@@ -957,10 +1065,12 @@ namespace Grpcproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as HopAdditionStep);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Equals(HopAdditionStep other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -973,6 +1083,7 @@ namespace Grpcproto {
       return true;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
       if (Time != 0) hash ^= Time.GetHashCode();
@@ -980,10 +1091,12 @@ namespace Grpcproto {
       return hash;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (Time != 0) {
         output.WriteRawTag(8);
@@ -995,6 +1108,7 @@ namespace Grpcproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
       if (Time != 0) {
@@ -1006,6 +1120,7 @@ namespace Grpcproto {
       return size;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(HopAdditionStep other) {
       if (other == null) {
         return;
@@ -1018,6 +1133,7 @@ namespace Grpcproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
@@ -1039,25 +1155,29 @@ namespace Grpcproto {
 
   }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class BrewStatusReply : pb::IMessage<BrewStatusReply> {
     private static readonly pb::MessageParser<BrewStatusReply> _parser = new pb::MessageParser<BrewStatusReply>(() => new BrewStatusReply());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<BrewStatusReply> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::Grpcproto.GrainbrainReflection.Descriptor.MessageTypes[8]; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public BrewStatusReply() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public BrewStatusReply(BrewStatusReply other) : this() {
       currentBrewStep_ = other.currentBrewStep_;
       remainingMashSteps_ = other.remainingMashSteps_.Clone();
@@ -1068,6 +1188,7 @@ namespace Grpcproto {
       progress_ = other.progress_;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public BrewStatusReply Clone() {
       return new BrewStatusReply(this);
     }
@@ -1075,6 +1196,7 @@ namespace Grpcproto {
     /// <summary>Field number for the "current_brew_step" field.</summary>
     public const int CurrentBrewStepFieldNumber = 1;
     private global::Grpcproto.BrewStep currentBrewStep_ = 0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Grpcproto.BrewStep CurrentBrewStep {
       get { return currentBrewStep_; }
       set {
@@ -1087,6 +1209,7 @@ namespace Grpcproto {
     private static readonly pb::FieldCodec<global::Grpcproto.MashProfileStep> _repeated_remainingMashSteps_codec
         = pb::FieldCodec.ForMessage(18, global::Grpcproto.MashProfileStep.Parser);
     private readonly pbc::RepeatedField<global::Grpcproto.MashProfileStep> remainingMashSteps_ = new pbc::RepeatedField<global::Grpcproto.MashProfileStep>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::Grpcproto.MashProfileStep> RemainingMashSteps {
       get { return remainingMashSteps_; }
     }
@@ -1094,6 +1217,7 @@ namespace Grpcproto {
     /// <summary>Field number for the "mash_temperature" field.</summary>
     public const int MashTemperatureFieldNumber = 3;
     private double mashTemperature_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public double MashTemperature {
       get { return mashTemperature_; }
       set {
@@ -1104,6 +1228,7 @@ namespace Grpcproto {
     /// <summary>Field number for the "mash_temperature_setpoint" field.</summary>
     public const int MashTemperatureSetpointFieldNumber = 4;
     private double mashTemperatureSetpoint_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public double MashTemperatureSetpoint {
       get { return mashTemperatureSetpoint_; }
       set {
@@ -1116,6 +1241,7 @@ namespace Grpcproto {
     private static readonly pb::FieldCodec<global::Grpcproto.HopAdditionStep> _repeated_remainingHopAdditions_codec
         = pb::FieldCodec.ForMessage(42, global::Grpcproto.HopAdditionStep.Parser);
     private readonly pbc::RepeatedField<global::Grpcproto.HopAdditionStep> remainingHopAdditions_ = new pbc::RepeatedField<global::Grpcproto.HopAdditionStep>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::Grpcproto.HopAdditionStep> RemainingHopAdditions {
       get { return remainingHopAdditions_; }
     }
@@ -1123,6 +1249,7 @@ namespace Grpcproto {
     /// <summary>Field number for the "remaining_boil_time" field.</summary>
     public const int RemainingBoilTimeFieldNumber = 6;
     private int remainingBoilTime_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int RemainingBoilTime {
       get { return remainingBoilTime_; }
       set {
@@ -1133,6 +1260,7 @@ namespace Grpcproto {
     /// <summary>Field number for the "progress" field.</summary>
     public const int ProgressFieldNumber = 7;
     private int progress_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Progress {
       get { return progress_; }
       set {
@@ -1140,10 +1268,12 @@ namespace Grpcproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as BrewStatusReply);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Equals(BrewStatusReply other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -1161,6 +1291,7 @@ namespace Grpcproto {
       return true;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
       if (CurrentBrewStep != 0) hash ^= CurrentBrewStep.GetHashCode();
@@ -1173,10 +1304,12 @@ namespace Grpcproto {
       return hash;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (CurrentBrewStep != 0) {
         output.WriteRawTag(8);
@@ -1202,6 +1335,7 @@ namespace Grpcproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
       if (CurrentBrewStep != 0) {
@@ -1224,6 +1358,7 @@ namespace Grpcproto {
       return size;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(BrewStatusReply other) {
       if (other == null) {
         return;
@@ -1247,6 +1382,7 @@ namespace Grpcproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
@@ -1288,31 +1424,38 @@ namespace Grpcproto {
 
   }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class LoadBrewProfileRequest : pb::IMessage<LoadBrewProfileRequest> {
     private static readonly pb::MessageParser<LoadBrewProfileRequest> _parser = new pb::MessageParser<LoadBrewProfileRequest>(() => new LoadBrewProfileRequest());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<LoadBrewProfileRequest> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::Grpcproto.GrainbrainReflection.Descriptor.MessageTypes[9]; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public LoadBrewProfileRequest() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public LoadBrewProfileRequest(LoadBrewProfileRequest other) : this() {
       mashProfileSteps_ = other.mashProfileSteps_.Clone();
       hopAdditionStep_ = other.hopAdditionStep_.Clone();
       boilTime_ = other.boilTime_;
+      mashWaterVolume_ = other.mashWaterVolume_;
+      grainbillWeight_ = other.grainbillWeight_;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public LoadBrewProfileRequest Clone() {
       return new LoadBrewProfileRequest(this);
     }
@@ -1322,6 +1465,7 @@ namespace Grpcproto {
     private static readonly pb::FieldCodec<global::Grpcproto.MashProfileStep> _repeated_mashProfileSteps_codec
         = pb::FieldCodec.ForMessage(10, global::Grpcproto.MashProfileStep.Parser);
     private readonly pbc::RepeatedField<global::Grpcproto.MashProfileStep> mashProfileSteps_ = new pbc::RepeatedField<global::Grpcproto.MashProfileStep>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::Grpcproto.MashProfileStep> MashProfileSteps {
       get { return mashProfileSteps_; }
     }
@@ -1331,6 +1475,7 @@ namespace Grpcproto {
     private static readonly pb::FieldCodec<global::Grpcproto.HopAdditionStep> _repeated_hopAdditionStep_codec
         = pb::FieldCodec.ForMessage(18, global::Grpcproto.HopAdditionStep.Parser);
     private readonly pbc::RepeatedField<global::Grpcproto.HopAdditionStep> hopAdditionStep_ = new pbc::RepeatedField<global::Grpcproto.HopAdditionStep>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::Grpcproto.HopAdditionStep> HopAdditionStep {
       get { return hopAdditionStep_; }
     }
@@ -1338,6 +1483,7 @@ namespace Grpcproto {
     /// <summary>Field number for the "boil_time" field.</summary>
     public const int BoilTimeFieldNumber = 3;
     private int boilTime_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int BoilTime {
       get { return boilTime_; }
       set {
@@ -1345,10 +1491,34 @@ namespace Grpcproto {
       }
     }
 
+    /// <summary>Field number for the "mash_water_volume" field.</summary>
+    public const int MashWaterVolumeFieldNumber = 4;
+    private double mashWaterVolume_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public double MashWaterVolume {
+      get { return mashWaterVolume_; }
+      set {
+        mashWaterVolume_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "grainbill_weight" field.</summary>
+    public const int GrainbillWeightFieldNumber = 5;
+    private double grainbillWeight_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public double GrainbillWeight {
+      get { return grainbillWeight_; }
+      set {
+        grainbillWeight_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as LoadBrewProfileRequest);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Equals(LoadBrewProfileRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -1359,21 +1529,28 @@ namespace Grpcproto {
       if(!mashProfileSteps_.Equals(other.mashProfileSteps_)) return false;
       if(!hopAdditionStep_.Equals(other.hopAdditionStep_)) return false;
       if (BoilTime != other.BoilTime) return false;
+      if (MashWaterVolume != other.MashWaterVolume) return false;
+      if (GrainbillWeight != other.GrainbillWeight) return false;
       return true;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
       hash ^= mashProfileSteps_.GetHashCode();
       hash ^= hopAdditionStep_.GetHashCode();
       if (BoilTime != 0) hash ^= BoilTime.GetHashCode();
+      if (MashWaterVolume != 0D) hash ^= MashWaterVolume.GetHashCode();
+      if (GrainbillWeight != 0D) hash ^= GrainbillWeight.GetHashCode();
       return hash;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       mashProfileSteps_.WriteTo(output, _repeated_mashProfileSteps_codec);
       hopAdditionStep_.WriteTo(output, _repeated_hopAdditionStep_codec);
@@ -1381,8 +1558,17 @@ namespace Grpcproto {
         output.WriteRawTag(24);
         output.WriteInt32(BoilTime);
       }
+      if (MashWaterVolume != 0D) {
+        output.WriteRawTag(33);
+        output.WriteDouble(MashWaterVolume);
+      }
+      if (GrainbillWeight != 0D) {
+        output.WriteRawTag(41);
+        output.WriteDouble(GrainbillWeight);
+      }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
       size += mashProfileSteps_.CalculateSize(_repeated_mashProfileSteps_codec);
@@ -1390,9 +1576,16 @@ namespace Grpcproto {
       if (BoilTime != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(BoilTime);
       }
+      if (MashWaterVolume != 0D) {
+        size += 1 + 8;
+      }
+      if (GrainbillWeight != 0D) {
+        size += 1 + 8;
+      }
       return size;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(LoadBrewProfileRequest other) {
       if (other == null) {
         return;
@@ -1402,8 +1595,15 @@ namespace Grpcproto {
       if (other.BoilTime != 0) {
         BoilTime = other.BoilTime;
       }
+      if (other.MashWaterVolume != 0D) {
+        MashWaterVolume = other.MashWaterVolume;
+      }
+      if (other.GrainbillWeight != 0D) {
+        GrainbillWeight = other.GrainbillWeight;
+      }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
@@ -1423,35 +1623,48 @@ namespace Grpcproto {
             BoilTime = input.ReadInt32();
             break;
           }
+          case 33: {
+            MashWaterVolume = input.ReadDouble();
+            break;
+          }
+          case 41: {
+            GrainbillWeight = input.ReadDouble();
+            break;
+          }
         }
       }
     }
 
   }
 
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
   public sealed partial class StartStopRequest : pb::IMessage<StartStopRequest> {
     private static readonly pb::MessageParser<StartStopRequest> _parser = new pb::MessageParser<StartStopRequest>(() => new StartStopRequest());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pb::MessageParser<StartStopRequest> Parser { get { return _parser; } }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
       get { return global::Grpcproto.GrainbrainReflection.Descriptor.MessageTypes[10]; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     pbr::MessageDescriptor pb::IMessage.Descriptor {
       get { return Descriptor; }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public StartStopRequest() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public StartStopRequest(StartStopRequest other) : this() {
       startStop_ = other.startStop_;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public StartStopRequest Clone() {
       return new StartStopRequest(this);
     }
@@ -1459,6 +1672,7 @@ namespace Grpcproto {
     /// <summary>Field number for the "start_stop" field.</summary>
     public const int StartStopFieldNumber = 1;
     private global::Grpcproto.StartStopRequest.Types.StartStop startStop_ = 0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Grpcproto.StartStopRequest.Types.StartStop StartStop {
       get { return startStop_; }
       set {
@@ -1466,10 +1680,12 @@ namespace Grpcproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as StartStopRequest);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool Equals(StartStopRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
@@ -1481,16 +1697,19 @@ namespace Grpcproto {
       return true;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
       if (StartStop != 0) hash ^= StartStop.GetHashCode();
       return hash;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override string ToString() {
       return pb::JsonFormatter.ToDiagnosticString(this);
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
       if (StartStop != 0) {
         output.WriteRawTag(8);
@@ -1498,6 +1717,7 @@ namespace Grpcproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
       if (StartStop != 0) {
@@ -1506,6 +1726,7 @@ namespace Grpcproto {
       return size;
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(StartStopRequest other) {
       if (other == null) {
         return;
@@ -1515,6 +1736,7 @@ namespace Grpcproto {
       }
     }
 
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void MergeFrom(pb::CodedInputStream input) {
       uint tag;
       while ((tag = input.ReadTag()) != 0) {
@@ -1532,7 +1754,7 @@ namespace Grpcproto {
 
     #region Nested types
     /// <summary>Container for nested types declared in the StartStopRequest message type.</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static partial class Types {
       public enum StartStop {
         [pbr::OriginalName("START")] Start = 0,

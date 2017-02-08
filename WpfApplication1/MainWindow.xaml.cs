@@ -25,6 +25,7 @@ using Grpcproto;
 using Grpc.Core;
 using Google.Protobuf.WellKnownTypes;
 using System.Collections.Specialized;
+using WpfApplication1.Domain;
 
 namespace GFCalc
 {
@@ -876,9 +877,10 @@ namespace GFCalc
                     Convert.ToInt32(((double)(TotalGbs) / gfc.MashEfficiency)),
                     gfc.MashEfficiency);
 
-                Gravitylabel.Content = String.Format("Gravity (pre- and post-boil) [SG]: {0:F3} {1:F3})",
+                Gravitylabel.Content = String.Format("Gravity (pre- and post-boil) [SG]: {0:F3} {1:F3}, {2:F1} %)",
                     prbg,
-                    pobg);
+                    pobg,
+                    abv.CalculateAbv(pobg, ((pobg-1) * (1-0.72))+1));
 
                 foreach (var grain in l)
                 {
@@ -1141,8 +1143,12 @@ namespace GFCalc
 
             }
 
-            IPAddress ipAddr;
-            GrainbrainNetDiscovery.GetGrainBrainAddress(out ipAddr);
+            req.GrainbillWeight = GrainBillSize;
+            req.MashWaterVolume = Volumes.FinalBatchVolume;
+
+
+            IPAddress ipAddr = System.Net.IPAddress.Parse("127.0.0.1"); 
+            //GrainbrainNetDiscovery.GetGrainBrainAddress(out ipAddr);
             string addr = String.Format("{0}:50051", ipAddr);
             Channel channel = new Channel(addr, ChannelCredentials.Insecure);
 

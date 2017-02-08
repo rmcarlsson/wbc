@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Grpc.Core;
 
 namespace Grpcproto {
-  public static class McServer
+  public static partial class McServer
   {
     static readonly string __ServiceName = "grpcproto.McServer";
 
@@ -70,7 +70,7 @@ namespace Grpcproto {
     }
 
     /// <summary>Base class for server-side implementations of McServer</summary>
-    public abstract class McServerBase
+    public abstract partial class McServerBase
     {
       public virtual global::System.Threading.Tasks.Task<global::Grpcproto.SuccessReply> LoadBrewProfile(global::Grpcproto.LoadBrewProfileRequest request, ServerCallContext context)
       {
@@ -105,7 +105,7 @@ namespace Grpcproto {
     }
 
     /// <summary>Client for McServer</summary>
-    public class McServerClient : ClientBase<McServerClient>
+    public partial class McServerClient : ClientBase<McServerClient>
     {
       /// <summary>Creates a new client for McServer</summary>
       /// <param name="channel">The channel to use to make remote calls.</param>
@@ -223,6 +223,7 @@ namespace Grpcproto {
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetStatus, null, options, request);
       }
+      /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override McServerClient NewInstance(ClientBaseConfiguration configuration)
       {
         return new McServerClient(configuration);
@@ -230,6 +231,7 @@ namespace Grpcproto {
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
+    /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static ServerServiceDefinition BindService(McServerBase serviceImpl)
     {
       return ServerServiceDefinition.CreateBuilder()
