@@ -21,7 +21,7 @@ namespace GFCalc.Repos
             var assembly = Assembly.GetExecutingAssembly();
             XmlSerializer serializer = new XmlSerializer(typeof(FermentableAdjuncts));
             var path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            var fullpath = String.Format("{0}\\{1}\\{2}", path, assembly.GetName().Name, MALT_DATA_FILEPATH_SAVE);
+            MaltsDataLocalPath = String.Format("{0}\\{1}\\{2}", path, assembly.GetName().Name, MALT_DATA_FILEPATH_SAVE);
 
             if (!File.Exists(MaltsDataLocalPath))
             {
