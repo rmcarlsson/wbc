@@ -1145,10 +1145,8 @@ namespace GFCalc
 
             req.GrainbillWeight = GrainBillSize;
             req.MashWaterVolume = Volumes.FinalBatchVolume;
-
-
-            IPAddress ipAddr = System.Net.IPAddress.Parse("127.0.0.1"); 
-            //GrainbrainNetDiscovery.GetGrainBrainAddress(out ipAddr);
+            IPAddress ipAddr;
+            GrainbrainNetDiscovery.GetGrainBrainAddress(out ipAddr);
             string addr = String.Format("{0}:50051", ipAddr);
             Channel channel = new Channel(addr, ChannelCredentials.Insecure);
 
