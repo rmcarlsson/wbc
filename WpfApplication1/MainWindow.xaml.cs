@@ -47,6 +47,7 @@ namespace GFCalc
         public int BoilTime { set; get; }
         public double TopUpMashWater { set; get; }
         public double PreBoilRemovedVolume { get; private set; }
+        public int EstAtten { get; private set; }
 
         private BrewVolumes Volumes;
 
@@ -101,7 +102,7 @@ namespace GFCalc
 
             gfc = new GrainfatherCalculator();
             gfc.MashEfficiency = (double)WpfApplication1.Properties.Settings.Default["MashEfficiency"];
-
+          EstAtten = 78;
             updateGuiTextboxes();
 
             GrainBrainMenuItem.IsEnabled = false;
@@ -112,6 +113,8 @@ namespace GFCalc
             dispatcherTimer.Start();
 
             MashProfileList.CollectionChanged += this.OnCollectionChanged;
+
+  
 
         }
 
@@ -876,11 +879,11 @@ namespace GFCalc
                     Grist.Where(x => x.Stage != FermentableStage.Fermentor).ToList(), 
                     Convert.ToInt32(((double)(TotalGbs) / gfc.MashEfficiency)),
                     gfc.MashEfficiency);
-
+                GrainBillSize = Grist.Where(x => x.Stage == FermentableStage.Mash).Sum(x => x.AmountGrams);
                 Gravitylabel.Content = String.Format("Gravity (pre- and post-boil) [SG]: {0:F3} {1:F3}, {2:F1} %)",
                     prbg,
                     pobg,
-                    abv.CalculateAbv(pobg, ((pobg-1) * (1-0.72))+1));
+                    abv.CalculateAbv(OriginalGravity, ((pobg-1) * (1-((double)EstAtten/100)))+1));
 
                 foreach (var grain in l)
                 {
@@ -963,6 +966,8 @@ namespace GFCalc
             BoilTimeTextBox.Text = BoilTime.ToString();
             TopUpMashWaterVolumeTextBox.Text = TopUpMashWater.ToString();
             PreBoilVolumeTextBox.Text = Volumes.PreBoilTapOff.ToString();
+
+            EstAttenTextBox.Text = EstAtten.ToString();
 
         }
         #endregion
@@ -1195,6 +1200,29 @@ namespace GFCalc
         }
         #endregion
 
+        private void EstAttenTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (EstAttenTextBox.Text.Equals(String.Empty) || Volumes == null)
+                return;
+
+            int ea;
+            string errMsg = null;
+            if (!int.TryParse(EstAttenTextBox.Text, out ea))
+            {
+                errMsg = "Please provide a valid estimated attenuation in integer format";
+            }
+            else
+            {
+                EstAtten = ea;
+            }
+
+            if (errMsg != null)
+                MessageBox.Show(errMsg);
+            else
+            {
+                recalculateGrainBill();
+            }
+        }
     }
 }
 
