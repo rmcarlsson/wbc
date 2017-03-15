@@ -668,12 +668,10 @@ namespace GFCalc
                 Paragraph pm = new Paragraph();
                 pm.Inlines.Add(new Bold(new Run("Normal step mash:\n")));
 
-
-                var mashGrainBillWeight = Grist.Where(x => x.Stage == FermentableStage.Mash).Sum(x => x.AmountGrams);
                 var topUpVolume = 0d;
 
                 pm.Inlines.Add(new Run(String.Format("Add {0:F1} liters of water to Grainfather for mashing\n\n",
-                    GrainfatherCalculator.CalcMashVolume(mashGrainBillWeight))));
+                    GrainfatherCalculator.CalcMashVolume(GrainBillSize))));
                 pm.Inlines.Add(new Run(strbmash.ToString()));
                 doc.Blocks.Add(pm);
 
@@ -690,27 +688,18 @@ namespace GFCalc
                 pmp.Inlines.Add(new Run(strmp.ToString()));
 
                 pmp.Inlines.Add(new Run(String.Format("\nSparge with {0:F1} liters of 78 C water\n",
-                    GrainfatherCalculator.CalcSpargeWaterVolume(mashGrainBillWeight,
+                    GrainfatherCalculator.CalcSpargeWaterVolume(GrainBillSize,
                     (Volumes.PreBoilVolume),
                     topUpVolume))));
 
 
                 var prbg = GravityAlgorithms.GetGravity(
-                    Volumes.PreBoilVolume, 
-                    Grist.Where(x => x.Stage == FermentableStage.Mash).ToList(),
-                    gfc.MashEfficiency);
+                    Grist.Where(x => x.Stage != FermentableStage.Fermentor).Sum(x => x.GU), Volumes.PreBoilVolume);
 
-                var TotalGbs = GravityAlgorithms.GetGrainBillWeight(
-                    OriginalGravity, 
-                    Volumes.TotalBatchVolume - Volumes.PreBoilTapOff, 
-                    Grist.ToList(),
-                    gfc.MashEfficiency);
 
-                var pobg = GravityAlgorithms.GetGravityByPart(
-                    Volumes.PostBoilVolume,
-                    Grist.Where(x => x.Stage != FermentableStage.Fermentor).ToList(),
-                    TotalGbs,
-                    gfc.MashEfficiency);
+                var pobg = GravityAlgorithms.GetGravity(Grist.Where(x => x.Stage != FermentableStage.Fermentor).Sum(x => x.GU),
+                    Volumes.PostBoilVolume);
+
 
                 pmp.Inlines.Add(new Run(String.Format("\nExpected post-mash gravity is {0:F3}. Post-mash volume shall be {1:F1} liters",
                     prbg, Volumes.PreBoilVolume)));
@@ -732,6 +721,19 @@ namespace GFCalc
                 doc.Blocks.Add(boilingHeader);
 
                 StringBuilder strbboil = new StringBuilder("");
+                StringBuilder str_ferms_boil = new StringBuilder("");
+
+                foreach (GristPart g in Grist)
+                {
+                    if (g.Stage == FermentableStage.Boil)
+                    {
+                        str_ferms_boil.Append("Add " + g.ToString() + "\n");
+                    }
+                }
+
+
+
+                    
                 StringBuilder strbdry = new StringBuilder("");
                 foreach (HopAddition g in BoilHops)
                 {
@@ -836,7 +838,7 @@ namespace GFCalc
             {
                 var preBoilTappOffLoss = (Volumes.PreBoilTapOff / (Volumes.PreBoilVolume - Volumes.PreBoilTapOff));
 
-                var TotalGbs = GravityAlgorithms.GetGrainBillWeight(OriginalGravity, Volumes.TotalBatchVolume - Volumes.PreBoilTapOff, Grist.ToList(), 1);
+                var totalGravity = GravityAlgorithms.GetTotalGravity((Volumes.TotalBatchVolume - Volumes.PreBoilTapOff), OriginalGravity);
 
 
                 Volumes.ColdSteepVolume = 0;
@@ -844,27 +846,32 @@ namespace GFCalc
                 var l = new List<GristPart>();
                 foreach (var grain in Grist)
                 {
+                    grain.GU = totalGravity * ((double)grain.Amount / 100d);
+
                     if (grain.Stage == FermentableStage.ColdSteep)
                     {
-                        var tgbs = ((double)(TotalGbs) / gfc.MashEfficiency);
-                        var g = (int)Math.Round(tgbs * ((double)grain.Amount / 100d));
+
+                        var w = GravityAlgorithms.GetGrainWeight(grain.GU, grain.FermentableAdjunct.Potential, gfc.MashEfficiency);
+
                         ColdSteepAddition csa = new ColdSteepAddition();
-                        ColdSteep.GetColdSteepCompensatedWeight(g, out csa);
+                        ColdSteep.GetColdSteepCompensatedWeight(w, out csa);
                         grain.AmountGrams = csa.Weight;
                         Volumes.ColdSteepVolume += csa.WaterContribution;
                     }
 
                     if (grain.Stage == FermentableStage.Mash)
                     {
-                        var tgbs = ((double)(TotalGbs) / gfc.MashEfficiency);
-                        grain.AmountGrams = (int)Math.Round(tgbs * ((double)grain.Amount / 100d));
+                        grain.AmountGrams = GravityAlgorithms.GetGrainWeight(grain.GU, grain.FermentableAdjunct.Potential, gfc.MashEfficiency);
+
                         grain.AmountGrams += (int)Math.Round(grain.AmountGrams * (Volumes.PreBoilTapOff / (Volumes.PreBoilVolume - Volumes.PreBoilTapOff)));
                     }
 
                     if (grain.Stage == FermentableStage.Fermentor)
                     {
+                        grain.AmountGrams = GravityAlgorithms.GetGrainWeight(grain.GU, grain.FermentableAdjunct.Potential, 1);
+
                         var boilerLossPercent =  GrainfatherCalculator.GRAINFATHER_BOILER_TO_FERMENTOR_LOSS / (Volumes.TotalBatchVolume - Volumes.PreBoilTapOff);
-                        grain.AmountGrams = (int)Math.Round(TotalGbs * ((double)grain.Amount / 100d));
+
                         grain.AmountGrams -= (int)Math.Round(boilerLossPercent * grain.AmountGrams);
                     }
 
@@ -874,12 +881,11 @@ namespace GFCalc
 
                 var prbg = GravityAlgorithms.GetGravity(Volumes.PreBoilVolume, Grist.Where(x => x.Stage == FermentableStage.Mash).ToList(), gfc.MashEfficiency);
 
-                var pobg = GravityAlgorithms.GetGravityByPart(
-                    Volumes.PostBoilVolume, 
-                    Grist.Where(x => x.Stage != FermentableStage.Fermentor).ToList(), 
-                    Convert.ToInt32(((double)(TotalGbs) / gfc.MashEfficiency)),
-                    gfc.MashEfficiency);
+                var pobg = GravityAlgorithms.GetGravity(Grist.Sum(x => x.GU), 
+                    Volumes.PostBoilVolume);
+
                 GrainBillSize = Grist.Where(x => x.Stage == FermentableStage.Mash).Sum(x => x.AmountGrams);
+
                 Gravitylabel.Content = String.Format("Gravity (pre- and post-boil) [SG]: {0:F3} {1:F3}, {2:F1} %)",
                     prbg,
                     pobg,
@@ -892,8 +898,8 @@ namespace GFCalc
                 }
 
                 double topUpVolume = 0;
-                var mashGrainBillWeight = Grist.Where(x => x.Stage == FermentableStage.Mash).Sum(x => x.AmountGrams);
-                if (mashGrainBillWeight > GrainfatherCalculator.SMALL_GRAINBILL || mashGrainBillWeight == 0)
+
+                if (GrainBillSize > GrainfatherCalculator.SMALL_GRAINBILL || GrainBillSize == 0)
                 {
                     TopUpMashWaterVolumeTextBox.Visibility = Visibility.Hidden;
                     TopUpMashWaterVolumeLabel.Visibility = Visibility.Hidden;
@@ -909,14 +915,14 @@ namespace GFCalc
                 try
                 {
 
-                    var swv = GrainfatherCalculator.CalcSpargeWaterVolume(mashGrainBillWeight,
+                    var swv = GrainfatherCalculator.CalcSpargeWaterVolume(GrainBillSize,
                         (Volumes.PreBoilVolume),
                         topUpVolume);
                     if (swv < 0)
                         swv = 0;
                     SpargeWaterVolumeLabel.Content = String.Format("Sparge water volume [L]: {0:0.#}", swv);
 
-                    var mwv = GrainfatherCalculator.CalcMashVolume(mashGrainBillWeight);
+                    var mwv = GrainfatherCalculator.CalcMashVolume(GrainBillSize);
                     if (mwv < 0)
                         mwv = 0;
                     MashWaterVolumeLabel.Content = String.Format("Mash water volume [L]: {0:0.#}", mwv);

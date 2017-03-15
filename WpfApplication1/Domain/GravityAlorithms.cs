@@ -20,54 +20,6 @@ namespace Grainsim.Domain
             return ((somePoints / Volume.ConvertLitersToGallons(aVolume)) / 1000) + 1;
         }
 
-
-        public static double GetPostBoilVolume(double aGravity, List<GristPart> aMashFermentList, List<GristPart> aPostMashFermentList)
-        {
-            if (aGravity <= 0)
-                return 0;
-
-            double potentialSum = aMashFermentList.Sum(x => x.Amount);
-            potentialSum += aPostMashFermentList.Sum(x => x.Amount);
-
-            return potentialSum / aGravity;
-        }
-
-        public static int GetGrainWeight(double somePoints, double aPotential, double aMashEfficiency)
-        {
-            var gfc = new GrainfatherCalculator();
-
-            var ppg = (aPotential - 1) * 1000 * aMashEfficiency;
-            return Weight.ConvertPoundsToGrams(somePoints / ppg);
-
-        }
-
-        public static int GetGrainBillWeight(double aGravity, double aBatchSizeVolume, List<GristPart> aFermentableList, double aMashEfficiency)
-        {
-            if (aGravity <= 1)
-                return 0;
-
-            // SG = (Malt weight) x(Malt ppg) x(mash efficiency) / (Solution Volume)
-            // (Malt SG * (Solution Volume) ) / (Malt ppg) x(mash efficiency)
-
-            double potentialSum = 0;
-            if (aFermentableList != null)
-                potentialSum += aFermentableList.Sum(x => (x.FermentableAdjunct.Potential * x.Amount) / 100);
-
-            var ppg = (potentialSum - 1) * 1000;
-            var bhe = aMashEfficiency;
-            var ppgBheComp = bhe * ppg;
-            var sgGallons = ((aGravity - 1) * 1000) * Volume.ConvertLitersToGallons(aBatchSizeVolume);
-
-
-            var retLb = (sgGallons / ppgBheComp);
-            var ret = Weight.ConvertPoundsToGrams(retLb);
-
-
-
-            // points per kilogram per liter = 8.346 (points/ lb/gal)
-            return ret;
-        }
-
         public static double GetGravity(double aVolume, List<GristPart> aFermentableList, double aMashEfficiency)
         {
             if (aVolume == 0 || (aFermentableList.Count == 0) || aFermentableList == null)
@@ -82,41 +34,22 @@ namespace Grainsim.Domain
             return (1 + (g / 1000));
         }
 
-        public static double GetGravityByPart(
-            double aVolume,
-            List<GristPart> aFermentableList,
-            int aGrainbillWeight,
-            double aMashEfficiency)
+
+        public static int GetGrainWeight(double somePoints, double aPotential, double aMashEfficiency)
         {
-            if (aVolume == 0 || (aFermentableList.Count == 0) || aFermentableList == null)
-                return 1;
+            var ppg = (aPotential - 1) * 1000 * aMashEfficiency;
+            return Weight.ConvertPoundsToGrams(somePoints / ppg);
 
-            var lbs = Weight.ConvertToPounds(aGrainbillWeight);
-
-            double ppgLbMashEffComp = 0;
-            foreach (var f in aFermentableList)
-            {
-                double eff = 1;
-                switch (f.Stage)
-                {
-                    case FermentableStage.Mash:
-                        var gfc = new GrainfatherCalculator();
-                        eff = aMashEfficiency;
-                        break;
-                    case FermentableStage.ColdSteep:
-                        eff = ColdSteep.COLDSTEEP_EFFICIENCY * aMashEfficiency;
-                        break;
-                    default:
-                        eff = 1;
-                        break;
-                }
-                ppgLbMashEffComp += eff * ((f.FermentableAdjunct.Potential - 1) * 1000) * lbs * ((double)(f.Amount) / 100d);
-
-            }
-            var g = ppgLbMashEffComp / Volume.ConvertLitersToGallons(aVolume);
-
-            return (1 + (g / 1000));
         }
 
+
+
+
+
+        public static int GetTotalGravity(double aVolume, double aOriginalGravity)
+        {
+            var totalGravityPoints = (aOriginalGravity - 1) * 1000;
+            return Convert.ToInt32(Math.Round(Volume.ConvertLitersToGallons(aVolume) * totalGravityPoints));
+        }
     }
 }

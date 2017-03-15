@@ -73,6 +73,7 @@ namespace Grainsim.Domain
     {
         ColdSteep,
         Mash,
+        Boil,
         Fermentor
     }
 
@@ -86,6 +87,8 @@ namespace Grainsim.Domain
         public int AmountGrams { get; set; }
         [XmlAttribute("Stage")]
         public FermentableStage Stage { get; set; }
+        [XmlAttribute("GU")]
+        public double GU { get; set; }
 
         public override string ToString()
         {
