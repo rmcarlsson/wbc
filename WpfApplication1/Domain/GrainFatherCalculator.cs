@@ -74,7 +74,7 @@ namespace GFCalc.Domain
 
             var grainVolIncrease = (MASH_VOLUME_INCREASE_WITH_GRAINS * aMashGrainbillSize);
             if ((ret + grainVolIncrease) > GRAINFATHER_MAX_PREBOILVOLUME)
-                throw new ArgumentException("Grainbill to big. It will not fit. Please reduce grainbill");
+                ;
 
             return ret;
         }
@@ -92,7 +92,7 @@ namespace GFCalc.Domain
                 val = aPreBoilVolume - (CalcMashVolume(aMashGrainbillSize) + aMashTopUpVolume) + ((aMashGrainbillSize/1000) * 0.8);
             var grainAborbtionVol = (GRAIN_WATER_ABSORBTION * aMashGrainbillSize);
             if ((CalcMashVolume(aMashGrainbillSize) + val - grainAborbtionVol) > GRAINFATHER_MAX_PREBOILVOLUME)
-                throw new ArgumentException("Grainbill to big. It will not fit. Please reduce grainbill");
+                ;
 
             return val;
         }

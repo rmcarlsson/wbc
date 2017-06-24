@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GFCalc.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -47,11 +48,18 @@ namespace Grainsim.Domain
             double mcu = 0;
             foreach (GristPart g in aMashFermentList)
             {
-                int w = 0;
+
+                double w = g.AmountGrams;
                 if (g.Stage == FermentableStage.Mash)
-                    w = (int)(Math.Round(g.AmountGrams * (1 - (aSetOfBrewVolumes.PreBoilTapOff / aSetOfBrewVolumes.PreBoilVolume))));
-                else
-                    w = g.AmountGrams;
+                {
+                    double tapOffComp = (aSetOfBrewVolumes.PreBoilTapOff / (aSetOfBrewVolumes.PreBoilVolume + aSetOfBrewVolumes.PreBoilTapOff));
+                    w = (1-tapOffComp) * g.AmountGrams;
+                }
+                if (g.Stage == FermentableStage.Fermentor)
+                {
+                    double boilToFerComp = GrainfatherCalculator.GRAINFATHER_BOILER_TO_FERMENTOR_LOSS / (aSetOfBrewVolumes.PostBoilVolume);
+                    w = (1 + boilToFerComp) * g.AmountGrams;
+                }
 
                 mcu += (Weight.ConvertToPounds(w) * g.FermentableAdjunct.Color) / Volume.ConvertLitersToGallons(aSetOfBrewVolumes.PostBoilVolume);
             }

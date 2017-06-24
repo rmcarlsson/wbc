@@ -16,7 +16,7 @@ namespace Grainsim.Domain
     public class ColdSteep
     {
         public const double COLDSTEEP_WATER_TO_GRAIN_RATION = 5;
-        public const double COLDSTEEP_EFFICIENCY = 0.80;
+        public const double COLDSTEEP_EFFICIENCY = 0.42;
         public const double COLDSTEEP_VOLUME_TO_SPARGE_RATIO = 0.1;
 
         public static IEnumerable<GristPart> CalculateColdSteepGrainBill(IEnumerable<GristPart> aGrist)

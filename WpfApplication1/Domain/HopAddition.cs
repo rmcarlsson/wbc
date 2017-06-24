@@ -90,6 +90,7 @@ namespace Grainsim.Domain
         [XmlAttribute("GU")]
         public double GU { get; set; }
 
+
         public override string ToString()
         {
             if (Stage == FermentableStage.ColdSteep)

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfApplication1.Domain
 {
-    static class abv
+    static class Abv
     {
         static public double CalculateAbv(double og, double fg)
         {

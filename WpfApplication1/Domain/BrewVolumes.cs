@@ -12,28 +12,10 @@ namespace Grainsim.Domain
     {
 
         private double finalBatchVolume;
-        private double preBoilTapOff;
         private double boilerToFermentorLoss;
-        private double totalBatchVolume;
         private double boilOffLoss;
         private double coldSteepVolume;
-
-
-        /// <summary>
-        /// This volume is the total volume used ofr gravity and color 
-        /// calcalations 
-        /// </summary>
-        public double TotalBatchVolume
-        {
-            private set
-            {
-                totalBatchVolume = value;
-            }
-            get
-            {
-                return totalBatchVolume;
-            }
-        }
+        private double preBoilVolume;
 
         /// <summary>
         /// This volume is the expected volume out from the counter flow chiller going into the fermentor
@@ -51,25 +33,7 @@ namespace Grainsim.Domain
             }
         }
 
-        /// <summary>
-        /// This is the volume that a brew would like to "tap off" after mashing, before boil.
-        /// 
-        /// Examples might be wort to save for future starters, in this case the brewer wants 
-        /// the wort before he/she adds hops to the wort.
-        /// </summary>
-        public double PreBoilTapOff
-        {
-            set
-            {
-                preBoilTapOff = value;
-                UpdateTotalBatchVolume();
-            }
-            get
-            {
-                return preBoilTapOff;
-            }
-        }
-
+   
         /// <summary>
         /// This is the volume contribution froma cold steep contribution. It is added 
         /// after mash in the end of the boil.
@@ -124,18 +88,36 @@ namespace Grainsim.Domain
         /// 
         /// Calculated value. Not allowed to set out side class.
         /// </summary>
-        public double PreBoilVolume { get; private set; }
+        public double PreBoilVolume
+        {
+            get
+            {
+                return preBoilVolume;
+            }
+            set
+            {
+                preBoilVolume = value;
+                UpdateTotalBatchVolume();
+            }
+        }
+
+        /// <summary>
+        /// This is the volume that a brew would like to "tap off" after mashing, before boil.
+        /// 
+        /// Examples might be wort to save for future starters, in this case the brewer wants 
+        /// the wort before he/she adds hops to the wort.
+        /// </summary>
+        public double PreBoilTapOff;
+
         public double PostBoilVolume { get; private set; }
 
         private void UpdateTotalBatchVolume()
         {
             // One part left in the boiler, one part out of the counter flow 
             // chiller and one part taken away between mash and boil.
-            TotalBatchVolume = boilerToFermentorLoss + finalBatchVolume + preBoilTapOff;
+            PostBoilVolume = boilerToFermentorLoss + finalBatchVolume;
 
-            PreBoilVolume = TotalBatchVolume + boilOffLoss - ColdSteepVolume;
-
-            PostBoilVolume = TotalBatchVolume - PreBoilTapOff; 
+            preBoilVolume = PostBoilVolume + boilOffLoss - ColdSteepVolume;
         }
     }
 }
