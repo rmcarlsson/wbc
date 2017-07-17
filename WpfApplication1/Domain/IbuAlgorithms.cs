@@ -45,11 +45,11 @@ namespace Grainsim.Domain
                 {
                     // Calculate amount instead
                     var mg_per_liter = hopAdd.Bitterness / utilization;
-                    var hopAmountGrams = (mg_per_liter * aVolumeBoil) / (decimal_aa * 1000);
-                    hopAdd.Amount = hopAmountGrams / aVolumeBoil;
-
+                    var hopAmountGrams = ((mg_per_liter * aVolumeBoil) / (decimal_aa * 1000));
+                    hopAdd.AmountGrams = hopAmountGrams;
                     // Just add up the IBU to the total sum
                     res += hopAdd.Bitterness;
+
                 }
 
                 hopAdd.AmountGrams = Math.Round((aVolumeBoil * hopAdd.Amount));

@@ -26,6 +26,7 @@ using Grpc.Core;
 using Google.Protobuf.WellKnownTypes;
 using System.Collections.Specialized;
 using WpfApplication1.Domain;
+using GoogleDriveStorage.DriveQuickstart;
 
 namespace GFCalc
 {
@@ -498,6 +499,8 @@ namespace GFCalc
 
         private void MenuItem_FileOpen(object sender, RoutedEventArgs e)
         {
+            GoogleDriveStorager gd = new GoogleDriveStorager();
+            gd.TestGd();
 
             // Create OpenFileDialog 
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();

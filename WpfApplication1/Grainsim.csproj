@@ -67,9 +67,8 @@
       <HintPath>..\packages\Grpc.Core.1.1.0\lib\net45\Grpc.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="log4net, Version=2.0.7.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
-      <HintPath>..\packages\log4net.2.0.7\lib\net45-full\log4net.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -275,6 +274,10 @@
     <ProjectReference Include="..\BSImporter\BSImport.csproj">
       <Project>{17676cc8-e906-48fc-b864-dd00428765d9}</Project>
       <Name>BSImport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GoogleDriveStorage\GoogleDriveStorage.csproj">
+      <Project>{c93a3d50-06e4-4bf2-84f7-906167ffccef}</Project>
+      <Name>GoogleDriveStorage</Name>
     </ProjectReference>
     <ProjectReference Include="..\GrainbrainClient\GrainbrainClient.csproj">
       <Project>{c9df846d-a4be-4f65-9522-b454260d7256}</Project>
