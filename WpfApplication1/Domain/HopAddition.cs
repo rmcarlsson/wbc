@@ -28,6 +28,9 @@ namespace Grainsim.Domain
         [XmlElement("Hop")]
         public Hops Hop { set; get; }
 
+        [XmlElement("AlphaAcid")]
+        public HopAcids AlphaAcid { get; set; }
+
         [XmlAttribute("Name")]
         public String Name { set; get; }
 
@@ -36,6 +39,9 @@ namespace Grainsim.Domain
 
         [XmlAttribute("AmountUnit")]
         public HopAmountUnitE AmountUnit { get; set; }
+
+        [XmlAttribute("IndividualAlphaAcid")]
+        public double IndividualAlphaAcid { get; set; }
 
         [XmlAttribute("AmountGrams")]
         public double AmountGrams { get; set; }

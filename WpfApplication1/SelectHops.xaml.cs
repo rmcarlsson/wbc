@@ -65,6 +65,12 @@ namespace Grainsim
                 AmountLabel.Content = "Amount [g/L] :";
                 AmountTextBox.Text = aHopAddition.Amount.ToString();
             }
+            if (aHopAddition.AlphaAcid != null)
+                AlphaAcidTextBox.Text = aHopAddition.AlphaAcid.GetAphaAcid().ToString();
+            else
+            {
+                AlphaAcidTextBox.Text = "-";
+            }
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
@@ -96,7 +102,7 @@ namespace Grainsim
             {
                 if (UnitCheckBox.IsChecked == false)
                 {
-                    hop.Bitterness = (int)Math.Round(amount,0);
+                    hop.Bitterness = (int)Math.Round(amount, 0);
                     hop.AmountUnit = HopAmountUnitE.IBU;
                 }
                 else
@@ -104,13 +110,22 @@ namespace Grainsim
                     hop.Amount = Math.Round(amount, 2);
                     hop.AmountUnit = HopAmountUnitE.GRAMS_PER_LITER;
                 }
-                    
-                this.Close();
             }
             else
                 MessageBox.Show(String.Format("Unable to interpreter {0} as a float value. Please provide a correct float value in Part", AmountTextBox.Text));
 
 
+            float alphaAcid;
+            if (float.TryParse(AlphaAcidTextBox.Text, out alphaAcid))
+            {
+                HopAcids acid = new HopAcids();
+                acid.Min = alphaAcid;
+                hop.AlphaAcid = acid;
+            }
+            else
+                MessageBox.Show(String.Format("Unable to interpreter {0} as a float value. Please provide a correct float value in Part", AlphaAcidTextBox.Text));
+
+            this.Close();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -137,7 +152,8 @@ namespace Grainsim
 
         private void UnitCheckBox_Click(object sender, RoutedEventArgs e)
         {
-            if (UnitCheckBox.IsChecked == false) {
+            if (UnitCheckBox.IsChecked == false)
+            {
                 AmountLabel.Content = "Bitterness [IBU] :";
             }
             else
@@ -145,6 +161,13 @@ namespace Grainsim
                 AmountLabel.Content = "Amount [g/L] :";
             }
 
+        }
+
+        private void HopsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Hops var = (Hops)HopsComboBox.SelectedItem;
+            AlphaAcidTextBox.Text = var.AlphaAcid.GetAphaAcid().ToString();
+                
         }
     }
 }

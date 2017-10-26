@@ -586,14 +586,22 @@ namespace GFCalc
 
 
             Volumes.FinalBatchVolume = aRecepie.BatchVolume;
+            BatchSizeVolumeTextBox.Text = Volumes.FinalBatchVolume.ToString();
+
             Volumes.PreBoilTapOff = aRecepie.PreBoilTapOffVolume;
+            PreBoilVolumeTextBox.Text = Volumes.PreBoilTapOff.ToString();
+
             TopUpMashWater = aRecepie.TopUpMashWater;
+            TopUpMashWaterVolumeTextBox.Text = TopUpMashWater.ToString();
 
             OriginalGravity = aRecepie.OriginalGravity;
+            ExpectedOriginalGravityTextBox.Text = OriginalGravity.ToString();
 
             BoilTime = aRecepie.BoilTime;
+            BoilTimeTextBox.Text = BoilTime.ToString();
 
             NameTextBox.Text = aRecepie.Name;
+
 
             recalculateGrainBill();
 
@@ -957,13 +965,11 @@ namespace GFCalc
                     Grist.Where(x => (x.Stage != FermentableStage.Fermentor && x.Stage != FermentableStage.ColdSteep)).Sum(x => x.GU), Volumes.PreBoilVolume), Volumes.PreBoilVolume).ToString();
 
 
-            var pbg = GravityAlgorithms.GetGravity(
-                    Grist.Where(x => x.Stage != FermentableStage.Fermentor).Sum(x => x.GU), Volumes.PostBoilVolume);
             PostBoilDataLabel.Content = new StringBuilder()
-                .AppendFormat("Expected post-boil gravity is {0:F3}, postboil volume {1:F1} liters", pbg, Volumes.PostBoilVolume).ToString();
+                .AppendFormat("Expected post-boil gravity is {0:F3}, postboil volume {1:F1} liters", OriginalGravity, Volumes.PostBoilVolume).ToString();
 
             AbvDataLabel.Content = new StringBuilder().AppendFormat("Expected ABV is {0:F2} %", 
-                Abv.CalculateAbv(OriginalGravity, ((pbg - 1) * (1 - ((double)EstAtten / 100))) + 1)).ToString();
+                Abv.CalculateAbv(OriginalGravity, ((OriginalGravity - 1) * (1 - ((double)EstAtten / 100))) + 1)).ToString();
         }
         #endregion
 

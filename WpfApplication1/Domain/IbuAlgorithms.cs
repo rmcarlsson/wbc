@@ -31,8 +31,11 @@ namespace Grainsim.Domain
             {
                 var fTinseth = (1 - Math.Pow(Math.E, (-0.04 * hopAdd.Duration))) / 4.15;
                 var utilization = fGravity * fTinseth;
-                var decimal_aa = hopAdd.Hop.AlphaAcid.GetAphaAcid() / (100);
-
+                float decimal_aa = 0;
+                if (hopAdd.AlphaAcid != null)
+                    decimal_aa = hopAdd.AlphaAcid.GetAphaAcid() / (100);
+                else
+                    decimal_aa = hopAdd.Hop.AlphaAcid.GetAphaAcid() / 100;
                 if (hopAdd.AmountUnit == HopAmountUnitE.GRAMS_PER_LITER)
                 {
                     var hopAmountGrams = (hopAdd.Amount * aVolumeBoil);
@@ -52,7 +55,7 @@ namespace Grainsim.Domain
 
                 }
 
-                hopAdd.AmountGrams = Math.Round((aVolumeBoil * hopAdd.Amount));
+                //hopAdd.AmountGrams = Math.Round((aVolumeBoil * hopAdd.Amount));
             }
 
             return Convert.ToInt32(res);

@@ -80,12 +80,13 @@
 
                 <GroupBox x:Name="groupBox" Header="Fermentables"  HorizontalAlignment="Left" VerticalAlignment="Top" MinHeight="198" MinWidth="450"  >
                     <Canvas>
-                        <ListView x:Name="MaltsListView" PreviewKeyDown="MaltsListView_KeyDown" MinHeight="120" MinWidth="400" MouseDoubleClick="MaltsListView_MouseDoubleClick" Width="400">
+                        <ListView x:Name="MaltsListView" PreviewKeyDown="MaltsListView_KeyDown" MinHeight="120" MinWidth="400" MouseDoubleClick="MaltsListView_MouseDoubleClick" Width="Auto">
                             <ListView.View >
                                 <GridView x:Name="MaltsGridView">
                                     <GridViewColumn DisplayMemberBinding="{Binding FermentableAdjunct.Name}"  Header="Fermentable" />
                                     <GridViewColumn DisplayMemberBinding="{Binding Amount, StringFormat=F0}"  Header="Share [%]" />
                                     <GridViewColumn DisplayMemberBinding="{Binding AmountGrams, StringFormat=F0}"  Header="Amount [kg]" />
+                                    <GridViewColumn DisplayMemberBinding="{Binding GU, StringFormat=F0}"  Header="Gravity points [pts]" />
                                     <GridViewColumn DisplayMemberBinding="{Binding Stage}"  Header="Added at" />
                                 </GridView>
                             </ListView.View>

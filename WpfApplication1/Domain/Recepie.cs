@@ -44,6 +44,7 @@ namespace GFCalc.Domain
 
         public double OriginalGravity { get; set; }
         [XmlAttribute("BoilTime")]
+
         public int BoilTime { set; get; }
         [XmlAttribute("TopUpMashWater")]
         public double TopUpMashWater { set; get; }
