@@ -43,7 +43,6 @@ namespace GFCalc
 
         public double PreBoilVolume { get; set; }
         public double OriginalGravity { get; set; }
-        public double PreBoilGravity { get; set; }
         public int GrainBillSize { get; set; }
         public int BoilTime { set; get; }
         public double TopUpMashWater { set; get; }
@@ -937,7 +936,8 @@ namespace GFCalc
 
         private void recalculateIbu()
         {
-            var ibu = IbuAlgorithms.CalcIbu(BoilHops.Where(x => x.Stage == HopAdditionStage.Boil), OriginalGravity, Volumes.PostBoilVolume);
+            var Gravity = GravityAlgorithms.GetGravity(Volumes.PreBoilVolume, Grist.Where(x => x.Stage == FermentableStage.Mash).ToList(), GrainfatherCalculator.mashEfficiency);
+            var ibu = IbuAlgorithms.CalcIbu(BoilHops.Where(x => x.Stage == HopAdditionStage.Boil), Gravity, Volumes.PostBoilVolume);
             var highIbu = ibu + IbuAlgorithms.IBU_TOLERANCE * ibu;
             var lowIbu = ibu - IbuAlgorithms.IBU_TOLERANCE * ibu;
 

@@ -47,9 +47,9 @@ namespace Grainsim.Domain
                 else
                 {
                     // Calculate amount instead
-                    var mg_per_liter = hopAdd.Bitterness / utilization;
-                    var hopAmountGrams = ((mg_per_liter * aVolumeBoil) / (decimal_aa * 1000));
-                    hopAdd.AmountGrams = hopAmountGrams;
+                    var gramAlphaAcidPerGramHumle = decimal_aa * utilization * 1000;
+                    var totalmgAlpaAcidNeeded = aVolumeBoil * hopAdd.Bitterness;
+                    hopAdd.AmountGrams = totalmgAlpaAcidNeeded / gramAlphaAcidPerGramHumle;
                     // Just add up the IBU to the total sum
                     res += hopAdd.Bitterness;
 
