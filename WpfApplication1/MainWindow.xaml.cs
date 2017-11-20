@@ -885,6 +885,10 @@ namespace GFCalc
 
                         grain.AmountGrams -= (int)Math.Round(boilerLossPercent * grain.AmountGrams);
                     }
+                    if (grain.Stage == FermentableStage.Boil)
+                    {
+                        grain.AmountGrams = GravityAlgorithms.GetGrainWeight(grain.GU, grain.FermentableAdjunct.Potential, 1);
+                    }
 
                     l.Add(grain);
 

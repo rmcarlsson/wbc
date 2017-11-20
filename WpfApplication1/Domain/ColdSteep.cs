@@ -15,7 +15,7 @@ namespace Grainsim.Domain
 
     public class ColdSteep
     {
-        public const double COLDSTEEP_WATER_TO_GRAIN_RATION = 5;
+        public const double COLDSTEEP_WATER_TO_GRAIN_RATION = 3;
         public const double COLDSTEEP_EFFICIENCY = 0.42;
         public const double COLDSTEEP_VOLUME_TO_SPARGE_RATIO = 0.1;
 
@@ -38,7 +38,7 @@ namespace Grainsim.Domain
         public static double GetColdSteepWaterContibution(int aGrainWeight)
         {
             // All weights are in grams, all volumes are in liters, hence divide by 1000;
-            var totalVolToAdd = ((aGrainWeight / COLDSTEEP_EFFICIENCY) * COLDSTEEP_WATER_TO_GRAIN_RATION) / 1000;
+            var totalVolToAdd = (aGrainWeight * COLDSTEEP_WATER_TO_GRAIN_RATION) / 1000;
 
             var grainAborbtionVol = (GrainfatherCalculator.GRAIN_WATER_ABSORBTION * aGrainWeight);
 
